@@ -1,4 +1,7 @@
 import Container from "../Container/Container";
+import { HeaderContainer, Navigation } from './Header.styled';
+import { HeaderLogo } from "../HeaderLogo/HeaderLogo";
+
 
 export const Header = () => {
 
@@ -8,8 +11,8 @@ export const Header = () => {
    
       <Navigation>
         <HeaderLogo/>
-          <UserLogo />
-          <UserAuth />
+          {/* <UserLogo />
+          <UserAuth /> */}
       </Navigation>
    
   </HeaderContainer>
