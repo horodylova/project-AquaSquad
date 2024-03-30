@@ -10,7 +10,7 @@ import {
   SubTitle,
   Button,
 } from './WaterTracker.styled';
-import {  } from '../../../Icons';
+import iconSprite from '../../../Icons';
 
 export const WaterTracker = () => {
   const navigate = useNavigate();

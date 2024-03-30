@@ -1,5 +1,5 @@
-import WellcomeForm from 'components/WellcomePage/WellcomePage';
+import WelcomeForm from 'components/WelcomePage/WelcomePage';
 
-export default function Wellcome() {
-  return <WellcomeForm />;
+export default function Welcome() {
+  return <WelcomeForm />;
 }

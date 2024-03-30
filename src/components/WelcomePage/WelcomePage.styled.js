@@ -5,7 +5,7 @@ import bg_tabl from '../../images/main-bg/back_tablet@1.png';
 import bg_desk from '../../images/main-bg/back_desktop@1.png';
 import bg_el from '../../images/main-bg/back_desktop@2.png';
 
-export const Tracker = styled.div`
+export const Container = styled.div`
   padding-bottom: 40px;
 
   @media screen and (min-width: 768px) {
@@ -19,7 +19,7 @@ export const Tracker = styled.div`
   }
 `;
 
-export const WellcomeLayout = styled.section`
+export const WelcomeLayout = styled.section`
   min-height: 100vh;
 
   background-image: url(${bg_main_page});
