@@ -1,4 +1,3 @@
-import React from 'react';
 import cross from '../../../Icons/close-cross.svg';
 
 // import ReactModal from 'react-modal';

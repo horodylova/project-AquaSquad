@@ -20,4 +20,4 @@ const SharedLayout = () => {
     
 };
 
-export default Layout;
+export default SharedLayout;
