@@ -1,10 +1,15 @@
-// src/features/auth/authSlice.js
-
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  username: null,
-  password: null,
+  user: {
+    username: null,
+    password: null,
+    gender: "man",
+    dailyNorma: null,
+  },
+  token: null,
+  error: null,
+  isAuthenticated: false,
 };
 
 const authSlice = createSlice({
@@ -12,15 +17,39 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setUsername(state, action) {
-      state.username = action.payload;
+      state.user.username = action.payload;
     },
     setPassword(state, action) {
-      state.password = action.payload;
+      state.user.password = action.payload;
+    },
+    setGender(state, action) {
+      state.user.gender = action.payload;
+    },
+    setDailyNorma(state, action) {
+      state.user.dailyNorma = action.payload;
+    },
+    setToken(state, action) {
+      state.token = action.payload;
+    },
+    setError(state, action) {
+      state.error = action.payload;
+    },
+    setIsAuthenticated(state, action) {
+      state.isAuthenticated = action.payload;
     },
   },
 });
 
-export const { setUsername, setPassword } = authSlice.actions;
+export const {
+  setUsername,
+  setPassword,
+  setGender,
+  setDailyNorma,
+  setToken,
+  setError,
+  setIsAuthenticated,
+} = authSlice.actions;
 
 export default authSlice.reducer;
+
 

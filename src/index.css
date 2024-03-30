@@ -19,6 +19,28 @@
   font-style: normal;
 }
 
+:root {
+  --primary-color: #407bff;
+  --white-color: #ffffff;
+  --primary-txt-color: #2f2f2f;
+
+  --blue-color: #407bff;
+  --orange-color: #ff9d43;
+  --red-color: #ef5050;
+  --light-blue-color: #9ebbff;
+  --light-grey-color: #d7e3ff;
+  --second-background-color: #ecf2ff;
+
+}
+
+#root {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
  
   width: 100%;
