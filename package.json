@@ -17,6 +17,7 @@
     "@vitejs/plugin-react-swc": "^3.3.2",
     "axios": "^1.6.8",
     "framer-motion": "^11.0.24",
+    "gravatar": "^1.8.2",
     "modern-normalize": "^2.0.0",
     "normalize.css": "^8.0.1",
     "persist": "^0.2.7",
