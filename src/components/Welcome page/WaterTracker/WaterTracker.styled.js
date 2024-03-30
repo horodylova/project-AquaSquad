@@ -28,7 +28,7 @@ export const Descr = styled.p`
   font-family: 'Roboto-regular';
   font-size: 24px;
   line-height: 1.25;
-  color: var(--primaryBlack);
+  color: var(--primary-txt-color);
   margin-bottom: 24px;
 
   @media only screen and (min-width: 768px) {
@@ -53,7 +53,7 @@ export const MainTitle = styled.h1`
   font-family: 'Roboto-Bold';
   font-size: 36px;
   line-height: 1.17;
-  color: var(--primaryBlack);
+  color: var(--primary-txt-color);
 
   margin-bottom: 16px;
 
@@ -67,7 +67,7 @@ export const SubTitle = styled.h2`
   font-size: var(--fontSizesMedium);
   line-height: 1.11;
   margin-bottom: 12px;
-  color: var(--Primery-Color-Black, #2F2F2F);
+  color: var(--primary-txt-color, #2F2F2F);
 `;
 
 export const Icon = styled.svg`
@@ -75,7 +75,7 @@ export const Icon = styled.svg`
   width: 32px;
   height: 32px;
   flex-shrink: 0;
-  fill: var(--primaryBlue);
+  fill: var(--primary-color);
   @media screen and (min-width: 768px) {
     width: 40px;
   height: 40px;
@@ -87,13 +87,13 @@ export const Button = styled.button`
   padding-right: 100px;
   font-family: 'Roboto-Medium';
   font-size: 16px;
-  background-color: var(--primaryBlue);
+  background-color: var(--primary-color);
   width: 100%;
   border-radius: 10px;
   border: none;
   max-width: 280px;
   padding: 8px 30px;
-  color: var(--primaryWhite);
+  color: var(--white-color);
   cursor: pointer;
   box-shadow: 0px 4px 8px 0px #407bff;
   transition: box-shadow 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98);

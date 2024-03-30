@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const WhyDrinkContainer = styled.div`
-  background-color: var(--secondaryGrey);
+  background-color: var(--second-background-color);
   padding: 24px 16px;
   border-radius: 10px;
   box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.3);
@@ -34,7 +34,7 @@ export const InfoItems = styled.li`
 
   &::before {
     content: '';
-    border-color: var(--primaryBlue);
+    border-color: var(--primary-color);
     border-style: solid;
     border-width: 0 8px 8px 0;
     border-radius: 50%;
