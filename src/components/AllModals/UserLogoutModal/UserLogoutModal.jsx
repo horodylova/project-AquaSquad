@@ -9,11 +9,11 @@ import {
   BtnOfExit,
   BtnOfCancelModalLogOut,
   DivOfBtns,
-} from './UserLogoutPopUp.styled';
+} from './UserLogoutModal.styled';
 // import { useModal } from 'context/modalContext';
 // import { useNavigate } from 'react-router-dom';
 
-export const UserLogoutPopUp = () => {
+export const UserLogoutModal = () => {
   // const { closeModal } = useModal();
   // const navigate = useNavigate();
 

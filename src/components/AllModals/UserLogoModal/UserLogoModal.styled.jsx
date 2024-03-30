@@ -1,52 +1,48 @@
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
-
-export const LogoModalMenu = styled.div`
+export const LogoModal = styled.div`
   position: absolute;
-  border-radius: 10px;
-  z-index: 500;
-  box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.2);
+  top: 48px;
+  right: 20px;
+  z-index: 2;
   width: 118px;
-  background-color: #ffffff; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  height: 88px;
   padding: 16px;
-  margin-top: 2px;
-  transform-origin: top;
-  right: 0;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.2);
+  ul {
+    list-style-type: none; /* Зняття маркерів */
+    padding: 0; /* Зняття відступів */
+    margin: 0;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  svg {
+    margin-right: 8px;
+  }
+  @media screen and (min-width: 768px) {
+    top: 56px;
+    right: 32px;
+  }
   @media screen and (min-width: 1440px) {
-    margin-top: 6px;
   }
+`;
+export const LogoModalBtn = styled.button`
+   display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    color: #407bff;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 125% */
 `;
 
-export const ModalMenuBtn = styled.button`
-  background-color: #ffffff;
-  border:none;
-  color: #407BFF;
-  width: 86px;
-  height: 20px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  font-size: 16px;
-  &:not(:last-child) {
-    margin-bottom: 16px;
-  }
-  &:hover {
-    color: #FF9D43;
-    transition: color 0.3s ease;
-  }
-`;
 
-export const ModalMenuIcon = styled.svg`
-  margin-right: 8px;
-  display: flex;
-  align-items: center;
-    width: 16px;
-    height: 16px;
-    fill: #ffffff;
-    stroke: #407BFF;
-  
-`;
