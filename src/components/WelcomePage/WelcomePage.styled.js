@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-import bg_main_page from '../../images/main-bg/back_mobile@1.png';
-import bg_tabl from '../../images/main-bg/back_tablet@1.png';
-import bg_desk from '../../images/main-bg/back_desktop@1.png';
-import bg_el from '../../images/main-bg/back_desktop@2.png';
+import bg_main_page from '../../Images/main-bg/back_desktop@1x.png';
+import bg_tabl from '../../Images/main-bg/back_tablet@1.png';
+import bg_desk from '../../Images/main-bg/back_desktop@1.png';
+import bg_el from '../../Images/main-bg/back_desktop@2.png';
 
 export const Container = styled.div`
   padding-bottom: 40px;
