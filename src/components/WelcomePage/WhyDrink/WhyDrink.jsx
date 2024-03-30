@@ -4,7 +4,7 @@ import {
   SubTitle,
 } from './WhyDrink.styled';
 
-export const TrackerInfo = () => {
+export const WhyDrink = () => {
   return (
     <>
       <div>
