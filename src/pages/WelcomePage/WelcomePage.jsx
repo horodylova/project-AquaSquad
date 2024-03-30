@@ -1,7 +1,5 @@
-const WelcomePage = () => {
-    return (
-        console.log("Welcome")
-    )
-    };
-    
-    export default WelcomePage; 
+import WellcomeForm from 'components/WellcomePage/WellcomePage';
+
+export default function Wellcome() {
+  return <WellcomeForm />;
+}
