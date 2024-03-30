@@ -6,6 +6,7 @@ export const UserLogoContainer = styled.div`
 `;
 
 export const UserLogoBtn = styled.button`
+border: none;
   position: relative;
   display: flex;
   flex-direction: row;

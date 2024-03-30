@@ -3,6 +3,9 @@ import { HeaderContainer, Navigation } from './Header.styled';
 import { HeaderLogo } from '../HeaderLogo/HeaderLogo';
 import { UserAuth } from '../UserAuth/UserAuth';
 import {UserLogo} from '../UserLogo/UserLogo';
+import { UserLogoModal } from '../Modals/HeaderModals/UserLogoModal/UserLogoModal';
+
+
 
 export const Header = () => {
   return (
@@ -11,7 +14,8 @@ export const Header = () => {
         <Navigation>
           <HeaderLogo />
           <UserAuth />
-          <UserLogo/>
+          <UserLogo />
+  <UserLogoModal/>
         </Navigation>
       </HeaderContainer>
     </Container>
