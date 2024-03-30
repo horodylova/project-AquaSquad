@@ -6,8 +6,8 @@ import {
   HeaderIcon,
 } from './UserLogo.styled';
 
-import arrow from '../../Icons/solid.svg';
-import user from '../../Icons/user_outline.svg';
+import arrow from '../../../Icons/solid.svg';
+import user from '../../../Icons/user_outline.svg';
 
 export const UserLogo = () => {
   return (

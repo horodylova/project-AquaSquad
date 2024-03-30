@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Logo, LogoIcon, LogoText } from './HeaderLogo.styled';
-import logo from '../../Icons/Logo.svg';
+import logo from '../../../Icons/Logo.svg';
 
 export const HeaderLogo = () => (
   <Link to={'/'}>

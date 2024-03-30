@@ -1,10 +1,10 @@
-import wheel from '../../../../Icons/settings.svg';
-import logout from '../../../../Icons/arrow-logout.svg';
+import wheel from '../../../Icons/settings.svg';
+import logout from '../../../Icons/arrow-logout.svg';
 import {
   LogoModalMenu,
   ModalMenuIcon,
   ModalMenuBtn,
-} from '../.././HeaderModals/UserLogoModal/UserLogoModal.styled';
+} from './UserLogoModal.styled';
 
 export const UserLogoModal = () => {
   return (
