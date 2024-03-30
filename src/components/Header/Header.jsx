@@ -3,7 +3,10 @@ import { HeaderContainer, Navigation } from './Header.styled';
 import { HeaderLogo } from '../HeaderLogo/HeaderLogo';
 import { UserAuth } from '../UserAuth/UserAuth';
 import {UserLogo} from '../UserLogo/UserLogo';
-import { UserLogoModal } from '../Modals/HeaderModals/UserLogoModal/UserLogoModal';
+// import { UserLogoModal } from '../Modals/HeaderModals/UserLogoModal/UserLogoModal';
+import { UserLogoutModal } from '../Modals/HeaderModals/UserLogoModal/UserLogoutModal/UserLogoutModal';
+
+
 
 
 
@@ -15,7 +18,8 @@ export const Header = () => {
           <HeaderLogo />
           <UserAuth />
           <UserLogo />
-  <UserLogoModal/>
+          {/* <UserLogoModal/> */}
+          <UserLogoutModal/>
         </Navigation>
       </HeaderContainer>
     </Container>
