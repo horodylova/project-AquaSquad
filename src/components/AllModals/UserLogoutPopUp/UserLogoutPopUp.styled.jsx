@@ -1,21 +1,21 @@
 import { styled } from 'styled-components';
 
 export const LogoutModal = styled.div`
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 32px 24px;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   gap: 24px;
   border-radius: 10px;
-  background: #FFF; 
-  z-index:20;
+  background: #FFFFFF; 
+  width: 280px;
+  // z-index:20;
   @media screen and (min-width:768px){
     width:592px;
-    height:208px;
   }
 `;
 
@@ -23,7 +23,10 @@ export const DivOfHeadingOfLogOutModal = styled.div`
   display:flex;
   justify-content:space-between;
   margin-bottom:24px;
-
+width: 232px;
+@media screen and (min-width:768px){
+    width:544px;
+  }
 `;
 
 export const HeadingOfLogOutModal = styled.p`
@@ -32,8 +35,10 @@ export const HeadingOfLogOutModal = styled.p`
   font-size: 26px;
   font-style: normal;
   font-weight: 500;
-  line-height: 32px; /* 123.077% */
+  line-height: 32px; 
+  font-family: Roboto;
   margin:0;
+  width: 96px;
   @media screen and (min-width:768px){
     width: 384px;
   }
@@ -58,57 +63,104 @@ export const ParagraphOfExit = styled.p`
   @media screen and (min-width:768px){
     width: 338px;
     display:flex;
-    justify-content:flex-start;
+    justify-content:flex-start;// check how it looks on mobile version
   }
 `;
 export const BtnOfExit = styled.button`
-  width: 100%;
-  color: #FFF;
-  text-align: center;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 20px; /* 125% */
-  display: flex;
-  padding: 8px 30px;
+ display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   border-radius: 10px;
-  background: var(--secondary-color-3, #EF5050);
+   border-color: transparent;
+ background: #EF5050;
+  color:  #FFFFFF;
   box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
-  margin-bottom:24px;
-  @media screen and (min-width:768px){
-    width:160px
+  transition: box-shadow 0.3s ease, transform 0.3s ease, width 0.3s ease;
+  width: 232px;
+  height: 36px;
+  padding: 8px 30px;
+  &:not(:first-child) {
+    margin-bottom: 24px;
   }
+  &:not(:last-child) {
+    background-color: #EF5050;
+    color:#FFFFFF;
+;
+  }
+  &:hover {
+    box-shadow: 0px 8px 16px 0px rgba(64, 123, 255, 0.5);
+    transform: scale(1.05);
+  }
+  @media screen and (min-width: 768px) {
+    width: 160px;
+    height: 44px;
+    font-size: 18px;
+    padding: 10px 30px;
+    &:not(:last-child) {
+      margin-right: 24px;
+      margin-bottom: 0;
+    }
+    &:not(:first-child) {
+      margin-bottom: 0;
+    }
+  }
+  
 `;
 export const BtnOfCancelModalLogOut = styled.button`
-  width: 100%;
-  color: var(--primery-color-blue, #407BFF);
-  height:44px;
-  text-align: center;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 20px; /* 125% */
   display: flex;
-  padding: 8px 30px;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   border-radius: 10px;
-  background: var(--secondary-color-5, #D7E3FF);
-  @media screen and (min-width:768px){
-    width:160px
+   border-color: transparent;
+ background: #D7E3FF;
+  color:  #407BFF;
+  box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
+  transition: box-shadow 0.3s ease, transform 0.3s ease, width 0.3s ease;
+  width: 232px;
+  height: 36px;
+  padding: 8px 30px;
+//   &:not(:first-child) {
+//     margin-bottom: 24px;
+//   }
+//   &:not(:last-child) {
+//     background-color: #EF5050;
+//     color:#FFFFFF;
+// ;
+//   }
+  &:hover {
+    box-shadow: 0px 8px 16px 0px rgba(64, 123, 255, 0.5);
+    transform: scale(1.05);
+  }
+  @media screen and (min-width: 768px) {
+    width: 160px;
+    height: 44px;
+    font-size: 18px;
+    padding: 10px 30px;
+    // &:not(:last-child) {
+    //   margin-right: 24px;
+    //   margin-bottom: 0;
+    // }
+    // &:not(:first-child) {
+    //   margin-bottom: 0;
+    // }
   }
 `;
 export const DivOfBtns = styled.div`
-  display:block;
-  @media screen and (min-width:768px){
-    display:flex;
-    justify-content:flex-start;
-    align-items:baseline;
-    gap:24px;
+display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 24px;
+  // width: 232px;
+   @media screen and (min-width: 768px) {
+    // width: 344px;
+    flex-direction: row;
+    justify-content: flex-end;
+    
+  }
+  @media screen and (min-width: 1440px) {
+    // width: 344px;
+    justify-content: flex-start;
+    
   }
 `;
 
