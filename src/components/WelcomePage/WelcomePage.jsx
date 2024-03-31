@@ -4,7 +4,7 @@ import { WhyDrink } from './WhyDrink/WhyDrink';
 
 const WelcomePage = () => {
   return (
-    <WelcomeLayout className="static-background">
+    <WelcomeLayout>
       <Container>
         <WaterTracker />
         <WhyDrink />

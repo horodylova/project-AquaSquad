@@ -25,19 +25,19 @@ export const WaterTracker = () => {
       <BenefitsList>
         <BenefitsItems>
           <Icon>
-            <use href={iconSprite + '#icon-calendar'} />
+            <use xlinkHref={iconSprite + '#icon-calendar'} />
           </Icon>
           Habit drive
         </BenefitsItems>
         <BenefitsItems>
           <Icon>
-            <use href={iconSprite + '#icon-statistics'} />
+            <use xlinkHref={iconSprite + '#icon-statistics'} />
           </Icon>
           View statistics
         </BenefitsItems>
         <BenefitsItems>
           <Icon>
-            <use href={iconSprite + '#icon-setting'} />
+            <use xlinkHref={iconSprite + '#icon-setting'} />
           </Icon>
           Personal rate setting
         </BenefitsItems>
