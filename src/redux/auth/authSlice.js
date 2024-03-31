@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { register, login } from '../auth/authOperations';
 
 const initialState = {
   user: {
     username: null,
     password: null,
-    gender: "man",
+    gender: 'man',
     dailyNorma: null,
   },
   token: null,
@@ -38,6 +39,32 @@ const authSlice = createSlice({
       state.isAuthenticated = action.payload;
     },
   },
+
+  extraReducers: (builder) => {
+    builder
+      .addCase(register.pending, (state) => {
+        state.isAuthenticated = false;
+      })
+      .addCase(register.fulfilled, (state, action) => {
+        state.user = action.payload.user;
+        state.token = action.payload.token;
+        state.isAuthenticated = true;
+      })
+      .addCase(register.rejected, (state) => {
+        state.isAuthenticated = false;
+      })
+      .addCase(login.pending, (state) => {
+        state.isAuthenticated = false;
+      })
+      .addCase(login.fulfilled, (state, action) => {
+        state.user = action.payload.user;
+        state.token = action.payload.token;
+        state.isAuthenticated = true;
+      })
+      .addCase(login.rejected, (state) => {
+        state.isAuthenticated = false;
+      });
+  },
 });
 
 export const {
@@ -51,5 +78,3 @@ export const {
 } = authSlice.actions;
 
 export default authSlice.reducer;
-
-

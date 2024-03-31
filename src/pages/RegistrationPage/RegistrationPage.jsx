@@ -1,7 +1,10 @@
 // import React from 'react';
 import { useForm } from 'react-hook-form';
 import Container from '../../components/Container/Container';
-// import { registerUser } from 'components/Api/Api';
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+import sprite from '../../../src/Icons/signIn-signUp/sprite.svg';
+import { register as registerAction } from '../../../src/redux/auth/authOperations';
 import {
   Input,
   Label,
@@ -11,119 +14,190 @@ import {
   MainTitle,
   SignInLin,
   BottleImg,
+  SectionAuth,
+  EyeSvg,
 } from './RegistrationPage.styled';
 
 const RegistrationPage = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const dispatch = useDispatch();
   const {
     register,
     formState: { errors, isValid },
     handleSubmit,
     reset,
+    watch,
   } = useForm({
     mode: 'onBlur',
   });
 
-  const onSubmit = async (data) => {
+  const togglePasswordVisibility = (inputId) => {
+    setShowPassword((prevPasswords) => ({
+      ...prevPasswords,
+      [inputId]: !prevPasswords[inputId],
+    }));
+  };
+
+  const onSubmit = async ({ email, password }) => {
     try {
-      // await registerUser(data);
-      console.log(JSON.stringify(data));
+      await dispatch(registerAction({ email, password })).unwrap();
+
+      console.log(JSON.stringify({ email, password }));
       alert(
         'Check your email inbox, we send an email link to complete your registration'
       );
+      reset();
     } catch (error) {
       console.log(error);
       alert('register error');
     }
 
-    console.log(JSON.stringify(data));
-    reset();
+    console.log(JSON.stringify({ email, password }));
   };
 
   return (
-    <Container>
-      <RegisterContainer>
-        <Form onSubmit={handleSubmit(onSubmit)}>
-          <MainTitle>Sign Up</MainTitle>
-          {/* Email */}
-          <Label id="email" $err={errors.email}>
-            Enter your email
-            <InputFild
-              id="email"
-              type="email"
-              placeholder="E-mail"
-              {...register('email', {
-                required: 'This field is required!',
-                minLength: {
-                  value: 3,
-                  message: 'To short!',
-                },
-              })}
-              $errors={errors.email}
-            />
-          </Label>
-          <div>
-            {errors.email && (
-              <p style={{ color: 'red', marginBottom: 0 }}>
-                {errors.email.message || 'Error!'}
-              </p>
-            )}
-          </div>
-          {/* Password*/}
-          <Label>
-            Enter your password
-            <InputFild
-              placeholder="Password"
-              id="password"
-              type="password"
-              {...register('password', {
-                required: 'This field is required!',
-                minLength: {
-                  value: 3,
-                  message: 'To short!',
-                },
-              })}
-              $errors={errors.password}
-            />
-          </Label>
-          <div>
-            {errors.password && (
-              <p style={{ color: 'red' }}>
-                {errors.password.message || 'Error!'}
-              </p>
-            )}
-          </div>
+    <main>
+      <SectionAuth>
+        <Container>
+          <RegisterContainer>
+            <Form onSubmit={handleSubmit(onSubmit)}>
+              <MainTitle>Sign Up</MainTitle>
+              {/* Email */}
+              <Label id="email" $errors={errors.email}>
+                Enter your email
+                <InputFild
+                  className={errors.email ? 'error' : ''}
+                  id="email"
+                  type="email"
+                  placeholder="E-mail"
+                  {...register('email', {
+                    required: 'This field is required!',
+                    minLength: {
+                      value: 3,
+                      message: 'To short!',
+                    },
+                  })}
+                  $errors={errors.email}
+                />
+              </Label>
+              <div style={{ position: 'relative' }}>
+                {errors.email && (
+                  <p
+                    style={{
+                      color: 'red',
+                      position: 'absolute',
+                      top: '-15px',
+                      marginBottom: 0,
+                    }}
+                  >
+                    {errors.email.message || 'Error!'}
+                  </p>
+                )}
+              </div>
+              {/* Password*/}
+              <Label id="password" $errors={errors.password}>
+                Enter your password
+                <InputFild
+                  placeholder="Password"
+                  id="password"
+                  type={showPassword['password'] ? 'text' : 'password'}
+                  {...register('password', {
+                    required: 'This field is required!',
+                    minLength: {
+                      value: 3,
+                      message: 'To short!',
+                    },
+                  })}
+                  $errors={errors.password}
+                />
+                <div
+                  style={{ position: 'relative' }}
+                  onClick={() => togglePasswordVisibility('password')}
+                >
+                  {showPassword['password'] ? (
+                    <EyeSvg width="16" height="16">
+                      <use href={`${sprite}#icon-outlineOn`} />
+                    </EyeSvg>
+                  ) : (
+                    <EyeSvg width="16" height="16">
+                      <use href={`${sprite}#icon-outlineOff`} />
+                    </EyeSvg>
+                  )}
+                </div>
+              </Label>
+              <div style={{ position: 'relative' }}>
+                {errors.password && (
+                  <p
+                    style={{
+                      color: 'red',
+                      position: 'absolute',
+                      top: '-15px',
+                      marginBottom: 0,
+                    }}
+                  >
+                    {errors.password.message || 'Error!'}
+                  </p>
+                )}
+              </div>
 
-          {/* Password repeat*/}
-          <Label>
-            Repeat password
-            <InputFild
-              id="passwordRepeat"
-              type="password"
-              placeholder="Repeat password"
-              {...register('passwordRepeat', {
-                required: 'This field is required!',
-                minLength: {
-                  value: 3,
-                  message: 'To short!',
-                },
-              })}
-              $errors={errors.passwordRepeat}
-            />
-          </Label>
-          <div>
-            {errors.passwordRepeat && (
-              <p style={{ color: 'red' }}>
-                {errors.passwordRepeat.message || 'Error!'}
-              </p>
-            )}
-          </div>
-          <Input type="submit" disabled={!isValid} value="Sign Up" />
-          <SignInLin href="#">Sign in</SignInLin>
-        </Form>
-        {/* <BottleImg backgroundImage="C:\GoIT\project-AquaSquad\src\Images\signIn-signUp\bottle\mobile\bottle_mobile@1x.png"></BottleImg> */}
-        <BottleImg></BottleImg>
-      </RegisterContainer>
-    </Container>
+              {/* Password repeat*/}
+              <Label id="email" $errors={errors.passwordRepeat}>
+                Repeat password
+                <InputFild
+                  id="passwordRepeat"
+                  type={showPassword['passwordRepeat'] ? 'text' : 'password'}
+                  placeholder="Repeat password"
+                  {...register('passwordRepeat', {
+                    required: 'This field is required!',
+                    minLength: {
+                      value: 3,
+                      message: 'To short!',
+                    },
+                    validate: (val) => {
+                      if (watch('password') != val) {
+                        return 'Your passwords do no match';
+                      }
+                    },
+                  })}
+                  $errors={errors.passwordRepeat}
+                />
+                <div
+                  style={{ position: 'relative' }}
+                  onClick={() => togglePasswordVisibility('passwordRepeat')}
+                >
+                  {showPassword['passwordRepeat'] ? (
+                    <EyeSvg width="16" height="16">
+                      <use href={`${sprite}#icon-outlineOn`} />
+                    </EyeSvg>
+                  ) : (
+                    <EyeSvg width="16" height="16">
+                      <use href={`${sprite}#icon-outlineOff`} />
+                    </EyeSvg>
+                  )}
+                </div>
+              </Label>
+              <div style={{ position: 'relative' }}>
+                {errors.passwordRepeat && (
+                  <p
+                    style={{
+                      color: 'red',
+                      position: 'absolute',
+                      top: '-15px',
+                      marginBottom: 0,
+                    }}
+                  >
+                    {errors.passwordRepeat.message || 'Error!'}
+                  </p>
+                )}
+              </div>
+              <Input type="submit" disabled={!isValid} value="Sign Up" />
+              <SignInLin to="/login">Sign in</SignInLin>
+            </Form>
+            <BottleImg></BottleImg>
+          </RegisterContainer>
+        </Container>
+      </SectionAuth>
+    </main>
   );
 };
 
