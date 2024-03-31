@@ -191,7 +191,7 @@ const RegistrationPage = () => {
                 )}
               </div>
               <Input type="submit" disabled={!isValid} value="Sign Up" />
-              <SignInLin to="/login">Sign in</SignInLin>
+              <SignInLin to="/signin">Sign in</SignInLin>
             </Form>
             <BottleImg></BottleImg>
           </RegisterContainer>

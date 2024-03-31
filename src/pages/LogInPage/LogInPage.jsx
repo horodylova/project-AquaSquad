@@ -48,7 +48,7 @@ const LogInPage = () => {
       reset();
     } catch (error) {
       console.log(error);
-      alert('register error');
+      alert('here register error');
     }
 
     console.log(JSON.stringify({ email, password }));
@@ -139,7 +139,7 @@ const LogInPage = () => {
                 )}
               </div>
               <Input type="submit" disabled={!isValid} value="Sign In" />
-              <SignInLin to="/register">Sign Up</SignInLin>
+              <SignInLin to="/signup">Sign Up</SignInLin>
             </Form>
             <BottleImg></BottleImg>
           </RegisterContainer>
