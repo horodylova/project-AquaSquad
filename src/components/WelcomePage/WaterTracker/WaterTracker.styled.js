@@ -72,13 +72,13 @@ export const SubTitle = styled.h2`
 
 export const Icon = styled.svg`
   margin-right: 8px;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
   fill: var(--primary-color);
   @media screen and (min-width: 768px) {
-    width: 40px;
-  height: 40px;
+    width: 30px;
+  height: 30px;
 
   }
 `;

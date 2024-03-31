@@ -10,7 +10,7 @@ import {
   SubTitle,
   Button,
 } from './WaterTracker.styled';
-import iconSprite from '../../../Icons';
+import iconSprite from '../../../Images/welcome-page/iconSprite';
 
 export const WaterTracker = () => {
   const navigate = useNavigate();
@@ -25,19 +25,19 @@ export const WaterTracker = () => {
       <BenefitsList>
         <BenefitsItems>
           <Icon>
-            <use href={iconSprite + '#icon-calendar-days'} />
+            <use href={iconSprite + '#icon-calendar'} />
           </Icon>
           Habit drive
         </BenefitsItems>
         <BenefitsItems>
           <Icon>
-            <use href={iconSprite + '#icon-presantation-chart-bar'} />
+            <use href={iconSprite + '#icon-statistics'} />
           </Icon>
           View statistics
         </BenefitsItems>
         <BenefitsItems>
           <Icon>
-            <use href={iconSprite + '#icon-wrench-screendriver'} />
+            <use href={iconSprite + '#icon-setting'} />
           </Icon>
           Personal rate setting
         </BenefitsItems>
