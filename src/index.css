@@ -1,5 +1,6 @@
 @font-face {
   font-family: 'Roboto';
+<<<<<<< HEAD
   src: url('/fonts/Roboto-Regular.ttf') format('truetype');  
   font-weight: var(--regular);
   font-style: normal;
@@ -9,13 +10,32 @@
   font-family: 'Roboto';
   src: url('/fonts/Roboto-Bold.ttf') format('truetype'); 
   font-weight: var(--bold);
+=======
+  src: url('/fonts/Roboto-Regular.ttf') format('truetype');
+  /* font-weight: normal; */
+  font-weight: var(--medium);
+>>>>>>> db8d8b2 (fix auth)
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Roboto';
+<<<<<<< HEAD
   src: url('/fonts/Roboto-Medium.ttf') format('truetype');  
   font-weight: var(--medium);
+=======
+  src: url('/fonts/Roboto-Bold.ttf') format('truetype');
+  /* font-weight: bold; */
+  font-weight: var(--bold);
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto-Medium.ttf') format('truetype');
+  /* font-weight: 500; */
+  font-weight: var(--regular);
+>>>>>>> db8d8b2 (fix auth)
   font-style: normal;
 }
 
@@ -31,12 +51,18 @@
   --light-grey-color: #d7e3ff;
   --second-background-color: #ecf2ff;
 
+<<<<<<< HEAD
   
     --medium: 500;
     --bold: 700;
     --regular: 400;
 
 
+=======
+  --medium: 500;
+  --bold: 700;
+  --regular: 400;
+>>>>>>> db8d8b2 (fix auth)
 }
 
 #root {
@@ -48,7 +74,6 @@
 }
 
 body {
- 
   width: 100%;
   height: 100vh;
   margin: 0;
