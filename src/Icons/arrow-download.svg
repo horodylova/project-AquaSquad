@@ -1,0 +1,7 @@
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+  <symbol id="arrow-up" viewBox="0 0 32 32">
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.333" d="M4 22v3a3.004 3.004 0 0 0 3 3h18a3.004 3.004 0 0 0 3-3v-3M10 10l6-6m0 0 6 6m-6-6v18"/>
+    </symbol>
+    </defs>
+</svg>

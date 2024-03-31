@@ -3,9 +3,9 @@
 import {
   LogoModal,
   LogoModalBtn
-} from './UserLogoModal.styled';
+} from './UserLogoPopUp.styled';
 
-export const UserLogoModal = () => {
+export const UserLogoPopUp = () => {
   return (
     <>
       <LogoModal>
