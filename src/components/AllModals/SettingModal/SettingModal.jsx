@@ -3,14 +3,8 @@ import React from 'react';
 // import { TitlePart } from '../DailyNorma/DailyNorma.styled';
 import close from "../../../Icons/close-cross.svg";
 import download from "../../../Icons/arrow-download.svg";
-import {
-  CloseBtn,
-  ContainerAvatar,
-  ContainerSettings,
-    WrapperUpload,
-    Title,
-  TitlePart
-} from './SettingModal.styled';
+import { ContainerSettings,UserPic,UploadContainer,UploadIcon, CloseBtn, Title, TitlePart, UploadWrapper,AvatarContainer,UploadText,UploadBox } from './SettingModal.styled';
+
 // import Icons from '../../../img/sprite.svg';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { selectorUserProfile } from 'redux/auth/selectors';
@@ -24,47 +18,52 @@ export const SettingModal = () => {
 
   return (
       <ContainerSettings>
-          
       <CloseBtn>
-        {/* <HoverCloseBtn> */}
+        
           <svg width="24" height="24">
             <use href={close + '#icon-close-cross'}></use>
           </svg>
-        {/* </HoverCloseBtn> */}
+        
           </CloseBtn>
           
-
-      <Title>Setting</Title>
-          <TitlePart $marginBottom="8px">Your photo</TitlePart>
-          
-      <WrapperUpload>
-        <ContainerAvatar>
-          
-            <img src={"../../../Images/userPic.png"} alt="avatar" width={80} />
-          
-        </ContainerAvatar>
-
-        <label>
-          <input
-            className="visually-hidden"
-            // ref={filePecker}
-            type="file"
-            accept=".jpg"
-                  />
-                  
-          <button type="button">
-            <svg width="16" height="16">
-              <use href={download + '#arrow-up'}></use>
-            </svg>
-            <span>Upload a photo</span>
-                  </button>
-                  
-              </label>
+          <Title>Setting</Title>
+          <TitlePart>Your photo</TitlePart>
+      
+          <UploadWrapper>
               
-          </WrapperUpload>
+         <AvatarContainer>
+        
+            <UserPic>
+              <img src={'https://avatar.iran.liara.run/public/6'} alt=""  />
+            </UserPic>
           
-          {/* <FormaUpdateUserProfile /> */}
-          
+              </AvatarContainer> 
+              
+         <UploadBox>
+                  <label htmlFor="fileInput">
+                      
+            <UploadContainer>
+              <UploadIcon>
+                <svg  width="16" height="16">
+            <use href={download + '#icon-arrow-up'}></use>
+          </svg>
+              </UploadIcon>
+              <UploadText>Upload a photo</UploadText>
+                      </UploadContainer>
+                      
+          </label>
+
+          {/* <input
+            id="fileInput"
+            className={`${css.modal_list_input} ${css.modal_list_upload_input}`}
+            type="file"
+            name="photo"
+            accept="image/jpeg,image/png,image/jpg"
+            onChange={handleFileChange}
+          /> */}
+        </UploadBox> 
+      </UploadWrapper>
+      {/* <ModalForm />  */}
     </ContainerSettings>
   );
 };
