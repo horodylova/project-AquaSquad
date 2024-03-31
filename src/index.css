@@ -1,21 +1,21 @@
 @font-face {
   font-family: 'Roboto';
   src: url('/fonts/Roboto-Regular.ttf') format('truetype');  
-  font-weight: normal;
+  font-weight: var(--regular);
   font-style: normal;
 }
  
 @font-face {
   font-family: 'Roboto';
   src: url('/fonts/Roboto-Bold.ttf') format('truetype'); 
-  font-weight: bold;
+  font-weight: var(--bold);
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Roboto';
   src: url('/fonts/Roboto-Medium.ttf') format('truetype');  
-  font-weight: 500;  
+  font-weight: var(--medium);
   font-style: normal;
 }
 
@@ -30,6 +30,12 @@
   --light-blue-color: #9ebbff;
   --light-grey-color: #d7e3ff;
   --second-background-color: #ecf2ff;
+
+  
+    --medium: 500;
+    --bold: 700;
+    --regular: 400;
+
 
 }
 
