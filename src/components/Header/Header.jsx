@@ -1,10 +1,12 @@
-import Container from '../Container/Container';
-import { HeaderContainer, Navigation } from './Header.styled';
+
+// import Container from '../Container/Container';
+import { HeaderContainer, Navigation, NavigationWrapper } from './Header.styled';
 import { HeaderLogo } from './HeaderLogo/HeaderLogo';
 import { UserAuth } from './UserAuth/UserAuth';
-import {UserLogo} from './UserLogo/UserLogo';
-// import { UserLogoModal } from '../Modals/HeaderModals/UserLogoModal/UserLogoModal';
-// import { UserLogoutModal } from '../AllModals/UserLogoutModal/UserLogoutModal';
+import { UserLogo } from './UserLogo/UserLogo';
+// import { SettingModal } from '../AllModals/SettingModal/SettingModal';
+
+
 
 
 
@@ -12,13 +14,16 @@ import {UserLogo} from './UserLogo/UserLogo';
 
 export const Header = ({ isAuthenticated }) => {
   return (
-    <Container>
-      <HeaderContainer>
+    // <Container>
+    <HeaderContainer>
+      <NavigationWrapper>
         <Navigation>
           <HeaderLogo isAuthenticated={isAuthenticated} />
-        {isAuthenticated ? <UserLogo /> : <UserAuth />}
+          {isAuthenticated ? <UserLogo /> : <UserAuth />}
         </Navigation>
+        </NavigationWrapper>
+        {/* <SettingModal/> */}
       </HeaderContainer>
-    </Container>
+    // </Container>
   );
 };
