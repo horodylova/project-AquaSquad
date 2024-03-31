@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom';
 
 
 export const RouterLink = styled(Link)`
-  width: 84px;
   position: relative;
   font-size: 16px;
-  line-height: 20px;
-   color: #407BFF; //change to global const
+  line-height: calc(20 / 16);
+  color: #407bff;
   text-decoration: none;
   display: flex;
   align-items: center;
+  gap:8px;
   &:hover {
-    color: #FF9D43; //change to global const
+    color: #ff9d43;
     transition: color 0.3s ease;
   }
   &:before {
@@ -22,23 +22,20 @@ export const RouterLink = styled(Link)`
     left: 0;
     width: 0;
     height: 1px;
-    background-color: #FF9D43; //change to global const
+    background-color: #ff9d43;
     transition: width 0.3s ease;
   }
   &:hover:before {
     width: 60%;
   }
-  @media screen and (min-width: 768px) {
-    width: 90px;
-    font-size: 18px;
-    line-height: 24px;
-  }
 `;
 
-export const HeaderIcon = styled.svg`
-  margin-left: 8px;
-  width: 28px;
-  height: 28px;
-  fill: #ffffff; //change to global const
-  stroke: #2F2F2F; //change to global const
+export const HeaderIcon = styled.div`
+  svg {
+    margin-left: 8px;
+    width: 28px;
+    height: 28px;
+    fill: #ffffff;
+    stroke: #2f2f2f;
+  }
 `;
