@@ -15,14 +15,14 @@ import iconSprite from '../../../Images/welcome-page/iconSprite.svg';
 export const WaterTracker = () => {
   const navigate = useNavigate();
   function TryClick() {
-    navigate('/signup');
+    navigate('/register');
   }
   return (
     <Container>
       <MainTitle>Water consumption tracker</MainTitle>
       <Descr>Record daily water intake and track</Descr>
       <SubTitle>Tracker Benefits</SubTitle>
-            <BenefitsList>
+      <BenefitsList>
         <BenefitsItems>
           <Icon>
             <use href={iconSprite + '#icon-calendar'} />

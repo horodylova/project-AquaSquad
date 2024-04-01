@@ -7,13 +7,8 @@ import {
 import { HeaderLogo } from './HeaderLogo/HeaderLogo';
 import { UserAuth } from './UserAuth/UserAuth';
 import { UserLogo } from './UserLogo/UserLogo';
-// import { SettingModal } from '../AllModals/SettingModal/SettingModal';
+import { SettingModal } from '../AllModals/SettingModal/SettingModal';
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 83fae5b (bg)
 export const Header = ({ isAuthenticated }) => {
   return (
     // <Container>

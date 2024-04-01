@@ -138,7 +138,6 @@ const RegistrationPage = () => {
                   </p>
                 )}
               </div>
-
               {/* Password repeat*/}
               <Label id="email" $errors={errors.passwordRepeat}>
                 Repeat password

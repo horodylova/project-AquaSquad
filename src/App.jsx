@@ -1,10 +1,13 @@
 import { lazy, Suspense } from 'react';
 import Layout from '../src/components/Layout/Layout';
 import Loader from '../src/components/Loader/Loader';
-import { PublicRoute } from '../src/Routes/PublicRoute/PublicRoute';
-import { Route, Routes } from 'react-router-dom';
+// import { PublicRoute } from '../src/Routes/PublicRoute/PublicRoute';
+
 import { PrivateRoute } from './PrivateRoute';
+import { PublicRoute } from './PublicRoute';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 const WelcomePage = lazy(() => import('./pages/WelcomePage/WelcomePage'));
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
@@ -15,11 +18,12 @@ const LogInPage = lazy(() => import('../src/pages/LogInPage/LogInPage'));
 
 function App() {
   return (
-    <Suspense fallback={<Loader />}>
-      <Layout>
+    <Layout>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<WelcomePage />} />
-          {/* Register */}
+
+          {/* register */}
           <Route
             path="/register"
             element={
@@ -28,7 +32,8 @@ function App() {
               </PublicRoute>
             }
           />
-          {/* Login */}
+
+          {/* login */}
           <Route
             path="/login"
             element={
@@ -37,7 +42,8 @@ function App() {
               </PublicRoute>
             }
           />
-          {/* Home */}
+
+          {/* home */}
           <Route
             path="/home"
             element={
@@ -46,10 +52,12 @@ function App() {
               </PrivateRoute>
             }
           />
+
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
-      </Layout>
-      <ToastContainer />
-    </Suspense>
+        <ToastContainer />
+      </Suspense>
+    </Layout>
   );
 }
 
