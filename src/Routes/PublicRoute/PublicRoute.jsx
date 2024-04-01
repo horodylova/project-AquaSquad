@@ -1,12 +1,15 @@
-// import { useSelector } from "react-redux";
-// import { Navigate, useLocation } from "react-router-dom";
-// import { selectIsSignedIn } from "../../redux/selectors";
+import { useNavigate } from "react-router-dom";
 
-// const PublicRoute = ({ children }) => {
-//   const isSignedIn = useSelector(selectIsSignedIn);
-//   const location = useLocation();
+export const PublicRoute = ({ component: Component }) => {
+  const navigate = useNavigate();
 
-//   return isSignedIn ? <Navigate to={location.state ?? "/"} /> : children;
-// };
+  const isUserSignedIn = false; 
+  if (!isUserSignedIn) {
+    navigate("/");
+  }
 
-// export default PublicRoute;
+  return <Component />;
+};
+
+export default PublicRoute;
+

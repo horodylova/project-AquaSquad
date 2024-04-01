@@ -2,7 +2,7 @@ import { Container, WelcomeLayout } from './WelcomePage.styled';
 import { WaterTracker } from './WaterTracker/WaterTracker';
 import { WhyDrink } from './WhyDrink/WhyDrink';
 
-const WelcomePage = () => {
+export const WelcomePage = () => {
   return (
     <WelcomeLayout>
       <Container>

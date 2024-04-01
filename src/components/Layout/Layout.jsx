@@ -1,25 +1,40 @@
-import { Suspense } from 'react';
-import { Outlet } from 'react-router-dom';
-import { Header } from 'components/Header/Header';
-import WelcomePage from '../WelcomePage/WelcomePage';
+// import { Suspense } from 'react';
+// import { Outlet } from 'react-router-dom';
+// import { Header } from 'components/Header/Header';
 
-const SharedLayout = () => {
+// const SharedLayout = () => {
   
-    // const isLoggedIn = useSelector(selectUserToken); // const selectUserToken = state => state.auth.token;
+//     // const isLoggedIn = useSelector(selectUserToken); // const selectUserToken = state => state.auth.token;
 
 
+//   return (
+//     <>
+//       {/* <Header  /> // isAuthenticated={isLoggedIn} */}
+//       <Header />
+//       <Suspense fallback={null}>
+//         <Outlet />
+//       </Suspense>
+//     </>
+  
+//   );
+    
+// };
+
+// export default SharedLayout;
+
+
+import { Header } from '../Header/Header';  
+
+const Layout = ({ children }) => {
   return (
     <>
-      {/* <Header  /> // isAuthenticated={isLoggedIn} */}
       <Header />
-      <WelcomePage />
-      <Suspense fallback={null}>
-        <Outlet />
-      </Suspense>
+      <main>
+        {children}
+      </main>
     </>
-  
   );
-    
 };
 
-export default SharedLayout;
+export default Layout;
+

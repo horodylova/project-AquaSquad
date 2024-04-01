@@ -8,10 +8,6 @@ import { UserLogo } from './UserLogo/UserLogo';
 
 
 
-
-
-
-
 export const Header = ({ isAuthenticated }) => {
   return (
     // <Container>
