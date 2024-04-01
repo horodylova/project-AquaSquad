@@ -1,8 +1,6 @@
 import { lazy, Suspense } from 'react';
 import Layout from '../src/components/Layout/Layout';
 import Loader from '../src/components/Loader/Loader';
-// import { PublicRoute } from '../src/Routes/PublicRoute/PublicRoute';
-
 import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
 import { ToastContainer } from 'react-toastify';
