@@ -28,7 +28,7 @@ export const InfoItems = styled.li`
   display: flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Roboto-regular';
+  font-family: 'Roboto';
   font-size: 16px;
   line-height: 1.25;
 
