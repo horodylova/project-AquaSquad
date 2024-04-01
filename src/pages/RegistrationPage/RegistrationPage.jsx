@@ -47,8 +47,7 @@ const RegistrationPage = () => {
       toast.success('Registration successful. Welcome aboard!');
       reset();
     } catch (error) {
-      console.log(error);
-      toast.error('Registration failed. Please try again later.');
+      toast.error(error);
     }
 
     console.log(JSON.stringify({ email, password }));
