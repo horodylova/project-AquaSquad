@@ -6,9 +6,13 @@ import Desktop from '../../Images/welcome-page/Desktop.png';
 
 export const Container = styled.div`
   padding-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
 
   @media screen and (min-width: 768px) {
     padding-bottom: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 
   @media screen and (min-width: 1440px) {
