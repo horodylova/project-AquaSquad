@@ -1,6 +1,6 @@
 import React from 'react';
-import { WrapperForma,WrapperFormaMain,WrapperFormaLeft,TitlePart,ContainerForm,WrapperRadio,FormLabelRadio,FormLabel,InputSettingEdit } from './FormaSettingModal.styled';
-
+import { WrapperForma,WrapperFormaMain,WrapperFormaLeft,WrapperFormaRight,TitlePart,ContainerForm,WrapperRadio,FormLabelRadio,FormLabel,InputSettingEdit } from './FormaSettingModal.styled';
+import {PasswordInput} from './PasswordInput';
 export const FormaUpdateUserProfile = () => {
   
   
@@ -111,67 +111,69 @@ style={{position: 'absolute',
 
 
 
-          {/* <WrapperFormaRight>
-            <TitlePart $marginBottom="0px" $marginTop="0px">
+          <WrapperFormaRight>
+            <TitlePart>
               Password
             </TitlePart>
 
-            <FormLabel>
+             <FormLabel>
               Outdated password:
               <PasswordInput
                 autoComplete="new-password"
-                id="oldPassword"
-                value={values.oldPassword}
-                onChange={handleChange}
-                onBlur={handleBlur}
+                // id="oldPassword"
+                // value={values.oldPassword}
+                // onChange={handleChange}
+                // onBlur={handleBlur}
                 placeholder="Old password"
               />
-              {touched.oldPassword && errors.oldPassword && (
+              {/* {touched.oldPassword && errors.oldPassword && (
                 <InputError>{errors.oldPassword}</InputError>
-              )}
-            </FormLabel>
+              )} */}
+                      </FormLabel>
+                      
             <FormLabel>
               New Password:
-              <PasswordInputWrapper>
+              {/* <PasswordInputWrapper> */}
                 <PasswordInput
                   autoComplete="off"
-                  name="newPassword"
-                  value={values.newPassword}
-                  onChange={handlePasswordChange}
-                  onBlur={handleBlur}
+                //   name="newPassword"
+                //   value={values.newPassword}
+                //   onChange={handlePasswordChange}
+                //   onBlur={handleBlur}
                   placeholder="New password"
                   // $error={touched.newPassword && errors.newPassword}
                 />
-                {values.newPassword && (
+                {/* {values.newPassword && (
                   <PasswordToolTip
                     score={values.strengthScore}
                     password={values.newPassword}
                   />
-                )}
-              </PasswordInputWrapper>
+                )} */}
+              {/* </PasswordInputWrapper>
               {values.newPassword && (
                 <PasswordMeter $score={values.strengthScore} />
               )}
               {errors.newPassword && (
                 <InputError>{errors.newPassword}</InputError>
-              )}
-            </FormLabel>
-            <FormLabel>
+              )} */}
+                      </FormLabel>
+                      
+                       <FormLabel>
               Repeat new password:
               <PasswordInput
                 autoComplete="off"
-                name="repeatPassword"
-                value={values.repeatPassword}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                placeholder="Repeat password"
-                $error={touched.repeatPassword && errors.repeatPassword}
+                // name="repeatPassword"
+                // value={values.repeatPassword}
+                // onChange={handleChange}
+                // onBlur={handleBlur}
+                // placeholder="Repeat password"
+                // $error={touched.repeatPassword && errors.repeatPassword}
               />
-              {touched.repeatPassword && errors.repeatPassword && (
+              {/* {touched.repeatPassword && errors.repeatPassword && (
                 <InputError>{errors.repeatPassword}</InputError>
-              )}
-            </FormLabel>
-          </WrapperFormaRight> */}
+              )} */}
+              </FormLabel> 
+          </WrapperFormaRight>
         </WrapperFormaMain>
         {/* // <Button $width="160px" $marginLeft="auto" type="submit">
         //   Save

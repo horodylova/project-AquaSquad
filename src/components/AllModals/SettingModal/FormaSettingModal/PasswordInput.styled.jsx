@@ -6,6 +6,8 @@ export const PasswordInputStyled = styled.div`
   button {
     display: flex;
     position: absolute;
+    border: none;
+    background-color: transparent;
     right: 10px;
     top: 50%;
     transform: translateY(-50%);

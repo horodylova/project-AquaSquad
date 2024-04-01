@@ -2,10 +2,10 @@
 
 import { Input } from '../Input.styled';
 import { PasswordInputStyled } from './PasswordInput.styled';
-
+import eye from "../../../../Icons/eye-crossed.svg";
 // import sprite from '../../../img/sprite.svg';
 
-const PasswordInput = () => {
+export const PasswordInput = () => {
 //   const [showPassword, setShowPassword] = useState(false);
 
 //   const togglePassword = () => {
@@ -19,7 +19,7 @@ const PasswordInput = () => {
           <button  type="button">
               {/* <button onClick={togglePassword} type="button"></button> */}
         <svg>
-                  <use href={sprite +  '#eye'}></use>
+                  <use href={eye +  '#icon-eye-crossed'}></use>
                   {/* <use href={sprite + (showPassword ? '#eye' : '#eye-slash')}></use> */}
         </svg>
       </button>
@@ -27,4 +27,3 @@ const PasswordInput = () => {
   );
 };
 
-export default PasswordInput;
