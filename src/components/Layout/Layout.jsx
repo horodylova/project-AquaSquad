@@ -3,9 +3,8 @@
 // import { Header } from 'components/Header/Header';
 
 // const SharedLayout = () => {
-  
-//     // const isLoggedIn = useSelector(selectUserToken); // const selectUserToken = state => state.auth.token;
 
+//     // const isLoggedIn = useSelector(selectUserToken); // const selectUserToken = state => state.auth.token;
 
 //   return (
 //     <>
@@ -15,26 +14,25 @@
 //         <Outlet />
 //       </Suspense>
 //     </>
-  
+
 //   );
-    
+
 // };
 
 // export default SharedLayout;
 
-
-import { Header } from '../Header/Header';  
+import { Header } from '../Header/Header';
+import { isAuthenticated } from '../../redux/auth/authSelectors';
+import { useSelector } from 'react-redux';
 
 const Layout = ({ children }) => {
+  const loginUser = useSelector(isAuthenticated);
   return (
     <>
-      <Header />
-      <main>
-        {children}
-      </main>
+      <Header isAuthenticated={loginUser} />
+      <main>{children}</main>
     </>
   );
 };
 
 export default Layout;
-

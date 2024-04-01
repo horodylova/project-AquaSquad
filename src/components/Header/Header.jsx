@@ -1,12 +1,13 @@
-
 // import Container from '../Container/Container';
-import { HeaderContainer, Navigation, NavigationWrapper } from './Header.styled';
+import {
+  HeaderContainer,
+  Navigation,
+  NavigationWrapper,
+} from './Header.styled';
 import { HeaderLogo } from './HeaderLogo/HeaderLogo';
 import { UserAuth } from './UserAuth/UserAuth';
 import { UserLogo } from './UserLogo/UserLogo';
-// import { SettingModal } from '../AllModals/SettingModal/SettingModal';
-
-
+import { SettingModal } from '../AllModals/SettingModal/SettingModal';
 
 export const Header = ({ isAuthenticated }) => {
   return (
@@ -17,9 +18,9 @@ export const Header = ({ isAuthenticated }) => {
           <HeaderLogo isAuthenticated={isAuthenticated} />
           {isAuthenticated ? <UserLogo /> : <UserAuth />}
         </Navigation>
-        </NavigationWrapper>
-        {/* <SettingModal/> */}
-      </HeaderContainer>
+      </NavigationWrapper>
+      {/* <SettingModal/> */}
+    </HeaderContainer>
     // </Container>
   );
 };
