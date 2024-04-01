@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Header } from 'components/Header/Header';
+import WelcomePage from '../WelcomePage/WelcomePage';
 
 const SharedLayout = () => {
   
@@ -10,7 +11,8 @@ const SharedLayout = () => {
   return (
     <>
       {/* <Header  /> // isAuthenticated={isLoggedIn} */}
-      <Header/>
+      <Header />
+      <WelcomePage />
       <Suspense fallback={null}>
         <Outlet />
       </Suspense>

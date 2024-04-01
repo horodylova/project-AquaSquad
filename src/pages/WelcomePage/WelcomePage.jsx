@@ -1,5 +1,5 @@
-import WelcomeForm from '../WelcomePage/WelcomePage';
+import WelcomePage from '../WelcomePage/WelcomePage';
 
-export default function Welcome() {
-  return <WelcomeForm />;
+export default function WelcomePage () {
+  return <WelcomePage />;
 }

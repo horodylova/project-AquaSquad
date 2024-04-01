@@ -10,7 +10,7 @@ import {
   SubTitle,
   Button,
 } from './WaterTracker.styled';
-import iconSprite from '../../../Images/welcome-page/iconSprite';
+import iconSprite from '../../../Images/welcome-page/iconSprite.svg';
 
 export const WaterTracker = () => {
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ export const WaterTracker = () => {
       <MainTitle>Water consumption tracker</MainTitle>
       <Descr>Record daily water intake and track</Descr>
       <SubTitle>Tracker Benefits</SubTitle>
-      <BenefitsList>
+            <BenefitsList>
         <BenefitsItems>
           <Icon>
             <use href={iconSprite + '#icon-calendar'} />

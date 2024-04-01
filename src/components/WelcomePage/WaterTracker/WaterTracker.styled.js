@@ -13,7 +13,7 @@ export const BenefitsList = styled.ul`
  
 `;
 export const BenefitsItems = styled.li`
-  font-family: 'Roboto-regular';
+  font-family: 'Roboto';
   display: flex;
   align-items: center;
 
@@ -25,14 +25,14 @@ export const BenefitsItems = styled.li`
 `;
 
 export const Descr = styled.p`
-  font-family: 'Roboto-regular';
+  font-family: 'Roboto';
   font-size: 24px;
   line-height: 1.25;
   color: var(--primary-txt-color);
   margin-bottom: 24px;
 
   @media only screen and (min-width: 768px) {
-    font-size: var(--fontSizesLarge);
+    font-size: 26px;
     line-height: 1.14;
   }
 `;
@@ -50,7 +50,7 @@ export const Container = styled.div`
 `;
 
 export const MainTitle = styled.h1`
-  font-family: 'Roboto-Bold';
+  font-family: 'Roboto';
   font-size: 36px;
   line-height: 1.17;
   color: var(--primary-txt-color);
@@ -64,7 +64,7 @@ export const MainTitle = styled.h1`
 `;
 
 export const SubTitle = styled.h2`
-  font-size: var(--fontSizesMedium);
+  font-size: 18px;
   line-height: 1.11;
   margin-bottom: 12px;
   color: var(--primary-txt-color, #2F2F2F);
@@ -75,7 +75,7 @@ export const Icon = styled.svg`
   width: 24px;
   height: 24px;
   flex-shrink: 0;
-  fill: var(--primary-color);
+  fill: none;
   @media screen and (min-width: 768px) {
     width: 30px;
   height: 30px;
