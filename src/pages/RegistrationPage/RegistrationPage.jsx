@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import Container from '../../components/Container/Container';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 import sprite from '../../../src/Icons/signIn-signUp/sprite.svg';
 import { register as registerAction } from '../../../src/redux/auth/authOperations';
 import {
@@ -43,13 +44,11 @@ const RegistrationPage = () => {
       await dispatch(registerAction({ email, password })).unwrap();
 
       console.log(JSON.stringify({ email, password }));
-      alert(
-        'Check your email inbox, we send an email link to complete your registration'
-      );
+      toast.success('Registration successful. Welcome aboard!');
       reset();
     } catch (error) {
       console.log(error);
-      alert('register error');
+      toast.error('Registration failed. Please try again later.');
     }
 
     console.log(JSON.stringify({ email, password }));
@@ -191,7 +190,7 @@ const RegistrationPage = () => {
                 )}
               </div>
               <Input type="submit" disabled={!isValid} value="Sign Up" />
-              <SignInLin to="/signin">Sign in</SignInLin>
+              <SignInLin to="/login">Sign in</SignInLin>
             </Form>
             <BottleImg></BottleImg>
           </RegisterContainer>

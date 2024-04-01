@@ -94,8 +94,10 @@ export const RegisterContainer = styled.div`
     flex-direction: row;
     background-repeat: no-repeat;
     background-position: 100px center;
+    /* background-position: 100px 100px; */
 
-    /* width: 736px; */
+    min-width: 736px;
+    min-height: 548px;
     background-image: image-set(
       url('../../../src/Images/signIn-signUp/bottle/tablet/bottle_tablet@1x.png')
         1x,
@@ -105,6 +107,9 @@ export const RegisterContainer = styled.div`
   }
 
   @media (min-width: 1440px) {
+    min-height: 916px;
+    min-height: 680px;
+
     align-items: end;
     flex-direction: column;
     background-position: -50px center;

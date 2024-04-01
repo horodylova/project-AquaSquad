@@ -12,6 +12,7 @@ import {
   SectionAuth,
 } from '../RegistrationPage/RegistrationPage.styled';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { login } from '../../../src/redux/auth/authOperations';
 import { useState } from 'react';
@@ -42,13 +43,11 @@ const LogInPage = () => {
       await dispatch(login({ email, password })).unwrap();
 
       console.log(JSON.stringify({ email, password }));
-      alert(
-        'Check your email inbox, we send an email link to complete your registration'
-      );
+      toast.success('Login successful. Welcome aboard!');
       reset();
     } catch (error) {
       console.log(error);
-      alert('here register error');
+      toast.error('Registration failed. Please try again later.');
     }
 
     console.log(JSON.stringify({ email, password }));
@@ -139,7 +138,7 @@ const LogInPage = () => {
                 )}
               </div>
               <Input type="submit" disabled={!isValid} value="Sign In" />
-              <SignInLin to="/signup">Sign Up</SignInLin>
+              <SignInLin to="/register">Sign Up</SignInLin>
             </Form>
             <BottleImg></BottleImg>
           </RegisterContainer>
