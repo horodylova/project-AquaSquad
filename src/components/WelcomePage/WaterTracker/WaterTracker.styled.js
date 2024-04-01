@@ -85,7 +85,7 @@ export const Icon = styled.svg`
 
 export const Button = styled.button`
   padding-right: 100px;
-  font-family: 'Roboto-Medium';
+  font-family: 'Roboto';
   font-size: 16px;
   background-color: var(--primary-color);
   width: 100%;
