@@ -1,7 +1,7 @@
 // import { useState } from 'react';
 
-import { Input } from '../Input.styled';
 import { PasswordInputStyled } from './PasswordInput.styled';
+import { Input } from '../Input.styled';
 import eye from "../../../../Icons/eye-crossed.svg";
 // import sprite from '../../../img/sprite.svg';
 
@@ -14,14 +14,14 @@ export const PasswordInput = () => {
 
   return (
     <PasswordInputStyled>
-          <Input  type='text'/>
           {/* <Input type={showPassword ? 'text' : 'password'} {...fields} /> */}
-          <button  type="button">
               {/* <button onClick={togglePassword} type="button"></button> */}
+            {/* <use href={sprite + (showPassword ? '#eye' : '#eye-slash')}></use> */}
+          <Input  type='text'/>
+          <button  type="button">
         <svg>
                   <use href={eye +  '#icon-eye-crossed'}></use>
-                  {/* <use href={sprite + (showPassword ? '#eye' : '#eye-slash')}></use> */}
-        </svg>
+         </svg> 
       </button>
     </PasswordInputStyled>
   );
