@@ -1,7 +1,5 @@
-const WelcomePage = () => {
-    return (
-        console.log("Welcome")
-    )
-    };
-    
-    export default WelcomePage; 
+import WelcomePage from '../WelcomePage/WelcomePage';
+
+export default function WelcomePage () {
+  return <WelcomePage />;
+}
