@@ -13,7 +13,6 @@ export const BenefitsList = styled.ul`
  
 `;
 export const BenefitsItems = styled.li`
-  font-family: 'Roboto';
   display: flex;
   align-items: center;
 
@@ -25,7 +24,6 @@ export const BenefitsItems = styled.li`
 `;
 
 export const Descr = styled.p`
-  font-family: 'Roboto';
   font-size: 24px;
   line-height: 1.25;
   color: var(--primary-txt-color);
@@ -50,7 +48,6 @@ export const Container = styled.div`
 `;
 
 export const MainTitle = styled.h1`
-  font-family: 'Roboto';
   font-size: 36px;
   line-height: 1.17;
   color: var(--primary-txt-color);
@@ -67,7 +64,7 @@ export const SubTitle = styled.h2`
   font-size: 18px;
   line-height: 1.11;
   margin-bottom: 12px;
-  color: var(--primary-txt-color, #2F2F2F);
+  color: var(--primary-txt-color);
 `;
 
 export const Icon = styled.svg`
