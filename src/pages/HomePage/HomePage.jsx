@@ -1,8 +1,13 @@
-import Container from "../../components/Container/Container";
+import Container from '../../components/Container/Container';
 
-export const HomePage = () => {
-
+const HomePage = () => {
   return (
-    <Container/>
+    <>
+      <Container>
+        <h1>Home page</h1>
+      </Container>
+    </>
   );
 };
+
+export default HomePage;
