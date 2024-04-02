@@ -11,7 +11,9 @@ import {
   WrapperRadio,
   FormLabelRadio,
   FormLabel,
-    InputSettingEdit,
+  InputSettingEdit,
+
+    
   
 } from './FormaSettingModal.styled';
 
@@ -98,9 +100,9 @@ export const FormaUpdateUserProfile = () => {
                 ) */}
               </FormLabel>
 
-              <FormLabel>
+              <FormLabel   >
                 {/* <FormLabel $fontSize="18px" $fontWeight="500"> */}
-                E-mail
+               E-mail
                 <InputSettingEdit
                   autoComplete="off"
                   type="email"
@@ -181,7 +183,7 @@ export const FormaUpdateUserProfile = () => {
           </WrapperFormaRight>
         </WrapperFormaMain>
         
-        <ButtonSettingsForma>Save</ButtonSettingsForma>
+        <ButtonSettingsForma type="submit" >Save</ButtonSettingsForma>
         {/* // <ButtonBase $width="160px" $marginLeft="auto" type="submit">
         //   Save
         // </ButtonBase>  */}

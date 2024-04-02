@@ -44,7 +44,6 @@ export const WrapperUpload = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-
   margin-bottom: 24px;
 
   img {
@@ -88,12 +87,12 @@ export const ContainerAvatar = styled.div`
 export const WrapperForma = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  // gap: 24px;
 `;
 
 export const WrapperFormaMain = styled.div`
   display: flex;
-  gap: 24px;
+  // gap: 24px;
   flex-direction: column;
 
   @media screen and (min-width: 768px) {
@@ -105,7 +104,7 @@ export const WrapperFormaMain = styled.div`
 export const WrapperFormaLeft = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  // gap: 12px;
   width: 100%;
 
   @media screen and (min-width: 768px) {
@@ -116,14 +115,14 @@ export const WrapperFormaLeft = styled.div`
 export const ContainerForm = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  // gap: 24px;
   width: 100%;
 `;
 
 export const WrapperFormaRight = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  // gap: 12px;
   width: 100%;
 
   @media screen and (min-width: 768px) {
@@ -133,7 +132,7 @@ export const WrapperFormaRight = styled.div`
 
 export const CloseBtn = styled.button`
   position: absolute;
-  top: 36px;
+  // top: 36px;
   right: 12px;
   height: 24px;
 
@@ -152,63 +151,7 @@ export const CloseBtn = styled.button`
   }
 `;
 
-// export const InputSettingEdit = styled(Input)`
-//   color: #407BFF;
-//   // opacity: 0.6;
-   
 
-//   &:focus,
-//   &:active {
-//     color: #407BFF;
-//     // opacity: 1;
-//   }
-
-// `;
-
-
-
-
-// export const ContainerSettings = styled.div`
-
-//   max-width: 100%;
-//   padding: 32px 12px;
-//   z-index: 100;
-//   position: absolute;
-//   transform: translate(-50%, -50%);
-//   top: 50%;
-//   left: 50%;
-//   background-color: grey; #FFFFFF
-//   border-radius: 10px;
-
-
-// @media screen and (min-width: 768px) {
-  
-//     padding: 32px 24px;
-//     width: 704px;
-  
-// }
-// @media screen and (min-width: 1280px) {
-  
-//     padding: 32px 24px;
-//     width: 1008px;
-  
-// }`;
-
-// export const CloseBtn = styled.button`
-//   position: absolute;
-//   top: 36px;
-//   right: 12px;
-//   height: 24px;
-
-//   background-color: transparent;
-//   border: none;
-//   cursor: pointer;
-//   margin-bottom: 0px;
-// //   svg {
-// //     stroke: #407BFF;
-// //     width: 24px;
-// //     height: 24px;
-// //   }`;
 
 export const TitlePart = styled.h3`
   font-size: 18px;
@@ -216,7 +159,7 @@ export const TitlePart = styled.h3`
   font-family: Roboto;
   line-height: 20px;
   color: #2F2F2F;
-margin-bottom: 8px;
+  margin-bottom: 8px;
 
 `;
 
@@ -225,74 +168,11 @@ export const Title = styled.h2`
   font-family: Roboto;
   line-height: 32px;
   font-weight: 500;
+  margin-bottom: 24px;
   color: #2F2F2F;
-margin-bottom: 24px;
 `;
 
-// export const UploadWrapper = styled.ul`
-// margin-bottom: 24px;
-//   display: flex;
-//   align-items: center;`;
-
-// export const AvatarContainer = styled.li`
-//   width: 80px;
-//   height: 80px;
-//   div {
-//     width: auto;
-//     height: 100%;
-//     background-color: red;
-//     border-radius: 100%;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     font-size: 52px;
-//     color: white;
-//     background-color: blue;
-//   }`;
-
-// export const UserPic = styled.div`
-//   border-radius: 80px;
-//   width: 80px;
-//   height: 80px;
-//   margin-right: 8px;
-  
-//   img {
-//     width: 100%;
-//   height: 100%;
-//   border-radius: 80px;
-//   object-position: center;
-//   object-fit: cover;
-//   }
-//   `;
-
-// export const UploadBox = styled.li`
-//   cursor:pointer`;
-
-// export const UploadContainer = styled.div`
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;`
 
 
-// export const UploadIcon = styled.button`
-  
-//   background-color: transparent;
-//   border: none;
-//   cursor: pointer;
-  
-//   svg {
-//     stroke: #407BFF;
-//     width: 16px;
-//     height: 16px;
-//   }}`;
-
-// export const UploadText = styled.span`
-//   color: rgba(64, 123, 255, 1);
-//   cursor: pointer;
-//   font-size: 14px;
-
-//   font-weight: 500;
-//   line-height: 18px; /* 128.571% */
-//   font-size: 14px;`;
 
 

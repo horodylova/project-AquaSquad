@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const PasswordInputStyled = styled.div`
   position: relative;
+  // opacity: 0.6;
+  // color: #D7E3FF;
   width: 100%;
   button {
     display: flex;

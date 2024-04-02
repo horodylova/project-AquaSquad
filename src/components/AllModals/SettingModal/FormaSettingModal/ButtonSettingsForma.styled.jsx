@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 
 export const ButtonSettingsForma = styled.button`
+width: 256px;
+margin-left: auto;
 display: flex;
   justify-content: center;
   align-items: center;
@@ -12,7 +14,6 @@ display: flex;
   font-weight: 500;
   text-align: center;
   color: #ffffff;
-  width: 100%;
   padding: 8px 30px;
 
   outline: none;
@@ -35,18 +36,11 @@ display: flex;
     cursor: not-allowed;
   }
   @media screen and (min-width: 768px) {
-    width:  100% ;
-    
+    // width:  100% ;
+    width: 160px;
     font-size: 18px;
     line-height: calc(24 / 18);
     padding: 10px 30px;
   }
-
-  // svg {
-  //   width: 24px;
-  //   height: 24px;
-  //   fill: none;
-  //   stroke: ffffff;
-  // }
 `;
  

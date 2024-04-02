@@ -3,16 +3,27 @@ import styled from 'styled-components';
 import { Input } from '../Input.styled';
 
 
+// export const InputTitle = styled.span`
+// font-weight: 400;
+// font-size: 16px;
+// line-height: 20px;
+// color: #2F2F2F;
+// margin-bottom: 12px;
+// `
+
 export const WrapperForma = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  // gap: 24px;
   `;
 
 export const WrapperFormaMain = styled.div`
   display: flex;
-  gap: 24px;
+  align-items: center;
+  justify-content: flex-start;
+  // gap: 24px;
   flex-direction: column;
+  // margin-bottom: 24px;
 
   @media screen and (min-width: 768px) {
   }
@@ -23,7 +34,7 @@ export const WrapperFormaMain = styled.div`
 export const WrapperFormaLeft = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  // gap: 12px;
   width: 100%;
 
   @media screen and (min-width: 768px) {
@@ -34,14 +45,14 @@ export const WrapperFormaLeft = styled.div`
   export const ContainerForm = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  // gap: 24px;
   width: 100%;
   `;
   
   export const WrapperFormaRight = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  // gap: 12px;
   width: 100%;
 
   @media screen and (min-width: 768px) {
@@ -52,8 +63,9 @@ export const WrapperFormaLeft = styled.div`
   
   
   export const InputSettingEdit = styled(Input)`
-  color: #9EBBFF;
+  // color: #9EBBFF;
   opacity: 0.6;
+  color: #D7E3FF;
   
   &:focus,
   &:active {
@@ -64,11 +76,12 @@ export const WrapperFormaLeft = styled.div`
   export const WrapperRadio = styled.div`
   display: flex;
   gap: 24px;
-
-  @media screen and (min-width: 768px) {
-  }
+// margin-bottom: 24px;
+  // @media screen and (min-width: 768px) {
+  //   margin-bottom: 28px;
+  // }
   @media screen and (min-width: 1440px) {
-    margin-bottom: 28px;
+    // margin-bottom: 52px;
   }
   `;
   export const FormLabelRadio = styled.label`
@@ -77,6 +90,7 @@ export const WrapperFormaLeft = styled.div`
   gap: 8px;
   font-size: 16px;
   line-height: 20px;
+  }
   
   div {
     width: 14px;
@@ -99,10 +113,8 @@ export const WrapperFormaLeft = styled.div`
   export const TitlePart = styled.h3`
   font-size: 18px;
   font-weight: 500;
-  line-height: calc(20 / 18);
-  
-  margin-top: 24px;
-  margin-bottom: 16px;
+  line-height: 20px;
+  margin-bottom: 12px;
   `;
   
 
@@ -113,13 +125,18 @@ export const WrapperFormaLeft = styled.div`
 // // `;
 
 export const FormLabel = styled.label`
-  font-size:  18 px;
-  font-weight: 500};
-  line-height: 20px ;
-  color: #2f2f2f;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-  width: 100%
+font-weight: 400;
+font-size: 16px;
+line-height: 20px;
+color: #2F2F2F;
+// margin-bottom: 24px;
+display: flex;
+flex-direction: column;
+width: 100%
+align-items: flex-start;
+// gap: 8px;
+// font-size:  18 px;
+// font-weight: 500;
+// line-height: 20px ;
+// color: #2f2f2f;
 `;
