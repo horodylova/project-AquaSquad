@@ -7,7 +7,6 @@ export const ContainerSettings = styled.div`
   left: 50%;
   top: 40px;
   transform: translate(-50%);
-
   color: #2F2F2F;
   background-color: #ffffff;
   width: 280px;
@@ -87,12 +86,12 @@ export const ContainerAvatar = styled.div`
 export const WrapperForma = styled.div`
   display: flex;
   flex-direction: column;
-  // gap: 24px;
+  gap: 24px;
 `;
 
 export const WrapperFormaMain = styled.div`
   display: flex;
-  // gap: 24px;
+  gap: 24px;
   flex-direction: column;
 
   @media screen and (min-width: 768px) {
@@ -104,7 +103,7 @@ export const WrapperFormaMain = styled.div`
 export const WrapperFormaLeft = styled.div`
   display: flex;
   flex-direction: column;
-  // gap: 12px;
+  gap: 12px;
   width: 100%;
 
   @media screen and (min-width: 768px) {
@@ -115,14 +114,14 @@ export const WrapperFormaLeft = styled.div`
 export const ContainerForm = styled.div`
   display: flex;
   flex-direction: column;
-  // gap: 24px;
+  gap: 24px;
   width: 100%;
 `;
 
 export const WrapperFormaRight = styled.div`
   display: flex;
   flex-direction: column;
-  // gap: 12px;
+  gap: 12px;
   width: 100%;
 
   @media screen and (min-width: 768px) {
@@ -132,7 +131,7 @@ export const WrapperFormaRight = styled.div`
 
 export const CloseBtn = styled.button`
   position: absolute;
-  // top: 36px;
+  top: 36px;
   right: 12px;
   height: 24px;
 

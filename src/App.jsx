@@ -1,10 +1,10 @@
 import { lazy, Suspense } from 'react';
 import Layout from '../src/components/Layout/Layout';
 import Loader from '../src/components/Loader/Loader';
-import { PrivateRoute } from './PrivateRoute';
-import { PublicRoute } from './PublicRoute';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import { PrivateRoute } from './PrivateRoute';
+// import { PublicRoute } from './PublicRoute';
+// import { ToastContainer } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 const WelcomePage = lazy(() => import('./pages/WelcomePage/WelcomePage'));
@@ -22,38 +22,38 @@ function App() {
           <Route path="/" element={<WelcomePage />} />
 
           {/* register */}
-          <Route
+          {/* <Route
             path="/register"
             element={
               <PublicRoute restricted>
                 <RegistrationPage />
               </PublicRoute>
             }
-          />
+          /> */}
 
           {/* login */}
-          <Route
+          {/* <Route
             path="/login"
             element={
               <PublicRoute redirectRoute={'/home'} restricted>
                 <LogInPage />
               </PublicRoute>
             }
-          />
+          /> */}
 
           {/* home */}
-          <Route
+          {/* <Route
             path="/home"
             element={
               <PrivateRoute>
                 <HomePage />
               </PrivateRoute>
             }
-          />
+          /> */}
 
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
-        <ToastContainer />
+        {/* <ToastContainer /> */}
       </Suspense>
     </Layout>
   );

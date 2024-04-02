@@ -19,7 +19,7 @@ export const Header = ({ isAuthenticated }) => {
           {isAuthenticated ? <UserLogo /> : <UserAuth />}
         </Navigation>
       </NavigationWrapper>
-      {/* <SettingModal/> */}
+      <SettingModal/>
     </HeaderContainer>
     // </Container>
   );
