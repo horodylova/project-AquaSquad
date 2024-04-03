@@ -8,18 +8,15 @@ import { Input } from '../Input.styled';
 export const WrapperForma = styled.div`
   display: flex;
   flex-direction: column;
-//   gap: 24px;
   
   `;
 
 export const WrapperFormaMain = styled.div`
 
   display: flex;
-  align-items: center;
-  justify-content: center;
   gap: 24px;
   flex-direction: column;
-  // margin-bottom: 24px;
+  margin-bottom: 24px;
 
   @media screen and (min-width: 768px) {
     justify-content: start;
@@ -31,7 +28,7 @@ export const WrapperFormaMain = styled.div`
 export const WrapperFormaLeft = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 12px;
+//   gap: 12px;
   width: 100%;
 
   @media screen and (min-width: 768px) {
@@ -49,7 +46,7 @@ export const WrapperFormaLeft = styled.div`
   export const WrapperFormaRight = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 12px;
+//   gap: 12px;
   width: 100%;
 
   @media screen and (min-width: 768px) {
@@ -60,7 +57,7 @@ export const WrapperFormaLeft = styled.div`
   
   
   export const InputSettingEdit = styled(Input)`
-  // color: #9EBBFF;
+  
   opacity: 0.6;
   color: #D7E3FF;
   
@@ -74,9 +71,6 @@ export const WrapperFormaLeft = styled.div`
   display: flex;
   gap: 24px;
 margin-bottom: 24px;
-//    @media screen and (min-width: 768px) {
-//     margin-bottom: 28px;
-//    }
   @media screen and (min-width: 1440px) {
     margin-bottom: 52px;
   }
@@ -114,7 +108,7 @@ display: flex;
   font-size: 18px;
   font-weight: 500;
   line-height: 20px;
-  margin-bottom: 12px;
+ margin-bottom: 12px;
   `;
   
 
@@ -134,5 +128,9 @@ font-size: 18px;;
   align-items: flex-start;
   gap: 8px;
   width: 100%;
+  
+  label:not(:last-child) {
+margin-bottom: 24px;
+  }
 
 `;
