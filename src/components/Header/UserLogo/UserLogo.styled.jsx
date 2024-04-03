@@ -28,7 +28,7 @@ export const UserLogoIcon = styled.svg`
 `;
 
 export const HeaderIcon = styled.svg`
-  margin-left: 8px;
+  margin-right: 6px;
   width: 28px;
   height: 28px;
   fill: #ffffff; //change to global const

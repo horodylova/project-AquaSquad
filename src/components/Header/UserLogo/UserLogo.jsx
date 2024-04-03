@@ -13,7 +13,7 @@ export const UserLogo = () => {
   return (
     <UserLogoContainer>
       <UserLogoBtn>
-        <UserName>User name</UserName>
+        <UserName>User Name</UserName>
         <HeaderIcon>
           <use href={user + '#icon-outline'}></use>
         </HeaderIcon>
