@@ -47,7 +47,16 @@ const RegistrationPage = () => {
       toast.success('Registration successful. Welcome aboard!');
       reset();
     } catch (error) {
-      toast.error(error);
+      if (error.response.status === 409) {
+        // Обробка помилки 409
+        console.error('Помилка 409: Конфлікт');
+        toast.error('Registration failed. Please try again later.');
+
+      } else {
+        // Інші типи помилок
+        console.error('Помилка:', error);
+      }
+      console.log(error);
     }
 
     console.log(JSON.stringify({ email, password }));
