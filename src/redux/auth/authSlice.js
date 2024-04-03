@@ -77,4 +77,5 @@ export const {
   setIsAuthenticated,
 } = authSlice.actions;
 
-export default authSlice.reducer;
+// export default authSlice.reducer;
+export const authReducer = authSlice.reducer;

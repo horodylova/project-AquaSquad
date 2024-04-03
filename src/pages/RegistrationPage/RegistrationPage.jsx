@@ -19,6 +19,8 @@ import {
   EyeSvg,
 } from './RegistrationPage.styled';
 
+const emailPatern = /^[a-z0-9._-]+@[a-z0-9.-]+.[a-z]{2,4}$/;
+
 const RegistrationPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
@@ -29,7 +31,7 @@ const RegistrationPage = () => {
     reset,
     watch,
   } = useForm({
-    mode: 'onBlur',
+    mode: 'onChange',
   });
 
   const togglePasswordVisibility = (inputId) => {
@@ -80,8 +82,16 @@ const RegistrationPage = () => {
                   {...register('email', {
                     required: 'This field is required!',
                     minLength: {
-                      value: 3,
+                      value: 8,
                       message: 'To short!',
+                    },
+                    maxLength: {
+                      value: 64,
+                      message: 'To long!',
+                    },
+                    pattern: {
+                      value: emailPatern,
+                      message: 'Enter a correct email, example@gmail.com',
                     },
                   })}
                   $errors={errors.email}
@@ -113,6 +123,10 @@ const RegistrationPage = () => {
                     minLength: {
                       value: 3,
                       message: 'To short!',
+                    },
+                    maxLength: {
+                      value: 64,
+                      message: 'To long!',
                     },
                   })}
                   $errors={errors.password}
@@ -158,6 +172,10 @@ const RegistrationPage = () => {
                     minLength: {
                       value: 3,
                       message: 'To short!',
+                    },
+                    maxLength: {
+                      value: 64,
+                      message: 'To long!',
                     },
                     validate: (val) => {
                       if (watch('password') != val) {

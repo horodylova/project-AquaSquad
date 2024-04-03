@@ -18,6 +18,8 @@ import { login } from '../../../src/redux/auth/authOperations';
 import { useState } from 'react';
 import sprite from '../../../src/Icons/signIn-signUp/sprite.svg';
 
+const emailPatern = /^[a-z0-9._-]+@[a-z0-9.-]+.[a-z]{2,4}$/;
+
 const LogInPage = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
@@ -28,7 +30,7 @@ const LogInPage = () => {
     handleSubmit,
     reset,
   } = useForm({
-    mode: 'onBlur',
+    mode: 'onChange',
   });
 
   const togglePasswordVisibility = (inputId) => {
@@ -74,6 +76,14 @@ const LogInPage = () => {
                       value: 3,
                       message: 'To short!',
                     },
+                    maxLength: {
+                      value: 64,
+                      message: 'To long!',
+                    },
+                    pattern: {
+                      value: emailPatern,
+                      message: 'Enter a correct email, example@gmail.com',
+                    },
                   })}
                   $errors={errors.email}
                 />
@@ -104,6 +114,10 @@ const LogInPage = () => {
                     minLength: {
                       value: 3,
                       message: 'To short!',
+                    },
+                    maxLength: {
+                      value: 64,
+                      message: 'To long!',
                     },
                   })}
                   $errors={errors.password}
