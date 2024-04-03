@@ -43,16 +43,11 @@ const LogInPage = () => {
   const onSubmit = async ({ email, password }) => {
     try {
       await dispatch(login({ email, password })).unwrap();
-
-      console.log(JSON.stringify({ email, password }));
       toast.success('Login successful. Welcome aboard!');
       reset();
     } catch (error) {
-      console.log(error);
       toast.error(error);
     }
-
-    console.log(JSON.stringify({ email, password }));
   };
 
   return (

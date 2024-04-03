@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, login } from '../auth/authOperations';
+import { register, login, logOut } from '../auth/authOperations';
 
 const initialState = {
   user: {
@@ -62,6 +62,16 @@ const authSlice = createSlice({
         state.isAuthenticated = true;
       })
       .addCase(login.rejected, (state) => {
+        state.isAuthenticated = false;
+      })
+      .addCase(logOut.pending, (state) => {
+        state.isAuthenticated = false;
+      })
+
+      .addCase(logOut.fulfilled, () => {
+        return initialState;
+      })
+      .addCase(logOut.rejected, (state) => {
         state.isAuthenticated = false;
       });
   },
