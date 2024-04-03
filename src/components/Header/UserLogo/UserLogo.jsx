@@ -18,17 +18,22 @@ import user from '../../../Icons/user_outline.svg';
 import arrowup from "../../../Icons/arrow-up.svg"
 import { UserLogoPopUp } from "../../AllModals/UserLogoModal/UserLogoPopUp";
 
+function emailUsername(emailAddress) {
+  return emailAddress.split('@')[0]
+};
+
 
 
 export const UserLogo = () => {
 
   const userProfile = useSelector(selectUserProfile);
-  const name = userProfile.username;
+  // const name = userProfile.username;
+  const email = userProfile.email;
   const avatar = userProfile.avatar;
-  const enteredUserName =  name.split(' ').slice(0, 1);
+  const enteredUserEmail = emailUsername(email);
   // const modalRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
-
+// name ||email ? enteredUserEmail
   //  const handleButtonClick = e => {
   //   setIsOpen(!isOpen);
   //   e.stopPropagation();
@@ -67,7 +72,8 @@ export const UserLogo = () => {
        /* <UserLogoBtn onClick={e => handleButtonClick(e)} */
         /* ref={modalRef} */
         aria-label="User Logo">
-        <UserName>{name ? enteredUserName : "User Name"}</UserName>
+        <UserName>{ email ? enteredUserEmail : "User Name"}</UserName>
+        {/* <UserName>{email ? enteredUserEmail : "User Name"}</UserName> */}
         {avatar ? (
           <UserAvatar src={avatar} alt="Avatar" />
         ) : (

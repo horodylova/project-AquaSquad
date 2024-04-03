@@ -1,4 +1,4 @@
-// import Container from '../Container/Container';
+import Container from '../Container/Container';
 import {
   HeaderContainer,
   Navigation,
@@ -11,17 +11,17 @@ import { UserLogo } from './UserLogo/UserLogo';
 
 export const Header = ({ isAuthenticated }) => {
   return (
-    // <Container>
-    <HeaderContainer>
-      <NavigationWrapper>
+    <Container>
+     {/* <HeaderContainer> */}
+      {/* <NavigationWrapper> */}
         <Navigation>
           <HeaderLogo isAuthenticated={isAuthenticated} />
           {isAuthenticated ? <UserLogo /> : <UserAuth />}
-          <UserLogo/>
+          {/* <UserLogo/> */}
         </Navigation>
-      </NavigationWrapper>
+      {/* </NavigationWrapper> */}
       {/* <SettingModal/> */}
-    </HeaderContainer>
-    // </Container>
+     {/* </HeaderContainer> */}
+    </Container>
   );
 };

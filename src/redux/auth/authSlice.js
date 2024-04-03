@@ -3,15 +3,16 @@ import { register, login } from '../auth/authOperations';
 
 const initialState = {
   user: {
-    username: "Beaver River",//null
+    username: '',//null
     password: null,
     gender: 'man',
     dailyNorma: null,
     avatar: "https://avatar.iran.liara.run/public/boy?username=Ash",//''
+    email: ''
   },
   token: null,
   error: null,
-  isAuthenticated: false,
+  isAuthenticated: true,//false
 };
 
 const authSlice = createSlice({

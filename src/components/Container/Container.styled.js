@@ -24,8 +24,10 @@ margin-right: auto;
 
   @media screen and (min-width: 1440px) {
     max-width: 1440px;
-    padding-left: 132px;
-    padding-right: 132px;
+    padding-left: 120px;
+    padding-right: 120px;
+    // padding-left: 132px;
+    // padding-right: 132px;
 
   }
 `;
