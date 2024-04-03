@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {useState } from 'react';
+// import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUserProfile } from '../../../redux/auth/authSelectors';
 
@@ -14,6 +15,7 @@ import {
 
 import arrow from '../../../Icons/solid.svg';
 import user from '../../../Icons/user_outline.svg';
+import arrowup from "../../../Icons/arrow-up.svg"
 import { UserLogoPopUp } from "../../AllModals/UserLogoModal/UserLogoPopUp";
 
 
@@ -24,7 +26,7 @@ export const UserLogo = () => {
   const name = userProfile.username;
   const avatar = userProfile.avatar;
   const enteredUserName =  name.split(' ').slice(0, 1);
-  const modalRef = useRef(null);
+  // const modalRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
 
   //  const handleButtonClick = e => {
@@ -75,7 +77,9 @@ export const UserLogo = () => {
         )}
         
         <UserLogoIcon >
-          <use href={arrow + '#icon-arrow-down'}></use>
+          {isOpen ? <use href={arrowup + '#icon-arrow-up'}></use> :
+            <use href={arrow + '#icon-arrow-down'}></use>
+          }
         </UserLogoIcon>
       </UserLogoBtn>
       {isOpen && <UserLogoPopUp />}
