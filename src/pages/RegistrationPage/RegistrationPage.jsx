@@ -1,4 +1,3 @@
-// import React from 'react';
 import { useForm } from 'react-hook-form';
 import Container from '../../components/Container/Container';
 import { useDispatch } from 'react-redux';
@@ -19,8 +18,11 @@ import {
   EyeSvg,
 } from './RegistrationPage.styled';
 
+const emailPatern = /^[a-z0-9._-]+@[a-z0-9.-]+.[a-z]{2,4}$/;
+
 const RegistrationPage = () => {
   const [showPassword, setShowPassword] = useState(false);
+
   const dispatch = useDispatch();
   const {
     register,
@@ -29,7 +31,7 @@ const RegistrationPage = () => {
     reset,
     watch,
   } = useForm({
-    mode: 'onBlur',
+    mode: 'onChange',
   });
 
   const togglePasswordVisibility = (inputId) => {
@@ -47,19 +49,8 @@ const RegistrationPage = () => {
       toast.success('Registration successful. Welcome aboard!');
       reset();
     } catch (error) {
-      if (error.response.status === 409) {
-        // Обробка помилки 409
-        console.error('Помилка 409: Конфлікт');
-        toast.error('Registration failed. Please try again later.');
-
-      } else {
-        // Інші типи помилок
-        console.error('Помилка:', error);
-      }
-      console.log(error);
+      toast.error(error);
     }
-
-    console.log(JSON.stringify({ email, password }));
   };
 
   return (
@@ -80,8 +71,16 @@ const RegistrationPage = () => {
                   {...register('email', {
                     required: 'This field is required!',
                     minLength: {
-                      value: 3,
+                      value: 8,
                       message: 'To short!',
+                    },
+                    maxLength: {
+                      value: 64,
+                      message: 'To long!',
+                    },
+                    pattern: {
+                      value: emailPatern,
+                      message: 'Enter a correct email, example@gmail.com',
                     },
                   })}
                   $errors={errors.email}
@@ -113,6 +112,10 @@ const RegistrationPage = () => {
                     minLength: {
                       value: 3,
                       message: 'To short!',
+                    },
+                    maxLength: {
+                      value: 64,
+                      message: 'To long!',
                     },
                   })}
                   $errors={errors.password}
@@ -158,6 +161,10 @@ const RegistrationPage = () => {
                     minLength: {
                       value: 3,
                       message: 'To short!',
+                    },
+                    maxLength: {
+                      value: 64,
+                      message: 'To long!',
                     },
                     validate: (val) => {
                       if (watch('password') != val) {

@@ -25,7 +25,7 @@ function App() {
           <Route
             path="/register"
             element={
-              <PublicRoute restricted>
+              <PublicRoute redirectRoute={'/home'} restricted>
                 <RegistrationPage />
               </PublicRoute>
             }
