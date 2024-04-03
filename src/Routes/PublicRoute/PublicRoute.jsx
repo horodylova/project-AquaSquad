@@ -1,15 +1,13 @@
-import { useNavigate } from "react-router-dom";
+import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
+import { selectAuthToken } from '../../redux/auth/authSelectors';
 
-export const PublicRoute = ({ component: Component }) => {
-  const navigate = useNavigate();
-
-  const isUserSignedIn = false; 
-  if (!isUserSignedIn) {
-    navigate("/");
-  }
-
-  return <Component />;
+export const PublicRoute = ({
+  children,
+  redirectRoute = '/',
+  restricted = false,
+}) => {
+  const token = useSelector(selectAuthToken);
+  const shouldRedirect = token && restricted;
+  return shouldRedirect ? <Navigate to={redirectRoute} /> : children;
 };
-
-export default PublicRoute;
-
