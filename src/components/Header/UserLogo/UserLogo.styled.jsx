@@ -34,3 +34,10 @@ export const HeaderIcon = styled.svg`
   fill: #ffffff; //change to global const
   stroke: #2F2F2F; //change to global const
 `;
+
+export const UserAvatar = styled.img`
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin-right: 4px;
+`;

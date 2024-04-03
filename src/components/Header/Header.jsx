@@ -7,7 +7,7 @@ import {
 import { HeaderLogo } from './HeaderLogo/HeaderLogo';
 import { UserAuth } from './UserAuth/UserAuth';
 import { UserLogo } from './UserLogo/UserLogo';
-import { SettingModal } from '../AllModals/SettingModal/SettingModal';
+// import { SettingModal } from '../AllModals/SettingModal/SettingModal';
 
 export const Header = ({ isAuthenticated }) => {
   return (
@@ -20,7 +20,7 @@ export const Header = ({ isAuthenticated }) => {
           <UserLogo/>
         </Navigation>
       </NavigationWrapper>
-      <SettingModal/>
+      {/* <SettingModal/> */}
     </HeaderContainer>
     // </Container>
   );
