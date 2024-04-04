@@ -2,7 +2,7 @@ import { RouterLink, HeaderIcon } from './UserAuth.styled';
 import user from '../../../Icons/user_outline.svg';
 
 export const UserAuth = () => (
-  <RouterLink to="/register">
+  <RouterLink to="/login">
     Sign in
     <HeaderIcon>
       <svg>
