@@ -19,12 +19,12 @@ import {
   FormLabelRadio,
   FormLabel,
   InputSettingEdit,
-  EyeSvg
+  EyeSvg,
 } from './FormaSettingModal.styled';
 import { Form } from 'react-router-dom';
 
 const emailPatern = /^[a-z0-9._-]+@[a-z0-9.-]+.[a-z]{2,4}$/;
-const showPassword = true;
+const showPassword = false;
 
 export const FormaUpdateUserProfile = () => {
   const userProfile = useSelector(selectUserProfile);
@@ -92,30 +92,30 @@ export const FormaUpdateUserProfile = () => {
 
               <FormLabel>
                 Your name
-                <InputSettingEdit {...register('name')} type="text"
-                    placeholder="Your name"/>
-          
-               
+                <InputSettingEdit
+                  {...register('name')}
+                  type="text"
+                  placeholder="User Name"
+                />
               </FormLabel>
 
               <FormLabel>
-              
                 E-mail
-                <InputSettingEdit {...register('email', {
+                <InputSettingEdit
+                  {...register('email', {
                     pattern: {
                       value: emailPatern,
                       message: 'Enter a correct email, example@gmail.com',
                     },
                   })}
                   type="text"
-                  placeholder="Your name"/>
+                  placeholder="user_email@gmail.com"
+                />
               </FormLabel>
 
               <div
                 style={{
                   position: 'relative',
-                  left: '350px',
-                  top: '15px',
                 }}
               >
                 {errors.email && (
@@ -123,7 +123,6 @@ export const FormaUpdateUserProfile = () => {
                     style={{
                       color: 'red',
                       position: 'absolute',
-                      top: '-15px',
                       marginBottom: 0,
                     }}
                   >
@@ -136,70 +135,74 @@ export const FormaUpdateUserProfile = () => {
           <WrapperFormaRight>
             <TitlePart>Password</TitlePart>
 
-           <FormLabel> 
+            <FormLabel>
               Oudated password
-             <InputSettingEdit  {...register('oldPassword')}
+              <InputSettingEdit
+                {...register('oldPassword')}
                 type="text"
-                placeholder="Your name"/>
-                <div style={{position: 'relative'}}>
+                placeholder="Password"
+              />
+              <div style={{ position: 'relative' }}>
                 {/* onClick={() => togglePasswordVisibility('password') */}
                 {/* showPassword['password'] */}
-                  {showPassword ? (
-                    <EyeSvg width="16" height="16">
-                      <use href={`${sprite}#icon-outlineOn`} />
-                    </EyeSvg>
-                  ) : (
-                    <EyeSvg width="16" height="16">
-                      <use href={`${sprite}#icon-outlineOff`} />
-                    </EyeSvg>
-                  )}
-                </div>
+                {showPassword ? (
+                  <EyeSvg width="16" height="16">
+                    <use href={`${sprite}#icon-outlineOn`} />
+                  </EyeSvg>
+                ) : (
+                  <EyeSvg width="16" height="16">
+                    <use href={`${sprite}#icon-outlineOff`} />
+                  </EyeSvg>
+                )}
+              </div>
             </FormLabel>
             <FormLabel>
-            
               New Password
-              <InputSettingEdit {...register('newPassword')}
+              <InputSettingEdit
+                {...register('newPassword')}
                 type="text"
-                placeholder="Your name"/>
-              <div style={{position: 'relative'}}>
+                placeholder="Password"
+              />
+              <div style={{ position: 'relative' }}>
                 {/* onClick={() => togglePasswordVisibility('password') */}
                 {/* showPassword['password'] */}
-                  {showPassword ? (
-                    <EyeSvg width="16" height="16">
-                      <use href={`${sprite}#icon-outlineOn`} />
-                    </EyeSvg>
-                  ) : (
-                    <EyeSvg width="16" height="16">
-                      <use href={`${sprite}#icon-outlineOff`} />
-                    </EyeSvg>
-                  )}
-                </div>
+                {showPassword ? (
+                  <EyeSvg width="16" height="16">
+                    <use href={`${sprite}#icon-outlineOn`} />
+                  </EyeSvg>
+                ) : (
+                  <EyeSvg width="16" height="16">
+                    <use href={`${sprite}#icon-outlineOff`} />
+                  </EyeSvg>
+                )}
+              </div>
             </FormLabel>
             <FormLabel>
-            
               Repeat new password
-              <InputSettingEdit {...register('repeatPassword')}
+              <InputSettingEdit
+                {...register('repeatPassword')}
                 type="text"
-                placeholder="Your name"/>
-              <div style={{position: 'relative'}}>
+                placeholder="Password"
+              />
+              <div style={{ position: 'relative' }}>
                 {/* onClick={() => togglePasswordVisibility('password') */}
                 {/* showPassword['password'] */}
-                  {showPassword ? (
-                    <EyeSvg width="16" height="16">
-                      <use href={`${sprite}#icon-outlineOn`} />
-                    </EyeSvg>
-                  ) : (
-                    <EyeSvg width="16" height="16">
-                      <use href={`${sprite}#icon-outlineOff`} />
-                    </EyeSvg>
-                  )}
-                </div>
+                {showPassword ? (
+                  <EyeSvg width="16" height="16">
+                    <use href={`${sprite}#icon-outlineOn`} />
+                  </EyeSvg>
+                ) : (
+                  <EyeSvg width="16" height="16">
+                    <use href={`${sprite}#icon-outlineOff`} />
+                  </EyeSvg>
+                )}
+              </div>
             </FormLabel>
           </WrapperFormaRight>
         </WrapperFormaMain>
         <ButtonSettingsForma type="submit" disabled={isSubmitting}>
-        Save
-          </ButtonSettingsForma>
+          {isSubmitting ? 'Loading..' : 'Save'}
+        </ButtonSettingsForma>
       </WrapperForma>
     </form>
   );

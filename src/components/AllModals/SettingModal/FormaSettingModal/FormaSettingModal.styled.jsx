@@ -56,8 +56,8 @@ export const WrapperFormaLeft = styled.div`
   
   export const EyeSvg = styled.svg`
   position: absolute;
-  right: 10px;
-  top: -40px;
+  left: 366px;
+  top: -35px;
   width: 16px;
   height: 16px;
   cursor: pointer;
