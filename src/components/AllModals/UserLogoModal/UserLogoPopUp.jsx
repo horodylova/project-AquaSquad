@@ -1,11 +1,29 @@
 // import wheel from '../../../Icons/settings.svg';
 // import logout from '../../../Icons/arrow-logout.svg';
+import React from 'react';
 import {
   LogoModal,
   LogoModalBtn
 } from './UserLogoPopUp.styled';
+import { SettingModal } from '../SettingModal/SettingModal';
+import { UserLogoutModal } from '../UserLogoutModal/UserLogoutModal';
+import { useDispatch, useSelector } from 'react-redux';
+import { setModalType, setOpenModal } from '../../../redux/modals/modalSlice';
+import { selectIsOpenModal, selectIsModalType } from '../../../redux/modals/modalSelectors';
+import { Backdrop } from '../Backdrop/Backdrop';
+
+
 
 export const UserLogoPopUp = () => {
+  
+  const dispatch = useDispatch();
+  const modalState = useSelector(selectIsOpenModal);
+  const typeOfModal = useSelector(selectIsModalType);
+  
+  const handleModalOpen = typeOfModal => {
+      dispatch(setModalType(typeOfModal));
+      dispatch(setOpenModal(true));
+    };
   return (
     <>
       <LogoModal>
@@ -33,7 +51,7 @@ export const UserLogoPopUp = () => {
           </li>
           <li>
             <LogoModalBtn
-              className="logo-modal-btn"
+        
               onClick={() => handleModalOpen('logout')}
             >
               <svg
@@ -53,7 +71,17 @@ export const UserLogoPopUp = () => {
           </li>
         </ul>
       </LogoModal>
-    
+
+    {modalState && typeOfModal === 'settings' && (
+        <Backdrop>
+          <SettingModal />
+        </Backdrop>
+      )}
+      {modalState && typeOfModal === 'logout' && (
+        <Backdrop>
+          <UserLogoutModal />
+        </Backdrop> )}
+      
       </>
   );
 };
