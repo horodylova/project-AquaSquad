@@ -54,9 +54,9 @@ export const UserLogoutModal = () => {
       </DivOfHeadingOfLogOutModal>
       <ParagraphOfExit>Do you really want to leave?</ParagraphOfExit>
       <DivOfBtns>
-        <BtnOfCancelModalLogOut>Cancel</BtnOfCancelModalLogOut>
+        <BtnOfCancelModalLogOut onClick={() => handleModalOpen('')}>Cancel</BtnOfCancelModalLogOut>
 
-        <BtnOfExit>Log out</BtnOfExit>
+        <BtnOfExit >Log out</BtnOfExit>
       </DivOfBtns>
     </LogoutModal>
   );
