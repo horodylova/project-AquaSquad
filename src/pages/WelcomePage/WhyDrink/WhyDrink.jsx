@@ -16,7 +16,7 @@ export const WhyDrink = () => {
             <InfoItems>Maintaining the work of the heart</InfoItems>
             <InfoItems>Release of processed substances</InfoItems>
             <InfoItems>
-              Ensuring the stabiInfoItemsty of the internal environment
+              Ensuring the stability of the internal environment
             </InfoItems>
             <InfoItems>Maintaining within the normal temperature</InfoItems>
             <InfoItems>
