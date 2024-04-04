@@ -1,14 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, login, logOut } from '../auth/authOperations';
+import {
+  register,
+  login,
+  logOut,
+  updateUserAvatar,
+  updateUserProfileInfo,
+} from '../auth/authOperations';
 
 const initialState = {
   user: {
-    username: null,
-    password: null,
+    username: 'Genrich',//null
+    password: '',//null
     gender: 'man',
     dailyNorma: null,
     avatar: '',
-    email: '',
+    email: "",
   },
   token: null,
   error: null,
@@ -72,9 +78,18 @@ const authSlice = createSlice({
 
       .addCase(logOut.fulfilled, () => {
         return initialState;
+         
       })
       .addCase(logOut.rejected, (state) => {
         state.isAuthenticated = false;
+      })
+      .addCase(updateUserAvatar.fulfilled, (state, action) => {
+        state.user.avatar = action.payload;
+      })
+      .addCase(updateUserProfileInfo.fulfilled, (state, action) => {
+        state.user.gender = action.payload.gender;
+        state.user.username = action.payload.userName;
+        state.user.email = action.payload.email;
       });
   },
 });

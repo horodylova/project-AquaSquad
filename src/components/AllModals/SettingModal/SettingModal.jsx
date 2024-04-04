@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useRef }from 'react';
 import close from '../../../Icons/close-cross.svg';
 import download from '../../../Icons/arrow-download.svg';
+
 import {
   CloseBtn,
   ContainerAvatar,
@@ -17,11 +18,31 @@ import {
   selectIsOpenModal,
   selectIsModalType,
 } from '../../../redux/modals/modalSelectors';
+import { selectUserProfile } from "../../../redux/auth/authSelectors";
+import { updateUserAvatar } from '../../../redux/auth/authOperations';
+
 
 export const SettingModal = () => {
   const dispatch = useDispatch();
   const modalState = useSelector(selectIsOpenModal);
   const typeOfModal = useSelector(selectIsModalType);
+  const userProfile = useSelector(selectUserProfile);
+   const filePecker = useRef(null);
+  // const avatar = userProfile.avatar;
+
+  const defaultUserImage = 'https://avatar.iran.liara.run/public/6';
+
+  const handleChange = e => {
+    const formaData = new FormData();
+    formaData.append('avatar', e.target.files[0]);
+    if (e.target.files[0]) {
+      dispatch(updateUserAvatar(formaData));
+    }
+  };
+
+  const handleClick = () => {
+    filePecker.current.click();
+  };
 
   const handleModalOpen = (typeOfModal) => {
     dispatch(setModalType(typeOfModal));
@@ -31,6 +52,7 @@ export const SettingModal = () => {
   return (
     <ContainerSettings>
       <CloseBtn onClick={() => handleModalOpen('')}>
+  
         <HoverCloseBtn>
           <svg width="24" height="24">
             <use href={close + '#icon-close-cross'}></use>
@@ -43,19 +65,9 @@ export const SettingModal = () => {
 
       <WrapperUpload>
         <ContainerAvatar>
-          {/* {!userProfile.avatarURL && (
-            <div>
-              {userProfile.userName
-                ? userProfile.userName.split('')[0].toUpperCase()
-                : 'V'}
-            </div>
-          )} */}
-          {/* {userProfile.avatarURL && (
-            <img src={userProfile.avatarURL} alt="avatar" width={80} />
-          )} */}
-
+          
           <img
-            src={'https://avatar.iran.liara.run/public/6'}
+            src={userProfile.avatar ? userProfile.avatar : defaultUserImage}
             alt="avatar"
             width="80"
           />
@@ -76,15 +88,13 @@ export const SettingModal = () => {
               overflow: 'hidden',
               display: 'none',
             }}
-            // className="visually-hidden"
-            // ref={filePecker}
+            ref={filePecker}
             type="file"
             accept=".jpg"
-
-            // onChange={handelChange}
+            onChange={handleChange}/// need to write logic
           />
-          <button type="button" style={{ border: 'none' }}>
-            {/* <button type="button" onClick={handlerClick}> */}
+          <button type="button" style={{ border: 'none' }} onClick={handleClick}>
+      
 
             <svg width="16" height="16">
               <use href={download + '#icon-arrow-up'}></use>
@@ -95,7 +105,7 @@ export const SettingModal = () => {
         </label>
       </WrapperUpload>
 
-      <FormaUpdateUserProfile />
+      <FormaUpdateUserProfile/>
     </ContainerSettings>
   );
 };
