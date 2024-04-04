@@ -12,7 +12,7 @@ const initialState = {
   },
   token: null,
   error: null,
-  isAuthenticated: false, 
+  isAuthenticated: true, //false
 };
 
 const authSlice = createSlice({

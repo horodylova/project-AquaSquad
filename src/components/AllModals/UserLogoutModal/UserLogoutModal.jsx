@@ -17,6 +17,7 @@ import {
   selectIsOpenModal,
   selectIsModalType,
 } from '../../../redux/modals/modalSelectors';
+import { logOut } from '../../../redux/auth/authOperations';
 
 export const UserLogoutModal = () => {
   const dispatch = useDispatch();
@@ -56,7 +57,7 @@ export const UserLogoutModal = () => {
       <DivOfBtns>
         <BtnOfCancelModalLogOut onClick={() => handleModalOpen('')}>Cancel</BtnOfCancelModalLogOut>
 
-        <BtnOfExit >Log out</BtnOfExit>
+        <BtnOfExit onClick={() => dispatch(logOut())}>Log out</BtnOfExit>
       </DivOfBtns>
     </LogoutModal>
   );
