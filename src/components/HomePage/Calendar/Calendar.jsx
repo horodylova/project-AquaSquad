@@ -15,7 +15,7 @@ import {
 import { ReactComponent as ArrowLeft } from '/src/Icons/arrow-left.svg';
 import { ReactComponent as ArrowRight } from '/src/Icons/arrow-right.svg';
 
-const Calendar = () => {
+export const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const getDaysInMonth = (date) => {
