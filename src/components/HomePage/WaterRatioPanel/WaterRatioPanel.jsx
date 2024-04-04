@@ -11,7 +11,7 @@ import {
   ButtonAddWater,
   SvgButton,
 } from '../../../pages/HomePage/HomePage.styled';
-import { TodayListModal } from 'components/TodayListModal/TodayListModal';
+import { TodayListModal } from '../../../components/TodayListModal/TodayListModal';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectModalAdd, selectNewCompleted } from '../../../redux/selectors';
 import { openModalAdd, closeModalAdd } from '../../../redux/modals/modalSlice';
@@ -69,7 +69,7 @@ export const WaterRatioPanel = () => {
       </RangeDiv>
       <ButtonAddWater onClick={openModal}>
         <SvgButton>
-          <use href={iconSprite + '#icon-plus'} />
+          <use href={iconSprite + '#icon-plus-botton'} />
         </SvgButton>
         Add Water
       </ButtonAddWater>
