@@ -1,22 +1,23 @@
-import Container from '../../components/Container/Container';
-
-import { useDispatch } from 'react-redux';
-import { logOut } from '../../redux/auth/authOperations';
+// import { DailyNorma } from 'components/Homepage/DailyNorma';
+// import { ImageOfBottle } from 'components/Homepage/ImageOfBottle/ImageOfBottle';
+// import { TodayAndMonthLayout } from 'components/TodayAndMonthLayout/TodayAndMonthLayout';
+import { WaterRatioPanel } from '../../components/HomePage/WaterRatioPanel/WaterRatioPanel';
+import { LeftSideDiv, AllSidesDiv, StyledBackground } from './HomePage.styled';
 
 const HomePage = () => {
-  const dispatch = useDispatch();
-
   return (
-    <>
-      <Container>
-        <h1>Home page</h1>
-
-        <button onClick={() => dispatch(logOut())} type="button">
-          Logout
-        </button>
-      </Container>
-    </>
+    <StyledBackground className='static-background'>
+      <div className="container">
+        <AllSidesDiv>
+          <LeftSideDiv>
+            {/* <DailyNorma />
+            <ImageOfBottle /> */}
+            <WaterRatioPanel />
+          </LeftSideDiv>
+          {/* <TodayAndMonthLayout /> */}
+        </AllSidesDiv>
+      </div>
+    </StyledBackground>
   );
 };
-
 export default HomePage;
