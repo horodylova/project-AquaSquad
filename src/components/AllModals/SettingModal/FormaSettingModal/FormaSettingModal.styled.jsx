@@ -54,7 +54,15 @@ export const WrapperFormaLeft = styled.div`
   }
   `;
   
-  
+  export const EyeSvg = styled.svg`
+  position: absolute;
+  right: 10px;
+  top: -40px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  /* background-color: red; */
+`;
   
   export const InputSettingEdit = styled(Input)`
   
