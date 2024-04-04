@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import iconSprite from '../../../Images/welcome-page/iconSprite.svg';
 import {
   RangeAndAddWater,
@@ -13,9 +13,16 @@ import {
 } from './WaterRatioPanel.styled';
 
 export const WaterRatioPanel = () => {
-  useEffect(() => {
-  const progress = (sliderValue / 100) * 100;
+  const [sliderValue, setSliderValue] = useState(50);
 
+  useEffect(() => {
+  }, [sliderValue]);
+
+  const handleSliderChange = (event) => {
+    setSliderValue(parseInt(event.target.value));
+  };
+
+  const progress = (sliderValue / 100) * 100;
   const sliderStyle = {
     background: `linear-gradient(to right, #9EBBFF ${progress}%, #D7E3FF ${progress}%)`,
   };
@@ -30,23 +37,21 @@ export const WaterRatioPanel = () => {
           max="100"
           value={sliderValue}
           style={sliderStyle}
-          readOnly={true}
+          onChange={handleSliderChange}
         ></StyledRangeInput>
         <PercentageDiv>
           <PercentageOfRange>0%</PercentageOfRange>
           <PercentageOfRange>
-            <BoldPercentageOfRange>50%</BoldPercentageOfRange>
+            <BoldPercentageOfRange>{sliderValue}%</BoldPercentageOfRange>
           </PercentageOfRange>
           <PercentageOfRange>100%</PercentageOfRange>
         </PercentageDiv>
       </RangeDiv>
-      <ButtonAddWater onClick={openModal}>
-        <SvgButton>
-          <use href={iconSprite + '#icon-plus-circle'} />
+      <ButtonAddWater>
+                <SvgButton>
+          <use href={iconSprite + '#icon-plus-button'} />
         </SvgButton>
-        Add Water
-      </ButtonAddWater>
+        Add Water</ButtonAddWater>
     </RangeAndAddWater>
   );
-  };
-
+};
