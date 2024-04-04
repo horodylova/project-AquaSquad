@@ -1,4 +1,3 @@
-import React from 'react';
 import close from '../../../Icons/close-cross.svg';
 import download from '../../../Icons/arrow-download.svg';
 import {
@@ -11,17 +10,19 @@ import {
   HoverCloseBtn,
 } from './SettingModal.styled';
 import { FormaUpdateUserProfile } from './FormaSettingModal/FormaSettingmodal';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
+
 import { setModalType, setOpenModal } from '../../../redux/modals/modalSlice';
-import {
-  selectIsOpenModal,
-  selectIsModalType,
-} from '../../../redux/modals/modalSelectors';
+// import {
+//   selectIsOpenModal,
+//   selectIsModalType,
+// } from '../../../redux/modals/modalSelectors';
 
 export const SettingModal = () => {
   const dispatch = useDispatch();
-  const modalState = useSelector(selectIsOpenModal);
-  const typeOfModal = useSelector(selectIsModalType);
+  // const modalState = useSelector(selectIsOpenModal);
+  // const typeOfModal = useSelector(selectIsModalType);
 
   const handleModalOpen = (typeOfModal) => {
     dispatch(setModalType(typeOfModal));
