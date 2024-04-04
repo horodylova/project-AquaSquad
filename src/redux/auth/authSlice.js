@@ -1,18 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, login, logOut } from '../auth/authOperations';
+import { register, login, logOut, refreshUser } from '../auth/authOperations';
+
+const defaultUser = {
+  username: null,
+  password: null,
+  gender: 'man',
+  dailyNorma: null,
+  avatar: '',
+  email: '',
+};
 
 const initialState = {
-  user: {
-    username: null,
-    password: null,
-    gender: 'man',
-    dailyNorma: null,
-    avatar: '',
-    email: '',
-  },
+  user: { ...defaultUser },
   token: null,
   error: null,
-  isAuthenticated: false, 
+  isAuthenticated: false,
+  isFetchingCurrentUser: false,
 };
 
 const authSlice = createSlice({
@@ -48,7 +51,7 @@ const authSlice = createSlice({
         state.isAuthenticated = false;
       })
       .addCase(register.fulfilled, (state, action) => {
-        state.user = action.payload.user;
+        state.user = { ...defaultUser, ...action.payload.user };
         state.token = action.payload.token;
         state.isAuthenticated = true;
       })
@@ -59,7 +62,12 @@ const authSlice = createSlice({
         state.isAuthenticated = false;
       })
       .addCase(login.fulfilled, (state, action) => {
-        state.user = action.payload.user;
+        console.log({ ...state.user });
+        console.log(action.payload);
+        console.log(action.payload.user);
+
+        // state.user = { ...defaultUser, ...action.payload.user };
+        state.user.email = action.payload.user.email;
         state.token = action.payload.token;
         state.isAuthenticated = true;
       })
@@ -75,6 +83,20 @@ const authSlice = createSlice({
       })
       .addCase(logOut.rejected, (state) => {
         state.isAuthenticated = false;
+      })
+      .addCase(refreshUser.pending, (state) => {
+        state.isFetchingCurrentUser = true;
+        state.isAuthenticated = false;
+      })
+      .addCase(refreshUser.fulfilled, (state, { payload }) => {
+        state.user = payload;
+        state.isAuthenticated = true;
+        state.isFetchingCurrentUser = false;
+      })
+      .addCase(refreshUser.rejected, (state) => {
+        state.token = null;
+        state.isAuthenticated = false;
+        state.isFetchingCurrentUser = false;
       });
   },
 });

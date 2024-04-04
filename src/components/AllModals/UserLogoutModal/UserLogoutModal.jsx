@@ -1,9 +1,8 @@
-import React from 'react';
 import {
   LogoutModal,
   HeadingOfLogOutModal,
   DivOfHeadingOfLogOutModal,
-  BtnOfCloseOfLogOutModal,
+  // BtnOfCloseOfLogOutModal,
   ParagraphOfExit,
   BtnOfExit,
   BtnOfCancelModalLogOut,
@@ -11,17 +10,20 @@ import {
   HoverCloseBtn,
   CloseBtn,
 } from './UserLogoutModal.styled';
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+
+import { logOut } from '../../../redux/auth/authOperations';
 import { setModalType, setOpenModal } from '../../../redux/modals/modalSlice';
-import {
-  selectIsOpenModal,
-  selectIsModalType,
-} from '../../../redux/modals/modalSelectors';
+// import {
+//   selectIsOpenModal,
+//   selectIsModalType,
+// } from '../../../redux/modals/modalSelectors';
 
 export const UserLogoutModal = () => {
   const dispatch = useDispatch();
-  const modalState = useSelector(selectIsOpenModal);
-  const typeOfModal = useSelector(selectIsModalType);
+  // const modalState = useSelector(selectIsOpenModal);
+  // const typeOfModal = useSelector(selectIsModalType);
 
   const handleModalOpen = (typeOfModal) => {
     dispatch(setModalType(typeOfModal));
@@ -54,9 +56,11 @@ export const UserLogoutModal = () => {
       </DivOfHeadingOfLogOutModal>
       <ParagraphOfExit>Do you really want to leave?</ParagraphOfExit>
       <DivOfBtns>
-        <BtnOfCancelModalLogOut onClick={() => handleModalOpen('')}>Cancel</BtnOfCancelModalLogOut>
+        <BtnOfCancelModalLogOut onClick={() => handleModalOpen('')}>
+          Cancel
+        </BtnOfCancelModalLogOut>
 
-        <BtnOfExit >Log out</BtnOfExit>
+        <BtnOfExit onClick={() => dispatch(logOut())}>Log out</BtnOfExit>
       </DivOfBtns>
     </LogoutModal>
   );
