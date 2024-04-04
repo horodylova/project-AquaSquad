@@ -44,8 +44,9 @@ export const WaterRatioPanel = () => {
         <SvgButton>
           <use href={iconSprite + '#icon-plus-circle'} />
         </SvgButton>
-        Add Water
+        Add Water test
       </ButtonAddWater>
     </RangeAndAddWater>
   );
-};
+  };
+
