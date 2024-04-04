@@ -10,41 +10,14 @@ import {
   BoldPercentageOfRange,
   ButtonAddWater,
   SvgButton,
-} from '../../../pages/HomePage/HomePage.styled';
-import { TodayListModal } from '../../../components/TodayListModal/TodayListModal';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectModalAdd, selectNewCompleted } from '../../../redux/selectors';
-import { openModalAdd, closeModalAdd } from '../../../redux/modals/modalSlice';
+} from './WaterRatioPanel.styled';
 
 export const WaterRatioPanel = () => {
-  const dispatch = useDispatch();
-  const modalIsOpen = useSelector(selectModalAdd);
-  const sliderValue = useSelector(selectNewCompleted);
-
   useEffect(() => {
-        const body = document.body;
-        if (modalIsOpen) {
-            body.style.overflow = 'hidden';
-        } else {
-            body.style.overflow = 'auto';
-        }
-        return () => {
-            body.style.overflow = 'auto';
-        };
-    }, [modalIsOpen]);
-
   const progress = (sliderValue / 100) * 100;
 
   const sliderStyle = {
     background: `linear-gradient(to right, #9EBBFF ${progress}%, #D7E3FF ${progress}%)`,
-  };
-
-  const openModal = () => {
-    dispatch(openModalAdd());
-  };
-
-  const closeModal = () => {
-    dispatch(closeModalAdd());
   };
 
   return (
@@ -69,11 +42,10 @@ export const WaterRatioPanel = () => {
       </RangeDiv>
       <ButtonAddWater onClick={openModal}>
         <SvgButton>
-          <use href={iconSprite + '#icon-plus-button'} />
+          <use href={iconSprite + '#icon-plus-circle'} />
         </SvgButton>
         Add Water
       </ButtonAddWater>
-      <TodayListModal modalIsOpen={modalIsOpen} closeModal={closeModal} />
     </RangeAndAddWater>
   );
 };
