@@ -21,6 +21,7 @@
     "modern-normalize": "^2.0.0",
     "normalize.css": "^8.0.1",
     "persist": "^0.2.7",
+    "random-avatar-generator": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.51.2",

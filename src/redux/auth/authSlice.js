@@ -3,11 +3,11 @@ import { register, login } from '../auth/authOperations';
 
 const initialState = {
   user: {
-    username: '',//null
+    username: null,
     password: null,
     gender: 'man',
     dailyNorma: null,
-    avatar: "https://avatar.iran.liara.run/public/boy?username=Ash",//''
+    avatar: '',
     email: ''
   },
   token: null,
