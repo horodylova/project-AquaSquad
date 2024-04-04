@@ -1,4 +1,7 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectFetchingCurrentUser } from '../src/redux/auth/authSelectors';
+import { refreshUser } from '../src/redux/auth/authOperations';
 import Layout from '../src/components/Layout/Layout';
 import Loader from '../src/components/Loader/Loader';
 import { PrivateRoute } from '../src/Routes/PrivateRoute/PrivateRoute';
@@ -15,47 +18,57 @@ const RegistrationPage = lazy(() =>
 const LogInPage = lazy(() => import('../src/pages/LogInPage/LogInPage'));
 
 function App() {
+  const dispatch = useDispatch();
+  const isFetchingCurrentUser = useSelector(selectFetchingCurrentUser);
+
+  useEffect(() => {
+    dispatch(refreshUser());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
-    <Layout>
-      <Suspense fallback={<Loader />}>
-        <Routes>
-          <Route path="/" element={<WelcomePage />} />
+    !isFetchingCurrentUser && (
+      <Layout>
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route path="/" element={<WelcomePage />} />
 
-          {/* register */}
-          <Route
-            path="/register"
-            element={
-              <PublicRoute redirectRoute={'/home'} restricted>
-                <RegistrationPage />
-              </PublicRoute>
-            }
-          />
+            {/* register */}
+            <Route
+              path="/register"
+              element={
+                <PublicRoute redirectRoute={'/home'} restricted>
+                  <RegistrationPage />
+                </PublicRoute>
+              }
+            />
 
-          {/* login */}
-          <Route
-            path="/login"
-            element={
-              <PublicRoute redirectRoute={'/home'} restricted>
-                <LogInPage />
-              </PublicRoute>
-            }
-          />
+            {/* login */}
+            <Route
+              path="/login"
+              element={
+                <PublicRoute redirectRoute={'/home'} restricted>
+                  <LogInPage />
+                </PublicRoute>
+              }
+            />
 
-          {/* home */}
-          <Route
-            path="/home"
-            element={
-              <PrivateRoute>
-                <HomePage />
-              </PrivateRoute>
-            }
-          />
+            {/* home */}
+            <Route
+              path="/home"
+              element={
+                <PrivateRoute>
+                  <HomePage />
+                </PrivateRoute>
+              }
+            />
 
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
-        <ToastContainer />
-      </Suspense>
-    </Layout>
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+          <ToastContainer />
+        </Suspense>
+      </Layout>
+    )
   );
 }
 
