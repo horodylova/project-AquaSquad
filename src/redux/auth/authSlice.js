@@ -7,10 +7,12 @@ const initialState = {
     password: null,
     gender: 'man',
     dailyNorma: null,
+    avatar: '',
+    email: '',
   },
   token: null,
   error: null,
-  isAuthenticated: false,
+  isAuthenticated: false, 
 };
 
 const authSlice = createSlice({

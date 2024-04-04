@@ -19,6 +19,41 @@ export const LogoutModal = styled.div`
   }
 `;
 
+export const HoverCloseBtn = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  padding: 4px;
+  border-radius: 100%;
+  transition: background-color 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98);
+  
+  &:hover {
+    background-color: #D7E3FF;
+  }
+`;
+
+export const CloseBtn = styled.button`
+  position: absolute;
+  top: 36px;
+  right: 12px;
+  height: 24px;
+
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 0px;
+  svg {
+    stroke: #407BFF;
+    width: 24px;
+    height: 24px;
+  }
+
+  @media screen and (min-width: 768px) {
+    right: 24px;
+  }
+`;
+
 export const DivOfHeadingOfLogOutModal = styled.div`
   display:flex;
   justify-content:space-between;

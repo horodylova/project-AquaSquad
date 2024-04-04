@@ -24,10 +24,10 @@ export const FormaUpdateUserProfile = () => {
       <WrapperForma>
         <WrapperFormaMain>
           <WrapperFormaLeft>
-            <TitlePart>
+            <TitlePart> 
               {/* <TitlePart $marginBottom="0px" $marginTop="0px"> */}
               Your gender identity
-            </TitlePart>
+             </TitlePart> 
 
             <ContainerForm>
               <WrapperRadio>
@@ -53,13 +53,13 @@ export const FormaUpdateUserProfile = () => {
                     // onChange={handleChange}
                     // checked={values.gender === 'female'}
                     // defaultChecked="true"
-                  />
+                  /> 
                   <div></div>
-                  <span>Girl</span>
+                  <span>Woman</span>
                 </FormLabelRadio>
 
                 <FormLabelRadio>
-                  <input
+                   <input
                     style={{
                       position: 'absolute',
                       width: '1px',
@@ -78,11 +78,11 @@ export const FormaUpdateUserProfile = () => {
                     value="male"
                     // onChange={handleChange}
                     // checked={values.gender === 'male'}
-                  />
+                  /> 
                   <div></div>
                   <span>Man</span>
-                </FormLabelRadio>
-              </WrapperRadio>
+                 </FormLabelRadio>
+               </WrapperRadio> 
 
               <FormLabel>
                 {/* <FormLabel $fontSize="18px" $fontWeight="500"> */}
@@ -156,13 +156,13 @@ export const FormaUpdateUserProfile = () => {
                     password={values.newPassword}
                   />
                 )} */}
-              {/* </PasswordInputWrapper>
-              {values.newPassword && (
+               {/* </PasswordInputWrapper>  */}
+              {/* {values.newPassword && (
                 <PasswordMeter $score={values.strengthScore} />
               )}
               {errors.newPassword && (
                 <InputError>{errors.newPassword}</InputError>
-              )} */}
+              )} */} 
             </FormLabel>
 
             <FormLabel>
