@@ -38,6 +38,56 @@ export const RangeTitle = styled.p`
   }
 `;
 
+<<<<<<< Updated upstream
+=======
+export const StyledRangeInput = styled.input`
+  -webkit-appearance: none;
+  appearance: none;
+  /* width: 258px; */
+  width: 100%;
+  cursor: default;
+  outline: none;
+  border-radius: 15px;
+  margin-bottom: 16px;
+  margin-left: 9px;
+  margin-right: 13px;
+  display: block;
+  height: 8px;
+  background: var(--light-grey-colo);
+  @media (min-width: 320px) {
+    width: 258px;
+  }
+  @media (min-width: 768px) {
+    width: 334px;
+    // margin-left:1px;
+    // margin-right:17px;
+  }
+  @media (min-width: 1440px) {
+    width: 360px;
+  }
+
+  /* Thumb: webkit */
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 14px;
+    width: 14px;
+    background-color: var(--white-color);
+    border-radius: 50%;
+    border: 1px solid var(--light-blue-color);
+  }
+
+  /* Thumb: Firefox */
+  &::-moz-range-thumb {
+    height: 14px;
+    width: 14px;
+    background-color: var(--white-color);
+    border-radius: 50%;
+    border: 1px solid var(--light-blue-color);
+  }
+`;
+
+>>>>>>> Stashed changes
 export const PercentageOfRange = styled.div`
   position: relative;
   font-size: 12px;
