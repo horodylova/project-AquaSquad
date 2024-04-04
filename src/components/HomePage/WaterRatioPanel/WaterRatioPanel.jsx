@@ -69,7 +69,7 @@ export const WaterRatioPanel = () => {
       </RangeDiv>
       <ButtonAddWater onClick={openModal}>
         <SvgButton>
-          <use href={iconSprite + '#icon-plus-botton'} />
+          <use href={iconSprite + '#icon-plus-button'} />
         </SvgButton>
         Add Water
       </ButtonAddWater>
