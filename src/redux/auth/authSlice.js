@@ -8,11 +8,11 @@ const initialState = {
     gender: 'man',
     dailyNorma: null,
     avatar: '',
-    email: ''
+    email: '',
   },
   token: null,
   error: null,
-  isAuthenticated: true,//false
+  isAuthenticated: false, 
 };
 
 const authSlice = createSlice({
@@ -65,7 +65,18 @@ const authSlice = createSlice({
       })
       .addCase(login.rejected, (state) => {
         state.isAuthenticated = false;
-      });
+      })
+      // .addCase(logout.fulfilled, (state) => {
+      //   state.user = initialState.user;
+      //   state.token = null;
+      //   state.isAuthenticated = false;
+      // })
+      // .addCase(logout.rejected, (state) => {
+      //    state.error = payload.message;
+      // })
+      // .addCase(logout.pending, (state) => {
+      //   state.isLoading = true;
+      // });
   },
 });
 
