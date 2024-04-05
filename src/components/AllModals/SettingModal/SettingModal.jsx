@@ -19,7 +19,7 @@ import {
   selectIsModalType,
 } from '../../../redux/modals/modalSelectors';
 import { selectUserProfile } from "../../../redux/auth/authSelectors";
-import { updateUserAvatar } from '../../../redux/auth/authOperations';
+// import { updateUserAvatar } from '../../../redux/auth/authOperations';
 
 
 export const SettingModal = () => {
@@ -32,13 +32,18 @@ export const SettingModal = () => {
 
   const defaultUserImage = 'https://avatar.iran.liara.run/public/6';
 
-  const handleChange = e => {
-    const formaData = new FormData();
-    formaData.append('avatar', e.target.files[0]);
-    if (e.target.files[0]) {
-      dispatch(updateUserAvatar(formaData));
-    }
-  };
+  // const handleChange = e => {
+  //   const formaData = new FormData();
+  //   formaData.append('avatar', e.target.files[0]);
+  //   if (e.target.files[0]) {
+  //     dispatch(updateUserAvatar(formaData));
+  //   }
+  // };
+
+  const handleChange = event => {
+    const newUserAvatar = event.target.value;
+   dispatch()
+  }
 
   const handleClick = () => {
     filePecker.current.click();

@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { PasswordInput } from './PasswordInput';
 import { ButtonSettingsForma } from './ButtonSettingsForma.styled';
 import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUserProfile } from '../../../../redux/auth/authSelectors';
+import {  setOpenModal } from '../../../../redux/modals/modalSlice';
 // import { updateUserProfileSchema } from '../validationSchema';
 import { updateUserProfileInfo } from '../../../../redux/auth/authOperations';
 import { useForm } from 'react-hook-form';
@@ -21,23 +22,38 @@ import {
   InputSettingEdit,
   EyeSvg,
 } from './FormaSettingModal.styled';
-import { Form } from 'react-router-dom';
+
 
 const emailPatern = /^[a-z0-9._-]+@[a-z0-9.-]+.[a-z]{2,4}$/;
-const showPassword = false;
+
+
+// const userProfile = useSelector(selectUserProfile);
+
 
 export const FormaUpdateUserProfile = () => {
-  const userProfile = useSelector(selectUserProfile);
   const dispatch = useDispatch();
+  const [showPassword, setShowPassword] = useState(false);
+
+   const togglePasswordVisibility = (inputId) => {
+    setShowPassword((prevPasswords) => ({
+      ...prevPasswords,
+      [inputId]: !prevPasswords[inputId],
+    }));
+  };
+  
+  const handleModalOpen = () => 
+    
+    dispatch(setOpenModal(false));
+  
 
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm();
-
-  const onSubmit = (data) => {
-    console.log(data);
+  
+  const onSubmit = ({email,name}) => {
+    console.log(email);
   };
 
   return (
@@ -142,10 +158,11 @@ export const FormaUpdateUserProfile = () => {
                 type="text"
                 placeholder="Password"
               />
-              <div style={{ position: 'relative' }}>
-                {/* onClick={() => togglePasswordVisibility('password') */}
-                {/* showPassword['password'] */}
-                {showPassword ? (
+              <div style={{ position: 'relative' }}
+              onClick={() => togglePasswordVisibility('password')}>
+                
+               
+                {showPassword['password']  ? (
                   <EyeSvg width="16" height="16">
                     <use href={`${sprite}#icon-outlineOn`} />
                   </EyeSvg>
@@ -163,10 +180,11 @@ export const FormaUpdateUserProfile = () => {
                 type="text"
                 placeholder="Password"
               />
-              <div style={{ position: 'relative' }}>
-                {/* onClick={() => togglePasswordVisibility('password') */}
-                {/* showPassword['password'] */}
-                {showPassword ? (
+              <div style={{ position: 'relative' }}
+              onClick={() => togglePasswordVisibility('password')}>
+                
+                
+                {showPassword['password'] ? (
                   <EyeSvg width="16" height="16">
                     <use href={`${sprite}#icon-outlineOn`} />
                   </EyeSvg>
@@ -184,10 +202,11 @@ export const FormaUpdateUserProfile = () => {
                 type="text"
                 placeholder="Password"
               />
-              <div style={{ position: 'relative' }}>
-                {/* onClick={() => togglePasswordVisibility('password') */}
-                {/* showPassword['password'] */}
-                {showPassword ? (
+              <div style={{ position: 'relative' }}
+              onClick={() => togglePasswordVisibility('password')}>
+                
+               
+                {showPassword['password'] ? (
                   <EyeSvg width="16" height="16">
                     <use href={`${sprite}#icon-outlineOn`} />
                   </EyeSvg>
@@ -200,8 +219,11 @@ export const FormaUpdateUserProfile = () => {
             </FormLabel>
           </WrapperFormaRight>
         </WrapperFormaMain>
-        <ButtonSettingsForma type="submit" disabled={isSubmitting}>
-          {isSubmitting ? 'Loading..' : 'Save'}
+        <ButtonSettingsForma type="submit"  >
+          {/* onClick={() => handleModalOpen()} */}
+          {/* {isSubmitting ? 'Loading..' : 'Save'} */}
+          {/* disabled={isSubmitting} */}
+          Save
         </ButtonSettingsForma>
       </WrapperForma>
     </form>

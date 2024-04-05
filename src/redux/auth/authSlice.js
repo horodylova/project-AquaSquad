@@ -3,8 +3,8 @@ import {
   register,
   login,
   logOut,
-  updateUserAvatar,
-  updateUserProfileInfo,
+  // updateUserAvatar,
+  // updateUserProfileInfo,
 } from '../auth/authOperations';
 
 const initialState = {
@@ -83,14 +83,14 @@ const authSlice = createSlice({
       .addCase(logOut.rejected, (state) => {
         state.isAuthenticated = false;
       })
-      .addCase(updateUserAvatar.fulfilled, (state, action) => {
-        state.user.avatar = action.payload;
-      })
-      .addCase(updateUserProfileInfo.fulfilled, (state, action) => {
-        state.user.gender = action.payload.gender;
-        state.user.username = action.payload.userName;
-        state.user.email = action.payload.email;
-      });
+      // .addCase(updateUserAvatar.fulfilled, (state, action) => {
+      //   state.user.avatar = action.payload;
+      // })
+      // .addCase(updateUserProfileInfo.fulfilled, (state, action) => {
+      //   state.user.gender = action.payload.gender;
+      //   state.user.username = action.payload.userName;
+      //   state.user.email = action.payload.email;
+      // });
   },
 });
 
