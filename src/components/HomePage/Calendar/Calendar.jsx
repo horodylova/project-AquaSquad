@@ -13,7 +13,11 @@ import {
   DayPercentage,
   ModalWrapper,
   ModalContent,
-  CustomModal
+  CustomModal,
+  SelectedDayInfo,
+  DailyNormaLabel, 
+  DailyNormaValue
+
 } from './Calendar.styled';
 
 import { ReactComponent as ArrowLeft } from '/src/Icons/arrow-left.svg';
@@ -21,7 +25,11 @@ import { ReactComponent as ArrowRight } from '/src/Icons/arrow-right.svg';
 
 Modal.setAppElement('#root');
 
-export const Calendar = ({ dailyNorma, fulfillmentPercentage, waterConsumed }) => {
+export const Calendar = ({
+  dailyNorma,
+  fulfillmentPercentage,
+  waterConsumed,
+}) => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDay, setSelectedDay] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -33,18 +41,21 @@ export const Calendar = ({ dailyNorma, fulfillmentPercentage, waterConsumed }) =
   };
 
   const goToPreviousMonth = () => {
-    setCurrentDate((prevDate) => new Date(prevDate.getFullYear(), prevDate.getMonth() - 1, 1));
+    setCurrentDate(
+      (prevDate) => new Date(prevDate.getFullYear(), prevDate.getMonth() - 1, 1)
+    );
   };
 
   const goToNextMonth = () => {
-    setCurrentDate((prevDate) => new Date(prevDate.getFullYear(), prevDate.getMonth() + 1, 1));
+    setCurrentDate(
+      (prevDate) => new Date(prevDate.getFullYear(), prevDate.getMonth() + 1, 1)
+    );
   };
 
   useEffect(() => {
     const intervalId = setInterval(() => setCurrentDate(new Date()), 60000);
     return () => clearInterval(intervalId);
   }, []);
-
 
   const handleDayClick = (day) => {
     setSelectedDay(day);
@@ -54,15 +65,27 @@ export const Calendar = ({ dailyNorma, fulfillmentPercentage, waterConsumed }) =
   const daysInMonth = getDaysInMonth(currentDate);
   const monthName = currentDate.toLocaleString('en', { month: 'long' });
   const year = currentDate.getFullYear();
+  const ModalStyle = {
+    overlay: {
+      backgroundColor: 'transparent',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+  };
 
   return (
     <CalendarContainer>
       <MonthContent>
         <MonthText>Month</MonthText>
         <MonthNavigation>
-          <Button onClick={goToPreviousMonth}><ArrowRight /></Button>
+          <Button onClick={goToPreviousMonth}>
+            <ArrowRight />
+          </Button>
           <MonthAndYear>{`${monthName}, ${year}`}</MonthAndYear>
-          <Button onClick={goToNextMonth}><ArrowLeft /></Button>
+          <Button onClick={goToNextMonth}>
+            <ArrowLeft />
+          </Button>
         </MonthNavigation>
       </MonthContent>
       <CalendarDays>
@@ -80,12 +103,24 @@ export const Calendar = ({ dailyNorma, fulfillmentPercentage, waterConsumed }) =
         isOpen={isModalOpen}
         onRequestClose={() => setIsModalOpen(false)}
         contentLabel="Day Details"
-           >
+        style={ModalStyle}
+      >
         <ModalWrapper>
           <ModalContent>
-            <p>{selectedDay ? `${selectedDay}, ${currentDate.toLocaleString('en', { month: 'long' })}` : ''}</p>
-            <p>Daily norma: {dailyNorma || '1.5'} L</p>
-            <p>Fulfillment of the daily norm: {fulfillmentPercentage || '0'}%</p>
+            <SelectedDayInfo>
+              {selectedDay
+                ? `${selectedDay}, ${currentDate.toLocaleString('en', {
+                    month: 'long',
+                  })}`
+                : ''}
+            </SelectedDayInfo>{' '}
+            <p>
+              <DailyNormaLabel>Daily norma: </DailyNormaLabel>
+              <DailyNormaValue>{dailyNorma || '1.5'} L</DailyNormaValue>
+            </p>{' '}
+            <p>
+              Fulfillment of the daily norm: {fulfillmentPercentage || '0'}%
+            </p>
             <p>Water consumed: {waterConsumed || '0'}</p>
             <button onClick={() => setIsModalOpen(false)}>Close</button>
           </ModalContent>
@@ -96,4 +131,3 @@ export const Calendar = ({ dailyNorma, fulfillmentPercentage, waterConsumed }) =
 };
 
 export default Calendar;
-
