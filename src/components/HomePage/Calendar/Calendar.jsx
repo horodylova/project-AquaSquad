@@ -103,7 +103,7 @@ export const Calendar = ({ dailyNorma, fulfillmentPercentage, waterConsumed }) =
         <p>Fulfillment of the daily norm: {fulfillmentPercentage || '0'}%</p>
         <p>Water consumed: {waterConsumed || '0'}</p>
         <button onClick={() => setIsModalOpen(false)}>Close</button>
-      </Modal>
+      </Modal>4
     </CalendarContainer>
   );
 };
