@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import { useSelector } from 'react-redux';
 import { selectUserProfile } from '../../../redux/auth/authSelectors';
 // import { AvatarGenerator } from 'random-avatar-generator';
@@ -22,21 +22,17 @@ function emailUsername(emailAddress) {
 
 
 
+const config = genConfig();
 
 export const UserLogo = () => {
   const userProfile = useSelector(selectUserProfile);
   const name = userProfile.username;
-  useEffect(() => {
-     
-     },
-    []);
   const email = userProfile.email;
   const avatar = userProfile.avatar;
   const enteredUserEmail = emailUsername(email);
   const [isOpen, setIsOpen] = useState(false);
 
   // const generator = new AvatarGenerator();
-  const config = genConfig();
 
   const makeUserName = () => {
     if (name) {
@@ -64,7 +60,7 @@ export const UserLogo = () => {
         <Avatar style={{width: '28px',
   height: '28px',
   borderRadius: '50%',
-  marginRight: '4px'}} />
+  marginRight: '4px'}}  {...config}/>
         {/* <Avatar style={{ width: '8rem', height: '8rem' }} {...config} /> */}
 
         <UserLogoIcon>
