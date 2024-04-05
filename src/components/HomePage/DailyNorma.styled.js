@@ -45,8 +45,8 @@ span {
       90deg,
       var(--orange-color) 0%,
       var(--orange-color) 50%,
-      var(--primary-color) 50%,
-      var(--primary-color) 100%
+      var(--light-blue-color) 50%,
+      var(--light-blue-color) 100%
     );
 
     background-size: 200% 100%;
@@ -54,8 +54,6 @@ span {
 
     -webkit-background-clip: text;
     background-clip: text;
-
-    transition: background-position var(--animationCubicBezier);
   }
 
   &:hover {
