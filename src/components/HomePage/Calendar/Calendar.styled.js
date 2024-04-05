@@ -1,5 +1,7 @@
 import styled from 'styled-components';
- 
+import Modal from 'react-modal';
+
+
 
 export const CalendarContainer = styled.div`
   background-color: var(--light-grey-color);
@@ -161,4 +163,43 @@ width: 100%;
 
 }
 `;
- 
+
+
+
+export const CustomModal = styled(Modal)`
+/* Стили для контента */
+&.ReactModal__Content {
+  /* Задаем размеры */
+  width: 80%; /* Ширина */
+  max-width: 400px; /* Максимальная ширина */
+  /* Убираем фиксированную высоту */
+  height: auto !important;
+  /* Добавляем фон */
+  background-color: white;
+  /* Задаем отступы */
+  padding: 24px 13px;
+  /* Добавляем скругления */
+  border-radius: 8px;
+  /* Добавляем тень */
+  // box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+&.ReactModal__Overlay {
+  /* Оставляем фон прозрачным */
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+`;
+
+export const ModalWrapper = styled.div`
+border-radius: 10px;
+box-shadow: 0px 4px 4px 0px rgba(64, 123, 255, 0.30);
+`;
+
+export const ModalContent = styled.div`
+display: inline-flex;
+padding: 24px 13px;
+flex-direction: column;
+align-items: flex-start;
+gap: 16px;`;
