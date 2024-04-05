@@ -19,7 +19,7 @@ import {
   selectIsModalType,
 } from '../../../redux/modals/modalSelectors';
 import { selectUserProfile } from "../../../redux/auth/authSelectors";
-// import { updateUserAvatar } from '../../../redux/auth/authOperations';
+import { updateAvatar } from "../../../redux/auth/authOperations";
 
 
 export const SettingModal = () => {
@@ -32,18 +32,17 @@ export const SettingModal = () => {
 
   const defaultUserImage = 'https://avatar.iran.liara.run/public/6';
 
-  // const handleChange = e => {
-  //   const formaData = new FormData();
-  //   formaData.append('avatar', e.target.files[0]);
-  //   if (e.target.files[0]) {
-  //     dispatch(updateUserAvatar(formaData));
-  //   }
-  // };
+  const handleChange = e => {
+    const formaData = new FormData();
+    formaData.append('avatar', e.target.files[0]);
+    if (e.target.files[0]) {
+      dispatch(updateAvatar(formaData));
+      
+      
+    }
+  };
 
-  const handleChange = event => {
-    const newUserAvatar = event.target.value;
-   dispatch()
-  }
+  
 
   const handleClick = () => {
     filePecker.current.click();
@@ -72,7 +71,7 @@ export const SettingModal = () => {
         <ContainerAvatar>
           
           <img
-            src={userProfile.avatar ? userProfile.avatar : defaultUserImage}
+            src={userProfile.avatarURL ? userProfile.avatarURL : defaultUserImage}
             alt="avatar"
             width="80"
           />
@@ -96,7 +95,7 @@ export const SettingModal = () => {
             ref={filePecker}
             type="file"
             accept=".jpg"
-            onChange={handleChange}/// need to write logic
+            onChange={handleChange}
           />
           <button type="button" style={{ border: 'none' }} onClick={handleClick}>
       

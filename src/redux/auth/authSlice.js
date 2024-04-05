@@ -3,22 +3,22 @@ import {
   register,
   login,
   logOut,
-  // updateUserAvatar,
+ updateAvatar
   // updateUserProfileInfo,
 } from '../auth/authOperations';
 
 const initialState = {
   user: {
-    username: 'Genrich',//null
+    username: null,//null
     password: '',//null
     gender: 'man',
     dailyNorma: null,
-    avatar: '',
+    avatarURL: '',
     email: "",
   },
   token: null,
   error: null,
-  isAuthenticated: true, //false
+  isAuthenticated: false, //false
 };
 
 const authSlice = createSlice({
@@ -83,9 +83,10 @@ const authSlice = createSlice({
       .addCase(logOut.rejected, (state) => {
         state.isAuthenticated = false;
       })
-      // .addCase(updateUserAvatar.fulfilled, (state, action) => {
-      //   state.user.avatar = action.payload;
-      // })
+      .addCase(updateAvatar.fulfilled, (state, {payload}) => {
+        state.user.avatarURL = payload;
+        console.log(action.payload);
+      })
       // .addCase(updateUserProfileInfo.fulfilled, (state, action) => {
       //   state.user.gender = action.payload.gender;
       //   state.user.username = action.payload.userName;

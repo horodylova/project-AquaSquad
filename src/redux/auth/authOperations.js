@@ -54,50 +54,36 @@ export const logOut = createAsyncThunk(
 
 
 
-// export const updateAvatar = async credentials => {
+export const updateUserAvatar = async newPhotoFile => {
 
-//   const {
-//     data: { avatar },
-//   } = await address.patch('/users/avatars', credentials, {
-//     headers: {
-//       'Content-Type': 'multipart/form-data',
-//     },
-//   });
-//   return avatar;
-// };
-
-// export const updateAvatar = createAsyncThunk(
-//   'auth/updateAvatar',
-//   async (credentials, thunkAPI) => {
-//     try {
-//       const avatar = await updateAvatar(credentials);
-//       toast.success(
-//         `The photo has been successfully uploaded.`
-//       );
-//       return avatar;
-//     } catch (error) {
-//       toast.error(`Unfortunately, the photo did not upload successfully. Please try again later.`);
-//       return thunkAPI.rejectWithValue(error.massage);
-//     }
-//   }
-// );
+  const {
+    data: { avatarURL },
+  } = await axios.patch('/users/avatar', newPhotoFile, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+  return avatarURL;
+};
 
 export const updateAvatar = createAsyncThunk(
   'auth/updateAvatar',
-  async (newAvatar, thunkAPI) => {
+  async (newPhotoFile, { rejectWithValue }) => {
     try {
-      const { data } = await axios.patch('/api/users/avatar', newAvatar);
+      const avatarURL= await updateUserAvatar(newPhotoFile);
       toast.success(
         `The photo has been successfully uploaded.`
       );
-      return data;
-    }
-    catch(error) {
-toast.error(`Unfortunately, the photo did not upload successfully. Please try again later.`);
-      return thunkAPI.rejectWithValue(error.massage);
+      return avatarURL;
+    } catch (error) {
+      toast.error(`Unfortunately, the photo did not upload successfully. Please try again later.`);
+      return rejectWithValue(error.massage);
     }
   }
-)
+);
+
+
+
 
 export const updateUserProfile = async newUserProfile => {
   const dataForSend = {};
