@@ -119,9 +119,7 @@ export const Day = styled.button`
   padding: 0;  
   cursor: pointer;  
 
-  &:hover, &:focus {
-    background-color: var(--light-blue-color);  
-  }
+ 
 `;
 
 export const DayNumber = styled.div`
@@ -175,13 +173,13 @@ export const CustomModal = styled(Modal)`
   
   background-color: white;
  
-  padding: 24px 13px;
+ 
   
   border-radius: 8px;
    
 }
 &.ReactModal__Overlay {
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -198,4 +196,38 @@ display: inline-flex;
 padding: 24px 13px;
 flex-direction: column;
 align-items: flex-start;
-gap: 16px;`;
+gap: 16px;
+
+@media (min-width: 767px) {
+padding: 24px 16px
+}
+`;
+
+export const DailyNormaLabel = styled.span`
+width: 90px;
+color: var( --primary-txt-color);
+font-family: Roboto;
+font-size: 16px;
+font-style: var( --regular);
+font-weight: 400;
+line-height:1.25
+`
+
+export const DailyNormaValue = styled.span`
+width: 50px;
+color: var(--primary-color);
+font-family: Roboto;
+font-size: 18px;
+font-style: normal;
+font-weight: var(--medium);
+line-height: 1.33`
+
+export const SelectedDayInfo = styled.p`
+width: 204px;
+color: var(--primary-color);
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: var(--regular);
+line-height:1.25
+`
