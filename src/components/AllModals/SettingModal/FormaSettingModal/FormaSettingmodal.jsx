@@ -33,14 +33,18 @@ const emailPatern = /^[a-z0-9._-]+@[a-z0-9.-]+.[a-z]{2,4}$/;
 export const FormaUpdateUserProfile = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
-
-   const togglePasswordVisibility = (inputId) => {
+  
+  
+  const togglePasswordVisibility = (inputId) => {
     setShowPassword((prevPasswords) => ({
       ...prevPasswords,
       [inputId]: !prevPasswords[inputId],
     }));
   };
   
+  // const toggleMenu = () => {
+  //     setIsOpen(!isOpen);
+  //   };
   const handleModalOpen = () => 
     
     dispatch(setOpenModal(false));
@@ -119,6 +123,15 @@ export const FormaUpdateUserProfile = () => {
                 E-mail
                 <InputSettingEdit
                   {...register('email', {
+                    required: 'This field is required!',
+                    minLength: {
+                      value: 3,
+                      message: 'To short!',
+                    },
+                    maxLength: {
+                      value: 64,
+                      message: 'To long!',
+                    },
                     pattern: {
                       value: emailPatern,
                       message: 'Enter a correct email, example@gmail.com',
@@ -151,18 +164,20 @@ export const FormaUpdateUserProfile = () => {
           <WrapperFormaRight>
             <TitlePart>Password</TitlePart>
 
-            <FormLabel>
+            <FormLabel >
               Oudated password
               <InputSettingEdit
+                id='oldPassword'
                 {...register('oldPassword')}
-                type="text"
+                type={showPassword['oldPassword'] ? 'text' : 'password'}
                 placeholder="Password"
               />
               <div style={{ position: 'relative' }}
-              onClick={() => togglePasswordVisibility('password')}>
+            
+                onClick={() => togglePasswordVisibility('oldPassword')}>
                 
                
-                {showPassword['password']  ? (
+                {showPassword['oldPassword']  ? (
                   <EyeSvg width="16" height="16">
                     <use href={`${sprite}#icon-outlineOn`} />
                   </EyeSvg>
@@ -173,18 +188,29 @@ export const FormaUpdateUserProfile = () => {
                 )}
               </div>
             </FormLabel>
-            <FormLabel>
+            <FormLabel id="new">
               New Password
               <InputSettingEdit
-                {...register('newPassword')}
-                type="text"
+                  id="newPassword"
+                {...register('newPassword', {
+                  required: 'This field is required!',
+                    minLength: {
+                      value: 3,
+                      message: 'To short!',
+                    },
+                    maxLength: {
+                      value: 64,
+                      message: 'To long!',
+                    },
+                })}
+                type={showPassword['newPassword'] ? 'text' : 'password'}
                 placeholder="Password"
               />
               <div style={{ position: 'relative' }}
-              onClick={() => togglePasswordVisibility('password')}>
+                 onClick={() => togglePasswordVisibility('newPassword')}> 
                 
                 
-                {showPassword['password'] ? (
+                {showPassword['newPassword']  ? (
                   <EyeSvg width="16" height="16">
                     <use href={`${sprite}#icon-outlineOn`} />
                   </EyeSvg>
@@ -195,18 +221,28 @@ export const FormaUpdateUserProfile = () => {
                 )}
               </div>
             </FormLabel>
-            <FormLabel>
+            <FormLabel id="repeat">
               Repeat new password
               <InputSettingEdit
-                {...register('repeatPassword')}
-                type="text"
+                  id="repeatPassword"
+                {...register('repeatPassword', {
+                  required: 'This field is required!',
+                    minLength: {
+                      value: 3,
+                      message: 'To short!',
+                    },
+                    maxLength: {
+                      value: 64,
+                      message: 'To long!',
+                    },})}
+                type={showPassword['repeatPassword'] ? 'text' : 'password'}
                 placeholder="Password"
               />
               <div style={{ position: 'relative' }}
-              onClick={() => togglePasswordVisibility('password')}>
+              onClick={() => togglePasswordVisibility('repeatPassword')}>
                 
                
-                {showPassword['password'] ? (
+                {showPassword['repeatPassword'] ? (
                   <EyeSvg width="16" height="16">
                     <use href={`${sprite}#icon-outlineOn`} />
                   </EyeSvg>
