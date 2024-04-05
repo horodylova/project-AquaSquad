@@ -34,7 +34,7 @@ export const RangeTitle = styled.p`
   letter-spacing: 0em;
   text-align: left;
   margin-bottom: 8px;
-  color: var(--light-blue-color);
+  color: var(--primary-color);
   @media (min-width: 768px) {
     margin-bottom: 8px;
   }
@@ -111,6 +111,7 @@ export const BoldPercentageOfRange = styled.p`
   font-size: 16px;
   line-height: 20px;
   letter-spacing: 0em;
+  color: var(--primary-color);
 `;
 export const PercentageDiv = styled.div`
   display: flex;
@@ -147,7 +148,7 @@ export const ButtonAddWater = styled.button`
     font-size: 18px;
     font-weight: 500;
     line-height: 24px;
-    padding: 8px 90px 8px 90px;
+    padding: 8px 90px;
     width: 336px;
     height: 44px;
   }
