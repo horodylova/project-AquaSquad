@@ -167,24 +167,20 @@ width: 100%;
 
 
 export const CustomModal = styled(Modal)`
-/* Стили для контента */
 &.ReactModal__Content {
-  /* Задаем размеры */
-  width: 80%; /* Ширина */
-  max-width: 400px; /* Максимальная ширина */
-  /* Убираем фиксированную высоту */
+  width: 80%; 
+  max-width: 400px; 
+  
   height: auto !important;
-  /* Добавляем фон */
+  
   background-color: white;
-  /* Задаем отступы */
+ 
   padding: 24px 13px;
-  /* Добавляем скругления */
+  
   border-radius: 8px;
-  /* Добавляем тень */
-  // box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+   
 }
 &.ReactModal__Overlay {
-  /* Оставляем фон прозрачным */
   background-color: transparent;
   display: flex;
   justify-content: center;
