@@ -12,7 +12,7 @@ export const DailyNorma = () => {
             <Text>My daily norma</Text>
             <BtnWrap>
                 <TextWater>{water} L</TextWater>
-                <Button type="button" onClick={openModal}><span>Edit</span></Button>
+                <Button type="button"><span>Edit</span></Button>
             </BtnWrap>
         </Wrap>
     )

@@ -55,7 +55,7 @@ span {
     -webkit-background-clip: text;
     background-clip: text;
 
-    // transition: background-position var(--animationCubicBezier);
+    transition: background-position var(--animationCubicBezier);
   }
 
   &:hover {
