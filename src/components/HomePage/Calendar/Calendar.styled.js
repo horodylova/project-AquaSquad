@@ -93,17 +93,33 @@ export const Button = styled.button`
   cursor: pointer;
 `;
 
-export const Day = styled.div`
+// export const Day = styled.div`
 
-display:flex;
-flex-direction: column;
-align-items: flex-start;
-justify-content: center;
-text-align: center;
+// display:flex;
+// flex-direction: column;
+// align-items: flex-start;
+// justify-content: center;
+// text-align: center;
 
-@media screen and (min-width: 768px) {
+// @media screen and (min-width: 768px) {
 
-}
+// }
+// `;
+
+export const Day = styled.button`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+  border: none; 
+  background: none; 
+  padding: 0;  
+  cursor: pointer;  
+
+  &:hover, &:focus {
+    background-color: var(--light-blue-color);  
+  }
 `;
 
 export const DayNumber = styled.div`
