@@ -12,9 +12,7 @@ import {
   HoverCloseBtn,
 } from './SettingModal.styled';
 import { FormaUpdateUserProfile } from './FormaSettingModal/FormaSettingmodal';
-import { useDispatch } from 'react-redux';
-// import { useDispatch, useSelector } from 'react-redux';
-
+import { useDispatch, useSelector } from 'react-redux';
 import { setModalType, setOpenModal } from '../../../redux/modals/modalSlice';
 // import {
 //   selectIsOpenModal,
