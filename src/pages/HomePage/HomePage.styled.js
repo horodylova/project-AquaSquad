@@ -9,17 +9,12 @@ import backMobile1x from '../../Images/main-bg/back_mobile@1x.png';
 import backMobile2x from '../../Images/main-bg/back_mobile@2x.png';
 
 export const BackGroundContainer = styled.section`
-  width: 100vw;
-  min-height: 100vh;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center bottom;
+background-color: var(--white-color);
+ min-height: 100vh;
 
-  padding: 84px 0 50px 0;
-
-  margin: 0 auto;
-  padding: 88px 0 40px 0;
-
+ padding-top: 88px;
+    padding-bottom: 40px;
+ 
   @media (max-width: 767px) {
     background-image: image-set(
       url(${backMobile1x}) 1x,
@@ -32,6 +27,7 @@ export const BackGroundContainer = styled.section`
       url(${backTablet1x}) 1x,
       url(${backTablet2x}) 2x
     );
+    padding-top: 80px;
   }
 
   @media (min-width: 1440px) {
@@ -39,40 +35,55 @@ export const BackGroundContainer = styled.section`
       url(${backDesktop1x}) 1x,
       url(${backDesktop2x}) 2x
     );
-    // padding: 144px 0 0 0;
+    padding-top: 86px;
+    
   }
 `;
 
 export const ContentWrapper = styled.div`
-  width: 100%;
-  display: flex;
+width: 100%;
+display: flex;
+flex-direction: column;
+
+@media screen and (min-width: 1440px) {
+
+  flex-direction: row;
+}
+}
+
 `;
 
 export const LeftSideContainer = styled.div`
-  @media screen and (max-width: 767px) {
-    height: 504px;
-    width: 100%;
-    padding-bottom: 40px;
-  }
+width: 100%;
+height: 504px; 
+padding-bottom: 40px;
 
-  @media screen and (min-width: 768px) {
-    padding-bottom: 40px;
-  }
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  height: 548px; 
+}
 
-  @media screen and (max-width: 1439px) {
-    width: 100%;
-  }
-
-  @media screen and (min-width: 768px) and (max-width: 1439px) {
-    height: 548px;
-    width: 100%;
-  }
-
-  @media screen and (min-width: 1440px) {
-    height: 680px;
-    width: 624px;
-    padding-right: 32px;
-  }
+@media screen and (min-width: 1440px) {
+  height: 680px; 
+  width: 624px; 
+  padding-right: 32px;  
+}
 `;
 
-export const RightSideContainer = styled.div``;
+export const RightSideContainer = styled.div`
+border-radius: 10px;
+background-color% var(--light-grey-color);
+box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.3)
+@media screen and (max-width: 767px) {
+  padding: 24px 8px;  
+}
+
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+ 
+  padding: 32px 24px;
+}
+
+@media screen and (min-width: 768px) {
+  
+  padding: 32px 24px;
+}
+}`
