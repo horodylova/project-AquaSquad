@@ -6,7 +6,7 @@ export const LogoModal = styled.div`
   right: 5px;
   // top: 48px;
   // right: 20px;
-  z-index: 2;
+  // z-index: 2;
   width: 118px;
   height: 88px;
   padding: 16px;

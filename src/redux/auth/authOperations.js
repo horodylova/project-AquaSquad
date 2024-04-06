@@ -82,9 +82,6 @@ export const updateAvatar = createAsyncThunk(
   }
 );
 
-
-
-
 export const updateUserProfile = async newUserProfile => {
   const dataForSend = {};
   const entries = Object.entries(newUserProfile);
@@ -96,13 +93,13 @@ export const updateUserProfile = async newUserProfile => {
   if (!dataForSend.newPassword) {
     delete dataForSend.oldPassword;
   }
-  const { data } = await address.patch('/users', dataForSend);
+  const { data } = await axios.patch('/users/current', dataForSend);
   return data;
 };
 
-export const updateUserProfileInfo = createAsyncThunk(
-  'auth/UserProfile',
-  async (newProfile, thunkAPI) => {
+export const updateUserProfileData= createAsyncThunk(
+  'auth/updateUserProfileData',
+  async (newProfile, { rejectWithValue }) => {
     try {
       const response = await updateUserProfile(newProfile);
       return response;
@@ -112,19 +109,22 @@ export const updateUserProfileInfo = createAsyncThunk(
           toast.error(
             `This email is already in use by another user. Please try a different address.`
           );
-          return thunkAPI.rejectWithValue(error.massage);
+          return rejectWithValue(error.massage);
         case 401:
           toast.error(
             `The old password is incorrect. Please try entering the correct password.`
           );
-          return thunkAPI.rejectWithValue(error.massage);
+          return rejectWithValue(error.massage);
         default:
           toast.error(`Error. Please try again later.`);
-          return thunkAPI.rejectWithValue(error.massage);
+          return rejectWithValue(error.massage);
       }
     }
   }
 );
+
+
+
 export const refreshUser = createAsyncThunk('/refresh', async (_, thunkAPI) => {
   const state = thunkAPI.getState();
   const persistedToken = state.auth.token;
