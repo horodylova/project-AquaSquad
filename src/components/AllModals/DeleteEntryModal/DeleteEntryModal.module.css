@@ -1,0 +1,29 @@
+.Modal {
+  /* min-width: 280px; */
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  padding: 32px 24px;
+  max-width: calc(100% - 40px);
+  background-color: #fff;
+  position: relative;
+  border-radius: 10px;
+
+  @media screen and (min-width: 768px) {
+    max-width: calc(100% - 176px);
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 592px;
+  }
+}
+
+.Overlay {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+  height: 100%;
+  width: 100%;
+  top: 0;
+}
