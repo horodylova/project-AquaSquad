@@ -11,11 +11,22 @@ import {
   ButtonAddWater,
   SvgButton,
 } from './WaterRatioPanel.styled';
+import AddWaterModal from '../../AllModals/AddWaterModal/AddWaterModal';
 
 export const WaterRatioPanel = () => {
   const [sliderValue, setSliderValue] = useState(50);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   useEffect(() => {}, [sliderValue]);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   const handleSliderChange = (event) => {
     setSliderValue(parseInt(event.target.value));
@@ -46,12 +57,13 @@ export const WaterRatioPanel = () => {
           <PercentageOfRange>100%</PercentageOfRange>
         </PercentageDiv>
       </RangeDiv>
-      <ButtonAddWater>
+      <ButtonAddWater onClick={handleOpenModal}>
         <SvgButton>
           <use href={iconSprite + '#icon-plus-button'} />
         </SvgButton>
         Add Water
       </ButtonAddWater>
+      <AddWaterModal onRequestClose={handleCloseModal} isOpen={isModalOpen} />
     </RangeAndAddWater>
   );
 };

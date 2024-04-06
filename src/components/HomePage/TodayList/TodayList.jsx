@@ -19,8 +19,7 @@ export const TodayList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = () => {
-    console.log('Hi');
-    // setIsModalOpen(true);
+    setIsModalOpen(true);
   };
 
   const handleCloseModal = () => {
