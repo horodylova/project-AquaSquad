@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useRef } from 'react';
 import close from '../../../Icons/close-cross.svg';
 import download from '../../../Icons/arrow-download.svg';
 
@@ -12,14 +12,17 @@ import {
   HoverCloseBtn,
 } from './SettingModal.styled';
 import { FormaUpdateUserProfile } from './FormaSettingModal/FormaSettingmodal';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
+
 import { setModalType, setOpenModal } from '../../../redux/modals/modalSlice';
 // import {
 //   selectIsOpenModal,
 //   selectIsModalType,
 // } from '../../../redux/modals/modalSelectors';
 import { selectUserProfile } from '../../../redux/auth/authSelectors';
-// import { updateAvatar } from "../../../redux/auth/authOperations";
+import { updateAvatar } from '../../../redux/auth/authOperations';
 
 export const SettingModal = () => {
   const dispatch = useDispatch();
@@ -35,8 +38,7 @@ export const SettingModal = () => {
     const formaData = new FormData();
     formaData.append('avatar', e.target.files[0]);
     if (e.target.files[0]) {
-      // dispatch(updateAvatar(formaData));
-      console.log(formaData);
+      dispatch(updateAvatar(formaData));
     }
   };
   const handleClick = () => {
@@ -64,8 +66,9 @@ export const SettingModal = () => {
       <WrapperUpload>
         <ContainerAvatar>
           <img
-            src={defaultUserImage}
-            // src={userProfile.avatarURL ? userProfile.avatarURL : defaultUserImage}
+            src={
+              userProfile.avatarURL ? userProfile.avatarURL : defaultUserImage
+            }
             alt="avatar"
             width="80"
           />
