@@ -11,17 +11,10 @@ import {
   Day,
   DayNumber,
   DayPercentage,
-  ModalWrapper,
-  ModalContent,
-  CustomModal,
-  SelectedDayInfo,
-  DailyNormaLabel, 
-  DailyNormaValue
-
 } from './Calendar.styled';
-
 import { ReactComponent as ArrowLeft } from '/src/Icons/arrow-left.svg';
 import { ReactComponent as ArrowRight } from '/src/Icons/arrow-right.svg';
+import CalendarModal from './CalendarModal';
 
 Modal.setAppElement('#root');
 
@@ -65,14 +58,6 @@ export const Calendar = ({
   const daysInMonth = getDaysInMonth(currentDate);
   const monthName = currentDate.toLocaleString('en', { month: 'long' });
   const year = currentDate.getFullYear();
-  const ModalStyle = {
-    overlay: {
-      backgroundColor: 'transparent',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-  };
 
   return (
     <CalendarContainer>
@@ -99,35 +84,18 @@ export const Calendar = ({
         )}
       </CalendarDays>
 
-      <CustomModal
+      <CalendarModal
         isOpen={isModalOpen}
         onRequestClose={() => setIsModalOpen(false)}
-        contentLabel="Day Details"
-        style={ModalStyle}
-      >
-        <ModalWrapper>
-          <ModalContent>
-            <SelectedDayInfo>
-              {selectedDay
-                ? `${selectedDay}, ${currentDate.toLocaleString('en', {
-                    month: 'long',
-                  })}`
-                : ''}
-            </SelectedDayInfo>{' '}
-            <p>
-              <DailyNormaLabel>Daily norma: </DailyNormaLabel>
-              <DailyNormaValue>{dailyNorma || '1.5'} L</DailyNormaValue>
-            </p>{' '}
-            <p>
-              Fulfillment of the daily norm: {fulfillmentPercentage || '0'}%
-            </p>
-            <p>Water consumed: {waterConsumed || '0'}</p>
-            <button onClick={() => setIsModalOpen(false)}>Close</button>
-          </ModalContent>
-        </ModalWrapper>
-      </CustomModal>
+        currentDate={currentDate}
+        selectedDay={selectedDay}
+        dailyNorma={dailyNorma}
+        fulfillmentPercentage={fulfillmentPercentage}
+        waterConsumed={waterConsumed}
+      />
     </CalendarContainer>
   );
 };
 
 export default Calendar;
+
