@@ -43,10 +43,11 @@ background-color: var(--white-color);
 export const ContentWrapper = styled.div`
 width: 100%;
 display: flex;
+flex-direction: column;
 
-@media screen and (min-width: 768px) and (max-width: 1439px) {
-  /* стили для планшетов */
-  flex-direction: column;
+@media screen and (min-width: 1440px) {
+
+  flex-direction: row;
 }
 }
 
@@ -54,17 +55,17 @@ display: flex;
 
 export const LeftSideContainer = styled.div`
 width: 100%;
-height: 504px; /* для мобильных устройств */
-padding-bottom: 40px; /* для мобильных устройств */
+height: 504px; 
+padding-bottom: 40px;
 
 @media screen and (min-width: 768px) and (max-width: 1439px) {
-  height: 548px; /* для планшетов */
+  height: 548px; 
 }
 
 @media screen and (min-width: 1440px) {
-  height: 680px; /* для десктопов */
-  width: 624px; /* для десктопов */
-  padding-right: 32px; /* для десктопов */
+  height: 680px; 
+  width: 624px; 
+  padding-right: 32px;  
 }
 `;
 
@@ -73,16 +74,16 @@ border-radius: 10px;
 background-color% var(--light-grey-color);
 box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.3)
 @media screen and (max-width: 767px) {
-  padding: 24px 8px; /* для мобильных устройств */
+  padding: 24px 8px;  
 }
 
 @media screen and (min-width: 768px) and (max-width: 1439px) {
-  /* стили для планшетов */
+ 
   padding: 32px 24px;
 }
 
 @media screen and (min-width: 768px) {
-  /* стили для десктопов */
+  
   padding: 32px 24px;
 }
 }`
