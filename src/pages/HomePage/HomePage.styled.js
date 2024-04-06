@@ -39,7 +39,7 @@ export const BackGroundContainer = styled.section`
       url(${backDesktop1x}) 1x,
       url(${backDesktop2x}) 2x
     );
-    padding: 144px 0 0 0;
+    // padding: 144px 0 0 0;
   }
 `;
 
@@ -78,4 +78,6 @@ export const LeftSideContainer = styled.div`
 `;
 
 export const RightSideContainer = styled.div`
+border-radius: 10px;
+background-color:var(--light-grey-color)
 `
