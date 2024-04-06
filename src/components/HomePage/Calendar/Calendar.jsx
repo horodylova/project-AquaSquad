@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-// import { useDispatch } from 'react-redux';
-// import { createAction } from '@reduxjs/toolkit';
 import Modal from 'react-modal';
 import {
   CalendarContainer,
@@ -13,6 +11,13 @@ import {
   Day,
   DayNumber,
   DayPercentage,
+  ModalWrapper,
+  ModalContent,
+  CustomModal,
+  SelectedDayInfo,
+  DailyNormaLabel, 
+  DailyNormaValue
+
 } from './Calendar.styled';
 
 import { ReactComponent as ArrowLeft } from '/src/Icons/arrow-left.svg';
@@ -20,13 +25,14 @@ import { ReactComponent as ArrowRight } from '/src/Icons/arrow-right.svg';
 
 Modal.setAppElement('#root');
 
-// const setSelectedDate = createAction('SET_SELECTED_DATE');
-
-export const Calendar = ({ dailyNorma, fulfillmentPercentage, waterConsumed }) => {
+export const Calendar = ({
+  dailyNorma,
+  fulfillmentPercentage,
+  waterConsumed,
+}) => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDay, setSelectedDay] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // const dispatch = useDispatch();
 
   const getDaysInMonth = (date) => {
     const year = date.getFullYear();
@@ -35,21 +41,19 @@ export const Calendar = ({ dailyNorma, fulfillmentPercentage, waterConsumed }) =
   };
 
   const goToPreviousMonth = () => {
-    setCurrentDate((prevDate) => {
-      return new Date(prevDate.getFullYear(), prevDate.getMonth() - 1, 1);
-    });
+    setCurrentDate(
+      (prevDate) => new Date(prevDate.getFullYear(), prevDate.getMonth() - 1, 1)
+    );
   };
 
   const goToNextMonth = () => {
-    setCurrentDate((prevDate) => {
-      return new Date(prevDate.getFullYear(), prevDate.getMonth() + 1, 1);
-    });
+    setCurrentDate(
+      (prevDate) => new Date(prevDate.getFullYear(), prevDate.getMonth() + 1, 1)
+    );
   };
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentDate(new Date());
-    }, 60000);
+    const intervalId = setInterval(() => setCurrentDate(new Date()), 60000);
     return () => clearInterval(intervalId);
   }, []);
 
@@ -61,6 +65,14 @@ export const Calendar = ({ dailyNorma, fulfillmentPercentage, waterConsumed }) =
   const daysInMonth = getDaysInMonth(currentDate);
   const monthName = currentDate.toLocaleString('en', { month: 'long' });
   const year = currentDate.getFullYear();
+  const ModalStyle = {
+    overlay: {
+      backgroundColor: 'transparent',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+  };
 
   return (
     <CalendarContainer>
@@ -87,23 +99,33 @@ export const Calendar = ({ dailyNorma, fulfillmentPercentage, waterConsumed }) =
         )}
       </CalendarDays>
 
-      <Modal
+      <CustomModal
         isOpen={isModalOpen}
         onRequestClose={() => setIsModalOpen(false)}
         contentLabel="Day Details"
+        style={ModalStyle}
       >
-        <p>
-          {selectedDay
-            ? `${selectedDay}, ${currentDate.toLocaleString('en', {
-                month: 'long',
-              })}`
-            : ''}
-        </p>
-        <p>Daily norma: {dailyNorma || '1.5'} L</p>
-        <p>Fulfillment of the daily norm: {fulfillmentPercentage || '0'}%</p>
-        <p>Water consumed: {waterConsumed || '0'}</p>
-        <button onClick={() => setIsModalOpen(false)}>Close</button>
-      </Modal>4
+        <ModalWrapper>
+          <ModalContent>
+            <SelectedDayInfo>
+              {selectedDay
+                ? `${selectedDay}, ${currentDate.toLocaleString('en', {
+                    month: 'long',
+                  })}`
+                : ''}
+            </SelectedDayInfo>{' '}
+            <p>
+              <DailyNormaLabel>Daily norma: </DailyNormaLabel>
+              <DailyNormaValue>{dailyNorma || '1.5'} L</DailyNormaValue>
+            </p>{' '}
+            <p>
+              Fulfillment of the daily norm: {fulfillmentPercentage || '0'}%
+            </p>
+            <p>Water consumed: {waterConsumed || '0'}</p>
+            <button onClick={() => setIsModalOpen(false)}>Close</button>
+          </ModalContent>
+        </ModalWrapper>
+      </CustomModal>
     </CalendarContainer>
   );
 };
