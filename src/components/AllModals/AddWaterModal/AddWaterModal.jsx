@@ -1,17 +1,19 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 import Modal from 'react-modal';
 
-Modal.setAppElement('#root');
-
-const AddWaterModal = ({ props }) => {
-  const [currentDate, setCurrentDate] = useState(new Date());
-  const [selectedDay, setSelectedDay] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+const AddWaterModal = ({ isOpen, onRequestClose }) => {
+  Modal.setAppElement('#root');
 
   return (
-    <div>
-      <h1>Hello</h1>
-    </div>
+    <Modal
+      isOpen={isOpen}
+      onRequestClose={onRequestClose}
+      contentLabel="Add Water Modal"
+    >
+      <h2>Add Water Modal</h2>
+      <p>Modal content goes here...</p>
+      <button onClick={onRequestClose}>Close Modal</button>
+    </Modal>
   );
 };
 
