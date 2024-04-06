@@ -19,6 +19,8 @@ import {
   EyeSvg,
 } from './FormaSettingModal.styled';
 
+import { updateUserProfileData } from "../../../../redux/auth/authOperations";
+
 // const emailPatern = /^[a-z0-9._-]+@[a-z0-9.-]+.[a-z]{2,4}$/;
 
 export const FormaUpdateUserProfile = () => {
@@ -53,7 +55,7 @@ export const FormaUpdateUserProfile = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    dispatch(updateUserProfileData(data));
   };
 
   return (
@@ -138,13 +140,7 @@ export const FormaUpdateUserProfile = () => {
               Oudated password
               <InputSettingEdit
                 id="oldPassword"
-                {...register('oldPassword', {
-                  validate: (val) => {
-                    if (watch(userData.password) != val) {
-                      return 'Your passwords do no match';
-                    }
-                  },
-                })}
+                {...register('oldPassword',)}
                 type={showPassword['oldPassword'] ? 'text' : 'password'}
                 placeholder="Password"
               />
@@ -185,17 +181,18 @@ export const FormaUpdateUserProfile = () => {
               New Password
               <InputSettingEdit
                 id="newPassword"
-                {...register('newPassword', {
-                  required: 'This field is required!',
-                  minLength: {
-                    value: 3,
-                    message: 'To short!',
-                  },
-                  maxLength: {
-                    value: 64,
-                    message: 'To long!',
-                  },
-                })}
+                {...register('newPassword',)}
+                // {
+                //   required: 'This field is required!',
+                //   minLength: {
+                //     value: 3,
+                //     message: 'To short!',
+                //   },
+                //   maxLength: {
+                //     value: 64,
+                //     message: 'To long!',
+                //   },
+                // }
                 type={showPassword['newPassword'] ? 'text' : 'password'}
                 placeholder="Password"
               />
@@ -213,7 +210,7 @@ export const FormaUpdateUserProfile = () => {
                   </EyeSvg>
                 )}
               </div>
-              <div
+              {/* <div
                 style={{
                   position: 'relative',
                 }}
@@ -230,28 +227,29 @@ export const FormaUpdateUserProfile = () => {
                     {errors.newPassword.message || 'Error!'}
                   </p>
                 )}
-              </div>
+              </div> */}
             </FormLabel>
             <FormLabel id="repeat">
               Repeat new password
               <InputSettingEdit
                 id="repeatPassword"
-                {...register('repeatPassword', {
-                  required: 'This field is required!',
-                  minLength: {
-                    value: 3,
-                    message: 'To short!',
-                  },
-                  maxLength: {
-                    value: 64,
-                    message: 'To long!',
-                  },
-                  validate: (val) => {
-                    if (watch('newPassword') != val) {
-                      return 'Your passwords do no match';
-                    }
-                  },
-                })}
+                {...register('repeatPassword',)}
+                // {
+                //   required: 'This field is required!',
+                //   minLength: {
+                //     value: 3,
+                //     message: 'To short!',
+                //   },
+                //   maxLength: {
+                //     value: 64,
+                //     message: 'To long!',
+                //   },
+                //   validate: (val) => {
+                //     if (watch('newPassword') != val) {
+                //       return 'Your passwords do no match';
+                //     }
+                //   },
+                // }
                 type={showPassword['repeatPassword'] ? 'text' : 'password'}
                 placeholder="Password"
               />
@@ -269,7 +267,7 @@ export const FormaUpdateUserProfile = () => {
                   </EyeSvg>
                 )}
               </div>
-              <div
+              {/* <div
                 style={{
                   position: 'relative',
                 }}
@@ -286,7 +284,7 @@ export const FormaUpdateUserProfile = () => {
                     {errors.repeatPassword.message || 'Error!'}
                   </p>
                 )}
-              </div>
+              </div> */}
             </FormLabel>
           </WrapperFormaRight>
         </WrapperFormaMain>
