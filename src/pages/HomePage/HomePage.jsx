@@ -9,6 +9,7 @@ import { WaterRatioPanel } from '../../components/HomePage/WaterRatioPanel/Water
 import { Calendar } from '../../components/HomePage/Calendar/Calendar';
 import { TodayList } from '../../components/HomePage/TodayList/TodayList';
 
+
 const HomePage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch();

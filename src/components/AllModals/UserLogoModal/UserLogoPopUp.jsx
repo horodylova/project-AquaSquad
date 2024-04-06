@@ -15,7 +15,11 @@ import { Backdrop } from '../Backdrop/Backdrop';
 
 
 export const UserLogoPopUp = () => {
-  
+
+
+ 
+
+
   const dispatch = useDispatch();
   const modalState = useSelector(selectIsOpenModal);
   const typeOfModal = useSelector(selectIsModalType);
@@ -75,13 +79,13 @@ export const UserLogoPopUp = () => {
     {modalState && typeOfModal === 'settings' && (
         <Backdrop>
           <SettingModal />
-        </Backdrop>
+         </Backdrop>
       )}
       {modalState && typeOfModal === 'logout' && (
         <Backdrop>
-          <UserLogoutModal />
-        </Backdrop> )}
-      
+        <UserLogoutModal />
+         </Backdrop> )}
+
       </>
   );
 };

@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, login, logOut, refreshUser, updateAvatar } from '../auth/authOperations';
+import { register, login, logOut, refreshUser, updateAvatar,updateUserProfileData } from '../auth/authOperations';
 
 const defaultUser = {
-  username: null,
-  password: null,
-  gender: 'man',
+  username: "",
+  password: '',
+  gender: '',
   dailyNorma: null,
   avatar: '',
   email: '',
@@ -89,11 +89,11 @@ const authSlice = createSlice({
         state.user.avatarURL = payload;
         console.log(action.payload);
       })
-      // .addCase(updateUserProfileInfo.fulfilled, (state, action) => {
-      //   state.user.gender = action.payload.gender;
-      //   state.user.username = action.payload.userName;
-      //   state.user.email = action.payload.email;
-      // });
+      .addCase(updateUserProfileData.fulfilled, (state, action) => {
+        state.user.gender = action.payload.gender;
+        state.user.username = action.payload.name;
+        state.user.email = action.payload.email;
+      })
       .addCase(refreshUser.pending, (state) => {
         state.isFetchingCurrentUser = true;
         state.isAuthenticated = false;
