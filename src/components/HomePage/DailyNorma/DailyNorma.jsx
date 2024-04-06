@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import Modal from 'react-modal';
 
-import { Button, Text, TextWater, Wrap, BtnWrap } from "../DailyNorma.styled.js";
+import { Button, Text, TextWater, Wrap, BtnWrap } from "./DailyNorma.styled";
 
 Modal.setAppElement('#root');
 
