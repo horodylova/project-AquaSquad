@@ -12,6 +12,7 @@ export const ContainerSettings = styled.div`
   width: 280px;
   padding: 32px 12px;
   border-radius: 10px;
+ 
 
   @media screen and (min-width: 768px) {
     width: 704px;

@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { PasswordInput } from './PasswordInput';
+import React, {  useState } from 'react';
+// import { PasswordInput } from './PasswordInput';
 import { ButtonSettingsForma } from './ButtonSettingsForma.styled';
-import { useFormik } from 'formik';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectUserProfile } from '../../../../redux/auth/authSelectors';
+// import { useFormik } from 'formik';
+import { useDispatch} from 'react-redux';
+// import { selectUserProfile } from '../../../../redux/auth/authSelectors';
 import {  setOpenModal } from '../../../../redux/modals/modalSlice';
-// import { updateUserProfileSchema } from '../validationSchema';
-import { updateUserProfileInfo } from '../../../../redux/auth/authOperations';
 import { useForm } from 'react-hook-form';
 import sprite from '../../../../Icons/signIn-signUp/sprite.svg';
 import {
@@ -27,12 +25,10 @@ import {
 const emailPatern = /^[a-z0-9._-]+@[a-z0-9.-]+.[a-z]{2,4}$/;
 
 
-// const userProfile = useSelector(selectUserProfile);
-
-
 export const FormaUpdateUserProfile = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
+  
   
   
   const togglePasswordVisibility = (inputId) => {
@@ -43,21 +39,29 @@ export const FormaUpdateUserProfile = () => {
   };
   
   // const toggleMenu = () => {
-  //     setIsOpen(!isOpen);
-  //   };
-  const handleModalOpen = () => 
+    //     setIsOpen(!isOpen);
+    //   };
+    const handleModalOpen = () => 
     
     dispatch(setOpenModal(false));
-  
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-  } = useForm();
-  
-  const onSubmit = ({email,name}) => {
-    console.log(email);
+    
+    
+    const {
+      register,
+      handleSubmit,
+      watch,
+      formState: { errors, isSubmitting},
+    } = useForm({
+    defaultValues: {
+      gender: "man"
+    },
+    mode: "onChange"
+  })
+    
+    
+    
+  const onSubmit = (data) => {
+    console.log(data);
   };
 
   return (
@@ -72,6 +76,7 @@ export const FormaUpdateUserProfile = () => {
                   <input
                     {...register('gender')}
                     type="radio"
+                    value="woman"
                     style={{
                       position: 'absolute',
                       width: '1px',
@@ -92,6 +97,7 @@ export const FormaUpdateUserProfile = () => {
                   <input
                     {...register('gender')}
                     type="radio"
+                    value="man"
                     style={{
                       position: 'absolute',
                       width: '1px',
@@ -187,6 +193,24 @@ export const FormaUpdateUserProfile = () => {
                   </EyeSvg>
                 )}
               </div>
+              {/* <div
+                style={{
+                  position: 'relative',
+                }}
+              >
+                {errors.email && (
+                  <p
+                    style={{
+                      color: 'red',
+                      position: 'absolute',
+                      marginBottom: 0,
+                      top: '-15px',
+                    }}
+                  >
+                    {errors.email.message || 'Error!'}
+                  </p>
+                )}
+              </div> */}
             </FormLabel>
             <FormLabel id="new">
               New Password
@@ -220,6 +244,24 @@ export const FormaUpdateUserProfile = () => {
                   </EyeSvg>
                 )}
               </div>
+              <div
+                style={{
+                  position: 'relative',
+                }}
+              >
+                {errors.newPassword && (
+                  <p
+                    style={{
+                      color: 'red',
+                      position: 'absolute',
+                      marginBottom: 0,
+                      top: '-15px',
+                    }}
+                  >
+                    {errors.newPassword.message || 'Error!'}
+                  </p>
+                )}
+              </div>
             </FormLabel>
             <FormLabel id="repeat">
               Repeat new password
@@ -234,6 +276,11 @@ export const FormaUpdateUserProfile = () => {
                     maxLength: {
                       value: 64,
                       message: 'To long!',
+                  },
+                validate: (val) => {
+                      if (watch('newPassword') != val) {
+                        return 'Your passwords do no match';
+                      }
                     },})}
                 type={showPassword['repeatPassword'] ? 'text' : 'password'}
                 placeholder="Password"
@@ -252,14 +299,29 @@ export const FormaUpdateUserProfile = () => {
                   </EyeSvg>
                 )}
               </div>
+              <div
+                style={{
+                  position: 'relative',
+                }}
+              >
+                {errors.repeatPassword && (
+                  <p
+                    style={{
+                      color: 'red',
+                      position: 'absolute',
+                      marginBottom: 0,
+                      top: '-15px',
+                    }}
+                  >
+                    {errors.repeatPassword.message || 'Error!'}
+                  </p>
+                )}
+              </div>
             </FormLabel>
           </WrapperFormaRight>
         </WrapperFormaMain>
-        <ButtonSettingsForma type="submit"  >
-          {/* onClick={() => handleModalOpen()} */}
-          {/* {isSubmitting ? 'Loading..' : 'Save'} */}
-          {/* disabled={isSubmitting} */}
-          Save
+        <ButtonSettingsForma type="submit" disabled={isSubmitting}>
+          {isSubmitting ? "Loading.." : "Save"}
         </ButtonSettingsForma>
       </WrapperForma>
     </form>

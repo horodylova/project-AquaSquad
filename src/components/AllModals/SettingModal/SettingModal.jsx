@@ -1,6 +1,8 @@
-import React, { useRef }from 'react';
+import React, { useRef, useState }from 'react';
 import close from '../../../Icons/close-cross.svg';
 import download from '../../../Icons/arrow-download.svg';
+
+
 
 import {
   CloseBtn,
@@ -19,39 +21,55 @@ import { setModalType, setOpenModal } from '../../../redux/modals/modalSlice';
 //   selectIsModalType,
 // } from '../../../redux/modals/modalSelectors';
 import { selectUserProfile } from "../../../redux/auth/authSelectors";
-import { updateAvatar } from "../../../redux/auth/authOperations";
+// import { updateAvatar } from "../../../redux/auth/authOperations";
+
 
 
 export const SettingModal = () => {
+  
   const dispatch = useDispatch();
   // const modalState = useSelector(selectIsOpenModal);
   // const typeOfModal = useSelector(selectIsModalType);
   const userProfile = useSelector(selectUserProfile);
   const filePecker = useRef(null);
-  // const avatar = userProfile.avatar;
-
-    
-    const defaultUserImage = 'https://avatar.iran.liara.run/public/6';
+  const avatar = userProfile.avatarURL;
   
-    const handleChange = e => {
-      const formaData = new FormData();
-      formaData.append('avatar', e.target.files[0]);
-      if (e.target.files[0]) {
-        dispatch(updateAvatar(formaData));
-        
-        
-      }
+  
+  const defaultUserImage = 'https://avatar.iran.liara.run/public/6';
+  
+  const handleChange = e => {
+    const formaData = new FormData();
+    formaData.append('avatar', e.target.files[0]);
+    if (e.target.files[0]) {
+      // dispatch(updateAvatar(formaData));
+      console.log(formaData);
+      
+      
+    }
+  };
+  const handleClick = () => {
+    filePecker.current.click();
+  };
+  
+  const handleModalOpen = (typeOfModal) => {
+    dispatch(setModalType(typeOfModal));
+    dispatch(setOpenModal(false));
+  };
+  
+  const StyleModalSettings = {
+      position: 'absolute',
+    left: '50%',
+    top: '40px',
+    transform: 'translate(-50%)',
+    color: '#2F2F2F',
+    backgroundColor: '#ffffff',
+    width: '280px',
+    padding: '32px 12px',
+    borderRadius: '10px'
+   
     };
-    const handleClick = () => {
-      filePecker.current.click();
-    };
-
-    const handleModalOpen = (typeOfModal) => {
-      dispatch(setModalType(typeOfModal));
-      dispatch(setOpenModal(false));
-    };
-
-    return (
+  return (
+      
       <ContainerSettings>
         <CloseBtn onClick={() => handleModalOpen('')}>
   
@@ -64,7 +82,7 @@ export const SettingModal = () => {
 
         <Title>Setting</Title>
         <TitlePart>Your photo</TitlePart>
-
+ 
         <WrapperUpload>
           <ContainerAvatar>
           
@@ -109,6 +127,7 @@ export const SettingModal = () => {
 
         <FormaUpdateUserProfile />
       </ContainerSettings>
+      
     );
   }
 
