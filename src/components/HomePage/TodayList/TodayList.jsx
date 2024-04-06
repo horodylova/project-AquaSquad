@@ -8,6 +8,7 @@ import {
   TodayListContainer,
 } from './TodayList.styled';
 import sprite from '../../../Images/welcome-page/iconSprite.svg';
+import { TodayItem } from '../TodayItem/TodayItem';
 
 const plusIcon = `${sprite}#icon-plus-blue`;
 
@@ -19,11 +20,12 @@ export const TodayList = () => {
       <TodayTitle>Today</TodayTitle>
       <WaterList>
         {todayList && todayList.map(item => (
-          <div key={item._id}>
+          <TodayItem
+            key={item._id}
             water={item.waterVolume}
             date={new Date(item.date)}
             id={item._id}
-          </div>
+          />
         ))}
       </WaterList>
       <AddLink>

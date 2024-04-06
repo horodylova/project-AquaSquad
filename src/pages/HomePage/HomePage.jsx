@@ -7,6 +7,7 @@ import { logOut } from '../../redux/auth/authOperations';
 import { DailyNorma } from '../../components/HomePage/DailyNorma';
 import { WaterRatioPanel } from '../../components/HomePage/WaterRatioPanel/WaterRatioPanel';
 import { Calendar } from '../../components/HomePage/Calendar/Calendar';
+import { TodayList } from '../../components/HomePage/TodayList/TodayList';
 
 const HomePage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -48,6 +49,7 @@ const HomePage = () => {
         <h1>Home page</h1>
             <DailyNorma />
             <WaterRatioPanel />
+            <TodayList />
             <Calendar/>
         <button onClick={() => dispatch(logOut())} type="button">
           Logout
