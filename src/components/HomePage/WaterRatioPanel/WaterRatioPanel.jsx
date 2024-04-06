@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import iconSprite from '../../../Images/welcome-page/iconSprite.svg';
 import {
   RangeAndAddWater,
@@ -15,8 +15,7 @@ import {
 export const WaterRatioPanel = () => {
   const [sliderValue, setSliderValue] = useState(50);
 
-  useEffect(() => {
-  }, [sliderValue]);
+  useEffect(() => {}, [sliderValue]);
 
   const handleSliderChange = (event) => {
     setSliderValue(parseInt(event.target.value));
@@ -48,10 +47,11 @@ export const WaterRatioPanel = () => {
         </PercentageDiv>
       </RangeDiv>
       <ButtonAddWater>
-                <SvgButton>
+        <SvgButton>
           <use href={iconSprite + '#icon-plus-button'} />
         </SvgButton>
-        Add Water</ButtonAddWater>
+        Add Water
+      </ButtonAddWater>
     </RangeAndAddWater>
   );
 };
