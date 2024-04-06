@@ -1,12 +1,16 @@
 import Modal from 'react-modal';
+
+
 import {
-  ModalWrapper,
   ModalContent,
   SelectedDayInfo,
   DailyNormaLabel,
   DailyNormaValue,
   FulfillmentLabel,
   FulfillmentValue,
+  WaterConsumedLabel,
+  WaterConsumedValue,
+  Paragraph
 } from './ModalStyles';
 
 export const CalendarModal = ({
@@ -17,6 +21,7 @@ export const CalendarModal = ({
   dailyNorma,
   fulfillmentPercentage,
   waterConsumed,
+
 }) => {
   const ModalStyle = {
     overlay: {
@@ -28,18 +33,20 @@ export const CalendarModal = ({
     content: {
       padding: '0',
       position: 'initial',
-      width: '100%'
+      maxWidth:'260px',
+      borderRadius: '10px',
+      background: 'var(--white-color)',
+      boxShadow: '0px 4px 4px 0px rgba(64, 123, 255, 0.30)',
     },
   };
 
   return (
     <Modal
       isOpen={isOpen}
-      onRequestClose={onRequestClose} 
+      onRequestClose={onRequestClose}
       contentLabel="Day Details"
       style={ModalStyle}
     >
-      <ModalWrapper>
         <ModalContent>
           <SelectedDayInfo>
             {selectedDay
@@ -48,17 +55,19 @@ export const CalendarModal = ({
                 })}`
               : ''}
           </SelectedDayInfo>{' '}
-          <p>
+          <Paragraph>
             <DailyNormaLabel>Daily norma: </DailyNormaLabel>
             <DailyNormaValue>{dailyNorma || '1.5'} L</DailyNormaValue>
-          </p>{' '}
-          <p>
+          </Paragraph>{' '}
+          <Paragraph>
             <FulfillmentLabel>Fulfillment of the daily norm:</FulfillmentLabel>{' '}
             <FulfillmentValue>{fulfillmentPercentage || '0'}%</FulfillmentValue>
-          </p>
-          <p>Water consumed: {waterConsumed || '0'}</p>
+          </Paragraph>
+          <Paragraph>
+            <WaterConsumedLabel>Water consumed:</WaterConsumedLabel>{' '}
+            <WaterConsumedValue>{waterConsumed || '0'}</WaterConsumedValue>
+          </Paragraph>
         </ModalContent>
-      </ModalWrapper>
     </Modal>
   );
 };
