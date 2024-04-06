@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-
 import backDesktop1x from '../../Images/main-bg/back_desktop@1x.png';
 import backDesktop2x from '../../Images/main-bg/back_desktop@2x.png';
 
