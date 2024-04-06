@@ -2,8 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 import { register, login, logOut, refreshUser, updateAvatar,updateUserProfileData } from '../auth/authOperations';
 
 const defaultUser = {
-  username: null,
-  password: null,
+  username: "",
+  password: '',
   gender: '',
   dailyNorma: null,
   avatar: '',

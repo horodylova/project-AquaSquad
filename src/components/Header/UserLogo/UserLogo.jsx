@@ -1,15 +1,13 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUserProfile } from '../../../redux/auth/authSelectors';
-// import { AvatarGenerator } from 'random-avatar-generator';
-import Avatar, { genConfig } from 'react-nice-avatar'
+import Avatar, { genConfig } from 'react-nice-avatar';
 
 import {
   UserName,
   UserLogoBtn,
   UserLogoIcon,
   UserLogoContainer,
-  // Avatar,
 } from './UserLogo.styled';
 
 import arrow from '../../../Icons/solid.svg';
@@ -18,9 +16,7 @@ import { UserLogoPopUp } from '../../AllModals/UserLogoModal/UserLogoPopUp';
 
 function emailUsername(emailAddress) {
   return emailAddress.split('@')[0];
-};
-
-
+}
 
 const config = genConfig();
 
@@ -28,11 +24,9 @@ export const UserLogo = () => {
   const userProfile = useSelector(selectUserProfile);
   const name = userProfile.username;
   const email = userProfile.email;
-  const avatar = userProfile.avatar;
+  // const avatar = userProfile.avatarURL;
   const enteredUserEmail = emailUsername(email);
   const [isOpen, setIsOpen] = useState(false);
-
-  // const generator = new AvatarGenerator();
 
   const makeUserName = () => {
     if (name) {
@@ -49,19 +43,21 @@ export const UserLogo = () => {
     setIsOpen(!isOpen);
   };
 
-  // const avatarPlaceholder = generator.generateRandomAvatar();
-
   return (
     <UserLogoContainer>
       <UserLogoBtn onClick={toggleMenu} aria-label="User Logo">
         <UserName>{makeUserName()}</UserName>
 
         {/* <UserAvatar src={avatar ? avatar : avatarPlaceholder} alt="Avatar" /> */}
-        <Avatar style={{width: '28px',
-  height: '28px',
-  borderRadius: '50%',
-  marginRight: '4px'}}  {...config}/>
-        {/* <Avatar style={{ width: '8rem', height: '8rem' }} {...config} /> */}
+        <Avatar
+          style={{
+            width: '28px',
+            height: '28px',
+            borderRadius: '50%',
+            marginRight: '4px',
+          }}
+          {...config}
+        />
 
         <UserLogoIcon>
           {isOpen ? (
