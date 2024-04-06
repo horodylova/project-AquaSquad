@@ -148,13 +148,16 @@ export const BottleImg = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-
+  /* 
   background-image: image-set(
     url('../../../src/Images/signIn-signUp/bottle/mobile/bottle_mobile@1x.png')
       1x,
     url('../../../src/Images/signIn-signUp/bottle/mobile/bottle_mobile@2x.png')
       2x
-  );
+  ); */
+
+  background-image: url('../../../src/Images/signIn-signUp/bottle/mobile/bottle_mobile@1x.png');
+
   @media (min-width: 768px) {
     display: none;
   }
@@ -169,25 +172,30 @@ export const SectionAuth = styled.section`
   background-size: contain;
   background-repeat: no-repeat;
 
-  background-image: image-set(
+  /* background-image: image-set(
     url('../../../src/Images/signIn-signUp/back/mobile/back_mobile@1x.png') 1x,
     url('../../../src/Images/signIn-signUp/back/mobile/back_mobile@2x.png') 2x
-  );
+  ); */
 
+  background-image: url('../../../src/Images/signIn-signUp/back/mobile/back_mobile@1x.png');
   @media (min-width: 768px) {
-    background-image: image-set(
+    /* background-image: image-set(
       url('../../../src/Images/signIn-signUp/back/tablet/back_tablet@1x.png') 1x,
       url('../../../src/Images/signIn-signUp/back/tablet/back_tablet@2x.png') 2x
-    );
+    ); */
+
+    background-image: url('../../../src/Images/signIn-signUp/back/tablet/back_tablet@1x.png');
   }
 
   @media (min-width: 1440px) {
-    background-image: image-set(
+    /* background-image: image-set(
       url('../../../src/Images/signIn-signUp/back/desktop/back_desktop@1x.png')
         1x,
       url('../../../src/Images/signIn-signUp/back/desktop/back_desktop@2x.png')
         2x
-    );
+    ); */
+
+    background-image: url('../../../src/Images/signIn-signUp/back/desktop/back_desktop@1x.png');
   }
 `;
 
