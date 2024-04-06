@@ -1,21 +1,13 @@
 import styled from 'styled-components';
-import Modal from 'react-modal';
-
-
 
 export const CalendarContainer = styled.div`
   background-color: var(--light-grey-color);
-  // border-radius: 10px;
-  // box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.3);
-
 
   @media (min-width: 768px) {
-    /* Tablet */
     width: 656px;
   }
 
   @media (min-width: 1440px) {
-    /* Desktop */
     width: 544px;
   }
 `;
@@ -34,9 +26,9 @@ export const MonthText = styled.div`
 
 export const MonthContent = styled.div`
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   justify-content: space-between;
-  align-items: center; 
+  align-items: center;
   gap: auto;
 `;
 
@@ -58,28 +50,24 @@ export const MonthAndYear = styled.span`
 `;
 
 export const CalendarDays = styled.div`
-
-
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 16px;
-  padding-top:16px;
-  padding-left:8px;
-  padding-right:8px;
+  padding-top: 16px;
+  padding-left: 8px;
+  padding-right: 8px;
 
   @media screen and (min-width: 768px) {
     gap: 20px;
     column-gap: 34px;
-    
   }
 
   @media screen and (min-width: 1440px) {
     row-gap: 20px;
     column-gap: 22px;
   }
-  
 `;
 
 export const Button = styled.button`
@@ -95,139 +83,54 @@ export const Button = styled.button`
   cursor: pointer;
 `;
 
-// export const Day = styled.div`
-
-// display:flex;
-// flex-direction: column;
-// align-items: flex-start;
-// justify-content: center;
-// text-align: center;
-
-// @media screen and (min-width: 768px) {
-
-// }
-// `;
-
 export const Day = styled.button`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   text-align: center;
-  border: none; 
-  background: none; 
-  padding: 0;  
-  cursor: pointer;  
-
- 
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
 `;
 
 export const DayNumber = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-font-size: 14px;
-line-height: 1.29;
-text-align: center;
-min-width: 32px;
-height: 32px;
-border: 0;
-border-radius: 20px;
-background-color: var(--white-color);
-margin-bottom: 4px;
-
-&:hover,
-&:focus {
-  background-color: var(--light-blue-color);
-  outline: inherit;
-}
-`;
-
-export const DayPercentage = styled.div`
-font-size: 12px;
-font-weight: 400;
-line-height: 1.5;
-color: var(--light-blue-color);
-margin-top: 4px;
-width: 100%;
-
-@media screen and (min-width: 320px) and (max-width: 767px) {
-  font-size: 10px;
-  line-height: 1.6;
-}
-
-@media screen and (min-width: 768px) and (max-width: 1439px) {
-  gap: 34px;
-
-}
-`;
-
-
-
-export const CustomModal = styled(Modal)`
-&.ReactModal__Content {
-  width: 80%; 
-  max-width: 400px; 
-  
-  height: auto !important;
-  
-  background-color: white;
- 
- 
-  
-  border-radius: 8px;
-   
-}
-&.ReactModal__Overlay {
-  background-color: rgba(0, 0, 0, 0);
   display: flex;
   justify-content: center;
   align-items: center;
-}
+  font-size: 14px;
+  line-height: 1.29;
+  text-align: center;
+  min-width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 20px;
+  background-color: var(--white-color);
+  margin-bottom: 4px;
+
+  &:hover,
+  &:focus {
+    background-color: var(--light-blue-color);
+    outline: inherit;
+  }
 `;
 
-export const ModalWrapper = styled.div`
-border-radius: 10px;
-box-shadow: 0px 4px 4px 0px rgba(64, 123, 255, 0.30);
+export const DayPercentage = styled.div`
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--light-blue-color);
+  margin-top: 4px;
+  width: 100%;
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    font-size: 10px;
+    line-height: 1.6;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    gap: 34px;
+  }
 `;
 
-export const ModalContent = styled.div`
-display: inline-flex;
-padding: 24px 13px;
-flex-direction: column;
-align-items: flex-start;
-gap: 16px;
-
-@media (min-width: 767px) {
-padding: 24px 16px
-}
-`;
-
-export const DailyNormaLabel = styled.span`
-width: 90px;
-color: var( --primary-txt-color);
-font-family: Roboto;
-font-size: 16px;
-font-style: var( --regular);
-font-weight: 400;
-line-height:1.25
-`
-
-export const DailyNormaValue = styled.span`
-width: 50px;
-color: var(--primary-color);
-font-family: Roboto;
-font-size: 18px;
-font-style: normal;
-font-weight: var(--medium);
-line-height: 1.33`
-
-export const SelectedDayInfo = styled.p`
-width: 204px;
-color: var(--primary-color);
-font-family: Roboto;
-font-size: 16px;
-font-style: normal;
-font-weight: var(--regular);
-line-height:1.25
-`
