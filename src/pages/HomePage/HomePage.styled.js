@@ -49,19 +49,18 @@ export const ContentWrapper = styled.div`
 `;
 
 export const LeftSideContainer = styled.div`
-@media screen and (max-width: 767px) {
+  @media screen and (max-width: 767px) {
     height: 504px;
     width: 100%;
     padding-bottom: 40px;
   }
 
-@media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     padding-bottom: 40px;
   }
 
   @media screen and (max-width: 1439px) {
     width: 100%;
-
   }
 
   @media screen and (min-width: 768px) and (max-width: 1439px) {
@@ -74,8 +73,6 @@ export const LeftSideContainer = styled.div`
     width: 624px;
     padding-right: 32px;
   }
-  
 `;
 
-export const RightSideContainer = styled.div`
-`
+export const RightSideContainer = styled.div``;
