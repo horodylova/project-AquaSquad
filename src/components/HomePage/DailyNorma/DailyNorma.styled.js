@@ -1,13 +1,15 @@
 import styled from "styled-components";
 
 export const Wrap = styled.div` 
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   border-radius: 10px;
   border: 1px solid var(--second-background-color);
   background: rgb(255, 255, 255);
   box-shadow: 0 4px 8px 0 rgba(158, 187, 255, 0.12);
   padding: 8px 20px;
-  margin-bottom: 8px;
+  
   position:static;
 
 @media (min-width: 768px){
