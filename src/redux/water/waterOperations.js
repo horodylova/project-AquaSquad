@@ -10,6 +10,7 @@ export const addWater = createAsyncThunk(
       const res = await axios.post('/water', credentials);
       await dispatch(getDayWater());
       await dispatch(getMonthWater());
+      console.log('res', res.data);
       return res.data;
     } catch (error) {
       toast.error('Error add water:', error);

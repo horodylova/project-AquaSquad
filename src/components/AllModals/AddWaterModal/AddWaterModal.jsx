@@ -1,7 +1,8 @@
 import Modal from 'react-modal';
 import { useState } from 'react';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
+import { addWater } from '../../../redux/water/waterOperations';
 
 const dateHandler = (currentDate = new Date()) => {
   const dateFormatter = new Intl.DateTimeFormat('uk-UA', {
@@ -28,6 +29,7 @@ const AddWaterModal = ({ isOpen, onRequestClose }) => {
   Modal.setAppElement('#root');
 
   const [value, setValue] = useState(50);
+  const dispatch = useDispatch();
 
   const handleValueChange = (e) => {
     const inputValue = e.target.value;
@@ -46,9 +48,8 @@ const AddWaterModal = ({ isOpen, onRequestClose }) => {
     let value = Number(e.target.value.value);
 
     console.log(time, value);
-
     try {
-      // await useDispatch(waterAction({ time, value, date })).unwrap();
+      await dispatch(addWater({ time, value, date })).unwrap();
 
       console.log(JSON.stringify({ time, value, date }));
       toast.success('Added your new entry!');

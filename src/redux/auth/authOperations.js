@@ -52,8 +52,7 @@ export const logOut = createAsyncThunk(
   }
 );
 
-export const updateUserAvatar = async newPhotoFile => {
-
+export const updateUserAvatar = async (newPhotoFile) => {
   const {
     data: { avatarURL },
   } = await axios.patch('/users/avatar', newPhotoFile, {
@@ -64,27 +63,23 @@ export const updateUserAvatar = async newPhotoFile => {
   return avatarURL;
 };
 
-
-
-
-
 export const updateAvatar = createAsyncThunk(
   'auth/updateAvatar',
   async (newPhotoFile, { rejectWithValue }) => {
     try {
-      const avatarURL= await updateUserAvatar(newPhotoFile);
-      toast.success(
-        `The photo has been successfully uploaded.`
-      );
-      return  avatarURL;
+      const avatarURL = await updateUserAvatar(newPhotoFile);
+      toast.success(`The photo has been successfully uploaded.`);
+      return avatarURL;
     } catch (error) {
-      toast.error(`Unfortunately, the photo did not upload successfully. Please try again later.`);
+      toast.error(
+        `Unfortunately, the photo did not upload successfully. Please try again later.`
+      );
       return rejectWithValue(error.massage);
     }
   }
 );
 
-export const updateUserProfile = async newUserProfile => {
+export const updateUserProfile = async (newUserProfile) => {
   const dataForSend = {};
   const entries = Object.entries(newUserProfile);
   entries.forEach(([key, value]) => {
@@ -99,7 +94,7 @@ export const updateUserProfile = async newUserProfile => {
   return data;
 };
 
-export const updateUserProfileData= createAsyncThunk(
+export const updateUserProfileData = createAsyncThunk(
   'auth/updateUserProfileData',
   async (newProfile, { rejectWithValue }) => {
     try {
@@ -125,8 +120,6 @@ export const updateUserProfileData= createAsyncThunk(
   }
 );
 
-
-
 export const refreshUser = createAsyncThunk('/refresh', async (_, thunkAPI) => {
   const state = thunkAPI.getState();
   const persistedToken = state.auth.token;
@@ -138,6 +131,7 @@ export const refreshUser = createAsyncThunk('/refresh', async (_, thunkAPI) => {
   try {
     token.set(persistedToken);
     const res = await axios.get('/users/current');
+    console.log('current', res.data);
     return res.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);

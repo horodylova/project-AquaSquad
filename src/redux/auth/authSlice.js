@@ -95,7 +95,6 @@ const authSlice = createSlice({
       .addCase(updateAvatar.fulfilled, (state, { payload }) => {
         state.user.avatarURL = payload;
         console.log(action.payload);
-
       })
       .addCase(updateUserProfileData.fulfilled, (state, action) => {
         state.user.gender = action.payload.gender;

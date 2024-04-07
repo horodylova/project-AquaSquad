@@ -14,7 +14,10 @@ const calendarSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getDayWater.fulfilled, (state, action) => {
-        state.dayWater = action.payload.takingWater;
+        // state.dayWater = action.payload.takingWater;
+        console.log('action', action.payload);
+        state.dayWater = action.payload;
+
         state.percent = action.payload.percent;
       })
       .addCase(getMonthWater.fulfilled, (state, action) => {

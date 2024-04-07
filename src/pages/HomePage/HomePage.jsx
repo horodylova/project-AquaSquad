@@ -15,7 +15,7 @@ import {
 } from './HomePage.styled';
 import {
   getDayWater,
-  getMonthWater,
+  // getMonthWater,
 } from '../../redux/Calendar/calendarOperations';
 
 const HomePage = () => {
@@ -23,7 +23,7 @@ const HomePage = () => {
 
   useEffect(() => {
     dispatch(getDayWater());
-    dispatch(getMonthWater());
+    // dispatch(getMonthWater());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -34,7 +34,7 @@ const HomePage = () => {
           <ContentWrapper>
             <LeftSideContainer>
               <DailyNorma />
-                <ImageOfBottle/>
+              <ImageOfBottle />
               <WaterRatioPanel />
             </LeftSideContainer>
             <RightSideContainer>
