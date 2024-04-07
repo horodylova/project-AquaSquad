@@ -1,12 +1,22 @@
 import styled from 'styled-components';
 
 export const DailyWrapper = styled.div`
-    padding: 32px 24px;
-    border: 1px solid red; 
-    width: 592px;
-    height: 712px;
+    
+    max-width: 280px;
     margin: 0 auto;
     border-radius: 10px;
+    padding: 24px 12px;
+    
+
+    @media (min-width: 768px) {
+    min-width: 704px;
+    padding: 32px 24px;
+  }
+
+  @media (min-width: 1440px) {
+    min-width: 592px;
+    
+  }
 `;
 
 export const DailyTitle = styled.h2`
@@ -21,31 +31,42 @@ export const DailySpan = styled.span`
     color: var(--primary-color);
     font-size: 16px;
     line-height: 24px;
-  
-`;
+    
+    `;
+export const DailyDescrSpan = styled.span`
+    color: var(--primary-color);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    
+    `; 
+    
 export const DailyPrg = styled.p`
     color: var(--primary-txt-color);
     font-size: 16px;
     font-weight: 400;
     line-height: 20px;
-    margin-bottom: 12px;
+    
 `;
 
 export const DailyNormaWrp = styled.div`
     display: flex;
-    gap: 24px
+    gap: 24px;
+    flex-direction: column;
+    margin-bottom: 12px;
+
+    @media (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 export const DailyDescrWrp = styled.div`
     display: flex;  
-    max-width: 524px;
-    min-height: 48px;   
     border-radius: 10px;
     padding: 10px;
     border: 1px solid var(--light-grey-color); 
     margin-bottom: 24px;
 `;
 export const DailyDescr = styled.p`
-    display: flex;
     color: #8F8F8F;
     font-size: 12px;
     font-weight: 400;
@@ -84,7 +105,7 @@ export const DailyTextInput = styled.input`
     border: 1px solid var(--light-grey-color);
     padding: 12px 10px;
     display: flex;
-    width: 544px;
+    width: 100%;
     margin-top: 8px;
     color: var(--primary-color);
     font-size: 16px;
@@ -100,16 +121,44 @@ export const DailyTextInput = styled.input`
         color: var(--primary-color);
   }
 `;
+export const DailyStrong = styled.strong`
+    color: var(--primary-color);
+    font-size: 16px;
+    line-height: 24px;
+    display: flex; 
+    align-items: center;
+`;
+
+export const DailyIntakeWrp = styled.div`
+    display: flex;
+    align-items: baseline;
+    `;
+
 export const DailyInputPrg = styled.p`
+    display: flex;
     color: var(--primary-txt-color);
     font-size: 16px;
     font-weight: 400;
     line-height: 20px;
     margin-bottom: 8px;
+    max-width: 190px;
+
+    @media (min-width: 768px) {
+        max-width: 100%;
+        
+        margin-right: 6px;
+  } 
 `;
+export const DailyIntakeLabel = styled.label`
+    color: var(--primary-txt-color);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 20px;
+`;
+
 export const DailyButton = styled.button`
     margin-left: auto;
-    width: 160px;
+    width: 100%;
     padding: 10px 30px;
     color: var(--white-color);
     text-align: center;
@@ -120,5 +169,11 @@ export const DailyButton = styled.button`
     border: none;
     border-radius: 10px;
     background: var(--primary-color);
-    box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
+
+    &:hover {
+    box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
+  }
+  @media (min-width: 768px) {
+    width: 160px;
+  }
 `;

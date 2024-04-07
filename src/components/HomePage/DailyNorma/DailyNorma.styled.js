@@ -68,3 +68,10 @@ display: flex;
 gap: 12px;
 align-items: baseline;
 `
+
+export const DailyModal = styled.div`
+margin-bottom: 12px;
+font-size: 18px;
+line-height: 1.3;
+color: var(--primary-txt-color);
+`;
