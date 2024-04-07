@@ -1,8 +1,9 @@
-// import Container from '../../components/Container/Container';
+import Container from '../../components/Container/Container';
 import { DailyNorma } from '../../components/HomePage/DailyNorma/DailyNorma';
 import { WaterRatioPanel } from '../../components/HomePage/WaterRatioPanel/WaterRatioPanel';
 import { Calendar } from '../../components/HomePage/Calendar/Calendar';
 import { TodayList } from '../../components/HomePage/TodayList/TodayList';
+import { ImageOfBottle } from '../../components/HomePage/ImageBottleOnHome/ImageBottleOnHomePage';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -29,10 +30,11 @@ const HomePage = () => {
   return (
     <>
       <BackGroundContainer>
-        {/* <Container> */}
+        <Container>
           <ContentWrapper>
             <LeftSideContainer>
               <DailyNorma />
+                <ImageOfBottle/>
               <WaterRatioPanel />
             </LeftSideContainer>
             <RightSideContainer>
@@ -40,7 +42,7 @@ const HomePage = () => {
               <Calendar />
             </RightSideContainer>
           </ContentWrapper>
-        {/* </Container> */}
+        </Container>
       </BackGroundContainer>
     </>
   );

@@ -8,28 +8,25 @@ import backTablet2x from '../../Images/main-bg/back_tablet@2x.png';
 import backMobile1x from '../../Images/main-bg/back_mobile@1x.png';
 import backMobile2x from '../../Images/main-bg/back_mobile@2x.png';
 
-import bottleMob1x from '../../Images/home-bottles/Mobile-Bottle-home-screen@1x.png';
-import bottleMob2x from '../../Images/home-bottles/Mobile-Bottle-home-screen@2x.png';
-
-import bottleTablet1x from '../../Images/home-bottles/Tablet-Bottle-Home-Screen@1x.png';
-import bottleTablet2x from '../../Images/home-bottles/Tablet-Bottle-Home-Screen@2x.png';
-
-import bottleDesk1x from '../../Images/home-bottles/Desk-Botle-Home-screen@1x.png';
-import bottleDesk2x from '../../Images/home-bottles/Desk-Botle-Home-screen@2x.png';
 
 
 
 export const BackGroundContainer = styled.section`
+position: relative;
 background-color: var(--white-color);
 background-size: cover;
+position: relative;
+background-position: 0% -5%;
 background-repeat: no-repeat;
-background-position: center;
+height: 100%;
+z-index: 0;
  
   @media (max-width: 767px) {
     background-image: image-set(
       url(${backMobile1x}) 1x,
       url(${backMobile2x}) 2x
     );
+   
   }
 
   @media (min-width: 768px) {
@@ -37,7 +34,9 @@ background-position: center;
       url(${backTablet1x}) 1x,
       url(${backTablet2x}) 2x
     );
-    background-position: top center;
+    background-size: cover;
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
 
   }
 
@@ -46,66 +45,32 @@ background-position: center;
       url(${backDesktop1x}) 1x,
       url(${backDesktop2x}) 2x
     );
+    background-size: contain;
     background-position: top center;
+    background-repeat: no-repeat;
     
   }
 `;
 
 export const ContentWrapper = styled.div`
-display: flex;
-align-items: center;
-flex-direction: column;
-
-@media screen and (min-width: 768px) {
+@media (min-width: 1440px) {
   display: flex;
-  padding: 0 32px;
+  gap: 32px;
 }
 
-@media screen and (min-width: 1440px) {
-  overflow: hidden;
-  justify-content: center;
-  // padding: 30px 112px;
-  padding-top: 30px;
-  gap: 36px;
-  flex-direction: row;
+@media only screen and (max-width: 1439px) {
+  padding-bottom: 40px;
 }
+
 `;
 
 export const LeftSideContainer = styled.div`
-padding: 32px 20px;
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-// gap: 232px;
 
-background-position: center;
-background-repeat: no-repeat;
-background-image: image-set(
-  url(${bottleMob1x}) 1x,
-  url(${bottleMob2x}) 2x
-);
-
-@media screen and (min-width: 768px) {
-  margin-top: 0;
-  padding: 40px 32px;
-  gap: 326px;
-
-  background-position: center;
-  background-image: image-set(
-    url(${bottleTablet1x}) 1x,
-    url(${bottleTablet2x}) 2x
-  );
+@media (min-width: 1440px){
+  padding-bottom: 76px;
+  width:592px;
 }
 
-@media screen and (min-width: 1440px) {
-  padding: 0px;
-  gap: 446px;
-  background-position: top;
-  background-image: image-set(
-    url(${bottleDesk1x}) 1x,
-    url(${bottleDesk2x}) 2x
-  );
-}
 `;
 
 export const RightSideContainer = styled.div`
