@@ -38,9 +38,7 @@ export const FormaUpdateUserProfile = () => {
     }));
   };
 
-  // const toggleMenu = () => {
-  //     setIsOpen(!isOpen);
-  //   };
+ 
   const handleModalOpen = () => dispatch(setOpenModal(false));
 
   const {
@@ -56,7 +54,8 @@ export const FormaUpdateUserProfile = () => {
   });
 
   const onSubmit = (data) => {
-    dispatch(updateUserProfileData(data));
+    const { name, gender, email, newPassword, oldPassword } = data;
+    dispatch(updateUserProfileData({name,gender,email,newPassword,oldPassword}));
     
   };
 
@@ -118,7 +117,7 @@ export const FormaUpdateUserProfile = () => {
                   {...register('name')}
                   type="text"
                   placeholder={
-                    userData.username ? userData.username : 'User Name'
+                    userData.name ? userData.name : 'User Name'
                   }
                 />
               </FormLabel>
@@ -290,7 +289,8 @@ export const FormaUpdateUserProfile = () => {
             </FormLabel>
           </WrapperFormaRight>
         </WrapperFormaMain>
-        <ButtonSettingsForma type="submit" disabled={isSubmitting}>
+        <ButtonSettingsForma type="submit" disabled={isSubmitting} >
+          {/* onClick={handleModalOpen} */}
           {isSubmitting ? 'Loading..' : 'Save'}
         </ButtonSettingsForma>
       </WrapperForma>

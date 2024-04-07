@@ -14,9 +14,9 @@ export const WrapperForma = styled.div`
 export const WrapperFormaMain = styled.div`
 
   display: flex;
-  gap: 24px;
+  gap: 24px;/// боковой марджин между левой и правой
   flex-direction: column;
-  margin-bottom: 24px;
+  margin-bottom: 24px; //марджин для кнопки чтобі оттолкнуться
 
   @media screen and (min-width: 768px) {
     justify-content: start;
@@ -28,11 +28,16 @@ export const WrapperFormaMain = styled.div`
 export const WrapperFormaLeft = styled.div`
   display: flex;
   flex-direction: column;
-//   gap: 12px;
   width: 100%;
+  gap: 12px;
 
   @media screen and (min-width: 768px) {
     width: 392px;
+  }
+  @media screen and (min-width: 1440px) {
+    div:not(:last-child) {
+ gap: 12px;
+   }
   }
   `;
   
@@ -135,10 +140,9 @@ font-size: 18px;;
   flex-direction: column;
   gap: 8px;
   width: 100%;
-  
-  label:not(:last-child) {
-margin-bottom: 24px;
-  }
+//   label:not(:last-child) {
+// margin-bottom: 24px;
+//   }
 
 `;
 

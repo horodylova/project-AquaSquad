@@ -67,9 +67,8 @@ export const WrapperUpload = styled.div`
 `;
 
 export const ContainerAvatar = styled.div`
-  width: 80px;
+ width: 80px;
   height: 80px;
-  // color: #407BFF;
   div {
     width: auto;
     height: 100%;
@@ -79,8 +78,8 @@ export const ContainerAvatar = styled.div`
     align-items: center;
     justify-content: center;
     font-size: 52px;
-    color: #ffffff;
-    background-color: #407BFF;
+    color: white;
+    background-color: blue;
   }
 `;
 

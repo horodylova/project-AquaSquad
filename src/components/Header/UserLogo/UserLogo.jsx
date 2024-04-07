@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUserProfile } from '../../../redux/auth/authSelectors';
-import Avatar, { genConfig } from 'react-nice-avatar';
+// import Avatar, { genConfig } from 'react-nice-avatar';
 
 import {
   UserName,
@@ -19,7 +19,7 @@ function emailUsername(emailAddress) {
   return emailAddress.split('@')[0];
 }
 
-const config = genConfig();
+// const config = genConfig();
 
 export const UserLogo = () => {
   const userProfile = useSelector(selectUserProfile);
@@ -29,7 +29,7 @@ export const UserLogo = () => {
   const enteredUserEmail = emailUsername(email);
   const [isOpen, setIsOpen] = useState(false);
   const avatarURL = `https://water-tracker-backend-ob6w.onrender.com/${userAvatar}`;
-
+  const defaultUserImage = 'https://avatar.iran.liara.run/public/6';
   const makeUserName = () => {
     if (name) {
       return name;
@@ -50,9 +50,9 @@ export const UserLogo = () => {
       <UserLogoBtn onClick={toggleMenu} aria-label="User Logo">
         <UserName>{makeUserName()}</UserName>
 
-        {avatarURL ? (
-          <UserAvatar src={avatarURL} alt="Avatar" />
-        ) : (
+        {/* {userAvatar ? 
+          <UserAvatar src={avatarURL} />
+        : 
           <Avatar
             style={{
               width: '28px',
@@ -62,7 +62,9 @@ export const UserLogo = () => {
             }}
             {...config}
           />
-        )}
+        } */}
+
+        <UserAvatar src={ userAvatar ? avatarURL : defaultUserImage} />
 
         <UserLogoIcon>
           {isOpen ? (

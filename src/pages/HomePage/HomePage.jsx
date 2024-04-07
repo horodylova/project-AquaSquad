@@ -18,8 +18,8 @@ const HomePage = () => {
         <Container>
           <ContentWrapper>
             <LeftSideContainer>
-              <DailyNorma />
-              <WaterRatioPanel />
+              {/* <DailyNorma />
+              <WaterRatioPanel /> */}
             </LeftSideContainer>
             <RightSideContainer>
               <TodayList />
