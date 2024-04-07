@@ -1,8 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, login, logOut, refreshUser, updateAvatar,updateUserProfileData } from '../auth/authOperations';
+import {
+  register,
+  login,
+  logOut,
+  refreshUser,
+  updateAvatar,
+  updateUserProfileData,
+} from '../auth/authOperations';
+import { waterRate } from '../water/waterOperations';
 
 const defaultUser = {
-  username: "",
+  username: '',
   password: '',
   gender: '',
   dailyNorma: null,
@@ -80,12 +88,11 @@ const authSlice = createSlice({
 
       .addCase(logOut.fulfilled, () => {
         return initialState;
-         
       })
       .addCase(logOut.rejected, (state) => {
         state.isAuthenticated = false;
       })
-      .addCase(updateAvatar.fulfilled, (state, {payload}) => {
+      .addCase(updateAvatar.fulfilled, (state, { payload }) => {
         state.user.avatarURL = payload;
         console.log(action.payload);
       })
@@ -107,6 +114,9 @@ const authSlice = createSlice({
         state.token = null;
         state.isAuthenticated = false;
         state.isFetchingCurrentUser = false;
+      })
+      .addCase(waterRate.fulfilled, (state, action) => {
+        state.user.dailyNorma = action.payload.waterRate;
       });
   },
 });
@@ -122,4 +132,4 @@ export const {
 } = authSlice.actions;
 
 export default authSlice.reducer;
-// export const authReducer = authSlice.reducer;
+export const authReducer = authSlice.reducer;
