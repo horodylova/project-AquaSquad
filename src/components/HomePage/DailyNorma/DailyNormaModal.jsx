@@ -147,7 +147,7 @@ export const DailyNormaModal = ({
                     />
                 </DailyLabel>
                 <DailyLabel>
-                    The time of active participation in sports or other activities with a high physical. load in hours:
+                    The time of active participation in sports or other activities with a high physical load in hours:
                     <DailyTextInput
                         type="number"
                         name="time"
@@ -159,7 +159,7 @@ export const DailyNormaModal = ({
                     </DailyLabel>
                     <DailyIntakeWrp>
                 <DailyInputPrg>The required amount of water in liters per day:  </DailyInputPrg>
-                 <DailyStrong> {parseFloat(dailyIntake).toFixed(1)} L</DailyStrong>
+                 <DailyStrong> {parseFloat(dailyIntake).toFixed(1) || 0} L</DailyStrong>
                 </DailyIntakeWrp>
                 <DailyIntakeLabel>
                     Write down how much water you will drink:
