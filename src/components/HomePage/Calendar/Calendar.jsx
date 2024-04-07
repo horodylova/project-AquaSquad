@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import {
-  CalendarContainer,
   MonthNavigation,
   CalendarDays,
   MonthContent,
@@ -60,7 +59,7 @@ export const Calendar = ({
   const year = currentDate.getFullYear();
 
   return (
-    <CalendarContainer>
+    <div>
       <MonthContent>
         <MonthText>Month</MonthText>
         <MonthNavigation>
@@ -93,7 +92,7 @@ export const Calendar = ({
         fulfillmentPercentage={fulfillmentPercentage}
         waterConsumed={waterConsumed}
       />
-    </CalendarContainer>
+    </div>
   );
 };
 

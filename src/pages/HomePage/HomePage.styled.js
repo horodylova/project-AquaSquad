@@ -74,27 +74,23 @@ export const LeftSideContainer = styled.div`
 `;
 
 export const RightSideContainer = styled.div`
-display: flex;
-flex-direction: column;
-gap: 24px;
-margin: 32px 0 40px;
+background-color: var(--light-grey-color);
+    padding: 24px 8px;
+    border-radius: 10px;
+    margin: 0 auto;
+    box-shadow: 0px 4px 14px rgb(64, 123, 255, 0.3);
+    width: 100%;
 
-padding: 24px 8px;
-width: 280px;
+    @media screen and (min-width: 320px) {
+        width: 280px;
+        }
 
-border-radius: 10px;
-background: var(--light-blue-1);
-box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.3);
+    @media screen and (min-width: 768px) {
+        width: 704px;
+        padding: 32px 24px;
+        }
 
-@media screen and (min-width: 768px) {
-  padding: 32px 24px;
-  margin: 0px;
-  margin-bottom: 44px;
-  width: 704px;
-  height: 688px;
-}
-
-@media screen and (min-width: 1440px) {
-  width: 592px;
-}
+    @media screen and (min-width: 1440px) {
+        width: 592px;
+    }
 `

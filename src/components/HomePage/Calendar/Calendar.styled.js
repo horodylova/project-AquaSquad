@@ -1,16 +1,5 @@
 import styled from 'styled-components';
 
-export const CalendarContainer = styled.div`
-  background-color: var(--light-grey-color);
-
-  @media (min-width: 768px) {
-    width: 656px;
-  }
-
-  @media (min-width: 1440px) {
-    width: 544px;
-  }
-`;
 
 export const MonthText = styled.div`
   font-family: Roboto;
