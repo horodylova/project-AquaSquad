@@ -29,29 +29,27 @@ export const WrapperFormaLeft = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: 12px;
+  
 
   @media screen and (min-width: 768px) {
     width: 392px;
   }
-  @media screen and (min-width: 1440px) {
-    div:not(:last-child) {
- gap: 12px;
-   }
-  }
+//   @media screen and (min-width: 1440px) {
+//     div:not(:last-child) {
+//  gap: 12px;
+//    }
+//   }
   `;
   
   export const ContainerForm = styled.div`
   display: flex;
   flex-direction: column;
-  // gap: 24px;
   width: 100%;
   `;
   
   export const WrapperFormaRight = styled.div`
   display: flex;
   flex-direction: column;
-//   gap: 12px;
   width: 100%;
 
   @media screen and (min-width: 768px) {
@@ -82,16 +80,16 @@ export const WrapperFormaLeft = styled.div`
   `;
   export const WrapperRadio = styled.div`
   display: flex;
-  gap: 24px;
+  gap: 24px;// для радио кнопок расстояние
 margin-bottom: 24px;
   @media screen and (min-width: 1440px) {
-    margin-bottom: 52px;
+    margin-bottom: 67px;
   }
   `;
   export const FormLabelRadio = styled.label`
 display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 8px;// для радиокнопок
   font-size: 16px;
   line-height: 20px;
   font-weight: 400;
@@ -132,7 +130,7 @@ display: flex;
 // // `;
 
 export const FormLabel = styled.label`
-font-size: 18px;;
+font-size: 18px;
   font-weight: 500;
   line-height: 20px;
   color: #2f2f2f;
@@ -140,9 +138,7 @@ font-size: 18px;;
   flex-direction: column;
   gap: 8px;
   width: 100%;
-//   label:not(:last-child) {
-// margin-bottom: 24px;
-//   }
+
 
 `;
 

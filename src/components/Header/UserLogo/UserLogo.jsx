@@ -48,7 +48,7 @@ export const UserLogo = () => {
   return (
     <UserLogoContainer>
       <UserLogoBtn onClick={toggleMenu} aria-label="User Logo">
-        <UserName>{makeUserName()}</UserName>
+        <UserName>{userProfile.name ? userProfile.name : makeUserName()}</UserName>
 
         {/* {userAvatar ? 
           <UserAvatar src={avatarURL} />
