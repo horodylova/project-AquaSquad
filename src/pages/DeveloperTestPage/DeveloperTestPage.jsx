@@ -33,13 +33,5 @@ export const DeveloperTestPage = () => {
       />
     </Container>
   );
-=======
-    return (
-        <Container>
-            <p>Your test</p>
-           
-            <TodayList/>
-        </Container>
-    )
  
 };
