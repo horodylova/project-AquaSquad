@@ -7,7 +7,7 @@ const Container = styled.div`
 
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
 
   position: fixed;
   top: 50%;
@@ -22,6 +22,7 @@ const Container = styled.div`
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
   @media (min-width: 768px) {
+    gap: 24px;
     padding: 32px 24px;
     width: 704px;
     height: 580px;
@@ -83,7 +84,7 @@ const WaterPortionWrapper = styled.div`
   .ml {
     width: 60px;
 
-    color: #407bff;
+    color: var(--primary-color);
     font-family: Roboto;
     font-size: 18px;
     font-style: normal;
@@ -123,6 +124,9 @@ const EnteredData = styled.div`
     background: #fff;
     box-shadow: 0px 2px 4px 0px rgba(64, 123, 255, 0.2);
   }
+  button:focus {
+    outline: 1px solid var(--primary-color);
+  }
   .title {
     font-size: 18px;
     font-weight: 500;
@@ -150,7 +154,7 @@ const EnteredData = styled.div`
     align-items: center;
     gap: 10px;
 
-    color: #407bff;
+    color: var(--primary-color);
     text-align: center;
     font-family: Roboto;
     font-size: 18px;
@@ -184,7 +188,7 @@ const Label = styled.label`
 const Input = styled.input`
   padding: 12px 10px;
 
-  color: #407bff;
+  color: var(--primary-color);
   font-family: Roboto;
   font-size: 16px;
   font-style: normal;
@@ -193,24 +197,23 @@ const Input = styled.input`
 
   border-radius: 6px;
   border: 1px solid var(--light-grey-color);
-  outline: none;
 
-  :hover,
-  :focus {
-    outline: 1px var(--primary-color);
+  &:focus {
+    outline: 1px solid var(--primary-color);
   }
 `;
 
 const SaveButtonWrapper = styled.div`
   width: 256px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 24px;
 
   p {
     width: 72px;
-    color: #407bff;
+    color: var(--primary-color);
     text-align: center;
     font-family: Roboto;
     font-size: 18px;
@@ -236,10 +239,14 @@ const SaveButtonWrapper = styled.div`
     font-weight: 500;
     line-height: 24px; /* 133.333% */
     outline: none;
+    border: 0;
 
     border-radius: 10px;
-    background: #407bff;
+    background: var(--primary-color);
     box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
+  }
+  button:focus {
+    outline: 1px solid var(--primary-color);
   }
 
   @media (min-width: 768px) {
