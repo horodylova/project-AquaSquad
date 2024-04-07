@@ -29,7 +29,7 @@ export const FormaUpdateUserProfile = () => {
   const userData = useSelector(selectUserProfile);
   // const userPassword = userData.password;
   const userCurrentGender = userData.gender;
-  console.log(userCurrentGender);
+  
 
   const togglePasswordVisibility = (inputId) => {
     setShowPassword((prevPasswords) => ({
@@ -57,7 +57,7 @@ export const FormaUpdateUserProfile = () => {
 
   const onSubmit = (data) => {
     dispatch(updateUserProfileData(data));
-    console.log(data);
+    
   };
 
   return (

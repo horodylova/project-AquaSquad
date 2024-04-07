@@ -8,6 +8,7 @@ import {
   UserLogoBtn,
   UserLogoIcon,
   UserLogoContainer,
+  UserAvatar,
 } from './UserLogo.styled';
 
 import arrow from '../../../Icons/solid.svg';
@@ -24,9 +25,10 @@ export const UserLogo = () => {
   const userProfile = useSelector(selectUserProfile);
   const name = userProfile.username;
   const email = userProfile.email;
-  // const avatar = userProfile.avatarURL;
+  const userAvatar = userProfile.avatar;
   const enteredUserEmail = emailUsername(email);
   const [isOpen, setIsOpen] = useState(false);
+  const avatarURL = `https://water-tracker-backend-ob6w.onrender.com/${userAvatar}`;
 
   const makeUserName = () => {
     if (name) {
@@ -48,16 +50,19 @@ export const UserLogo = () => {
       <UserLogoBtn onClick={toggleMenu} aria-label="User Logo">
         <UserName>{makeUserName()}</UserName>
 
-        {/* <UserAvatar src={avatar ? avatar : avatarPlaceholder} alt="Avatar" /> */}
-        <Avatar
-          style={{
-            width: '28px',
-            height: '28px',
-            borderRadius: '50%',
-            marginRight: '4px',
-          }}
-          {...config}
-        />
+        {avatarURL ? (
+          <UserAvatar src={avatarURL} alt="Avatar" />
+        ) : (
+          <Avatar
+            style={{
+              width: '28px',
+              height: '28px',
+              borderRadius: '50%',
+              marginRight: '4px',
+            }}
+            {...config}
+          />
+        )}
 
         <UserLogoIcon>
           {isOpen ? (

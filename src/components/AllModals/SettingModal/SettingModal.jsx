@@ -1,8 +1,6 @@
 import { useRef } from 'react';
 import close from '../../../Icons/close-cross.svg';
 import download from '../../../Icons/arrow-download.svg';
-import axios from 'axios';
-
 import {
   CloseBtn,
   ContainerAvatar,
@@ -15,8 +13,6 @@ import {
 import { FormaUpdateUserProfile } from './FormaSettingModal/FormaSettingmodal';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-// import { useDispatch, useSelector } from 'react-redux';
-
 import { setModalType, setOpenModal } from '../../../redux/modals/modalSlice';
 import { selectUserProfile } from '../../../redux/auth/authSelectors';
 import { updateAvatar } from '../../../redux/auth/authOperations';
@@ -29,73 +25,15 @@ export const SettingModal = () => {
   const defaultUserImage = 'https://avatar.iran.liara.run/public/6';
   const avatarURL = `https://water-tracker-backend-ob6w.onrender.com/${userAvatar}`;
 
- 
-  
-  
-  // const handleChange = async (img) => {
-    
-  //   const data = new FormData();
-  //   data.append("avatar", img);
-    // data.append("upload_preset", "rem39mcp");
-    // data.append("cloud_name", "ddreudt2q");
-    
-    // const response = await fetch(
-    //   "  https://api.cloudinary.com/v1_1/ddreudt2q/image/upload/",
-    //   {
-    //     method: "post",
-    //     body: data,
-        
-    //   }
-      
-
-    // );
-    // const dataOfImg = await response.json();
-    
-
-      // dispatch(updateAvatar(data));
-  
-    
-  // };
- 
-
-  
-  const handleChange = async (e) => {
+  const handleChange = (e) => {
     const formaData = new FormData();
-    console.log(e.target.files[0]);
+
     formaData.append('avatar', e.target.files[0]);
     if (e.target.files[0]) {
       dispatch(updateAvatar(formaData));
-      console.log(formaData);
-    };
-
-    const data = new FormData();
-    data.append("file", e.target.files[0]);
-    data.append("upload_preset", "rem39mcp");
-    data.append("cloud_name", "ddreudt2q");
-    
-    const response = await fetch(
-      "  https://api.cloudinary.com/v1_1/ddreudt2q/image/upload/",
-      {
-        method: "post",
-        body: data,
-        
-      }
-      
-
-    );
-    const {url} = await response.json();
-    
-  
-    console.log(url);
-    
-  }
-  
-
-  
-  
-  
     }
-  
+  };
+
   const handleClick = () => {
     filePecker.current.click();
   };
@@ -121,7 +59,7 @@ export const SettingModal = () => {
       <WrapperUpload>
         <ContainerAvatar>
           <img
-             src={avatarURL ? avatarURL : defaultUserImage}
+            src={avatarURL ? avatarURL : defaultUserImage}
             alt="avatar"
             width="80"
           />
@@ -146,7 +84,6 @@ export const SettingModal = () => {
             type="file"
             accept="image/png, image/jpeg"
             onChange={handleChange}
-            
           />
           <button
             type="button"
