@@ -19,7 +19,7 @@ import { setModalType, setOpenModal } from '../../../redux/modals/modalSlice';
 //   selectIsModalType,
 // } from '../../../redux/modals/modalSelectors';
 import { selectUserProfile } from '../../../redux/auth/authSelectors';
-// import { updateAvatar } from "../../../redux/auth/authOperations";
+import { updateAvatar } from "../../../redux/auth/authOperations";
 
 export const SettingModal = () => {
   const dispatch = useDispatch();
@@ -27,15 +27,16 @@ export const SettingModal = () => {
   // const typeOfModal = useSelector(selectIsModalType);
   const userProfile = useSelector(selectUserProfile);
   const filePecker = useRef(null);
-  const avatar = userProfile.avatarURL;
-
+  const userAvatar = userProfile.avatar;
+  console.log(userAvatar);
   const defaultUserImage = 'https://avatar.iran.liara.run/public/6';
-
-  const handleChange = (e) => {
+   const avatarURL = `https://water-tracker-backend-ob6w.onrender.com/${userAvatar}`;
+  console.log(avatarURL);
+  const handleChange =  (e) => {
     const formaData = new FormData();
     formaData.append('avatar', e.target.files[0]);
     if (e.target.files[0]) {
-      // dispatch(updateAvatar(formaData));
+       dispatch(updateAvatar(formaData));
       console.log(formaData);
     }
   };
@@ -64,8 +65,8 @@ export const SettingModal = () => {
       <WrapperUpload>
         <ContainerAvatar>
           <img
-            src={defaultUserImage}
-            // src={userProfile.avatarURL ? userProfile.avatarURL : defaultUserImage}
+            // src={defaultUserImage}
+            src={userAvatar ? avatarURL : defaultUserImage}
             alt="avatar"
             width="80"
           />
@@ -88,7 +89,7 @@ export const SettingModal = () => {
             }}
             ref={filePecker}
             type="file"
-            accept=".jpg"
+            accept="image/png, image/jpeg"
             onChange={handleChange}
           />
           <button

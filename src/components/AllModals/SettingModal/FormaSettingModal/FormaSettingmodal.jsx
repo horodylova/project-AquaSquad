@@ -28,7 +28,8 @@ export const FormaUpdateUserProfile = () => {
   const [showPassword, setShowPassword] = useState(false);
   const userData = useSelector(selectUserProfile);
   // const userPassword = userData.password;
-  
+  const userCurrentGender = userData.gender;
+  console.log(userCurrentGender);
 
   const togglePasswordVisibility = (inputId) => {
     setShowPassword((prevPasswords) => ({
@@ -49,13 +50,14 @@ export const FormaUpdateUserProfile = () => {
     formState: { errors, isSubmitting },
   } = useForm({
     defaultValues: {
-      gender: 'man',
+      gender: userCurrentGender ? userCurrentGender : 'man',
     },
     mode: 'onChange',
   });
 
   const onSubmit = (data) => {
     dispatch(updateUserProfileData(data));
+    console.log(data);
   };
 
   return (

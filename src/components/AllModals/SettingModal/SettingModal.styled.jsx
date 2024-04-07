@@ -4,16 +4,15 @@ import styled from 'styled-components';
 
 export const ContainerSettings = styled.div`
   position: absolute;
-   z-index: 200;
   left: 50%;
   top: 40px;
   transform: translate(-50%);
-  color: #2F2F2F;
-  background-color: #ffffff;
+
+  color: black;
+  background-color: white;
   width: 280px;
   padding: 32px 12px;
   border-radius: 10px;
- 
 
   @media screen and (min-width: 768px) {
     width: 704px;
