@@ -19,6 +19,7 @@ export const MonthContent = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: auto;
+   
 `;
 
 export const MonthNavigation = styled.div`
@@ -39,24 +40,25 @@ export const MonthAndYear = styled.span`
 `;
 
 export const CalendarDays = styled.div`
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 16px;
-  padding-top: 16px;
-  padding-left: 8px;
-  padding-right: 8px;
+margin-left: auto;
+margin-right: auto;
+margin: 0;
+display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+    row-gap: 16px;
+    column-gap: 26px;
+position: relative;
+  
+   @media screen and (min-width: 768px) {
+     row-gap: 20px;
+     column-gap: 34px;
+        }
 
-  @media screen and (min-width: 768px) {
-    gap: 20px;
-    column-gap: 34px;
-  }
-
-  @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1440px) {
     row-gap: 20px;
     column-gap: 22px;
-  }
+    }
 `;
 
 export const Button = styled.button`
