@@ -52,8 +52,6 @@ export const logOut = createAsyncThunk(
   }
 );
 
-
-
 export const updateUserAvatar = async newPhotoFile => {
 
   const {
@@ -66,6 +64,10 @@ export const updateUserAvatar = async newPhotoFile => {
   return avatarURL;
 };
 
+
+
+
+
 export const updateAvatar = createAsyncThunk(
   'auth/updateAvatar',
   async (newPhotoFile, { rejectWithValue }) => {
@@ -74,7 +76,7 @@ export const updateAvatar = createAsyncThunk(
       toast.success(
         `The photo has been successfully uploaded.`
       );
-      return avatarURL;
+      return  avatarURL;
     } catch (error) {
       toast.error(`Unfortunately, the photo did not upload successfully. Please try again later.`);
       return rejectWithValue(error.massage);
