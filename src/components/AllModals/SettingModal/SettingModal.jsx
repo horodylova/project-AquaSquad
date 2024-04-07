@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useRef } from 'react';
 import close from '../../../Icons/close-cross.svg';
 import download from '../../../Icons/arrow-download.svg';
 import axios from 'axios';
@@ -13,13 +13,13 @@ import {
   HoverCloseBtn,
 } from './SettingModal.styled';
 import { FormaUpdateUserProfile } from './FormaSettingModal/FormaSettingmodal';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
+
 import { setModalType, setOpenModal } from '../../../redux/modals/modalSlice';
 import { selectUserProfile } from '../../../redux/auth/authSelectors';
-import { updateAvatar } from "../../../redux/auth/authOperations";
-
-
-
+import { updateAvatar } from '../../../redux/auth/authOperations';
 
 export const SettingModal = () => {
   const dispatch = useDispatch();
@@ -93,6 +93,8 @@ export const SettingModal = () => {
 
   
   
+  
+    }
   
   const handleClick = () => {
     filePecker.current.click();
