@@ -13,6 +13,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+import { calendaReducer } from './Calendar/calendarSlice';
 
 const persistConfig = {
   key: 'auth',
@@ -26,6 +27,7 @@ const store = configureStore({
   reducer: {
     auth: persistedReducer,
     modals: modalReducer,
+    calendarWater: calendaReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
