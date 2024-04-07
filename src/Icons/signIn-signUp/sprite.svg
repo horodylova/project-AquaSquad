@@ -7,5 +7,8 @@
       <path fill="none" stroke="#407bff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.715 16.429a1.35 1.35 0 0 1 0-.852C4.564 10.013 9.814 6 16 6c6.184 0 11.431 4.009 13.284 9.571.093.276.093.575 0 .852C27.436 21.987 22.187 26 16 26c-6.184 0-11.432-4.009-13.285-9.571z" style="stroke:var(--color1, #407bff)"/>
       <path fill="none" stroke="#407bff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 16a4.003 4.003 0 0 1-4 4 4.003 4.003 0 0 1-4-4 4.003 4.003 0 0 1 4-4 4.003 4.003 0 0 1 4 4z" style="stroke:var(--color1, #407bff)"/>
     </symbol>
+     <symbol id="icon-close-cross" viewBox="0 0 32 32">
+      <path fill="none" stroke="#407bff" style="stroke: var(--color1, #407bff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M8 24l16-16M8 8l16 16"></path>
+    </symbol>
   </defs>
 </svg>
