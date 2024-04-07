@@ -1,7 +1,6 @@
 import { useRef } from 'react';
 import close from '../../../Icons/close-cross.svg';
 import download from '../../../Icons/arrow-download.svg';
-
 import {
   CloseBtn,
   ContainerAvatar,
@@ -14,33 +13,31 @@ import {
 import { FormaUpdateUserProfile } from './FormaSettingModal/FormaSettingmodal';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-// import { useDispatch, useSelector } from 'react-redux';
-
 import { setModalType, setOpenModal } from '../../../redux/modals/modalSlice';
-// import {
-//   selectIsOpenModal,
-//   selectIsModalType,
-// } from '../../../redux/modals/modalSelectors';
 import { selectUserProfile } from '../../../redux/auth/authSelectors';
 import { updateAvatar } from '../../../redux/auth/authOperations';
+import Avatar, { genConfig } from 'react-nice-avatar';
+
+const config = genConfig();
+
 
 export const SettingModal = () => {
   const dispatch = useDispatch();
-  // const modalState = useSelector(selectIsOpenModal);
-  // const typeOfModal = useSelector(selectIsModalType);
   const userProfile = useSelector(selectUserProfile);
   const filePecker = useRef(null);
-  const avatar = userProfile.avatarURL;
-
+  const userAvatar = userProfile.avatar;
   const defaultUserImage = 'https://avatar.iran.liara.run/public/6';
+  const avatarURL = `https://water-tracker-backend-ob6w.onrender.com/${userAvatar}`;
 
   const handleChange = (e) => {
     const formaData = new FormData();
+
     formaData.append('avatar', e.target.files[0]);
     if (e.target.files[0]) {
       dispatch(updateAvatar(formaData));
     }
   };
+
   const handleClick = () => {
     filePecker.current.click();
   };
@@ -64,14 +61,12 @@ export const SettingModal = () => {
       <TitlePart>Your photo</TitlePart>
 
       <WrapperUpload>
-        <ContainerAvatar>
-          <img
-            src={
-              userProfile.avatarURL ? userProfile.avatarURL : defaultUserImage
-            }
+       <ContainerAvatar>
+           <img
+            src={userAvatar ? avatarURL : defaultUserImage}
             alt="avatar"
             width="80"
-          />
+          /> 
         </ContainerAvatar>
 
         <label>
@@ -91,7 +86,7 @@ export const SettingModal = () => {
             }}
             ref={filePecker}
             type="file"
-            accept=".jpg"
+            accept="image/png, image/jpeg"
             onChange={handleChange}
           />
           <button
