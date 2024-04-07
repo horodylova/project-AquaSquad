@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-
 const initialState = {
   modalType: '',
   isOpenModal: false,
@@ -15,7 +14,7 @@ const modalSlice = createSlice({
     },
     setModalType: (state, { payload }) => {
       state.modalType = payload;
-    }
+    },
   },
 });
 
