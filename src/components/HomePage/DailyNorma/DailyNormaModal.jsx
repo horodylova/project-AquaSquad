@@ -1,10 +1,11 @@
-import { useCallback, useEffect , useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { /* useDispatch, */ useSelector } from 'react-redux';
 import { selectUserProfile } from '../../../redux/auth/authSelectors';
 import Modal from 'react-modal';
 /* import { toast } from 'react-toastify'; */
 
 import {
+
     DailyWrapper,
     DailyTitle,
     DailySpan,
@@ -71,10 +72,11 @@ export const DailyNormaModal = ({
     }, [gender, weight, activityTime]);
         
     useEffect(() => {
+
     calculateWater();
   }, [calculateWater]);
 
-  const handleIntakeGoalChange = e => {
+  const handleIntakeGoalChange = (e) => {
     const value = e.target.value;
     const newIntakeGoal = parseFloat(value);
 
@@ -87,9 +89,8 @@ export const DailyNormaModal = ({
     /*  const handleSave = () => {
 
   };  */
-    };
-    
-    
+  };
+
 
     return (
         <Modal

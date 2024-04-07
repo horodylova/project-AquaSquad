@@ -4,16 +4,15 @@ import styled from 'styled-components';
 
 export const ContainerSettings = styled.div`
   position: absolute;
-   z-index: 200;
   left: 50%;
   top: 40px;
   transform: translate(-50%);
-  color: #2F2F2F;
-  background-color: #ffffff;
+
+  color: black;
+  background-color: white;
   width: 280px;
   padding: 32px 12px;
   border-radius: 10px;
- 
 
   @media screen and (min-width: 768px) {
     width: 704px;
@@ -68,9 +67,8 @@ export const WrapperUpload = styled.div`
 `;
 
 export const ContainerAvatar = styled.div`
-  width: 80px;
+ width: 80px;
   height: 80px;
-  // color: #407BFF;
   div {
     width: auto;
     height: 100%;
@@ -80,8 +78,8 @@ export const ContainerAvatar = styled.div`
     align-items: center;
     justify-content: center;
     font-size: 52px;
-    color: #ffffff;
-    background-color: #407BFF;
+    color: white;
+    background-color: blue;
   }
 `;
 
@@ -172,6 +170,9 @@ export const Title = styled.h2`
   margin-bottom: 24px;
   color: #2F2F2F;
 `;
+
+
+
 
 
 

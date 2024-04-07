@@ -28,6 +28,7 @@ export const FormaUpdateUserProfile = () => {
   const [showPassword, setShowPassword] = useState(false);
   const userData = useSelector(selectUserProfile);
   // const userPassword = userData.password;
+  const userCurrentGender = userData.gender;
   
 
   const togglePasswordVisibility = (inputId) => {
@@ -37,9 +38,7 @@ export const FormaUpdateUserProfile = () => {
     }));
   };
 
-  // const toggleMenu = () => {
-  //     setIsOpen(!isOpen);
-  //   };
+ 
   const handleModalOpen = () => dispatch(setOpenModal(false));
 
   const {
@@ -49,13 +48,15 @@ export const FormaUpdateUserProfile = () => {
     formState: { errors, isSubmitting },
   } = useForm({
     defaultValues: {
-      gender: 'man',
+      gender: userCurrentGender ? userCurrentGender : 'man',
     },
     mode: 'onChange',
   });
 
   const onSubmit = (data) => {
-    dispatch(updateUserProfileData(data));
+    const { name, gender, email, newPassword, oldPassword } = data;
+    dispatch(updateUserProfileData({name,gender,email,newPassword,oldPassword}));
+    
   };
 
   return (
@@ -116,7 +117,7 @@ export const FormaUpdateUserProfile = () => {
                   {...register('name')}
                   type="text"
                   placeholder={
-                    userData.username ? userData.username : 'User Name'
+                    userData.name ? userData.name : 'User Name'
                   }
                 />
               </FormLabel>
@@ -233,23 +234,23 @@ export const FormaUpdateUserProfile = () => {
               Repeat new password
               <InputSettingEdit
                 id="repeatPassword"
-                {...register('repeatPassword',)}
-                // {
-                //   required: 'This field is required!',
-                //   minLength: {
-                //     value: 3,
-                //     message: 'To short!',
-                //   },
-                //   maxLength: {
-                //     value: 64,
-                //     message: 'To long!',
-                //   },
-                //   validate: (val) => {
-                //     if (watch('newPassword') != val) {
-                //       return 'Your passwords do no match';
-                //     }
-                //   },
-                // }
+                {...register('repeatPassword',{
+                  required: 'This field is required!',
+                  minLength: {
+                    value: 3,
+                    message: 'To short!',
+                  },
+                  maxLength: {
+                    value: 64,
+                    message: 'To long!',
+                  },
+                  validate: (val) => {
+                    if (watch('newPassword') != val) {
+                      return 'Your passwords do no match';
+                    }
+                  },
+                })}
+                
                 type={showPassword['repeatPassword'] ? 'text' : 'password'}
                 placeholder="Password"
               />
@@ -267,7 +268,7 @@ export const FormaUpdateUserProfile = () => {
                   </EyeSvg>
                 )}
               </div>
-              {/* <div
+              <div
                 style={{
                   position: 'relative',
                 }}
@@ -284,11 +285,12 @@ export const FormaUpdateUserProfile = () => {
                     {errors.repeatPassword.message || 'Error!'}
                   </p>
                 )}
-              </div> */}
+              </div>
             </FormLabel>
           </WrapperFormaRight>
         </WrapperFormaMain>
-        <ButtonSettingsForma type="submit" disabled={isSubmitting}>
+        <ButtonSettingsForma type="submit" disabled={isSubmitting} >
+          {/* onClick={handleModalOpen} */}
           {isSubmitting ? 'Loading..' : 'Save'}
         </ButtonSettingsForma>
       </WrapperForma>

@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { setSelectedDate, setWaterConsumed } from './actions'; 
+import { setSelectedDate, setWaterConsumed } from './actions';
 
 const initialState = {
   selectedDate: null,
@@ -17,5 +17,3 @@ const rootReducer = createReducer(initialState, (builder) => {
 });
 
 export default rootReducer;
-
-  
