@@ -9,6 +9,7 @@ import {
   BottleImg,
   EyeSvg,
   SectionAuth,
+  FormWrapper
 } from '../RegistrationPage/RegistrationPage.styled';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
@@ -50,9 +51,10 @@ const LogInPage = () => {
   };
 
   return (
-    <main>
-      <SectionAuth>
-          <RegisterContainer className='container'>
+      <SectionAuth className="background">
+          <RegisterContainer>
+              <BottleImg/>
+              <FormWrapper>
             <Form onSubmit={handleSubmit(onSubmit)}>
               <MainTitle>Sign In</MainTitle>
               {/* Email */}
@@ -147,10 +149,9 @@ const LogInPage = () => {
               <Input type="submit" disabled={!isValid} value="Sign In" />
               <SignInLin to="/register">Sign Up</SignInLin>
             </Form>
-            <BottleImg></BottleImg>
+            </FormWrapper>
           </RegisterContainer>
       </SectionAuth>
-    </main>
   );
 };
 export default LogInPage;
