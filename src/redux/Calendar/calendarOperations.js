@@ -8,8 +8,9 @@ export const getDayWater = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.post('/calendar/today', {
-        currentDate: dateHandler(),
+        currentDate: dateHandler().date,
       });
+      console.log('resToday', res);
       return res.data;
     } catch (error) {
       toast.error('Error get water for this day:', error);
@@ -30,3 +31,14 @@ export const getMonthWater = createAsyncThunk(
     }
   }
 );
+
+// export const chooseDate = createAsyncThunk(
+//   'choose',
+//   async (credentials, thunkAPI) => {
+//     try {
+//       const res = await axios.post('/calendar/month', credentials);
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   }
+// );

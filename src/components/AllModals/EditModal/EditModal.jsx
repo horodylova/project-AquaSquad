@@ -1,7 +1,9 @@
 import Modal from 'react-modal';
 import EditModalstyles from './EditModal.styled';
-// import { useSelector } from 'redux';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { editWater } from '../../../redux/water/waterOperations';
+// import { selectDayWater } from '../../../redux/Calendar/calendarSelectors';
 import { ReactComponent as DrinkIcon } from '../../../Icons/drink.svg';
 import { ReactComponent as CloseIcon } from '../../../Icons/close.svg';
 import { ReactComponent as MinusIcon } from '../../../Icons/minus.svg';
@@ -20,15 +22,27 @@ const modalStyle = {
 };
 
 const EditModal = ({ isOpen, onRequestClose, waterId }) => {
-  console.log(waterId);
 
-  const valueTime = '03:40';
-  const valueMl = '220';
+  const dispatch = useDispatch();
+  console.log('waterId', waterId)
 
-  const [ml, setMl] = useState(valueMl);
-  const [time, setTime] = useState(valueTime);
+  // const todayWaters = useSelector(selectDayWater);
+  const todayWaters = [
+    { id: 111, time: '01:40', value: '100' },
+    { id: 222, time: '02:40', value: '200' },
+    { id: 333, time: '03:40', value: '300' },
+    { id: 444, time: '04:40', value: '400' },
+    { id: 555, time: '05:40', value: '500' },
+  ];
 
-  // const value = useSelector((state) => state.someSlice.someValue);
+  const water = todayWaters.find((item) => item.id === Number(waterId));
+  console.log("water", water);
+
+  const sampleMl = "999";
+  const sampleTime ="23:59"
+
+  const [ml, setMl] = useState(sampleMl);
+  const [time, setTime] = useState(sampleTime);
 
   // вивід часу у форматі AM/PM
   const formatTime = (time) => {
@@ -36,20 +50,19 @@ const EditModal = ({ isOpen, onRequestClose, waterId }) => {
     let period = hours >= 12 ? 'PM' : 'AM';
     hours = hours >= 13 ? hours - 12 : hours;
     return `${hours}:${minutes} ${period}`;
-}
-  
+  };
 
   const handleInput = (e) => {
     const { name, value } = e.currentTarget;
 
     switch (name) {
       case 'time':
-         if (/^([01][0-9]|2[0-3]):[0-5][0-9]$/.test(value)) {
-           setTime(value);
-         }
+        if (/^([01][0-9]|2[0-3]):[0-5][0-9]$/.test(value)) {
+          setTime(value);
+        }
         break;
       case 'ml':
-        if (!isNaN(value) && value > 0 && value<10000) {
+        if (!isNaN(value) && value > 0 && value < 10000) {
           setMl(value);
         }
         break;
@@ -75,17 +88,17 @@ const EditModal = ({ isOpen, onRequestClose, waterId }) => {
     e.preventDefault();
     onRequestClose();
 
-    // let date = dateHandler().date;
-    let time = e.target.time.value;
-    let value = Number(e.target.value.value);
+    const data = {
+      id: waterId,
+      value: Number(e.target.ml.value),
+      time: e.target.time.value,
+    };
 
-    console.log(time, value);
+    console.log(data);
 
     try {
-      // await useDispatch(waterAction({ time, value, date })).unwrap();
-
-      // console.log(JSON.stringify({ time, value, date }));
-      toast.success('Added your new entry!');
+      await dispatch(editWater(data)).unwrap();
+      toast.success('Your entry was changed');
     } catch (error) {
       toast.error(error);
     }
@@ -156,7 +169,7 @@ const EditModal = ({ isOpen, onRequestClose, waterId }) => {
           </EditModalstyles.Label>
           <EditModalstyles.SaveButtonWrapper>
             <p>{ml}ml</p>
-            <button type="button">Save</button>
+            <button type="submit">Save</button>
           </EditModalstyles.SaveButtonWrapper>
         </EditModalstyles.Container>
       </form>

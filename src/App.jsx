@@ -32,7 +32,15 @@ function App() {
       <Layout>
         <Suspense fallback={<Loader />}>
           <Routes>
-            <Route path="/" element={<WelcomePage />} />
+            <Route
+              index
+              path="/"
+              element={
+                <PublicRoute redirectRoute={'/home'} restricted>
+                  <WelcomePage />
+                </PublicRoute>
+              }
+            />
 
             {/* register */}
             <Route
@@ -63,8 +71,8 @@ function App() {
                 </PrivateRoute>
               }
             />
-               {/* Developer Test Page */}
-          <Route path="/developer-test" element={<DeveloperTestPage />} />
+            {/* Developer Test Page */}
+            <Route path="/developer-test" element={<DeveloperTestPage />} />
 
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>

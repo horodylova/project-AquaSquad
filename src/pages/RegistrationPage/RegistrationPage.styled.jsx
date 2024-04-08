@@ -195,7 +195,8 @@ export const SectionAuth = styled.section`
         2x
     ); */
 
-    background-image: url('../../../src/Images/signIn-signUp/back/desktop/back_desktop@1x.png');
+    /* background-image: url('../../../src/Images/signIn-signUp/back/desktop/back_desktop@1x.png'); */
+    background-image: url('../../Images/signIn-signUp/back/desktop/back_desktop@1x.png');
   }
 `;
 
