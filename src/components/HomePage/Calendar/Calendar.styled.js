@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const MonthText = styled.div`
   font-family: Roboto;
   font-size: 24px;
@@ -19,7 +18,7 @@ export const MonthContent = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: auto;
-   
+  margin-bottom: 16px;
 `;
 
 export const MonthNavigation = styled.div`
@@ -40,25 +39,25 @@ export const MonthAndYear = styled.span`
 `;
 
 export const CalendarDays = styled.div`
-margin-left: auto;
-margin-right: auto;
-margin: 0;
-display: flex;
-   flex-direction: row;
-   flex-wrap: wrap;
-    row-gap: 16px;
-    column-gap: 26px;
-position: relative;
-  
-   @media screen and (min-width: 768px) {
-     row-gap: 20px;
-     column-gap: 34px;
-        }
+  margin-left: auto;
+  margin-right: auto;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 16px;
+  column-gap: 26px;
+  position: relative;
 
-    @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 768px) {
+    row-gap: 20px;
+    column-gap: 34px;
+  }
+
+  @media screen and (min-width: 1440px) {
     row-gap: 20px;
     column-gap: 22px;
-    }
+  }
 `;
 
 export const Button = styled.button`
@@ -95,9 +94,10 @@ export const DayNumber = styled.div`
   text-align: center;
   min-width: 32px;
   height: 32px;
-  border: 0;
+  border: 1px solid orange;
   border-radius: 20px;
   background-color: var(--white-color);
+  border: 1px solid var(--orange-color);
   margin-bottom: 4px;
 
   &:hover,
@@ -105,6 +105,7 @@ export const DayNumber = styled.div`
     background-color: var(--light-blue-color);
     outline: inherit;
   }
+  ${(props) => (props.$percent >= 100 ? `border: none;` : '')}
 `;
 
 export const DayPercentage = styled.div`
@@ -124,4 +125,3 @@ export const DayPercentage = styled.div`
     gap: 34px;
   }
 `;
-
