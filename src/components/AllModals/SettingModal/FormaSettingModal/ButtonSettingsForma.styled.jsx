@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
-
 export const ButtonSettingsForma = styled.button`
-width: 256px;
-margin-left: auto;
-display: flex;
+  width: 256px;
+  margin-left: auto;
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -36,11 +35,9 @@ display: flex;
     cursor: not-allowed;
   }
   @media screen and (min-width: 768px) {
-    // width:  100% ;
     width: 160px;
     font-size: 18px;
     line-height: calc(24 / 18);
     padding: 10px 30px;
   }
 `;
- 

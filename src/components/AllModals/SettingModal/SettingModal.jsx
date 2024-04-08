@@ -16,10 +16,6 @@ import { useSelector } from 'react-redux';
 import { setModalType, setOpenModal } from '../../../redux/modals/modalSlice';
 import { selectUserProfile } from '../../../redux/auth/authSelectors';
 import { updateAvatar } from '../../../redux/auth/authOperations';
-import Avatar, { genConfig } from 'react-nice-avatar';
-
-const config = genConfig();
-
 
 export const SettingModal = () => {
   const dispatch = useDispatch();
@@ -61,12 +57,12 @@ export const SettingModal = () => {
       <TitlePart>Your photo</TitlePart>
 
       <WrapperUpload>
-       <ContainerAvatar>
-           <img
+        <ContainerAvatar>
+          <img
             src={userAvatar ? avatarURL : defaultUserImage}
             alt="avatar"
             width="80"
-          /> 
+          />
         </ContainerAvatar>
 
         <label>
