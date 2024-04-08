@@ -21,7 +21,7 @@ export const SettingModal = () => {
   const dispatch = useDispatch();
   const userProfile = useSelector(selectUserProfile);
   const filePecker = useRef(null);
-  const userAvatar = userProfile.avatar;
+  const userAvatar = userProfile.avatarURL;
   const defaultUserImage = 'https://avatar.iran.liara.run/public/6';
   const avatarURL = `https://water-tracker-backend-ob6w.onrender.com/${userAvatar}`;
 

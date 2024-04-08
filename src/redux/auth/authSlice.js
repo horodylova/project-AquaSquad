@@ -14,7 +14,7 @@ const defaultUser = {
   password: '',
   gender: '',
   dailyNorma: null,
-  avatar: '',
+  avatarURL: '',
   email: '',
 };
 
@@ -92,9 +92,8 @@ const authSlice = createSlice({
       .addCase(logOut.rejected, (state) => {
         state.isAuthenticated = false;
       })
-      .addCase(updateAvatar.fulfilled, (state, { payload }) => {
-        state.user.avatarURL = payload;
-        console.log(action.payload);
+      .addCase(updateAvatar.fulfilled, (state, action) => {
+        state.user.avatarURL = action.payload;
       })
       .addCase(updateUserProfileData.fulfilled, (state, action) => {
         state.user.gender = action.payload.gender;
