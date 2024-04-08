@@ -4,15 +4,14 @@ import { setModalType, setOpenModal } from '../../../redux/modals/modalSlice';
 import { selectIsOpenModal } from '../../../redux/modals/modalSelectors';
 
 export const Backdrop = ({ children }) => {
-
   const dispatch = useDispatch();
   const modalState = useSelector(selectIsOpenModal);
 
   useEffect(() => {
-    const handleKeyDown = event => {
+    const handleKeyDown = (event) => {
       if (event.key === 'Escape') {
         dispatch(setOpenModal(false));
-          dispatch(setModalType(''));
+        dispatch(setModalType(''));
       }
     };
 
@@ -23,7 +22,7 @@ export const Backdrop = ({ children }) => {
     };
   }, [dispatch, modalState]);
 
-  const handleClose = e => {
+  const handleClose = (e) => {
     if (e.target.id === 'backdrop') {
       dispatch(setOpenModal(false));
       dispatch(setModalType(''));
@@ -32,18 +31,22 @@ export const Backdrop = ({ children }) => {
 
   return (
     modalState && (
-      <div id="backdrop" style={{position: 'fixed',
-  top: '0',
-  left: '0',
-  width: '100%',
-  height: '100%',
-  zIndex: '100%',
-  backgroundColor: 'rgba(0, 0, 0, 0.8)',
-  overflow: 'auto'
-}} onClick = { handleClose } >
+      <div
+        id="backdrop"
+        style={{
+          position: 'fixed',
+          top: '0',
+          left: '0',
+          width: '100%',
+          height: '100%',
+          zIndex: '100%',
+          backgroundColor: 'rgba(0, 0, 0, 0.8)',
+          overflow: 'auto',
+        }}
+        onClick={handleClose}
+      >
         {children}
       </div>
     )
   );
 };
-

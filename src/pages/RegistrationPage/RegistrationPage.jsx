@@ -1,5 +1,4 @@
 import { useForm } from 'react-hook-form';
-import Container from '../../components/Container/Container';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
@@ -9,8 +8,11 @@ import {
   Input,
   Label,
   Form,
+  FormWrapper,
+  LabelWrapper,
   InputField,
   RegisterContainer,
+  InputContainer,
   MainTitle,
   SignInLin,
   BottleImg,
@@ -54,15 +56,16 @@ const RegistrationPage = () => {
   };
 
   return (
-    <main>
-      <SectionAuth>
-        <Container>
+       <SectionAuth className="background">
           <RegisterContainer>
+              <BottleImg>
+              <FormWrapper>
             <Form onSubmit={handleSubmit(onSubmit)}>
               <MainTitle>Sign Up</MainTitle>
+              <LabelWrapper>
               {/* Email */}
               <Label id="email" $errors={errors.email}>
-                Enter your email
+                Enter your email</Label>
                 <InputField
                   className={errors.email ? 'error' : ''}
                   id="email"
@@ -85,7 +88,7 @@ const RegistrationPage = () => {
                   })}
                   $errors={errors.email}
                 />
-              </Label>
+              
               <div style={{ position: 'relative' }}>
                 {errors.email && (
                   <p
@@ -100,9 +103,12 @@ const RegistrationPage = () => {
                   </p>
                 )}
               </div>
+              </LabelWrapper>
               {/* Password*/}
+              <LabelWrapper>
               <Label id="password" $errors={errors.password}>
-                Enter your password
+                Enter your password</Label>
+                <InputContainer>
                 <InputField
                   placeholder="Password"
                   id="password"
@@ -121,20 +127,20 @@ const RegistrationPage = () => {
                   $errors={errors.password}
                 />
                 <div
-                  style={{ position: 'relative' }}
+      
                   onClick={() => togglePasswordVisibility('password')}
                 >
                   {showPassword['password'] ? (
-                    <EyeSvg width="16" height="16">
+                    <EyeSvg>
                       <use href={`${sprite}#icon-outlineOn`} />
                     </EyeSvg>
                   ) : (
-                    <EyeSvg width="16" height="16">
+                    <EyeSvg>
                       <use href={`${sprite}#icon-outlineOff`} />
                     </EyeSvg>
                   )}
                 </div>
-              </Label>
+                </InputContainer>
               <div style={{ position: 'relative' }}>
                 {errors.password && (
                   <p
@@ -149,9 +155,12 @@ const RegistrationPage = () => {
                   </p>
                 )}
               </div>
+              </LabelWrapper>
               {/* Password repeat*/}
+              <LabelWrapper>
               <Label id="email" $errors={errors.passwordRepeat}>
-                Repeat password
+                Repeat password </Label>
+                <InputContainer>
                 <InputField
                   id="passwordRepeat"
                   type={showPassword['passwordRepeat'] ? 'text' : 'password'}
@@ -175,21 +184,21 @@ const RegistrationPage = () => {
                   $errors={errors.passwordRepeat}
                 />
                 <div
-                  style={{ position: 'relative' }}
+                  // style={{ position: 'relative' }}
                   onClick={() => togglePasswordVisibility('passwordRepeat')}
                 >
                   {showPassword['passwordRepeat'] ? (
-                    <EyeSvg width="16" height="16">
+                    <EyeSvg>
                       <use href={`${sprite}#icon-outlineOn`} />
                     </EyeSvg>
                   ) : (
-                    <EyeSvg width="16" height="16">
+                    <EyeSvg>
                       <use href={`${sprite}#icon-outlineOff`} />
                     </EyeSvg>
                   )}
                 </div>
-              </Label>
-              <div style={{ position: 'relative' }}>
+                </InputContainer>
+              <div >
                 {errors.passwordRepeat && (
                   <p
                     style={{
@@ -203,14 +212,14 @@ const RegistrationPage = () => {
                   </p>
                 )}
               </div>
+              </LabelWrapper>
               <Input type="submit" disabled={!isValid} value="Sign Up" />
               <SignInLin to="/login">Sign in</SignInLin>
             </Form>
-            <BottleImg></BottleImg>
+            </FormWrapper>
+            </BottleImg>
           </RegisterContainer>
-        </Container>
       </SectionAuth>
-    </main>
   );
 };
 

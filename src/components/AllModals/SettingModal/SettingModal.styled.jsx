@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-// import { Input } from './Input.styled';
-
 
 export const ContainerSettings = styled.div`
   position: absolute;
@@ -35,9 +33,9 @@ export const HoverCloseBtn = styled.div`
   padding: 4px;
   border-radius: 100%;
   transition: background-color 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98);
-  
+
   &:hover {
-    background-color: #D7E3FF;
+    background-color: #d7e3ff;
   }
 `;
 
@@ -56,19 +54,18 @@ export const WrapperUpload = styled.div`
     align-items: center;
     gap: 8px;
     background-color: transparent;
-    color: #D7E3FF;
+    color: #d7e3ff;
     cursor: pointer;
     font-size: 14px;
     font-weight: 500;
     line-height: calc(18 / 14);
-    stroke: #D7E3FF;
+    stroke: #d7e3ff;
     fill: none;
   }
-
 `;
 
 export const ContainerAvatar = styled.div`
- width: 80px;
+  width: 80px;
   height: 80px;
   div {
     width: auto;
@@ -141,7 +138,7 @@ export const CloseBtn = styled.button`
   cursor: pointer;
   margin-bottom: 0px;
   svg {
-    stroke: #407BFF;
+    stroke: #407bff;
     width: 24px;
     height: 24px;
   }
@@ -151,16 +148,13 @@ export const CloseBtn = styled.button`
   }
 `;
 
-
-
 export const TitlePart = styled.h3`
   font-size: 18px;
   font-weight: 500;
   font-family: Roboto;
   line-height: 20px;
-  color: #2F2F2F;
+  color: #2f2f2f;
   margin-bottom: 8px;
-
 `;
 
 export const Title = styled.h2`
@@ -169,13 +163,5 @@ export const Title = styled.h2`
   line-height: 32px;
   font-weight: 500;
   margin-bottom: 24px;
-  color: #2F2F2F;
+  color: #2f2f2f;
 `;
-
-
-
-
-
-
-
-

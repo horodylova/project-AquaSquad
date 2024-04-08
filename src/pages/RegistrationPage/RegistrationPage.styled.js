@@ -142,7 +142,8 @@ export const RegisterContainer = styled.div`
   margin-right: auto;
   margin-left: auto;
   width: 320px;
-  padding-top: 86px;
+  padding-top: 20px;
+  // not right, but works
 
   @media (min-width: 768px) {
     width: 768px;
