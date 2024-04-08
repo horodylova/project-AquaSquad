@@ -18,6 +18,7 @@ export const MonthContent = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: auto;
+  margin-bottom: 16px;
 `;
 
 export const MonthNavigation = styled.div`
@@ -96,6 +97,7 @@ export const DayNumber = styled.div`
   border: 1px solid orange;
   border-radius: 20px;
   background-color: var(--white-color);
+  border: 1px solid var(--orange-color);
   margin-bottom: 4px;
 
   &:hover,
