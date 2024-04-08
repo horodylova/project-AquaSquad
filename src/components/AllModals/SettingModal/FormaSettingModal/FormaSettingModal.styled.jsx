@@ -8,9 +8,9 @@ export const WrapperForma = styled.div`
 
 export const WrapperFormaMain = styled.div`
   display: flex;
-  gap: 24px; /// боковой марджин между левой и правой
+  gap: 24px;
   flex-direction: column;
-  margin-bottom: 24px; //марджин для кнопки чтобі оттолкнуться
+  margin-bottom: 24px;
 
   @media screen and (min-width: 768px) {
     justify-content: start;
@@ -27,11 +27,6 @@ export const WrapperFormaLeft = styled.div`
   @media screen and (min-width: 768px) {
     width: 392px;
   }
-  //   @media screen and (min-width: 1440px) {
-  //     div:not(:last-child) {
-  //  gap: 12px;
-  //    }
-  //   }
 `;
 
 export const ContainerForm = styled.div`
@@ -57,7 +52,6 @@ export const EyeSvg = styled.svg`
   width: 16px;
   height: 16px;
   cursor: pointer;
-  /* background-color: red; */
 `;
 
 export const InputSettingEdit = styled(Input)`
@@ -72,7 +66,7 @@ export const InputSettingEdit = styled(Input)`
 `;
 export const WrapperRadio = styled.div`
   display: flex;
-  gap: 24px; // для радио кнопок расстояние
+  gap: 24px;
   margin-bottom: 24px;
   @media screen and (min-width: 1440px) {
     margin-bottom: 67px;
@@ -81,7 +75,7 @@ export const WrapperRadio = styled.div`
 export const FormLabelRadio = styled.label`
   display: flex;
   align-items: center;
-  gap: 8px; // для радиокнопок
+  gap: 8px;
   font-size: 16px;
   line-height: 20px;
   font-weight: 400;
