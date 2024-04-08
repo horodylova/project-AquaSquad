@@ -9,7 +9,6 @@ import EditModal from '../../components/AllModals/EditModal/EditModal';
 Modal.setAppElement('#root');
 
 export const DeveloperTestPage = () => {
- 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleEditbutton = () => {
@@ -33,5 +32,4 @@ export const DeveloperTestPage = () => {
       />
     </Container>
   );
- 
 };
