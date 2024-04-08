@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { ButtonSettingsForma } from './ButtonSettingsForma.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUserProfile } from '../../../../redux/auth/authSelectors';
-import { setOpenModal } from '../../../../redux/modals/modalSlice';
 import { useForm } from 'react-hook-form';
 import sprite from '../../../../Icons/signIn-signUp/sprite.svg';
 import {
@@ -19,17 +18,13 @@ import {
   EyeSvg,
 } from './FormaSettingModal.styled';
 
-import { updateUserProfileData } from "../../../../redux/auth/authOperations";
-
-// const emailPatern = /^[a-z0-9._-]+@[a-z0-9.-]+.[a-z]{2,4}$/;
+import { updateUserProfileData } from '../../../../redux/auth/authOperations';
 
 export const FormaUpdateUserProfile = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const userData = useSelector(selectUserProfile);
-  // const userPassword = userData.password;
   const userCurrentGender = userData.gender;
-  
 
   const togglePasswordVisibility = (inputId) => {
     setShowPassword((prevPasswords) => ({
@@ -37,9 +32,6 @@ export const FormaUpdateUserProfile = () => {
       [inputId]: !prevPasswords[inputId],
     }));
   };
-
- 
-  const handleModalOpen = () => dispatch(setOpenModal(false));
 
   const {
     register,
@@ -55,8 +47,9 @@ export const FormaUpdateUserProfile = () => {
 
   const onSubmit = (data) => {
     const { name, gender, email, newPassword, oldPassword } = data;
-    dispatch(updateUserProfileData({name,gender,email,newPassword,oldPassword}));
-    
+    dispatch(
+      updateUserProfileData({ name, gender, email, newPassword, oldPassword })
+    );
   };
 
   return (
@@ -116,9 +109,7 @@ export const FormaUpdateUserProfile = () => {
                 <InputSettingEdit
                   {...register('name')}
                   type="text"
-                  placeholder={
-                    userData.name ? userData.name : 'User Name'
-                  }
+                  placeholder={userData.name ? userData.name : 'User Name'}
                 />
               </FormLabel>
 
@@ -141,7 +132,7 @@ export const FormaUpdateUserProfile = () => {
               Oudated password
               <InputSettingEdit
                 id="oldPassword"
-                {...register('oldPassword',)}
+                {...register('oldPassword')}
                 type={showPassword['oldPassword'] ? 'text' : 'password'}
                 placeholder="Password"
               />
@@ -159,41 +150,12 @@ export const FormaUpdateUserProfile = () => {
                   </EyeSvg>
                 )}
               </div>
-              {/* <div
-                style={{
-                  position: 'relative',
-                }}
-              >
-                {errors.email && (
-                  <p
-                    style={{
-                      color: 'red',
-                      position: 'absolute',
-                      marginBottom: 0,
-                      top: '-15px',
-                    }}
-                  >
-                    {errors.email.message || 'Error!'}
-                  </p>
-                )}
-              </div> */}
             </FormLabel>
             <FormLabel id="new">
               New Password
               <InputSettingEdit
                 id="newPassword"
-                {...register('newPassword',)}
-                // {
-                //   required: 'This field is required!',
-                //   minLength: {
-                //     value: 3,
-                //     message: 'To short!',
-                //   },
-                //   maxLength: {
-                //     value: 64,
-                //     message: 'To long!',
-                //   },
-                // }
+                {...register('newPassword')}
                 type={showPassword['newPassword'] ? 'text' : 'password'}
                 placeholder="Password"
               />
@@ -211,30 +173,12 @@ export const FormaUpdateUserProfile = () => {
                   </EyeSvg>
                 )}
               </div>
-              {/* <div
-                style={{
-                  position: 'relative',
-                }}
-              >
-                {errors.newPassword && (
-                  <p
-                    style={{
-                      color: 'red',
-                      position: 'absolute',
-                      marginBottom: 0,
-                      top: '-15px',
-                    }}
-                  >
-                    {errors.newPassword.message || 'Error!'}
-                  </p>
-                )}
-              </div> */}
             </FormLabel>
             <FormLabel id="repeat">
               Repeat new password
               <InputSettingEdit
                 id="repeatPassword"
-                {...register('repeatPassword',{
+                {...register('repeatPassword', {
                   required: 'This field is required!',
                   minLength: {
                     value: 3,
@@ -250,7 +194,6 @@ export const FormaUpdateUserProfile = () => {
                     }
                   },
                 })}
-                
                 type={showPassword['repeatPassword'] ? 'text' : 'password'}
                 placeholder="Password"
               />
@@ -289,13 +232,10 @@ export const FormaUpdateUserProfile = () => {
             </FormLabel>
           </WrapperFormaRight>
         </WrapperFormaMain>
-        <ButtonSettingsForma type="submit" disabled={isSubmitting} >
-          {/* onClick={handleModalOpen} */}
+        <ButtonSettingsForma type="submit" disabled={isSubmitting}>
           {isSubmitting ? 'Loading..' : 'Save'}
         </ButtonSettingsForma>
       </WrapperForma>
     </form>
   );
-
-  
 };
