@@ -11,7 +11,9 @@ import {
   BottleImg,
   EyeSvg,
   SectionAuth,
-  FormWrapper
+  FormWrapper,
+  MessageError
+  
 } from '../RegistrationPage/RegistrationPage.styled';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
@@ -63,19 +65,19 @@ const LogInPage = () => {
               <Label id="email" $err={errors.email}>
                 Enter your email</Label>
                 <InputField
-                  className={errors.email ? 'error' : ''}
+                
                   id="email"
                   type="email"
                   placeholder="E-mail"
                   {...register('email', {
-                    required: 'This field is required!',
+                    required: 'This field is required',
                     minLength: {
                       value: 3,
-                      message: 'To short!',
+                      message: 'Too short!',
                     },
                     maxLength: {
                       value: 64,
-                      message: 'To long!',
+                      message: 'Too long!',
                     },
                     pattern: {
                       value: emailPatern,
@@ -86,16 +88,10 @@ const LogInPage = () => {
                 />
               <div>
                 {errors.email && (
-                  <p
-                    style={{
-                      color: 'red',
-                      position: 'absolute',
-                      top: '-15px',
-                      marginBottom: 0,
-                    }}
-                  >
+                  <MessageError>
+                   
                     {errors.email.message || 'Error!'}
-                  </p>
+                    </MessageError>
                 )}
               </div>
               </LabelWrapper>
@@ -111,11 +107,11 @@ const LogInPage = () => {
                     required: 'This field is required!',
                     minLength: {
                       value: 3,
-                      message: 'To short!',
+                      message: 'Too short!',
                     },
                     maxLength: {
                       value: 64,
-                      message: 'To long!',
+                      message: 'Too long!',
                     },
                   })}
                   $errors={errors.password}
@@ -138,16 +134,9 @@ const LogInPage = () => {
     
               <div >
                 {errors.password && (
-                  <p
-                    style={{
-                      color: 'red',
-                      position: 'absolute',
-                      top: '-15px',
-                      marginBottom: 0,
-                    }}
-                  >
+                  <MessageError>
                     {errors.password.message || 'Error!'}
-                  </p>
+                    </MessageError>
                 )}
               </div>
               </LabelWrapper>
