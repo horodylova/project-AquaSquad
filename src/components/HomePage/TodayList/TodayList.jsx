@@ -10,7 +10,7 @@ import {
 import sprite from '../../../Images/welcome-page/iconSprite.svg';
 import { TodayItem } from '../TodayItem/TodayItem';
 import AddWaterModal from '../../AllModals/AddWaterModal/AddWaterModal';
-import { selectDayWater } from '../../../redux/Calendar/calendarSelectors';
+import { selectDayWaterList } from '../../../redux/Calendar/calendarSelectors.js';
 
 import Modal from 'react-modal';
 import EditModal from '../../AllModals/EditModal/EditModal';
@@ -20,7 +20,18 @@ Modal.setAppElement('#root');
 const plusIcon = `${sprite}#icon-plus-blue`;
 
 export const TodayList = () => {
-  const todayList = useSelector(selectDayWater.takingWater);
+  const todayList = useSelector(selectDayWaterList);
+
+  const sortedList = todayList.slice().sort((a, b) => {
+    const timeA = a.time.split(':').map(Number);
+    const timeB = b.time.split(':').map(Number);
+
+    if (timeA[0] !== timeB[0]) {
+      return timeA[0] - timeB[0]; // Сортировка по часам
+    } else {
+      return timeA[1] - timeB[1]; // Если часы равны, то сортировка по минутам
+    }
+  });
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -44,8 +55,8 @@ export const TodayList = () => {
     <TodayListContainer>
       <TodayTitle>Today</TodayTitle>
       <WaterList>
-        {todayList &&
-          todayList.map((item) => (
+        {sortedList &&
+          sortedList.map((item) => (
             <TodayItem
               key={item._id}
               water={item.value}

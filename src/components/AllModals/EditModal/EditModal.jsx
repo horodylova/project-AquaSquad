@@ -1,9 +1,9 @@
 import Modal from 'react-modal';
 import EditModalstyles from './EditModal.styled';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { editWater } from '../../../redux/water/waterOperations';
-// import { selectDayWater } from '../../../redux/Calendar/calendarSelectors';
+import { selectDayWaterList } from '../../../redux/Calendar/calendarSelectors';
 import { ReactComponent as DrinkIcon } from '../../../Icons/drink.svg';
 import { ReactComponent as CloseIcon } from '../../../Icons/close.svg';
 import { ReactComponent as MinusIcon } from '../../../Icons/minus.svg';
@@ -24,25 +24,16 @@ const modalStyle = {
 const EditModal = ({ isOpen, onRequestClose, waterId }) => {
 
   const dispatch = useDispatch();
-  console.log('waterId', waterId)
 
-  // const todayWaters = useSelector(selectDayWater);
-  const todayWaters = [
-    { id: 111, time: '01:40', value: '100' },
-    { id: 222, time: '02:40', value: '200' },
-    { id: 333, time: '03:40', value: '300' },
-    { id: 444, time: '04:40', value: '400' },
-    { id: 555, time: '05:40', value: '500' },
-  ];
+  const todayWaters = useSelector(selectDayWaterList);
 
-  const water = todayWaters.find((item) => item.id === Number(waterId));
-  console.log("water", water);
+  const water = todayWaters.find((item) => item._id === waterId);
 
-  const sampleMl = "999";
-  const sampleTime ="23:59"
+  // const sampleMl = "999";
+  // const sampleTime ="23:59"
 
-  const [ml, setMl] = useState(sampleMl);
-  const [time, setTime] = useState(sampleTime);
+  const [ml, setMl] = useState(Number(water.value));
+  const [time, setTime] = useState(water.time);
 
   // вивід часу у форматі AM/PM
   const formatTime = (time) => {
