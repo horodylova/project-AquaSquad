@@ -1,22 +1,16 @@
-
 import styled from 'styled-components';
 import { Input } from '../Input.styled';
-
-
-
 
 export const WrapperForma = styled.div`
   display: flex;
   flex-direction: column;
-  
-  `;
+`;
 
 export const WrapperFormaMain = styled.div`
-
   display: flex;
-  gap: 24px;/// боковой марджин между левой и правой
+  gap: 24px;
   flex-direction: column;
-  margin-bottom: 24px; //марджин для кнопки чтобі оттолкнуться
+  margin-bottom: 24px;
 
   @media screen and (min-width: 768px) {
     justify-content: start;
@@ -29,25 +23,19 @@ export const WrapperFormaLeft = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  
 
   @media screen and (min-width: 768px) {
     width: 392px;
   }
-//   @media screen and (min-width: 1440px) {
-//     div:not(:last-child) {
-//  gap: 12px;
-//    }
-//   }
-  `;
-  
-  export const ContainerForm = styled.div`
+`;
+
+export const ContainerForm = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  `;
-  
-  export const WrapperFormaRight = styled.div`
+`;
+
+export const WrapperFormaRight = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -55,48 +43,46 @@ export const WrapperFormaLeft = styled.div`
   @media screen and (min-width: 768px) {
     width: 392px;
   }
-  `;
-  
-  export const EyeSvg = styled.svg`
+`;
+
+export const EyeSvg = styled.svg`
   position: absolute;
   right: 10px;
   top: -40px;
   width: 16px;
   height: 16px;
   cursor: pointer;
-  /* background-color: red; */
 `;
-  
-  export const InputSettingEdit = styled(Input)`
-  
+
+export const InputSettingEdit = styled(Input)`
   opacity: 0.6;
-  color: #D7E3FF;
-  
+  color: #d7e3ff;
+
   &:focus,
   &:active {
-    color: #407BFF;
+    color: #407bff;
     opacity: 1;
   }
-  `;
-  export const WrapperRadio = styled.div`
+`;
+export const WrapperRadio = styled.div`
   display: flex;
-  gap: 24px;// для радио кнопок расстояние
-margin-bottom: 24px;
+  gap: 24px;
+  margin-bottom: 24px;
   @media screen and (min-width: 1440px) {
     margin-bottom: 67px;
   }
-  `;
-  export const FormLabelRadio = styled.label`
-display: flex;
+`;
+export const FormLabelRadio = styled.label`
+  display: flex;
   align-items: center;
-  gap: 8px;// для радиокнопок
+  gap: 8px;
   font-size: 16px;
   line-height: 20px;
   font-weight: 400;
-  color: #2F2F2F;
+  color: #2f2f2f;
 
   div {
-       width: 14px;
+    width: 14px;
     height: 14px;
     background-color: transparent;
     border-radius: 100%;
@@ -111,26 +97,18 @@ display: flex;
   }
   span {
     cursor: pointer;
-}
+  }
 `;
 
-
-  export const TitlePart = styled.h3`
+export const TitlePart = styled.h3`
   font-size: 18px;
   font-weight: 500;
   line-height: 20px;
- margin-bottom: 12px;
-  `;
-  
-
-  // export const InputError = styled.p`
-  // //   font-size: 14px;
-// //   line-height: calc(18 / 14);
-// //   color: #ef5050;
-// // `;
+  margin-bottom: 12px;
+`;
 
 export const FormLabel = styled.label`
-font-size: 18px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 20px;
   color: #2f2f2f;
@@ -138,9 +116,4 @@ font-size: 18px;
   flex-direction: column;
   gap: 8px;
   width: 100%;
-
-
 `;
-
-
-
