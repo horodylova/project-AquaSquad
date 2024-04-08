@@ -1,4 +1,3 @@
-import Container from '../../components/Container/Container';
 import {
   Input,
   Label,
@@ -53,8 +52,7 @@ const LogInPage = () => {
   return (
     <main>
       <SectionAuth>
-        <Container>
-          <RegisterContainer>
+          <RegisterContainer className='container'>
             <Form onSubmit={handleSubmit(onSubmit)}>
               <MainTitle>Sign In</MainTitle>
               {/* Email */}
@@ -151,7 +149,6 @@ const LogInPage = () => {
             </Form>
             <BottleImg></BottleImg>
           </RegisterContainer>
-        </Container>
       </SectionAuth>
     </main>
   );
