@@ -3,6 +3,7 @@ import {
   Label,
   LabelWrapper,
   Form,
+  InputContainer,
   InputField,
   RegisterContainer,
   MainTitle,
@@ -54,13 +55,13 @@ const LogInPage = () => {
   return (
       <SectionAuth className="background">
           <RegisterContainer>
-              <BottleImg/>
+              <BottleImg>
               <FormWrapper>
             <Form onSubmit={handleSubmit(onSubmit)}>
               <MainTitle>Sign In</MainTitle>
               <LabelWrapper>
               <Label id="email" $err={errors.email}>
-                Enter your email
+                Enter your email</Label>
                 <InputField
                   className={errors.email ? 'error' : ''}
                   id="email"
@@ -83,7 +84,6 @@ const LogInPage = () => {
                   })}
                   $errors={errors.email}
                 />
-              </Label>
               <div>
                 {errors.email && (
                   <p
@@ -101,7 +101,8 @@ const LogInPage = () => {
               </LabelWrapper>
               <LabelWrapper>
               <Label id="password" $errors={errors.password}>
-                Enter your password
+                Enter your password </Label>
+                <InputContainer>
                 <InputField
                   placeholder="Password"
                   id="password"
@@ -133,7 +134,8 @@ const LogInPage = () => {
                     </EyeSvg>
                   )}
                 </div>
-              </Label>
+               </InputContainer>
+    
               <div >
                 {errors.password && (
                   <p
@@ -153,6 +155,7 @@ const LogInPage = () => {
               <SignInLin to="/register">Sign Up</SignInLin>
             </Form>
             </FormWrapper>
+            </BottleImg>
           </RegisterContainer>
       </SectionAuth>
   );

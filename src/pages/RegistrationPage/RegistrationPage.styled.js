@@ -80,6 +80,11 @@ line-height: 20px;
     }
 `;
 
+export const InputContainer = styled.div`
+  position: relative;
+  display: inline-block;
+`;
+
 export const LabelWrapper = styled.div`
 font-size: 18px;
 line-height: 1.33;
@@ -131,7 +136,7 @@ gap: 16px;
 }
 `;
 
-export const RegisterContainer = styled.main`
+export const RegisterContainer = styled.div`
   padding-left: 20px;
   padding-right: 20px;
   margin-right: auto;
