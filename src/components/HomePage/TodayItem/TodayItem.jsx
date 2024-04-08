@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 
 import {
   WaterItem,
@@ -17,12 +17,11 @@ const editIcon = `${sprite}#icon-pencil`;
 const delIcon = `${sprite}#icon-trash`;
 const glassIcon = `${sprite}#icon-cup`;
 
-export const TodayItem = ({ id, water, date }) => {
-
-    const time = `${date.getHours()}:${date
-    .getMinutes()
-    .toString()
-    .padStart(2, '0')}`;
+export const TodayItem = ({ id, water, time, onEditButtonClick }) => {
+  // const time = `${date.getHours()}:${date
+  //   .getMinutes()
+  //   .toString()
+  //   .padStart(2, '0')}`;
 
   return (
     <WaterItem>
@@ -33,7 +32,7 @@ export const TodayItem = ({ id, water, date }) => {
       <TimeText>{time}</TimeText>
 
       <ConfigIcons>
-        <ButtonPen>
+        <ButtonPen onClick={() => onEditButtonClick(id)}>
           <SvgPen>
             <use href={editIcon}></use>
           </SvgPen>
