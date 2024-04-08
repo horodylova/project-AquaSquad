@@ -6,15 +6,33 @@ export const DailyWrapper = styled.div`
   border-radius: 10px;
   padding: 24px 12px;
 
+
   @media (min-width: 768px) {
     min-width: 704px;
     padding: 32px 24px;
+    overflowY: 'auto',
   }
 
   @media (min-width: 1440px) {
     min-width: 592px;
   }
 `;
+export const DailyTitleWrp = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+  button{
+    padding: 6px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+  }
+`;
+
+
+
+
 
 export const DailyTitle = styled.h2`
   color: var(--primary-txt-color);
