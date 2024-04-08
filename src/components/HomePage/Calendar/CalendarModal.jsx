@@ -1,6 +1,5 @@
 import Modal from 'react-modal';
 
-
 import {
   ModalContent,
   SelectedDayInfo,
@@ -10,7 +9,7 @@ import {
   FulfillmentValue,
   WaterConsumedLabel,
   WaterConsumedValue,
-  Paragraph
+  Paragraph,
 } from './ModalStyles';
 
 export const CalendarModal = ({
@@ -21,7 +20,7 @@ export const CalendarModal = ({
   dailyNorma,
   fulfillmentPercentage,
   waterConsumed,
-
+  obj,
 }) => {
   const ModalStyle = {
     overlay: {
@@ -33,13 +32,12 @@ export const CalendarModal = ({
     content: {
       padding: '0',
       position: 'initial',
-      maxWidth:'260px',
+      maxWidth: '260px',
       borderRadius: '10px',
       background: 'var(--white-color)',
       boxShadow: '0px 4px 4px 0px rgba(64, 123, 255, 0.30)',
     },
   };
-
   return (
     <Modal
       isOpen={isOpen}
@@ -47,27 +45,27 @@ export const CalendarModal = ({
       contentLabel="Day Details"
       style={ModalStyle}
     >
-        <ModalContent>
-          <SelectedDayInfo>
-            {selectedDay
-              ? `${selectedDay}, ${currentDate.toLocaleString('en', {
-                  month: 'long',
-                })}`
-              : ''}
-          </SelectedDayInfo>{' '}
-          <Paragraph>
-            <DailyNormaLabel>Daily norma: </DailyNormaLabel>
-            <DailyNormaValue>{dailyNorma || '1.5'} L</DailyNormaValue>
-          </Paragraph>{' '}
-          <Paragraph>
-            <FulfillmentLabel>Fulfillment of the daily norm:</FulfillmentLabel>{' '}
-            <FulfillmentValue>{fulfillmentPercentage || '0'}%</FulfillmentValue>
-          </Paragraph>
-          <Paragraph>
-            <WaterConsumedLabel>Water consumed:</WaterConsumedLabel>{' '}
-            <WaterConsumedValue>{waterConsumed || '0'}</WaterConsumedValue>
-          </Paragraph>
-        </ModalContent>
+      <ModalContent>
+        <SelectedDayInfo>
+          {selectedDay
+            ? `${selectedDay}, ${currentDate.toLocaleString('en', {
+                month: 'long',
+              })}`
+            : ''}
+        </SelectedDayInfo>{' '}
+        <Paragraph>
+          <DailyNormaLabel>Daily norma: </DailyNormaLabel>
+          <DailyNormaValue>{obj.dayWaterRate} L</DailyNormaValue>
+        </Paragraph>{' '}
+        <Paragraph>
+          <FulfillmentLabel>Fulfillment of the daily norm:</FulfillmentLabel>{' '}
+          <FulfillmentValue>{obj.percent}%</FulfillmentValue>
+        </Paragraph>
+        <Paragraph>
+          <WaterConsumedLabel>Water consumed:</WaterConsumedLabel>{' '}
+          <WaterConsumedValue>{obj.count}</WaterConsumedValue>
+        </Paragraph>
+      </ModalContent>
     </Modal>
   );
 };

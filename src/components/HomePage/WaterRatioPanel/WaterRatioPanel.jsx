@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import iconSprite from '../../../Images/welcome-page/iconSprite.svg';
 import {
   RangeAndAddWater,
@@ -12,13 +12,19 @@ import {
   SvgButton,
 } from './WaterRatioPanel.styled';
 import AddWaterModal from '../../AllModals/AddWaterModal/AddWaterModal';
-
+import { useSelector } from 'react-redux';
+import { selectPercent } from '../../../redux/Calendar/calendarSelectors';
 export const WaterRatioPanel = () => {
-  const [sliderValue, setSliderValue] = useState(50);
-
+  const sliderPercent = useSelector(selectPercent);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  useEffect(() => {}, [sliderValue]);
+  const progress = (sliderPercent / 100) * 100;
+  const sliderStyle = {
+    background: `linear-gradient(to right, #9EBBFF ${progress}%, #D7E3FF ${progress}%)`,
+  };
+  useEffect(() => {
+    // You may perform any side effects related to the sliderPercent here
+  }, [sliderPercent]);
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -26,15 +32,6 @@ export const WaterRatioPanel = () => {
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
-  };
-
-  const handleSliderChange = (event) => {
-    setSliderValue(parseInt(event.target.value));
-  };
-
-  const progress = (sliderValue / 100) * 100;
-  const sliderStyle = {
-    background: `linear-gradient(to right, #9EBBFF ${progress}%, #D7E3FF ${progress}%)`,
   };
 
   return (
@@ -45,14 +42,14 @@ export const WaterRatioPanel = () => {
           type="range"
           min="0"
           max="100"
-          value={sliderValue}
+          value={sliderPercent}
           style={sliderStyle}
-          onChange={handleSliderChange}
-        ></StyledRangeInput>
+          readOnly // Make the input read-only to prevent user interaction
+        />
         <PercentageDiv>
           <PercentageOfRange>0%</PercentageOfRange>
           <PercentageOfRange>
-            <BoldPercentageOfRange>{sliderValue}%</BoldPercentageOfRange>
+            <BoldPercentageOfRange>{sliderPercent}%</BoldPercentageOfRange>
           </PercentageOfRange>
           <PercentageOfRange>100%</PercentageOfRange>
         </PercentageDiv>

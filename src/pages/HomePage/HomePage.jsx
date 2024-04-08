@@ -18,16 +18,25 @@ import {
   getMonthWater,
 } from '../../redux/Calendar/calendarOperations';
 import { currentDaySlice } from '../../redux/water/actions';
+import { selectDate } from '../../redux/water/waterSelectors';
 
 const HomePage = () => {
   const dispatch = useDispatch();
   const date = useSelector(currentDaySlice);
+  const select = useSelector(selectDate);
+
+  // eslint-disable-next-line no-unused-vars
+  const [year, month, rest] = date.selectedDate.split('-');
 
   useEffect(() => {
     dispatch(getDayWater());
-    dispatch(getMonthWater(date));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    dispatch(getMonthWater({ year, month }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [select]);
 
   return (
     <>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Modal from 'react-modal';
 import {
@@ -17,6 +17,8 @@ import { ReactComponent as ArrowLeft } from '/src/Icons/arrow-left.svg';
 import { ReactComponent as ArrowRight } from '/src/Icons/arrow-right.svg';
 import CalendarModal from './CalendarModal';
 import { actions } from '../../../redux/water/reducers';
+import { getMonthWater } from '../../../redux/Calendar/calendarOperations';
+import { selectMonthWater } from '../../../redux/Calendar/calendarSelectors';
 
 Modal.setAppElement('#root');
 
@@ -28,8 +30,10 @@ export const Calendar = ({
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDay, setSelectedDay] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [subObj, setSubObj] = useState({});
 
   const dispatch = useDispatch();
+  const userPercent = useSelector(selectMonthWater);
 
   const getDaysInMonth = (date) => {
     const year = date.getFullYear();
@@ -38,17 +42,25 @@ export const Calendar = ({
   };
 
   const goToPreviousMonth = () => {
-    setCurrentDate(
-      (prevDate) => new Date(prevDate.getFullYear(), prevDate.getMonth() - 1, 1)
-    );
-    console.log('currentDate', currentDate);
-    dispatch(actions.selectDayAction(currentDate));
+    const newDate = new Date(currentDate);
+    newDate.setMonth(newDate.getMonth() - 1);
+    newDate.setDate(1);
+    const tempData = newDate.toISOString();
+    dispatch(actions.selectDayAction(tempData));
+    const [year, month] = tempData.split('-');
+    dispatch(getMonthWater({ year, month }));
+    setCurrentDate(newDate);
   };
 
   const goToNextMonth = () => {
-    setCurrentDate(
-      (prevDate) => new Date(prevDate.getFullYear(), prevDate.getMonth() + 1, 1)
-    );
+    const newDate = new Date(currentDate);
+    newDate.setMonth(newDate.getMonth() + 1);
+    newDate.setDate(1);
+    const tempData = newDate.toISOString();
+    dispatch(actions.selectDayAction(tempData));
+    const [year, month] = tempData.split('-');
+    dispatch(getMonthWater({ year, month }));
+    setCurrentDate(newDate);
   };
 
   useEffect(() => {
@@ -56,9 +68,15 @@ export const Calendar = ({
     return () => clearInterval(intervalId);
   }, []);
 
-  const handleDayClick = (day) => {
-    setSelectedDay(day);
-    setIsModalOpen(true);
+  const handleDayClick = (day, subObj) => {
+    try {
+      setSelectedDay(day);
+      setIsModalOpen(true);
+      setSubObj(subObj);
+      console.log('selectedDay', selectedDay);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const daysInMonth = getDaysInMonth(currentDate);
@@ -81,16 +99,21 @@ export const Calendar = ({
       </MonthContent>
       <CalendarDays>
         {Array.from({ length: daysInMonth }, (_, index) => index + 1).map(
-          (day) => (
-            <Day key={day} onClick={() => handleDayClick(day)}>
-              <DayNumber>{day}</DayNumber>
-              <DayPercentage>{0}%</DayPercentage>
-            </Day>
-          )
+          (day) => {
+            const subObj = userPercent[day];
+            const percentInADay = subObj ? subObj.percent : 0;
+            return (
+              <Day key={day} onClick={() => handleDayClick(day, subObj)}>
+                <DayNumber $percent={percentInADay}>{day}</DayNumber>
+                <DayPercentage>{percentInADay}%</DayPercentage>
+              </Day>
+            );
+          }
         )}
       </CalendarDays>
 
       <CalendarModal
+        obj={subObj}
         isOpen={isModalOpen}
         onRequestClose={() => setIsModalOpen(false)}
         currentDate={currentDate}
