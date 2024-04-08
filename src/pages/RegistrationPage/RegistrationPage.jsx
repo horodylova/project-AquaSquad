@@ -9,7 +9,7 @@ import {
   Input,
   Label,
   Form,
-  InputFild,
+  InputField,
   RegisterContainer,
   MainTitle,
   SignInLin,
@@ -63,7 +63,7 @@ const RegistrationPage = () => {
               {/* Email */}
               <Label id="email" $errors={errors.email}>
                 Enter your email
-                <InputFild
+                <InputField
                   className={errors.email ? 'error' : ''}
                   id="email"
                   type="email"
@@ -103,7 +103,7 @@ const RegistrationPage = () => {
               {/* Password*/}
               <Label id="password" $errors={errors.password}>
                 Enter your password
-                <InputFild
+                <InputField
                   placeholder="Password"
                   id="password"
                   type={showPassword['password'] ? 'text' : 'password'}
@@ -152,7 +152,7 @@ const RegistrationPage = () => {
               {/* Password repeat*/}
               <Label id="email" $errors={errors.passwordRepeat}>
                 Repeat password
-                <InputFild
+                <InputField
                   id="passwordRepeat"
                   type={showPassword['passwordRepeat'] ? 'text' : 'password'}
                   placeholder="Repeat password"
