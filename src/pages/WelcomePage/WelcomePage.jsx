@@ -1,14 +1,14 @@
-import { Container, WelcomeLayout } from './WelcomePage.styled';
+import { ContainerWelcome, WelcomeLayout } from './WelcomePage.styled';
 import { WaterTracker } from './WaterTracker/WaterTracker';
 import { WhyDrink } from './WhyDrink/WhyDrink';
 
 export const WelcomePage = () => {
   return (
-    <WelcomeLayout>
-      <Container>
+    <WelcomeLayout className="background">
+      <ContainerWelcome className="container">
         <WaterTracker />
         <WhyDrink />
-      </Container>
+      </ContainerWelcome>
     </WelcomeLayout>
   );
 };
