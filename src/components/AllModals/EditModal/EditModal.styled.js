@@ -124,9 +124,14 @@ const EnteredData = styled.div`
     background: #fff;
     box-shadow: 0px 2px 4px 0px rgba(64, 123, 255, 0.2);
   }
-  button:focus {
+  button:focus,
+  button:hover {
     outline: 1px solid var(--primary-color);
   }
+  button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    }
   .title {
     font-size: 18px;
     font-weight: 500;
