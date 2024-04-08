@@ -41,7 +41,7 @@ export const Container = styled.div`
     margin-bottom: 60px;
   }
   @media only screen and (min-width: 1440px) {
-    font-size: var(--fontSizesLarge);
+    font-size: 26px;
     margin-right: 81px;
     margin-bottom: 0;
   }
