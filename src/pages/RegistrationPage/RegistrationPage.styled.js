@@ -52,7 +52,16 @@ export const Input = styled.input`
   }
 `;
 
-export const InputFild = styled.input`
+export const InputField = styled.input`
+border-radius: 6px;
+border: 1px solid rgb(215, 227, 255);
+min-width: 280px;
+font-size: 16px;
+padding: 12px 10px;
+line-height: 20px;
+&::placeholder {
+  color: var(--light-blue-color);
+}
   color: ${(props) =>
     props.$errors ? 'var(--red-color)' : 'var(--light-blue-color)'};
   outline: none;
@@ -62,23 +71,34 @@ export const InputFild = styled.input`
   padding: 12px 10px;
   ${({ $errors }) =>
     $errors ? `border: 1px solid var(--red-color);` : ''}/* margin-top: 8px; */
+
+    @media screen and (min-width: 768px) {
+      min-width: 336px;
+    }
+    @media screen and (min-width: 1440px) {
+      min-width: 384px;
+    }
 `;
+
+export const LabelWrapper = styled.div`
+font-size: 18px;
+line-height: 1.33;
+color: rgb(47, 47, 47);
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 8px;
+width: 100%;
+`;
+
 
 export const Label = styled.label`
   font-family: 'roboto', sans-serif;
+  color: var(--primary-txt-color);
+  display: block;
   font-size: 18px;
-  font-weight: 400;
   line-height: 24px;
 
-  display: flex;
-  gap: 8px;
-  flex-direction: column;
-  color: var(--primary-txt-color);
-  ::placeholder {
-    color: ${(props) =>
-      props.$errors ? 'var(--red-color)' : 'var(--light-blue-color)'};
-  }
-  /* position: relative; */
 `;
 
 export const FormWrapper = styled.div`
@@ -111,7 +131,7 @@ gap: 16px;
 }
 `;
 
-export const RegisterContainer = styled.div`
+export const RegisterContainer = styled.main`
   padding-left: 20px;
   padding-right: 20px;
   margin-right: auto;
@@ -150,39 +170,41 @@ export const SignInLin = styled(Link)`
 `;
 
 export const BottleImg = styled.div`
-  background-repeat: no-repeat;
-  background-size: contain;
-  min-height: 80vh;
-  background-position: center bottom;
+background-repeat: no-repeat;
+background-size: contain;
+min-height: 80vh;
+background-position: center bottom;
 
-  @media (max-width: 767px) {
-    background-image: image-set(
-      url(${MobileBottle1}) 1x,
-      url(${MobileBottle2}) 2x
-    );
-  }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    background-image: image-set(
-      url(${TabletBottle1}) 1x,
-      url(${TabletBottle2}) 2x
-    );
-    background-position: 80px center;
-    width: 736px;
-    height: 548px;
-  }
+@media (max-width: 767px) {
+  background-image: image-set(
+    url(${MobileBottle1}) 1x,
+    url(${MobileBottle2}) 2x
+  );
+}
 
- 
-  @media (min-width: 1440px) {
-    background-image: image-set(
-      url(${DeskBottle1}) 1x,
-      url(${DeskBottle2}) 2x
-    );
-  }
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  background-image: image-set(
+    url(${TabletBottle1}) 1x,
+    url(${TabletBottle2}) 2x
+  );
+  background-position: 80px center;
+  width: 736px;
+  height: 548px;
+}
+
+
+@media (min-width: 1440px) {
+  background-image: image-set(
+    url(${DeskBottle1}) 1x,
+    url(${DeskBottle2}) 2x
+  );
   margin-top: 0;
   background-position: -65px center;
   width: 916px;
   min-height: 680px;
+}
 `;
 
 export const SectionAuth = styled.section`
@@ -215,11 +237,14 @@ export const SectionAuth = styled.section`
 `;
 
 export const EyeSvg = styled.svg`
-  position: absolute;
-  right: 10px;
-  top: -40px;
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
-  /* background-color: red; */
+cursor: pointer;
+stroke: var(--primaryBlue);
+position: absolute;
+right: 10px;
+top: 40%;
+transform: translateY(-50%);
+fill: none;
+width: 16px;
+height: 16px;
+margin-top: 5px;
 `;

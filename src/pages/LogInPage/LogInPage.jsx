@@ -1,8 +1,9 @@
 import {
   Input,
   Label,
+  LabelWrapper,
   Form,
-  InputFild,
+  InputField,
   RegisterContainer,
   MainTitle,
   SignInLin,
@@ -57,10 +58,10 @@ const LogInPage = () => {
               <FormWrapper>
             <Form onSubmit={handleSubmit(onSubmit)}>
               <MainTitle>Sign In</MainTitle>
-              {/* Email */}
+              <LabelWrapper>
               <Label id="email" $err={errors.email}>
                 Enter your email
-                <InputFild
+                <InputField
                   className={errors.email ? 'error' : ''}
                   id="email"
                   type="email"
@@ -83,7 +84,7 @@ const LogInPage = () => {
                   $errors={errors.email}
                 />
               </Label>
-              <div style={{ position: 'relative' }}>
+              <div>
                 {errors.email && (
                   <p
                     style={{
@@ -97,10 +98,11 @@ const LogInPage = () => {
                   </p>
                 )}
               </div>
-              {/* Password*/}
+              </LabelWrapper>
+              <LabelWrapper>
               <Label id="password" $errors={errors.password}>
                 Enter your password
-                <InputFild
+                <InputField
                   placeholder="Password"
                   id="password"
                   type={showPassword['password'] ? 'text' : 'password'}
@@ -118,21 +120,21 @@ const LogInPage = () => {
                   $errors={errors.password}
                 />
                 <div
-                  style={{ position: 'relative' }}
+                  // style={{ position: 'relative' }}
                   onClick={() => togglePasswordVisibility('password')}
                 >
                   {showPassword['password'] ? (
-                    <EyeSvg width="16" height="16">
+                    <EyeSvg>
                       <use href={`${sprite}#icon-outlineOn`} />
                     </EyeSvg>
                   ) : (
-                    <EyeSvg width="16" height="16">
+                    <EyeSvg>
                       <use href={`${sprite}#icon-outlineOff`} />
                     </EyeSvg>
                   )}
                 </div>
               </Label>
-              <div style={{ position: 'relative' }}>
+              <div >
                 {errors.password && (
                   <p
                     style={{
@@ -146,6 +148,7 @@ const LogInPage = () => {
                   </p>
                 )}
               </div>
+              </LabelWrapper>
               <Input type="submit" disabled={!isValid} value="Sign In" />
               <SignInLin to="/register">Sign Up</SignInLin>
             </Form>
