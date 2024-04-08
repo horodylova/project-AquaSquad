@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
 import Modal from 'react-modal';
 import {
   MonthNavigation,
@@ -14,6 +16,7 @@ import {
 import { ReactComponent as ArrowLeft } from '/src/Icons/arrow-left.svg';
 import { ReactComponent as ArrowRight } from '/src/Icons/arrow-right.svg';
 import CalendarModal from './CalendarModal';
+import { actions } from '../../../redux/water/reducers';
 
 Modal.setAppElement('#root');
 
@@ -26,6 +29,8 @@ export const Calendar = ({
   const [selectedDay, setSelectedDay] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const dispatch = useDispatch();
+
   const getDaysInMonth = (date) => {
     const year = date.getFullYear();
     const month = date.getMonth();
@@ -36,6 +41,8 @@ export const Calendar = ({
     setCurrentDate(
       (prevDate) => new Date(prevDate.getFullYear(), prevDate.getMonth() - 1, 1)
     );
+    console.log('currentDate', currentDate);
+    dispatch(actions.selectDayAction(currentDate));
   };
 
   const goToNextMonth = () => {
@@ -97,4 +104,3 @@ export const Calendar = ({
 };
 
 export default Calendar;
-
