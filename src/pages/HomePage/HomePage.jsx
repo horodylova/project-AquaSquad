@@ -31,17 +31,17 @@ const HomePage = () => {
     <>
       <BackGroundContainer>
         <Container>
-          <ContentWrapper>
-            <LeftSideContainer>
+          {/* <ContentWrapper> */}
+            {/* <LeftSideContainer>
               <DailyNorma />
               <ImageOfBottle />
               <WaterRatioPanel />
-            </LeftSideContainer>
-            <RightSideContainer>
-              <TodayList />
-              <Calendar />
-            </RightSideContainer>
-          </ContentWrapper>
+            </LeftSideContainer> */}
+            {/* <RightSideContainer> */}
+              {/* <TodayList />
+              <Calendar /> */}
+            {/* </RightSideContainer> */}
+          {/* </ContentWrapper> */}
         </Container>
       </BackGroundContainer>
     </>

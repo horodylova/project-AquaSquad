@@ -14,11 +14,7 @@ import { Backdrop } from '../Backdrop/Backdrop';
 
 
 
-export const UserLogoPopUp = () => {
-
-
- 
-
+export const UserLogoPopUp = ({ isOpen, onClose }) => {
 
   const dispatch = useDispatch();
   const modalState = useSelector(selectIsOpenModal);

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 export const ContainerSettings = styled.div`
   position: absolute;
+  z-index: 300;
   left: 50%;
   top: 40px;
   transform: translate(-50%);
