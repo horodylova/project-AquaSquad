@@ -1,8 +1,7 @@
+// import Avatar, { genConfig } from 'react-nice-avatar';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUserProfile } from '../../../redux/auth/authSelectors';
-// import Avatar, { genConfig } from 'react-nice-avatar';
-
 import {
   UserName,
   UserLogoBtn,
@@ -10,26 +9,29 @@ import {
   UserLogoContainer,
   UserAvatar,
 } from './UserLogo.styled';
-
 import arrow from '../../../Icons/solid.svg';
 import arrowup from '../../../Icons/arrow-up.svg';
 import { UserLogoPopUp } from '../../AllModals/UserLogoModal/UserLogoPopUp';
 
-function emailUsername(emailAddress) {
-  return emailAddress.split('@')[0];
-}
 
 // const config = genConfig();
 
 export const UserLogo = () => {
+
   const userProfile = useSelector(selectUserProfile);
   const name = userProfile.username;
   const email = userProfile.email;
   const userAvatar = userProfile.avatar;
   const enteredUserEmail = emailUsername(email);
-  const [isOpen, setIsOpen] = useState(false);
   const avatarURL = `https://water-tracker-backend-ob6w.onrender.com/${userAvatar}`;
   const defaultUserImage = 'https://avatar.iran.liara.run/public/6';
+   const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  function emailUsername(emailAddress) {
+    return emailAddress.split('@')[0];
+  };
+    
+
   const makeUserName = () => {
     if (name) {
       return name;
@@ -41,13 +43,17 @@ export const UserLogo = () => {
     }
   };
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+ const toggleMenu = () => {
+    setIsModalOpen(!isModalOpen);
   };
-
+ 
   return (
     <UserLogoContainer>
-      <UserLogoBtn onClick={toggleMenu} aria-label="User Logo">
+
+      <UserLogoBtn
+        onClick={toggleMenu}
+        aria-label="User Logo">
+        
         <UserName>{userProfile.name ? userProfile.name : makeUserName()}</UserName>
 
         {/* {userAvatar ? 
@@ -67,14 +73,17 @@ export const UserLogo = () => {
         <UserAvatar src={ userAvatar ? avatarURL : defaultUserImage} />
 
         <UserLogoIcon>
-          {isOpen ? (
+          {isModalOpen ? (
             <use href={arrowup + '#icon-arrow-up'}></use>
           ) : (
             <use href={arrow + '#icon-arrow-down'}></use>
           )}
         </UserLogoIcon>
-      </UserLogoBtn>
-      {isOpen && <UserLogoPopUp />}
+
+      </UserLogoBtn> 
+      
+       {isModalOpen && <UserLogoPopUp />}
+
     </UserLogoContainer>
   );
 };
