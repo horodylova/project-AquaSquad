@@ -30,7 +30,8 @@ const rootSlice = createSlice({
   initialState,
   reducers: {
     selectDayAction: (state, action) => {
-      state.selectedDate = action.payload.toISOString();
+      // state.selectedDate = action.payload.toISOString();
+      state.selectedDate = action.payload;
     },
   },
 });

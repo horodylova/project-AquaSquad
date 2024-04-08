@@ -17,7 +17,13 @@ const editIcon = `${sprite}#icon-pencil`;
 const delIcon = `${sprite}#icon-trash`;
 const glassIcon = `${sprite}#icon-cup`;
 
-export const TodayItem = ({ id, water, time, onEditButtonClick }) => {
+export const TodayItem = ({
+  id,
+  water,
+  time,
+  onEditButtonClick,
+  handleDeletebutton,
+}) => {
   // const time = `${date.getHours()}:${date
   //   .getMinutes()
   //   .toString()
@@ -37,7 +43,7 @@ export const TodayItem = ({ id, water, time, onEditButtonClick }) => {
             <use href={editIcon}></use>
           </SvgPen>
         </ButtonPen>
-        <ButtonTrash>
+        <ButtonTrash onClick={() => handleDeletebutton(id)}>
           <SvgTrash>
             <use href={delIcon}></use>
           </SvgTrash>
