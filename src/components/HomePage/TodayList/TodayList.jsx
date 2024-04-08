@@ -20,18 +20,21 @@ Modal.setAppElement('#root');
 const plusIcon = `${sprite}#icon-plus-blue`;
 
 export const TodayList = () => {
-  const todayList = useSelector(selectDayWaterList);
+  const todayList = useSelector(selectDayWaterList) || [];
 
-  const sortedList = todayList.slice().sort((a, b) => {
-    const timeA = a.time.split(':').map(Number);
-    const timeB = b.time.split(':').map(Number);
+ const sortedList =
+   todayList.length > 0
+     ? todayList.slice().sort((a, b) => {
+         const timeA = a.time.split(':').map(Number);
+         const timeB = b.time.split(':').map(Number);
 
-    if (timeA[0] !== timeB[0]) {
-      return timeA[0] - timeB[0]; // Сортировка по часам
-    } else {
-      return timeA[1] - timeB[1]; // Если часы равны, то сортировка по минутам
-    }
-  });
+         if (timeA[0] !== timeB[0]) {
+           return timeA[0] - timeB[0]; // Сортировка по часам
+         } else {
+           return timeA[1] - timeB[1]; // Если часы равны, то сортировка по минутам
+         }
+       })
+     : todayList;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
