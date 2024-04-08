@@ -1,4 +1,3 @@
-import Container from '../../components/Container/Container';
 import { DailyNorma } from '../../components/HomePage/DailyNorma/DailyNorma';
 import { WaterRatioPanel } from '../../components/HomePage/WaterRatioPanel/WaterRatioPanel';
 import { Calendar } from '../../components/HomePage/Calendar/Calendar';
@@ -30,9 +29,8 @@ const HomePage = () => {
   }, []);
 
   return (
-    <>
-      <BackGroundContainer>
-        <Container>
+      <BackGroundContainer className="background">
+              <div className="container">
           <ContentWrapper>
             <LeftSideContainer>
               <DailyNorma />
@@ -44,9 +42,8 @@ const HomePage = () => {
               <Calendar />
             </RightSideContainer>
           </ContentWrapper>
-        </Container>
+          </div>
       </BackGroundContainer>
-    </>
   );
 };
 

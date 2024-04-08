@@ -19,6 +19,7 @@ export const MonthContent = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: auto;
+  margin-bottom: 16px;
    
 `;
 
@@ -58,6 +59,7 @@ position: relative;
     @media screen and (min-width: 1440px) {
     row-gap: 20px;
     column-gap: 22px;
+    
     }
 `;
 
@@ -98,6 +100,7 @@ export const DayNumber = styled.div`
   border: 0;
   border-radius: 20px;
   background-color: var(--white-color);
+  border: 1px solid var(--orange-color);
   margin-bottom: 4px;
 
   &:hover,

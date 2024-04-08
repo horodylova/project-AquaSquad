@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 export const ImageBottle = styled.div`
-margin-bottom: 16px;
+margin-bottom: 35px;
 width: 100%;
 
 margin-left: auto;

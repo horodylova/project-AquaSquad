@@ -1,4 +1,3 @@
-import Container from '../../components/Container/Container';
 import { TodayList } from '../../components/HomePage/TodayList/TodayList';
 import { useState } from 'react';
 import Modal from 'react-modal';
@@ -17,7 +16,7 @@ export const DeveloperTestPage = () => {
   };
 
   return (
-    <Container>
+    <>
       <p>Your test</p>
       <TodayList />
       <button onClick={() => handleEditbutton(testId)}>
@@ -33,6 +32,6 @@ export const DeveloperTestPage = () => {
           waterId={waterId}
         />
       )}
-    </Container>
+  </>
   );
 };
