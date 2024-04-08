@@ -1,15 +1,17 @@
-import Container from '../../components/Container/Container';
 import {
   Input,
   Label,
+  LabelWrapper,
   Form,
-  InputFild,
+  InputContainer,
+  InputField,
   RegisterContainer,
   MainTitle,
   SignInLin,
   BottleImg,
   EyeSvg,
   SectionAuth,
+  FormWrapper
 } from '../RegistrationPage/RegistrationPage.styled';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
@@ -51,16 +53,16 @@ const LogInPage = () => {
   };
 
   return (
-    <main>
-      <SectionAuth>
-        <Container>
+      <SectionAuth className="background">
           <RegisterContainer>
+              <BottleImg>
+              <FormWrapper>
             <Form onSubmit={handleSubmit(onSubmit)}>
               <MainTitle>Sign In</MainTitle>
-              {/* Email */}
+              <LabelWrapper>
               <Label id="email" $err={errors.email}>
-                Enter your email
-                <InputFild
+                Enter your email</Label>
+                <InputField
                   className={errors.email ? 'error' : ''}
                   id="email"
                   type="email"
@@ -82,8 +84,7 @@ const LogInPage = () => {
                   })}
                   $errors={errors.email}
                 />
-              </Label>
-              <div style={{ position: 'relative' }}>
+              <div>
                 {errors.email && (
                   <p
                     style={{
@@ -97,10 +98,12 @@ const LogInPage = () => {
                   </p>
                 )}
               </div>
-              {/* Password*/}
+              </LabelWrapper>
+              <LabelWrapper>
               <Label id="password" $errors={errors.password}>
-                Enter your password
-                <InputFild
+                Enter your password </Label>
+                <InputContainer>
+                <InputField
                   placeholder="Password"
                   id="password"
                   type={showPassword['password'] ? 'text' : 'password'}
@@ -118,21 +121,22 @@ const LogInPage = () => {
                   $errors={errors.password}
                 />
                 <div
-                  style={{ position: 'relative' }}
+                  // style={{ position: 'relative' }}
                   onClick={() => togglePasswordVisibility('password')}
                 >
                   {showPassword['password'] ? (
-                    <EyeSvg width="16" height="16">
+                    <EyeSvg>
                       <use href={`${sprite}#icon-outlineOn`} />
                     </EyeSvg>
                   ) : (
-                    <EyeSvg width="16" height="16">
+                    <EyeSvg>
                       <use href={`${sprite}#icon-outlineOff`} />
                     </EyeSvg>
                   )}
                 </div>
-              </Label>
-              <div style={{ position: 'relative' }}>
+               </InputContainer>
+    
+              <div >
                 {errors.password && (
                   <p
                     style={{
@@ -146,14 +150,14 @@ const LogInPage = () => {
                   </p>
                 )}
               </div>
+              </LabelWrapper>
               <Input type="submit" disabled={!isValid} value="Sign In" />
               <SignInLin to="/register">Sign Up</SignInLin>
             </Form>
-            <BottleImg></BottleImg>
+            </FormWrapper>
+            </BottleImg>
           </RegisterContainer>
-        </Container>
       </SectionAuth>
-    </main>
   );
 };
 export default LogInPage;
