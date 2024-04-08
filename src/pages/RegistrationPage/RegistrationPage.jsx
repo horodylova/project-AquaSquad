@@ -55,14 +55,13 @@ const RegistrationPage = () => {
 
   return (
     <main>
-      <SectionAuth>
-        <Container>
+      <SectionAuth className="background">
           <RegisterContainer>
             <Form onSubmit={handleSubmit(onSubmit)}>
               <MainTitle>Sign Up</MainTitle>
               {/* Email */}
               <Label id="email" $errors={errors.email}>
-                Enter your email
+                Enter your email</Label>
                 <InputField
                   className={errors.email ? 'error' : ''}
                   id="email"
@@ -85,7 +84,7 @@ const RegistrationPage = () => {
                   })}
                   $errors={errors.email}
                 />
-              </Label>
+              
               <div style={{ position: 'relative' }}>
                 {errors.email && (
                   <p
@@ -102,7 +101,7 @@ const RegistrationPage = () => {
               </div>
               {/* Password*/}
               <Label id="password" $errors={errors.password}>
-                Enter your password
+                Enter your password</Label>
                 <InputField
                   placeholder="Password"
                   id="password"
@@ -134,7 +133,7 @@ const RegistrationPage = () => {
                     </EyeSvg>
                   )}
                 </div>
-              </Label>
+              
               <div style={{ position: 'relative' }}>
                 {errors.password && (
                   <p
@@ -151,7 +150,7 @@ const RegistrationPage = () => {
               </div>
               {/* Password repeat*/}
               <Label id="email" $errors={errors.passwordRepeat}>
-                Repeat password
+                Repeat password </Label>
                 <InputField
                   id="passwordRepeat"
                   type={showPassword['passwordRepeat'] ? 'text' : 'password'}
@@ -188,7 +187,7 @@ const RegistrationPage = () => {
                     </EyeSvg>
                   )}
                 </div>
-              </Label>
+             
               <div style={{ position: 'relative' }}>
                 {errors.passwordRepeat && (
                   <p
