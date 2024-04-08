@@ -131,11 +131,11 @@ const RegistrationPage = () => {
                   onClick={() => togglePasswordVisibility('password')}
                 >
                   {showPassword['password'] ? (
-                    <EyeSvg width="16" height="16">
+                    <EyeSvg>
                       <use href={`${sprite}#icon-outlineOn`} />
                     </EyeSvg>
                   ) : (
-                    <EyeSvg width="16" height="16">
+                    <EyeSvg>
                       <use href={`${sprite}#icon-outlineOff`} />
                     </EyeSvg>
                   )}
@@ -157,8 +157,10 @@ const RegistrationPage = () => {
               </div>
               </LabelWrapper>
               {/* Password repeat*/}
+              <LabelWrapper>
               <Label id="email" $errors={errors.passwordRepeat}>
                 Repeat password </Label>
+                <InputContainer>
                 <InputField
                   id="passwordRepeat"
                   type={showPassword['passwordRepeat'] ? 'text' : 'password'}
@@ -182,21 +184,21 @@ const RegistrationPage = () => {
                   $errors={errors.passwordRepeat}
                 />
                 <div
-                  style={{ position: 'relative' }}
+                  // style={{ position: 'relative' }}
                   onClick={() => togglePasswordVisibility('passwordRepeat')}
                 >
                   {showPassword['passwordRepeat'] ? (
-                    <EyeSvg width="16" height="16">
+                    <EyeSvg>
                       <use href={`${sprite}#icon-outlineOn`} />
                     </EyeSvg>
                   ) : (
-                    <EyeSvg width="16" height="16">
+                    <EyeSvg>
                       <use href={`${sprite}#icon-outlineOff`} />
                     </EyeSvg>
                   )}
                 </div>
-             
-              <div style={{ position: 'relative' }}>
+                </InputContainer>
+              <div >
                 {errors.passwordRepeat && (
                   <p
                     style={{
@@ -210,6 +212,7 @@ const RegistrationPage = () => {
                   </p>
                 )}
               </div>
+              </LabelWrapper>
               <Input type="submit" disabled={!isValid} value="Sign Up" />
               <SignInLin to="/login">Sign in</SignInLin>
             </Form>
