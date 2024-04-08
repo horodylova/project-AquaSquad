@@ -11,7 +11,7 @@ export const getDayWater = createAsyncThunk(
       const res = await axios.post('/calendar/today', {
         currentDate: dateHandler().date,
       });
-      console.log('resToday', res);
+
       return res.data;
     } catch (error) {
       toast.error('Error get water for this day:', error);
