@@ -18,6 +18,7 @@ export const MonthContent = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: auto;
+  margin-bottom: 16px;
 `;
 
 export const MonthNavigation = styled.div`
