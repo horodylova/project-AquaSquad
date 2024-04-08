@@ -1,5 +1,4 @@
 import { useForm } from 'react-hook-form';
-import Container from '../../components/Container/Container';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
@@ -9,8 +8,11 @@ import {
   Input,
   Label,
   Form,
+  FormWrapper,
+  LabelWrapper,
   InputField,
   RegisterContainer,
+  InputContainer,
   MainTitle,
   SignInLin,
   BottleImg,
@@ -54,11 +56,13 @@ const RegistrationPage = () => {
   };
 
   return (
-    <main>
-      <SectionAuth className="background">
+       <SectionAuth className="background">
           <RegisterContainer>
+              <BottleImg>
+              <FormWrapper>
             <Form onSubmit={handleSubmit(onSubmit)}>
               <MainTitle>Sign Up</MainTitle>
+              <LabelWrapper>
               {/* Email */}
               <Label id="email" $errors={errors.email}>
                 Enter your email</Label>
@@ -99,9 +103,12 @@ const RegistrationPage = () => {
                   </p>
                 )}
               </div>
+              </LabelWrapper>
               {/* Password*/}
+              <LabelWrapper>
               <Label id="password" $errors={errors.password}>
                 Enter your password</Label>
+                <InputContainer>
                 <InputField
                   placeholder="Password"
                   id="password"
@@ -120,7 +127,7 @@ const RegistrationPage = () => {
                   $errors={errors.password}
                 />
                 <div
-                  style={{ position: 'relative' }}
+      
                   onClick={() => togglePasswordVisibility('password')}
                 >
                   {showPassword['password'] ? (
@@ -133,7 +140,7 @@ const RegistrationPage = () => {
                     </EyeSvg>
                   )}
                 </div>
-              
+                </InputContainer>
               <div style={{ position: 'relative' }}>
                 {errors.password && (
                   <p
@@ -148,6 +155,7 @@ const RegistrationPage = () => {
                   </p>
                 )}
               </div>
+              </LabelWrapper>
               {/* Password repeat*/}
               <Label id="email" $errors={errors.passwordRepeat}>
                 Repeat password </Label>
@@ -205,11 +213,10 @@ const RegistrationPage = () => {
               <Input type="submit" disabled={!isValid} value="Sign Up" />
               <SignInLin to="/login">Sign in</SignInLin>
             </Form>
-            <BottleImg></BottleImg>
+            </FormWrapper>
+            </BottleImg>
           </RegisterContainer>
-        </Container>
       </SectionAuth>
-    </main>
   );
 };
 
