@@ -5,7 +5,7 @@ import { Calendar } from '../../components/HomePage/Calendar/Calendar';
 import { TodayList } from '../../components/HomePage/TodayList/TodayList';
 import { ImageOfBottle } from '../../components/HomePage/ImageBottleOnHome/ImageBottleOnHomePage';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
   BackGroundContainer,
@@ -15,15 +15,17 @@ import {
 } from './HomePage.styled';
 import {
   getDayWater,
-  // getMonthWater,
+  getMonthWater,
 } from '../../redux/Calendar/calendarOperations';
+import { currentDaySlice } from '../../redux/water/actions';
 
 const HomePage = () => {
   const dispatch = useDispatch();
+  const date = useSelector(currentDaySlice);
 
   useEffect(() => {
     dispatch(getDayWater());
-    // dispatch(getMonthWater());
+    dispatch(getMonthWater(date));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -31,17 +33,17 @@ const HomePage = () => {
     <>
       <BackGroundContainer>
         <Container>
-          <ContentWrapper> 
-             <LeftSideContainer>
+          <ContentWrapper>
+            <LeftSideContainer>
               <DailyNorma />
               <ImageOfBottle />
               <WaterRatioPanel />
-            </LeftSideContainer> 
-             <RightSideContainer> 
+            </LeftSideContainer>
+            <RightSideContainer>
               <TodayList />
-              <Calendar /> 
-             </RightSideContainer> 
-           </ContentWrapper>
+              <Calendar />
+            </RightSideContainer>
+          </ContentWrapper>
         </Container>
       </BackGroundContainer>
     </>

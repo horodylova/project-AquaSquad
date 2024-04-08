@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wrap = styled.div` 
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   gap: 12px;
   border-radius: 10px;
@@ -14,7 +14,6 @@ export const Wrap = styled.div`
 
 @media (min-width: 768px){
 position:absolute;    
-height: 76px;
   }
 `;
 
@@ -22,12 +21,14 @@ export const Text = styled.p`
 margin-bottom: 12px;
 font-size: 18px;
 line-height: 1.3;
+font-weight: 500;
 color: var(--primary-txt-color);
 `;
 
 export const TextWater = styled.p`
 font-size: 24px;
 line-height: 1;
+font-weight: 700;
 color: var(--primary-color);
 `;
 
@@ -35,6 +36,7 @@ export const Button = styled.button`
 padding: 0;
 font-size: 16px;
 line-height: 1.3;
+font-weight: 400;
 color: #8BAEFF;
 border: none;
 background-color:var(--white-color);
