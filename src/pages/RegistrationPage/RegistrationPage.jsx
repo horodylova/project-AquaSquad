@@ -18,6 +18,7 @@ import {
   BottleImg,
   SectionAuth,
   EyeSvg,
+  MessageError
 } from './RegistrationPage.styled';
 
 const emailPatern = /^[a-z0-9._-]+@[a-z0-9.-]+.[a-z]{2,4}$/;
@@ -75,11 +76,11 @@ const RegistrationPage = () => {
                     required: 'This field is required!',
                     minLength: {
                       value: 8,
-                      message: 'To short!',
+                      message: 'Too short!',
                     },
                     maxLength: {
                       value: 64,
-                      message: 'To long!',
+                      message: 'Too long!',
                     },
                     pattern: {
                       value: emailPatern,
@@ -89,18 +90,11 @@ const RegistrationPage = () => {
                   $errors={errors.email}
                 />
               
-              <div style={{ position: 'relative' }}>
+              <div >
                 {errors.email && (
-                  <p
-                    style={{
-                      color: 'red',
-                      position: 'absolute',
-                      top: '-15px',
-                      marginBottom: 0,
-                    }}
-                  >
+                 <MessageError>
                     {errors.email.message || 'Error!'}
-                  </p>
+                  </MessageError>
                 )}
               </div>
               </LabelWrapper>
@@ -143,16 +137,9 @@ const RegistrationPage = () => {
                 </InputContainer>
               <div style={{ position: 'relative' }}>
                 {errors.password && (
-                  <p
-                    style={{
-                      color: 'red',
-                      position: 'absolute',
-                      top: '-15px',
-                      marginBottom: 0,
-                    }}
-                  >
+                 <MessageError>
                     {errors.password.message || 'Error!'}
-                  </p>
+                  </MessageError>
                 )}
               </div>
               </LabelWrapper>
@@ -200,16 +187,9 @@ const RegistrationPage = () => {
                 </InputContainer>
               <div >
                 {errors.passwordRepeat && (
-                  <p
-                    style={{
-                      color: 'red',
-                      position: 'absolute',
-                      top: '-15px',
-                      marginBottom: 0,
-                    }}
-                  >
+                 <MessageError>
                     {errors.passwordRepeat.message || 'Error!'}
-                  </p>
+                    </MessageError>
                 )}
               </div>
               </LabelWrapper>

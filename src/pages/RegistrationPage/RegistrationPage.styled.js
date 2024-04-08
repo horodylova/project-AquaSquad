@@ -52,6 +52,18 @@ export const Input = styled.input`
   }
 `;
 
+export const MessageError = styled.div`
+  color: var(--red-color);
+  border-color: var(--red-color) !important;
+  color: var(--red-color);
+  @media screen and (min-width: 768px) {
+    width: 336px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 364px;
+  }
+`;
+
 export const InputField = styled.input`
 border-radius: 6px;
 border: 1px solid rgb(215, 227, 255);
