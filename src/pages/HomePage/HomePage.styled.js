@@ -67,7 +67,7 @@ export const ContentWrapper = styled.div`
 export const LeftSideContainer = styled.div`
 
 @media (min-width: 1440px){
-  padding-bottom: 76px;
+  padding-bottom: 33.5px;
   width:592px;
 }
 
