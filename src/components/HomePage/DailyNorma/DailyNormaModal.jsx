@@ -3,6 +3,7 @@ import { /* useDispatch, */ useSelector } from 'react-redux';
 import { selectUserProfile } from '../../../redux/auth/authSelectors';
 import Modal from 'react-modal';
 /* import { toast } from 'react-toastify'; */
+import { ReactComponent as CloseIcon } from '../../../Icons/close.svg';
 
 import {
   DailyWrapper,
@@ -23,7 +24,8 @@ import {
   DailyStrong,
   DailyIntakeWrp,
   DailyDescrSpan,
-  DailyIntakeLabel,
+    DailyIntakeLabel,
+    DailyTitleWrp
 } from './DailyNormaModal.styled';
 
 export const DailyNormaModal = ({ isOpen, onRequestClose }) => {
@@ -33,7 +35,7 @@ export const DailyNormaModal = ({ isOpen, onRequestClose }) => {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      overflowY: 'auto',
+      
     },
     content: {
       padding: '0',
@@ -41,7 +43,7 @@ export const DailyNormaModal = ({ isOpen, onRequestClose }) => {
       borderRadius: '10px',
       background: 'var(--white-color)',
       boxShadow: '0px 4px 4px 0px rgba(64, 123, 255, 0.30)',
-      wmaxHeight: '100vh',
+      maxHeight: '95vh',
       overflowY: 'auto',
     },
   };
@@ -86,8 +88,16 @@ export const DailyNormaModal = ({ isOpen, onRequestClose }) => {
 
   return (
     <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={ModalStyle}>
-      <DailyWrapper>
-        <DailyTitle>My daily norma</DailyTitle>
+          <DailyWrapper>
+              
+              <DailyTitleWrp>
+                  <DailyTitle>My daily norma</DailyTitle>
+                  <button onClick={onRequestClose}>
+                      <CloseIcon width="24" height="24"/>
+                  </button>
+                  
+              </DailyTitleWrp>
+        
         <DailyNormaWrp>
           <DailyPrg>
             For woman:<DailySpan> V=(M*0,03) + (T*0,4)</DailySpan>
