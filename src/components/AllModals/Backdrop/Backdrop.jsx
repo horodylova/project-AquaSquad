@@ -39,7 +39,7 @@ export const Backdrop = ({ children }) => {
           left: '0',
           width: '100%',
           height: '100%',
-          zIndex: '100%',
+          zIndex: '500',
           backgroundColor: 'rgba(0, 0, 0, 0.8)',
           overflow: 'auto',
         }}

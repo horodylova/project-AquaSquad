@@ -1,30 +1,28 @@
-import React from 'react';
+import { useState } from 'react';
 import { LogoModal, LogoModalBtn } from './UserLogoPopUp.styled';
 import { SettingModal } from '../SettingModal/SettingModal';
 import { UserLogoutModal } from '../UserLogoutModal/UserLogoutModal';
-import { useDispatch, useSelector } from 'react-redux';
-import { setModalType, setOpenModal } from '../../../redux/modals/modalSlice';
-import {
-  selectIsOpenModal,
-  selectIsModalType,
-} from '../../../redux/modals/modalSelectors';
-import { Backdrop } from '../Backdrop/Backdrop';
+import { useDispatch } from 'react-redux';
 
 export const UserLogoPopUp = () => {
   const dispatch = useDispatch();
-  const modalState = useSelector(selectIsOpenModal);
-  const typeOfModal = useSelector(selectIsModalType);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLogoutModalOpen, setIsLogoutOpen] = useState(false);
 
-  const handleModalOpen = (typeOfModal) => {
-    dispatch(setModalType(typeOfModal));
-    dispatch(setOpenModal(true));
+  const handleLogoutClick = () => {
+    setIsLogoutOpen(true);
   };
+
+  const handleModalClick = () => {
+    setIsModalOpen(true);
+  };
+
   return (
     <>
       <LogoModal>
         <ul>
           <li>
-            <LogoModalBtn onClick={() => handleModalOpen('settings')}>
+            <LogoModalBtn onClick={handleModalClick}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -45,7 +43,7 @@ export const UserLogoPopUp = () => {
             </LogoModalBtn>
           </li>
           <li>
-            <LogoModalBtn onClick={() => handleModalOpen('logout')}>
+            <LogoModalBtn onClick={handleLogoutClick}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -63,17 +61,14 @@ export const UserLogoPopUp = () => {
           </li>
         </ul>
       </LogoModal>
-
-      {modalState && typeOfModal === 'settings' && (
-        <Backdrop>
-          <SettingModal />
-        </Backdrop>
-      )}
-      {modalState && typeOfModal === 'logout' && (
-        <Backdrop>
-          <UserLogoutModal />
-        </Backdrop>
-      )}
+      <SettingModal
+        isOpen={isModalOpen}
+        onRequestClose={() => setIsModalOpen(false)}
+      />
+      <UserLogoutModal
+        isOpen={isLogoutModalOpen}
+        onRequestClose={() => setIsLogoutOpen(false)}
+      />
     </>
   );
 };
