@@ -58,7 +58,7 @@ const EditModal = ({ isOpen, onRequestClose, waterId }) => {
         }
         break;
       default:
-        console.log('ERROR');
+        toast.error('Something wrong...');
     }
   };
 
@@ -84,8 +84,6 @@ const EditModal = ({ isOpen, onRequestClose, waterId }) => {
       value: Number(e.target.ml.value),
       time: e.target.time.value,
     };
-
-    console.log(data);
 
     try {
       await dispatch(editWater(data)).unwrap();
@@ -146,7 +144,7 @@ const EditModal = ({ isOpen, onRequestClose, waterId }) => {
               onChange={handleInput}
             />
           </EditModalstyles.Label>
-          <EditModalstyles.Label isLarge>
+          <EditModalstyles.Label size="large">
             Enter the value of the water used:
             <EditModalstyles.Input
               type="number"
