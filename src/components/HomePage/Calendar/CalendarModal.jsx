@@ -33,6 +33,7 @@ export const CalendarModal = ({
       borderRadius: '10px',
       background: 'var(--white-color)',
       boxShadow: '0px 4px 4px 0px rgba(64, 123, 255, 0.30)',
+      
     },
   };
   return (
