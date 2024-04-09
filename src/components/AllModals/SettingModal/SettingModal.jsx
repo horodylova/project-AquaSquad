@@ -2,13 +2,15 @@ import { useRef } from 'react';
 import close from '../../../Icons/close-cross.svg';
 import download from '../../../Icons/arrow-download.svg';
 import Modal from 'react-modal';
+import { ReactComponent as CloseIcon } from '../../../Icons/close.svg';
 import {
-  CloseBtn,
+  // CloseBtn,
   ContainerAvatar,
   ContainerSettings,
   WrapperUpload,
   Title,
   TitlePart,
+  SettingTitleWrp,
   HoverCloseBtn,
 } from './SettingModal.styled';
 import { FormaUpdateUserProfile } from './FormaSettingModal/FormaSettingmodal';
@@ -59,15 +61,17 @@ export const SettingModal = ({ isOpen, onRequestClose }) => {
   return (
     <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={ModalStyle}>
       <ContainerSettings>
-        <CloseBtn onClick={onRequestClose}>
-          <HoverCloseBtn>
-            <svg width="24" height="24">
-              <use href={close + '#icon-close-cross'}></use>
-            </svg>
+        <SettingTitleWrp>
+          
+          <button onClick={onRequestClose}>
+            <HoverCloseBtn>
+            <CloseIcon width="24" height="24" />
           </HoverCloseBtn>
-        </CloseBtn>
+            </button>  
+        
 
-        <Title>Setting</Title>
+          <Title>Setting</Title>
+          </SettingTitleWrp>
         <TitlePart>Your photo</TitlePart>
 
         <WrapperUpload>

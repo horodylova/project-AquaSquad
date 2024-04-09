@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
 export const ContainerSettings = styled.div`
-  position: absolute;
-  z-index: 300;
-  left: 50%;
-  top: 40px;
-  transform: translate(-50%);
+  // position: absolute;
+  // z-index: 300;
+  // left: 50%;
+  // top: 40px;
+  // transform: translate(-50%);
+// position: static;
 
   color: black;
   background-color: white;
@@ -17,11 +18,12 @@ export const ContainerSettings = styled.div`
     width: 704px;
     padding: 32px 24px;
     border-radius: 10px;
+    
   }
   @media screen and (min-width: 1440px) {
     width: 1008px;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    // top: 50%;
+    // transform: translate(-50%, -50%);
   }
 `;
 
@@ -31,9 +33,8 @@ export const HoverCloseBtn = styled.div`
   align-items: center;
   background-color: transparent;
   padding: 4px;
-  border-radius: 100%;
+  border-radius: 50%;
   transition: background-color 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98);
-
   &:hover {
     background-color: #d7e3ff;
   }
@@ -127,26 +128,6 @@ export const WrapperFormaRight = styled.div`
   }
 `;
 
-export const CloseBtn = styled.button`
-  position: absolute;
-  top: 36px;
-  right: 12px;
-  height: 24px;
-
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  margin-bottom: 0px;
-  svg {
-    stroke: #407bff;
-    width: 24px;
-    height: 24px;
-  }
-
-  @media screen and (min-width: 768px) {
-    right: 24px;
-  }
-`;
 
 export const TitlePart = styled.h3`
   font-size: 18px;
@@ -164,4 +145,18 @@ export const Title = styled.h2`
   font-weight: 500;
   margin-bottom: 24px;
   color: #2f2f2f;
+`;
+
+export const SettingTitleWrp = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  align-items: baseline;
+
+  button {
+    padding: 6px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+  }
 `;
