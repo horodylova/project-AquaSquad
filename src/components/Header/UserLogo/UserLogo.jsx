@@ -1,4 +1,3 @@
-// import Avatar, { genConfig } from 'react-nice-avatar';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUserProfile } from '../../../redux/auth/authSelectors';
@@ -12,8 +11,6 @@ import {
 import arrow from '../../../Icons/solid.svg';
 import arrowup from '../../../Icons/arrow-up.svg';
 import { UserLogoPopUp } from '../../AllModals/UserLogoModal/UserLogoPopUp';
-
-// const config = genConfig();
 
 export const UserLogo = () => {
   const userProfile = useSelector(selectUserProfile);
@@ -50,20 +47,6 @@ export const UserLogo = () => {
         <UserName>
           {userProfile.name ? userProfile.name : makeUserName()}
         </UserName>
-
-        {/* {userAvatar ? 
-          <UserAvatar src={avatarURL} />
-        : 
-          <Avatar
-            style={{
-              width: '28px',
-              height: '28px',
-              borderRadius: '50%',
-              marginRight: '4px',
-            }}
-            {...config}
-          />
-        } */}
 
         <UserAvatar src={userAvatar ? avatarURL : defaultUserImage} />
 

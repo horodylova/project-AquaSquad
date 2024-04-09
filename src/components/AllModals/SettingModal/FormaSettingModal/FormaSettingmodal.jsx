@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { ButtonSettingsForma } from './ButtonSettingsForma.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUserProfile } from '../../../../redux/auth/authSelectors';
@@ -17,8 +17,9 @@ import {
   InputSettingEdit,
   EyeSvg,
 } from './FormaSettingModal.styled';
-
 import { updateUserProfileData } from '../../../../redux/auth/authOperations';
+
+const emailPatern = /^[a-z0-9._-]+@[a-z0-9.-]+.[a-z]{2,4}$/;
 
 export const FormaUpdateUserProfile = () => {
   const dispatch = useDispatch();
@@ -111,17 +112,50 @@ export const FormaUpdateUserProfile = () => {
                   type="text"
                   placeholder={userData.name ? userData.name : 'User Name'}
                 />
-              </FormLabel>
+              </FormLabel >
 
-              <FormLabel>
+              <FormLabel $errors={errors.email}>
                 E-mail
                 <InputSettingEdit
-                  {...register('email')}
+                  {...register('email', {
+                    required: 'This field is required!',
+                    minLength: {
+                      value: 8,
+                      message: 'Too short!',
+                    },
+                    maxLength: {
+                      value: 64,
+                      message: 'Too long!',
+                    },
+                    pattern: {
+                      value: emailPatern,
+                      message: 'Enter a correct email, example@gmail.com',
+                    },
+                  })}
+                  $errors={errors.email}
                   type="text"
                   placeholder={
                     userData.email ? userData.email : 'user_email@gmail.com'
                   }
                 />
+                <div
+                style={{
+                  position: 'relative',
+                }}
+              >
+                {errors.email && (
+                  <p
+                    style={{
+                      color: 'red',
+                      position: 'absolute',
+                      marginBottom: 0,
+                      top: '-10px',
+                    }}
+                  >
+                    {errors.email.message || 'Error!'}
+                  </p>
+                )}
+              </div>
               </FormLabel>
             </ContainerForm>
           </WrapperFormaLeft>
@@ -174,7 +208,7 @@ export const FormaUpdateUserProfile = () => {
                 )}
               </div>
             </FormLabel>
-            <FormLabel id="repeat">
+            <FormLabel id="repeat" $errors={errors.repeatPassword}>
               Repeat new password
               <InputSettingEdit
                 id="repeatPassword"
@@ -194,6 +228,7 @@ export const FormaUpdateUserProfile = () => {
                     }
                   },
                 })}
+                $errors={errors.repeatPassword}
                 type={showPassword['repeatPassword'] ? 'text' : 'password'}
                 placeholder="Password"
               />
@@ -222,7 +257,7 @@ export const FormaUpdateUserProfile = () => {
                       color: 'red',
                       position: 'absolute',
                       marginBottom: 0,
-                      top: '-15px',
+                      top: '-10px',
                     }}
                   >
                     {errors.repeatPassword.message || 'Error!'}
