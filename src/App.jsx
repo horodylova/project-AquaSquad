@@ -9,7 +9,6 @@ import { PublicRoute } from '../src/Routes/PublicRoute/PublicRoute';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { DeveloperTestPage } from './pages/DeveloperTestPage/DeveloperTestPage';
 
 const WelcomePage = lazy(() => import('./pages/WelcomePage/WelcomePage'));
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
@@ -24,7 +23,6 @@ function App() {
 
   useEffect(() => {
     dispatch(refreshUser());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -71,8 +69,7 @@ function App() {
                 </PrivateRoute>
               }
             />
-            {/* Developer Test Page */}
-            <Route path="/developer-test" element={<DeveloperTestPage />} />
+        
 
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>

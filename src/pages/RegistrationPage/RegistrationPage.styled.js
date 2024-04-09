@@ -43,6 +43,7 @@ min-width: 280px;
 font-size: 16px;
 padding: 12px 10px;
 line-height: 20px;
+
 &::placeholder {
   color: var(--light-blue-color);
 }
