@@ -36,6 +36,9 @@ export const MonthAndYear = styled.span`
   font-family: Roboto;
   line-height: 1.25;
   color: var(--primary-color);
+  min-width: 120px;
+  display: block;
+  text-align: center;
 `;
 
 export const CalendarDays = styled.div`
