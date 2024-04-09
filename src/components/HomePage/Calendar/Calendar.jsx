@@ -19,6 +19,7 @@ import CalendarModal from './CalendarModal';
 import { actions } from '../../../redux/water/reducers';
 import { getMonthWater } from '../../../redux/Calendar/calendarOperations';
 import { selectMonthWater } from '../../../redux/Calendar/calendarSelectors';
+import { currentDaySlice } from '../../../redux/water/actions';
 
 Modal.setAppElement('#root');
 
@@ -34,6 +35,7 @@ export const Calendar = ({
 
   const dispatch = useDispatch();
   const userPercent = useSelector(selectMonthWater);
+  const waterTime = useSelector(currentDaySlice);
 
   const getDaysInMonth = (date) => {
     const year = date.getFullYear();
@@ -46,20 +48,48 @@ export const Calendar = ({
     newDate.setMonth(newDate.getMonth() - 1);
     newDate.setDate(1);
     const tempData = newDate.toISOString();
+
     dispatch(actions.selectDayAction(tempData));
     const [year, month] = tempData.split('-');
     dispatch(getMonthWater({ year, month }));
     setCurrentDate(newDate);
   };
 
+  // const goToNextMonth = () => {
+  //   const newDate = new Date(currentDate);
+  //   newDate.setMonth(newDate.getMonth() + 1);
+  //   newDate.setDate(1);
+  //   const tempData = newDate.toISOString();
+  //   dispatch(actions.selectDayAction(tempData));
+  //   const [year, month] = tempData.split('-');
+  //   dispatch(getMonthWater({ year, month }));
+  //   setCurrentDate(newDate);
+  // };
+
+  // const goToNextMonth = () => {
+  //   const newDate = new Date(currentDate);
+  //   newDate.setMonth(newDate.getMonth() + 1);
+  //   newDate.setDate(1);
+  //   const tempData = newDate.toISOString();
+  //   dispatch(actions.selectDayAction(tempData));
+  //   const [year, month] = tempData.split('-');
+  //   dispatch(getMonthWater({ year, month }));
+  //   setCurrentDate(newDate);
+  // };
+
   const goToNextMonth = () => {
     const newDate = new Date(currentDate);
     newDate.setMonth(newDate.getMonth() + 1);
     newDate.setDate(1);
-    const tempData = newDate.toISOString();
+
+    const newYear = String(newDate.getFullYear());
+    const newMonth = String(newDate.getMonth() + 1).padStart(2, '0'); // Add 1 because months are 0-indexed
+    const newDay = String(newDate.getDate()).padStart(2, '0');
+
+    const tempData = `${newYear}-${newMonth}-${newDay}`;
+
     dispatch(actions.selectDayAction(tempData));
-    const [year, month] = tempData.split('-');
-    dispatch(getMonthWater({ year, month }));
+    dispatch(getMonthWater({ year: newYear, month: newMonth }));
     setCurrentDate(newDate);
   };
 
@@ -82,6 +112,9 @@ export const Calendar = ({
   const daysInMonth = getDaysInMonth(currentDate);
   const monthName = currentDate.toLocaleString('en', { month: 'long' });
   const year = currentDate.getFullYear();
+  const currentMonth = new Date().getMonth() + 1;
+  const here = waterTime.selectedDate.split('-')[1];
+  const there = String(currentMonth).padStart(2, '0');
 
   return (
     <div>
@@ -92,7 +125,7 @@ export const Calendar = ({
             <ArrowRight />
           </Button>
           <MonthAndYear>{`${monthName}, ${year}`}</MonthAndYear>
-          <Button onClick={goToNextMonth}>
+          <Button disabled={there === here} onClick={goToNextMonth}>
             <ArrowLeft />
           </Button>
         </MonthNavigation>
