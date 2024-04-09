@@ -60,10 +60,15 @@ export const InputSettingEdit = styled(Input)`
 
   &:focus,
   &:active {
-    color: #407bff;
+    color: ${(props) =>
+  props.$errors ? '#EF5050' : '#407bff'};
+    ${({ $errors }) =>
+    $errors ? `border: 1px solid #EF5050;` : ''}
     opacity: 1;
   }
 `;
+
+
 export const WrapperRadio = styled.div`
   display: flex;
   gap: 24px;
@@ -111,7 +116,8 @@ export const FormLabel = styled.label`
   font-size: 18px;
   font-weight: 500;
   line-height: 20px;
-  color: #2f2f2f;
+  color: ${(props) =>
+  props.$errors ? '#EF5050' : '#2f2f2f'};
   display: flex;
   flex-direction: column;
   gap: 8px;

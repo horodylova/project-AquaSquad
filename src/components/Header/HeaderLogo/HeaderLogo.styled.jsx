@@ -9,7 +9,7 @@ export const LogoIcon = styled.svg`
 export const Logo = styled.div`
   display: flex;
   align-items: center;
-  color: #407BFF; //change to global const
+  color: #407BFF; 
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;

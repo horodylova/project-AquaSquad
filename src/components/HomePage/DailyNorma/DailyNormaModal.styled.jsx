@@ -1,16 +1,17 @@
 import styled from 'styled-components';
 
 export const DailyWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   max-width: 280px;
   margin: 0 auto;
   border-radius: 10px;
   padding: 24px 12px;
 
-
   @media (min-width: 768px) {
     min-width: 704px;
     padding: 32px 24px;
-    overflowY: 'auto',
+    overflowy: 'auto';
   }
 
   @media (min-width: 1440px) {
@@ -22,17 +23,13 @@ export const DailyTitleWrp = styled.div`
   justify-content: space-between;
   align-items: baseline;
 
-  button{
+  button {
     padding: 6px;
     cursor: pointer;
     background-color: transparent;
     border: 0;
   }
 `;
-
-
-
-
 
 export const DailyTitle = styled.h2`
   color: var(--primary-txt-color);
@@ -44,7 +41,8 @@ export const DailyTitle = styled.h2`
 
 export const DailySpan = styled.span`
   color: var(--primary-color);
-  font-size: 16px;
+  font-weight: 400;
+  font-size: 18px;
   line-height: 24px;
 `;
 export const DailyDescrSpan = styled.span`
@@ -63,12 +61,13 @@ export const DailyPrg = styled.p`
 
 export const DailyNormaWrp = styled.div`
   display: flex;
-  gap: 24px;
+  gap: 16px;
   flex-direction: column;
   margin-bottom: 12px;
 
   @media (min-width: 768px) {
     flex-direction: row;
+    gap: 24px;
   }
 `;
 export const DailyDescrWrp = styled.div`
@@ -89,6 +88,9 @@ export const DailyForm = styled.form`
   flex-direction: column;
   row-gap: 16px;
   position: relative;
+  margin-bottom: 24px;
+  
+  }
 `;
 
 export const DailyRadioWrp = styled.div`
@@ -170,13 +172,13 @@ export const DailyIntakeLabel = styled.label`
 export const DailyButton = styled.button`
   margin-left: auto;
   width: 100%;
-  padding: 10px 30px;
+  padding: 8px 30px;
   color: var(--white-color);
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
-  line-height: 24px;
-  margin-top: 8px;
+  line-height: 20px;
+  // margin-top: 8px;
   border: none;
   border-radius: 10px;
   background: var(--primary-color);
@@ -186,5 +188,9 @@ export const DailyButton = styled.button`
   }
   @media (min-width: 768px) {
     width: 160px;
+    padding: 10px 30px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
   }
 `;

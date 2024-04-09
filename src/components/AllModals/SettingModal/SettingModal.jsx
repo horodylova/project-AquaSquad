@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import close from '../../../Icons/close-cross.svg';
 import download from '../../../Icons/arrow-download.svg';
+import Modal from 'react-modal';
 import {
   CloseBtn,
   ContainerAvatar,
@@ -13,11 +14,28 @@ import {
 import { FormaUpdateUserProfile } from './FormaSettingModal/FormaSettingmodal';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { setModalType, setOpenModal } from '../../../redux/modals/modalSlice';
 import { selectUserProfile } from '../../../redux/auth/authSelectors';
 import { updateAvatar } from '../../../redux/auth/authOperations';
 
-export const SettingModal = () => {
+export const SettingModal = ({ isOpen, onRequestClose }) => {
+  const ModalStyle = {
+    overlay: {
+      backgroundColor: 'rgba(0, 0, 0, 0.80)',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    content: {
+      padding: '0',
+      position: 'initial',
+      borderRadius: '10px',
+      background: 'var(--white-color)',
+      boxShadow: '0px 4px 4px 0px rgba(64, 123, 255, 0.30)',
+      maxHeight: '95vh',
+      overflowY: 'auto',
+    },
+  };
+
   const dispatch = useDispatch();
   const userProfile = useSelector(selectUserProfile);
   const filePecker = useRef(null);
@@ -38,68 +56,65 @@ export const SettingModal = () => {
     filePecker.current.click();
   };
 
-  const handleModalOpen = (typeOfModal) => {
-    dispatch(setModalType(typeOfModal));
-    dispatch(setOpenModal(false));
-  };
-
   return (
-    <ContainerSettings>
-      <CloseBtn onClick={() => handleModalOpen('')}>
-        <HoverCloseBtn>
-          <svg width="24" height="24">
-            <use href={close + '#icon-close-cross'}></use>
-          </svg>
-        </HoverCloseBtn>
-      </CloseBtn>
-
-      <Title>Setting</Title>
-      <TitlePart>Your photo</TitlePart>
-
-      <WrapperUpload>
-        <ContainerAvatar>
-          <img
-            src={userAvatar ? avatarURL : defaultUserImage}
-            alt="avatar"
-            width="80"
-          />
-        </ContainerAvatar>
-
-        <label>
-          <input
-            style={{
-              position: 'absolute',
-              width: '1px',
-              height: '1px',
-              margin: '-1px',
-              border: '0',
-              padding: '0',
-              whiteSpace: 'nowrap',
-              clipPath: 'inset(100%)',
-              clip: 'rect(0 0 0 0)',
-              overflow: 'hidden',
-              display: 'none',
-            }}
-            ref={filePecker}
-            type="file"
-            accept="image/png, image/jpeg"
-            onChange={handleChange}
-          />
-          <button
-            type="button"
-            style={{ border: 'none' }}
-            onClick={handleClick}
-          >
-            <svg width="16" height="16">
-              <use href={download + '#icon-arrow-up'}></use>
+    <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={ModalStyle}>
+      <ContainerSettings>
+        <CloseBtn onClick={onRequestClose}>
+          <HoverCloseBtn>
+            <svg width="24" height="24">
+              <use href={close + '#icon-close-cross'}></use>
             </svg>
+          </HoverCloseBtn>
+        </CloseBtn>
 
-            <span style={{ color: '#407BFF' }}>Upload a photo</span>
-          </button>
-        </label>
-      </WrapperUpload>
+        <Title>Setting</Title>
+        <TitlePart>Your photo</TitlePart>
 
-      <FormaUpdateUserProfile />
-    </ContainerSettings>
+        <WrapperUpload>
+          <ContainerAvatar>
+            <img
+              src={userAvatar ? avatarURL : defaultUserImage}
+              alt="avatar"
+              width="80"
+            />
+          </ContainerAvatar>
+
+          <label>
+            <input
+              style={{
+                position: 'absolute',
+                width: '1px',
+                height: '1px',
+                margin: '-1px',
+                border: '0',
+                padding: '0',
+                whiteSpace: 'nowrap',
+                clipPath: 'inset(100%)',
+                clip: 'rect(0 0 0 0)',
+                overflow: 'hidden',
+                display: 'none',
+              }}
+              ref={filePecker}
+              type="file"
+              accept="image/png, image/jpeg"
+              onChange={handleChange}
+            />
+            <button
+              type="button"
+              style={{ border: 'none' }}
+              onClick={handleClick}
+            >
+              <svg width="16" height="16">
+                <use href={download + '#icon-arrow-up'}></use>
+              </svg>
+
+              <span style={{ color: '#407BFF' }}>Upload a photo</span>
+            </button>
+          </label>
+        </WrapperUpload>
+
+        <FormaUpdateUserProfile />
+      </ContainerSettings>
+    </Modal>
   );
 };

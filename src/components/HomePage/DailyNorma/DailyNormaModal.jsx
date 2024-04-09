@@ -2,7 +2,6 @@ import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUserProfile } from '../../../redux/auth/authSelectors';
 import Modal from 'react-modal';
-/* import { toast } from 'react-toastify'; */
 import { ReactComponent as CloseIcon } from '../../../Icons/close.svg';
 
 import {
@@ -190,8 +189,8 @@ export const DailyNormaModal = ({ isOpen, onRequestClose }) => {
               onChange={handleIntakeGoalChange}
             />
           </DailyIntakeLabel>
-          <DailyButton type="submit">Save</DailyButton>
         </DailyForm>
+        <DailyButton type="submit">Save</DailyButton>
       </DailyWrapper>
     </Modal>
   );
