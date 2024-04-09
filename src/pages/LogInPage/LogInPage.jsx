@@ -1,5 +1,6 @@
+
 import {
-  Input,
+  PageLink,
   Label,
   LabelWrapper,
   Form,
@@ -12,8 +13,7 @@ import {
   EyeSvg,
   SectionAuth,
   FormWrapper,
-  MessageError,
-  SignUpButton
+  MessageError
 } from '../RegistrationPage/RegistrationPage.styled';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
@@ -143,7 +143,7 @@ const LogInPage = () => {
               <SignInLin type="submit" disabled={!isValid}>
                 Sign In
               </SignInLin>
-              <SignUpButton to="/register">Sign Up</SignUpButton>
+              <PageLink to="/register">Sign Up</PageLink>
             </Form>
           </FormWrapper>
         </BottleImg>

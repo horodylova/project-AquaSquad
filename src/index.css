@@ -42,6 +42,9 @@
 /* #root {
   height: 100%;
 } */
+button {
+  cursor: pointer;
+}
 
 * {
   box-sizing: border-box;

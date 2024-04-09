@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+
 import DeskBack1 from '../../Images/signIn-signUp/back/desktop/back_desktop@1x.png';
 import DeskBack2 from '../../Images/signIn-signUp/back/desktop/back_desktop@2x.png';
 
@@ -21,9 +22,6 @@ import TabletBottle2 from '../../Images/signIn-signUp/bottle/tablet/bottle_table
 import DeskBottle1 from '../../Images/signIn-signUp/bottle/desktop/bottle_desktop@1x.png';
 import DeskBottle2 from '../../Images/signIn-signUp/bottle/desktop/bottle_desktop@2x.png';
 
-
-
-// кнопка Sign Up
 
 
 export const MessageError = styled.div`
@@ -153,46 +151,41 @@ export const MainTitle = styled.h1`
   color: var(--primary-txt-color);
 `;
 
-export const SignUpButton = styled.button`
-color: var(--primary-color);
+export const PageLink = styled(Link)`
+  color: var(--primary-color);
   line-height: 20px;
   font-size: 16px;
   font-family: 'roboto', sans-serif;
   font-weight: 400;
-
-&:hover {
-  box-shadow: 0px 4px 14px 0px #407bff;
-}
 `;
 
 export const SignInLin = styled.button`
-font-family: 'Roboto-Medium';
-background-color: var(--primaryBlue);
-min-width: 280px;
-border-radius: 10px;
-border: none;
+font-family: 'roboto', sans-serif;
+font-weight: var(--medium);
 font-size: 16px;
+line-height: 20px;
+
+display: flex;
+justify-content: center;
+align-items: center;
 padding: 8px 30px;
-color: var(--primaryWhite);
+margin-bottom: 16px;
+width: 100%;
+
 cursor: pointer;
-box-shadow: 0px 4px 8px 0px #407bff;
-transition: box-shadow 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98);
-&:hover {
-  box-shadow: 0px 4px 14px 0px #407bff;
-}
-&:focus {
-  /* box-shadow: none; */
-}
-@media screen and (min-width: 768px) {
-  min-width: 336px;
-  line-height: 24px;
+border: none;
+border-radius: 10px;
+background: var(--primary-color);
+box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
+color: white;
+${(props) => (props.disabled ? `cursor: default;` : '')}
+
+@media (min-width: 768px) {
   font-size: 18px;
-}
-@media screen and (min-width: 1440px) {
-  min-width: 384px;
+  line-height: 24px;
+  padding: 10px 30px;
 }
 `;
-
 
 export const BottleImg = styled.div`
 background-repeat: no-repeat;
