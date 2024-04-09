@@ -12,7 +12,6 @@ export const addWater = createAsyncThunk(
       const res = await axios.post('/water', credentials);
       await dispatch(getDayWater());
       await dispatch(getMonthWater({ year, month }));
-      console.log('res', res.data);
       return res.data;
     } catch (error) {
       console.log(error);

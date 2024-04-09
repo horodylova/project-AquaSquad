@@ -55,8 +55,6 @@ export const Calendar = ({
     setCurrentDate(newDate);
   };
 
-
-
   const goToNextMonth = () => {
     const newDate = new Date(currentDate);
     newDate.setMonth(newDate.getMonth() + 1);
@@ -83,7 +81,6 @@ export const Calendar = ({
       setSelectedDay(day);
       setIsModalOpen(true);
       setSubObj(subObj);
-      console.log('selectedDay', selectedDay);
     } catch (error) {
       console.log(error);
     }

@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { addWater } from '../../../redux/water/waterOperations';
 
-import { ReactComponent as DrinkIcon } from '../../../Icons/drink.svg';
 import { ReactComponent as CloseIcon } from '../../../Icons/close.svg';
 import { ReactComponent as MinusIcon } from '../../../Icons/minus.svg';
 import { ReactComponent as PlusIcon } from '../../../Icons/plus.svg';
@@ -45,8 +44,6 @@ const AddWaterModal = ({ isOpen, onRequestClose }) => {
 
     switch (name) {
       case 'time':
-        // if (/^([01][0-9]|2[0-3]):[0-5][0-9]$/.test(value)) {
-        // }
         setTime(value);
         break;
       case 'ml':
@@ -81,9 +78,6 @@ const AddWaterModal = ({ isOpen, onRequestClose }) => {
       time: e.target.time.value,
       value: Number(e.target.ml.value),
     };
-
-    // console.log(time, value);
-    console.log(JSON.stringify(data));
 
     try {
       await dispatch(addWater(data)).unwrap();
@@ -137,7 +131,6 @@ const AddWaterModal = ({ isOpen, onRequestClose }) => {
             <AddWaterModalStyles.Input
               type="time"
               name="time"
-              // pattern="([01][0-9]|2[0-3]):[0-5][0-9]"
               value={time}
               onChange={handleInput}
             />
