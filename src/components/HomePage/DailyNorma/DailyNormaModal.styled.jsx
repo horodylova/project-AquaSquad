@@ -89,8 +89,6 @@ export const DailyForm = styled.form`
   row-gap: 16px;
   position: relative;
   margin-bottom: 24px;
-  
-  }
 `;
 
 export const DailyRadioWrp = styled.div`
