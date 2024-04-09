@@ -80,7 +80,7 @@ export const ButtonPen = styled.button`
    position: relative;
    color: var(--light-blue-color);
    width: 16px;
-height: 16px;
+  height: 16px;
 
    &::before {
   content: "";
@@ -108,7 +108,7 @@ export const ButtonTrash = styled.button`
    position: relative;
    color: var(--red-color);
    width: 16px;
-height: 16px;
+  height: 16px;
 
    &::before {
   content: "";
