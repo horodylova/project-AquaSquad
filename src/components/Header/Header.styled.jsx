@@ -1,9 +1,7 @@
-// import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const HeaderContainer = styled.header`
-  
-&.container {
+  &.container {
     padding-top: 8px;
     position: absolute;
     z-index: 1;
@@ -14,5 +12,3 @@ export const HeaderContainer = styled.header`
     justify-content: space-between;
   }
 `;
-
- 
