@@ -12,8 +12,8 @@ import {
   EyeSvg,
   SectionAuth,
   FormWrapper,
-  MessageError
-  
+  MessageError,
+  SignUpButton
 } from '../RegistrationPage/RegistrationPage.styled';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
@@ -55,17 +55,17 @@ const LogInPage = () => {
   };
 
   return (
-      <SectionAuth className="background">
-          <RegisterContainer>
-              <BottleImg>
-              <FormWrapper>
+    <SectionAuth className="background">
+      <RegisterContainer>
+        <BottleImg>
+          <FormWrapper>
             <Form onSubmit={handleSubmit(onSubmit)}>
               <MainTitle>Sign In</MainTitle>
               <LabelWrapper>
-              <Label id="email" $err={errors.email}>
-                Enter your email</Label>
+                <Label id="email" $err={errors.email}>
+                  Enter your email
+                </Label>
                 <InputField
-                
                   id="email"
                   type="email"
                   placeholder="E-mail"
@@ -86,67 +86,69 @@ const LogInPage = () => {
                   })}
                   $errors={errors.email}
                 />
-              <div>
-                {errors.email && (
-                  <MessageError>
-                   
-                    {errors.email.message || 'Error!'}
+                <div>
+                  {errors.email && (
+                    <MessageError>
+                      {errors.email.message || 'Error!'}
                     </MessageError>
-                )}
-              </div>
-              </LabelWrapper>
-              <LabelWrapper>
-              <Label id="password" $errors={errors.password}>
-                Enter your password </Label>
-                <InputContainer>
-                <InputField
-                  placeholder="Password"
-                  id="password"
-                  type={showPassword['password'] ? 'text' : 'password'}
-                  {...register('password', {
-                    required: 'This field is required!',
-                    minLength: {
-                      value: 3,
-                      message: 'Too short!',
-                    },
-                    maxLength: {
-                      value: 64,
-                      message: 'Too long!',
-                    },
-                  })}
-                  $errors={errors.password}
-                />
-                <div
-                  // style={{ position: 'relative' }}
-                  onClick={() => togglePasswordVisibility('password')}
-                >
-                  {showPassword['password'] ? (
-                    <EyeSvg>
-                      <use href={`${sprite}#icon-outlineOn`} />
-                    </EyeSvg>
-                  ) : (
-                    <EyeSvg>
-                      <use href={`${sprite}#icon-outlineOff`} />
-                    </EyeSvg>
                   )}
                 </div>
-               </InputContainer>
-    
-              <div >
-                {errors.password && (
-                  <MessageError>
-                    {errors.password.message || 'Error!'}
-                    </MessageError>
-                )}
-              </div>
               </LabelWrapper>
-              <Input type="submit" disabled={!isValid} value="Sign In" />
-              <SignInLin to="/register">Sign Up</SignInLin>
+              <LabelWrapper>
+                <Label id="password" $errors={errors.password}>
+                  Enter your password{' '}
+                </Label>
+                <InputContainer>
+                  <InputField
+                    placeholder="Password"
+                    id="password"
+                    type={showPassword['password'] ? 'text' : 'password'}
+                    {...register('password', {
+                      required: 'This field is required!',
+                      minLength: {
+                        value: 3,
+                        message: 'Too short!',
+                      },
+                      maxLength: {
+                        value: 64,
+                        message: 'Too long!',
+                      },
+                    })}
+                    $errors={errors.password}
+                  />
+                  <div
+                    // style={{ position: 'relative' }}
+                    onClick={() => togglePasswordVisibility('password')}
+                  >
+                    {showPassword['password'] ? (
+                      <EyeSvg>
+                        <use href={`${sprite}#icon-outlineOn`} />
+                      </EyeSvg>
+                    ) : (
+                      <EyeSvg>
+                        <use href={`${sprite}#icon-outlineOff`} />
+                      </EyeSvg>
+                    )}
+                  </div>
+                </InputContainer>
+
+                <div>
+                  {errors.password && (
+                    <MessageError>
+                      {errors.password.message || 'Error!'}
+                    </MessageError>
+                  )}
+                </div>
+              </LabelWrapper>
+              <SignInLin type="submit" disabled={!isValid}>
+                Sign In
+              </SignInLin>
+              <SignUpButton to="/register">Sign Up</SignUpButton>
             </Form>
-            </FormWrapper>
-            </BottleImg>
-          </RegisterContainer>
-      </SectionAuth>
+          </FormWrapper>
+        </BottleImg>
+      </RegisterContainer>
+    </SectionAuth>
   );
 };
 export default LogInPage;
