@@ -42,6 +42,8 @@ export const FormaUpdateUserProfile = () => {
   } = useForm({
     defaultValues: {
       gender: userCurrentGender ? userCurrentGender : 'man',
+      email: userData.email ? userData.email : 'user_email@gmail.com',
+      name: userData.name ? userData.name : 'User Name'
     },
     mode: 'onChange',
   });
@@ -110,33 +112,19 @@ export const FormaUpdateUserProfile = () => {
                 <InputSettingEdit
                   {...register('name')}
                   type="text"
-                  placeholder={userData.name ? userData.name : 'User Name'}
+                  placeholder= 'User Name'
                 />
               </FormLabel >
 
-              <FormLabel $errors={errors.email}>
+              <FormLabel >
+                {/* $errors={errors.email} */}
                 E-mail
                 <InputSettingEdit
-                  {...register('email', {
-                    required: 'This field is required!',
-                    minLength: {
-                      value: 8,
-                      message: 'Too short!',
-                    },
-                    maxLength: {
-                      value: 64,
-                      message: 'Too long!',
-                    },
-                    pattern: {
-                      value: emailPatern,
-                      message: 'Enter a correct email, example@gmail.com',
-                    },
-                  })}
-                  $errors={errors.email}
+                  {...register('email')}
+                  // $errors={errors.email}
                   type="text"
-                  placeholder={
-                    userData.email ? userData.email : 'user_email@gmail.com'
-                  }
+                  placeholder='user_email@gmail.com'
+                  
                 />
                 <div
                 style={{
@@ -208,27 +196,13 @@ export const FormaUpdateUserProfile = () => {
                 )}
               </div>
             </FormLabel>
-            <FormLabel id="repeat" $errors={errors.repeatPassword}>
+            <FormLabel id="repeat">
+              {/* $errors={errors.repeatPassword} */}
               Repeat new password
               <InputSettingEdit
                 id="repeatPassword"
-                {...register('repeatPassword', {
-                  required: 'This field is required!',
-                  minLength: {
-                    value: 3,
-                    message: 'To short!',
-                  },
-                  maxLength: {
-                    value: 64,
-                    message: 'To long!',
-                  },
-                  validate: (val) => {
-                    if (watch('newPassword') != val) {
-                      return 'Your passwords do no match';
-                    }
-                  },
-                })}
-                $errors={errors.repeatPassword}
+                {...register('repeatPassword')}
+                // $errors={errors.repeatPassword}
                 type={showPassword['repeatPassword'] ? 'text' : 'password'}
                 placeholder="Password"
               />
