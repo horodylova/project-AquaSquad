@@ -55,27 +55,7 @@ export const Calendar = ({
     setCurrentDate(newDate);
   };
 
-  // const goToNextMonth = () => {
-  //   const newDate = new Date(currentDate);
-  //   newDate.setMonth(newDate.getMonth() + 1);
-  //   newDate.setDate(1);
-  //   const tempData = newDate.toISOString();
-  //   dispatch(actions.selectDayAction(tempData));
-  //   const [year, month] = tempData.split('-');
-  //   dispatch(getMonthWater({ year, month }));
-  //   setCurrentDate(newDate);
-  // };
 
-  // const goToNextMonth = () => {
-  //   const newDate = new Date(currentDate);
-  //   newDate.setMonth(newDate.getMonth() + 1);
-  //   newDate.setDate(1);
-  //   const tempData = newDate.toISOString();
-  //   dispatch(actions.selectDayAction(tempData));
-  //   const [year, month] = tempData.split('-');
-  //   dispatch(getMonthWater({ year, month }));
-  //   setCurrentDate(newDate);
-  // };
 
   const goToNextMonth = () => {
     const newDate = new Date(currentDate);

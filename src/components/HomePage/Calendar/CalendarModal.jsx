@@ -17,9 +17,6 @@ export const CalendarModal = ({
   onRequestClose,
   currentDate,
   selectedDay,
-  dailyNorma,
-  fulfillmentPercentage,
-  waterConsumed,
   obj,
 }) => {
   const ModalStyle = {

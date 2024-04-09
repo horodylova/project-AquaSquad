@@ -33,13 +33,4 @@ export const getMonthWater = createAsyncThunk(
   }
 );
 
-// export const chooseDate = createAsyncThunk(
-//   'choose',
-//   async (credentials, thunkAPI) => {
-//     try {
-//       const res = await axios.post('/calendar/month', credentials);
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   }
-// );
+
