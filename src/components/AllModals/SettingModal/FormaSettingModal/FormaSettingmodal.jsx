@@ -26,6 +26,7 @@ export const FormaUpdateUserProfile = () => {
   const [showPassword, setShowPassword] = useState(false);
   const userData = useSelector(selectUserProfile);
   const userCurrentGender = userData.gender;
+  const emplyValue = '';
 
   const togglePasswordVisibility = (inputId) => {
     setShowPassword((prevPasswords) => ({
@@ -38,7 +39,7 @@ export const FormaUpdateUserProfile = () => {
     register,
     handleSubmit,
     watch,
-    formState: { errors, isSubmitting },
+    formState: { errors, isValid },
   } = useForm({
     defaultValues: {
       gender: userCurrentGender ? userCurrentGender : 'man',
@@ -117,46 +118,38 @@ export const FormaUpdateUserProfile = () => {
               </FormLabel >
 
               <FormLabel >
-                {/* $errors={errors.email} */}
+                
                 E-mail
                 <InputSettingEdit
                   {...register('email')}
-                  // $errors={errors.email}
+                  
                   type="text"
                   placeholder='user_email@gmail.com'
                   
                 />
-                <div
-                style={{
-                  position: 'relative',
-                }}
-              >
-                {errors.email && (
-                  <p
-                    style={{
-                      color: 'red',
-                      position: 'absolute',
-                      marginBottom: 0,
-                      top: '-10px',
-                    }}
-                  >
-                    {errors.email.message || 'Error!'}
-                  </p>
-                )}
-              </div>
+                
               </FormLabel>
             </ContainerForm>
           </WrapperFormaLeft>
           <WrapperFormaRight>
             <TitlePart>Password</TitlePart>
 
-            <FormLabel>
+            <FormLabel $errors={errors.oldPassword}> 
               Oudated password
               <InputSettingEdit
                 id="oldPassword"
-                {...register('oldPassword')}
+                {...register('oldPassword', {
+                    
+                    validate: () => {
+                      if (watch('newPassword') !== emptyValue) {
+                        return "This filed is empty";
+                    }
+                    
+                    },
+                  })}
                 type={showPassword['oldPassword'] ? 'text' : 'password'}
                 placeholder="Password"
+                $errors={errors.oldPassword}
               />
               <div
                 style={{ position: 'relative' }}
@@ -172,6 +165,24 @@ export const FormaUpdateUserProfile = () => {
                   </EyeSvg>
                 )}
               </div>
+              <div
+                style={{
+                  position: 'relative',
+                }}
+              >
+                {errors.oldPassword && (
+                  <p
+                    style={{
+                      color: '#EF5050',
+                      position: 'absolute',
+                      marginBottom: 0,
+                      top: '-10px',
+                    }}
+                  >
+                    {errors.oldPassword.message || 'Error!'}
+                  </p>
+                )}
+              </div>
             </FormLabel>
             <FormLabel id="new">
               New Password
@@ -180,6 +191,7 @@ export const FormaUpdateUserProfile = () => {
                 {...register('newPassword')}
                 type={showPassword['newPassword'] ? 'text' : 'password'}
                 placeholder="Password"
+      
               />
               <div
                 style={{ position: 'relative' }}
@@ -195,14 +207,22 @@ export const FormaUpdateUserProfile = () => {
                   </EyeSvg>
                 )}
               </div>
+              
             </FormLabel>
-            <FormLabel id="repeat">
-              {/* $errors={errors.repeatPassword} */}
+            <FormLabel id="repeat"$errors={errors.repeatPassword}>
+              
               Repeat new password
               <InputSettingEdit
                 id="repeatPassword"
-                {...register('repeatPassword')}
-                // $errors={errors.repeatPassword}
+                {...register('repeatPassword', {
+                    
+                    validate: (val) => {
+                      if (watch('newPassword') != val) {
+                        return 'Your passwords do no match';
+                      }
+                    },
+                  })}
+                $errors={errors.repeatPassword}
                 type={showPassword['repeatPassword'] ? 'text' : 'password'}
                 placeholder="Password"
               />
@@ -228,7 +248,7 @@ export const FormaUpdateUserProfile = () => {
                 {errors.repeatPassword && (
                   <p
                     style={{
-                      color: 'red',
+                      color: '#EF5050',
                       position: 'absolute',
                       marginBottom: 0,
                       top: '-10px',
@@ -241,8 +261,9 @@ export const FormaUpdateUserProfile = () => {
             </FormLabel>
           </WrapperFormaRight>
         </WrapperFormaMain>
-        <ButtonSettingsForma type="submit" disabled={isSubmitting}>
-          {isSubmitting ? 'Loading..' : 'Save'}
+        <ButtonSettingsForma type="submit" disabled={!isValid}>
+          
+          Save
         </ButtonSettingsForma>
       </WrapperForma>
     </form>

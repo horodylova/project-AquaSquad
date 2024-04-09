@@ -2,10 +2,23 @@ import styled from 'styled-components';
 import { Input } from '../Input.styled';
 
 export const WrapperForma = styled.div`
-  display: flex;
-  flex-direction: column;
+display: flex;
+flex-direction: column;
+
 `;
 
+export const FormLabel = styled.label`
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+  color: ${(props) =>
+  props.$errors ? '#EF5050' : '#2f2f2f'};
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+
+`;
 export const WrapperFormaMain = styled.div`
   display: flex;
   gap: 24px;
@@ -55,16 +68,14 @@ export const EyeSvg = styled.svg`
 `;
 
 export const InputSettingEdit = styled(Input)`
-  opacity: 0.6;
-  color: #d7e3ff;
-
+color: ${(props) =>
+  props.$errors ? '#EF5050' : '#9EBBFF'};
+border:  ${(props) =>
+  props.$errors ? '1px solid #EF5050' : '1px solid rgb(215, 227, 255)'} ;
   &:focus,
   &:active {
-    color: ${(props) =>
-  props.$errors ? '#EF5050' : '#407bff'};
-    ${({ $errors }) =>
-    $errors ? `border: 1px solid #EF5050;` : ''}
-    opacity: 1;
+    color:  #407BFF;
+
   }
 `;
 
@@ -91,13 +102,13 @@ export const FormLabelRadio = styled.label`
     height: 14px;
     background-color: transparent;
     border-radius: 100%;
-    border: 1px solid blue;
+    border: 1px solid #407BFF;
     cursor: pointer;
 
     transition: 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98);
   }
   input:checked + div {
-    background-color: blue;
+    background-color: #407BFF;
     box-shadow: inset 0 0 0 3px white;
   }
   span {
@@ -112,14 +123,3 @@ export const TitlePart = styled.h3`
   margin-bottom: 12px;
 `;
 
-export const FormLabel = styled.label`
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 20px;
-  color: ${(props) =>
-  props.$errors ? '#EF5050' : '#2f2f2f'};
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  width: 100%;
-`;
