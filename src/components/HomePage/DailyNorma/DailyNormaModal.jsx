@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { /* useDispatch, */ useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectUserProfile } from '../../../redux/auth/authSelectors';
 import Modal from 'react-modal';
 /* import { toast } from 'react-toastify'; */
@@ -24,9 +24,11 @@ import {
   DailyStrong,
   DailyIntakeWrp,
   DailyDescrSpan,
-    DailyIntakeLabel,
-    DailyTitleWrp
+  DailyIntakeLabel,
+  DailyTitleWrp,
 } from './DailyNormaModal.styled';
+import dateHandler from '../../helpers/dateHandler';
+import { waterRate as water } from '../../../redux/water/waterOperations';
 
 export const DailyNormaModal = ({ isOpen, onRequestClose }) => {
   const ModalStyle = {
@@ -35,7 +37,6 @@ export const DailyNormaModal = ({ isOpen, onRequestClose }) => {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      
     },
     content: {
       padding: '0',
@@ -47,12 +48,15 @@ export const DailyNormaModal = ({ isOpen, onRequestClose }) => {
       overflowY: 'auto',
     },
   };
-  /*  const dispatch = useDispatch(); */
-  const { gender: reduxGender, waterRate } = useSelector(selectUserProfile);
+  const dispatch = useDispatch();
+
+  const { gender: reduxGender, dailyNorma } = useSelector(selectUserProfile);
   const [gender, setGender] = useState(reduxGender);
   const [weight, setWeight] = useState('');
   const [activityTime, setActivityTime] = useState('');
-  const [dailyIntake, setDailyIntake] = useState((waterRate / 1000).toFixed(1));
+  const [dailyIntake, setDailyIntake] = useState(
+    (dailyNorma / 1000).toFixed(1)
+  );
   const [intakeGoal, setIntakeGoal] = useState('');
 
   const calculateWater = useCallback(() => {
@@ -83,21 +87,27 @@ export const DailyNormaModal = ({ isOpen, onRequestClose }) => {
 
   const handleSave = (e) => {
     e.preventDefault();
-    console.log(e.target.weight.value);
+    const finalWater = Number(e.target.water.value) * 1000;
+    const date = dateHandler().date;
+    dispatch(
+      water({
+        date,
+        waterRate: finalWater,
+      })
+    );
+    onRequestClose();
   };
 
   return (
     <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={ModalStyle}>
-          <DailyWrapper>
-              
-              <DailyTitleWrp>
-                  <DailyTitle>My daily norma</DailyTitle>
-                  <button onClick={onRequestClose}>
-                      <CloseIcon width="24" height="24"/>
-                  </button>
-                  
-              </DailyTitleWrp>
-        
+      <DailyWrapper>
+        <DailyTitleWrp>
+          <DailyTitle>My daily norma</DailyTitle>
+          <button onClick={onRequestClose}>
+            <CloseIcon width="24" height="24" />
+          </button>
+        </DailyTitleWrp>
+
         <DailyNormaWrp>
           <DailyPrg>
             For woman:<DailySpan> V=(M*0,03) + (T*0,4)</DailySpan>
@@ -172,9 +182,10 @@ export const DailyNormaModal = ({ isOpen, onRequestClose }) => {
           <DailyIntakeLabel>
             Write down how much water you will drink:
             <DailyTextInput
+              required
               type="number"
               name="water"
-              placeholder="0"
+              placeholder={0}
               value={intakeGoal}
               onChange={handleIntakeGoalChange}
             />
