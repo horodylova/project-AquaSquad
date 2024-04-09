@@ -1,8 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
-import { /* useDispatch, */ useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectUserProfile } from '../../../redux/auth/authSelectors';
 import Modal from 'react-modal';
-/* import { toast } from 'react-toastify'; */
 import { ReactComponent as CloseIcon } from '../../../Icons/close.svg';
 
 import {
@@ -24,8 +23,8 @@ import {
   DailyStrong,
   DailyIntakeWrp,
   DailyDescrSpan,
-    DailyIntakeLabel,
-    DailyTitleWrp
+  DailyIntakeLabel,
+  DailyTitleWrp,
 } from './DailyNormaModal.styled';
 
 export const DailyNormaModal = ({ isOpen, onRequestClose }) => {
@@ -35,7 +34,6 @@ export const DailyNormaModal = ({ isOpen, onRequestClose }) => {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      
     },
     content: {
       padding: '0',
@@ -47,7 +45,7 @@ export const DailyNormaModal = ({ isOpen, onRequestClose }) => {
       overflowY: 'auto',
     },
   };
-  /*  const dispatch = useDispatch(); */
+
   const { gender: reduxGender, waterRate } = useSelector(selectUserProfile);
   const [gender, setGender] = useState(reduxGender);
   const [weight, setWeight] = useState('');
@@ -88,16 +86,14 @@ export const DailyNormaModal = ({ isOpen, onRequestClose }) => {
 
   return (
     <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={ModalStyle}>
-          <DailyWrapper>
-              
-              <DailyTitleWrp>
-                  <DailyTitle>My daily norma</DailyTitle>
-                  <button onClick={onRequestClose}>
-                      <CloseIcon width="24" height="24"/>
-                  </button>
-                  
-              </DailyTitleWrp>
-        
+      <DailyWrapper>
+        <DailyTitleWrp>
+          <DailyTitle>My daily norma</DailyTitle>
+          <button onClick={onRequestClose}>
+            <CloseIcon width="24" height="24" />
+          </button>
+        </DailyTitleWrp>
+
         <DailyNormaWrp>
           <DailyPrg>
             For woman:<DailySpan> V=(M*0,03) + (T*0,4)</DailySpan>
@@ -179,8 +175,8 @@ export const DailyNormaModal = ({ isOpen, onRequestClose }) => {
               onChange={handleIntakeGoalChange}
             />
           </DailyIntakeLabel>
-          <DailyButton type="submit">Save</DailyButton>
         </DailyForm>
+        <DailyButton type="submit">Save</DailyButton>
       </DailyWrapper>
     </Modal>
   );
