@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import sprite from '../../../src/Icons/signIn-signUp/sprite.svg';
 import { register as registerAction } from '../../../src/redux/auth/authOperations';
 import {
-  Input,
+  PageLink,
   Label,
   Form,
   FormWrapper,
@@ -193,8 +193,10 @@ const RegistrationPage = () => {
                 )}
               </div>
               </LabelWrapper>
-              <Input type="submit" disabled={!isValid} value="Sign Up" />
-              <SignInLin to="/login">Sign in</SignInLin>
+             <SignInLin type="submit" disabled={!isValid} value="Sign Up">
+                Sign Up
+              </SignInLin>
+              <PageLink to="/login">Sign in</PageLink>
             </Form>
             </FormWrapper>
             </BottleImg>

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+
 import DeskBack1 from '../../Images/signIn-signUp/back/desktop/back_desktop@1x.png';
 import DeskBack2 from '../../Images/signIn-signUp/back/desktop/back_desktop@2x.png';
 
@@ -22,35 +23,6 @@ import DeskBottle1 from '../../Images/signIn-signUp/bottle/desktop/bottle_deskto
 import DeskBottle2 from '../../Images/signIn-signUp/bottle/desktop/bottle_desktop@2x.png';
 
 
-
-// кнопка Sign Up
-export const Input = styled.input`
-  font-family: 'roboto', sans-serif;
-  font-weight: var(--medium);
-  font-size: 16px;
-  line-height: 20px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 30px;
-  margin-bottom: 16px;
-  width: 100%;
-
-  cursor: pointer;
-  border: none;
-  border-radius: 10px;
-  background: var(--primary-color);
-  box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
-  color: white;
-  ${(props) => (props.disabled ? `cursor: default;` : '')}
-
-  @media (min-width: 768px) {
-    font-size: 18px;
-    line-height: 24px;
-    padding: 10px 30px;
-  }
-`;
 
 export const MessageError = styled.div`
   color: var(--red-color);
@@ -179,12 +151,40 @@ export const MainTitle = styled.h1`
   color: var(--primary-txt-color);
 `;
 
-export const SignInLin = styled(Link)`
+export const PageLink = styled(Link)`
   color: var(--primary-color);
   line-height: 20px;
   font-size: 16px;
   font-family: 'roboto', sans-serif;
   font-weight: 400;
+`;
+
+export const SignInLin = styled.button`
+font-family: 'roboto', sans-serif;
+font-weight: var(--medium);
+font-size: 16px;
+line-height: 20px;
+
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 8px 30px;
+margin-bottom: 16px;
+width: 100%;
+
+cursor: pointer;
+border: none;
+border-radius: 10px;
+background: var(--primary-color);
+box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
+color: white;
+${(props) => (props.disabled ? `cursor: default;` : '')}
+
+@media (min-width: 768px) {
+  font-size: 18px;
+  line-height: 24px;
+  padding: 10px 30px;
+}
 `;
 
 export const BottleImg = styled.div`
