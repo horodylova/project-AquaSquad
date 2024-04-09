@@ -59,8 +59,6 @@ export const StyledRangeInput = styled.input`
   }
   @media (min-width: 768px) {
     width: 334px;
-    // margin-left:1px;
-    // margin-right:17px;
   }
   @media (min-width: 1440px) {
     width: 360px;

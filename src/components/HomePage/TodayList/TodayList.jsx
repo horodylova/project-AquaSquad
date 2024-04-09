@@ -73,7 +73,6 @@ export const TodayList = () => {
             <TodayItem
               key={item._id}
               water={item.value}
-              // date={new Date(item.date)}
               time={item.time}
               id={item._id}
               onEditButtonClick={handleEditbutton}

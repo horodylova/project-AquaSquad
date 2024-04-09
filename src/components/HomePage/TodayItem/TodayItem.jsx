@@ -1,4 +1,3 @@
-// import React from 'react';
 
 import {
   WaterItem,
@@ -24,10 +23,6 @@ export const TodayItem = ({
   onEditButtonClick,
   handleDeletebutton,
 }) => {
-  // const time = `${date.getHours()}:${date
-  //   .getMinutes()
-  //   .toString()
-  //   .padStart(2, '0')}`;
 
   return (
     <WaterItem>
