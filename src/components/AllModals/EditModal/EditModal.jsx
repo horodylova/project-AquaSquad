@@ -29,9 +29,6 @@ const EditModal = ({ isOpen, onRequestClose, waterId }) => {
 
   const water = todayWaters.find((item) => item._id === waterId);
 
-  // const sampleMl = "999";
-  // const sampleTime ="23:59"
-
   const [ml, setMl] = useState(Number(water.value));
   const [time, setTime] = useState(water.time);
 
@@ -44,23 +41,16 @@ const EditModal = ({ isOpen, onRequestClose, waterId }) => {
   };
 
   const handleInput = (e) => {
-    const { name, value } = e.currentTarget;
-
-    switch (name) {
-      case 'time':
-        if (/^([01][0-9]|2[0-3]):[0-5][0-9]$/.test(value)) {
-          setTime(value);
-        }
-        break;
-      case 'ml':
-        if (!isNaN(value) && value > 0 && value < 10000) {
-          setMl(value);
-        }
-        break;
-      default:
-        toast.error('Something wrong...');
-    }
+    const { value } = e.currentTarget;
+    
+     if (!isNaN(value) && value > 0 && value < 5001) {
+       setMl(value);
+     }
   };
+
+  const handleInputTime = (e) => {
+    setTime(e.currentTarget.value);
+  }
 
   const handleMinusClick = () => {
     if (ml >= 100) {
@@ -72,7 +62,12 @@ const EditModal = ({ isOpen, onRequestClose, waterId }) => {
   };
 
   const handlePlusClick = () => {
-    setMl(Number(ml) + 50);
+    if (ml > 4950) {
+      setMl(5000);
+    }
+    else {
+      setMl(Number(ml) + 50);
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -128,7 +123,7 @@ const EditModal = ({ isOpen, onRequestClose, waterId }) => {
               <button
                 type="button"
                 onClick={handlePlusClick}
-                disabled={ml >= 9950}
+                disabled={ml >= 5000}
               >
                 <PlusIcon width="24" height="24" />
               </button>
@@ -137,11 +132,11 @@ const EditModal = ({ isOpen, onRequestClose, waterId }) => {
           <EditModalstyles.Label>
             Recording time:
             <EditModalstyles.Input
-              type="text"
+              type="time"
               name="time"
-              pattern="([01][0-9]|2[0-3]):[0-5][0-9]"
               value={time}
-              onChange={handleInput}
+              step="300"
+              onChange={handleInputTime}
             />
           </EditModalstyles.Label>
           <EditModalstyles.Label size="large">
