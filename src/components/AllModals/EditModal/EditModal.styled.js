@@ -127,11 +127,17 @@ const EnteredData = styled.div`
   button:focus,
   button:hover {
     outline: 1px solid var(--primary-color);
+    box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
   }
   button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
-    }
+  }
+  button:disabled:focus,
+  button:disabled:hover {
+    outline: none;
+    box-shadow: 0px 2px 4px 0px rgba(64, 123, 255, 0.2);
+  }
   .title {
     font-size: 18px;
     font-weight: 500;
@@ -175,18 +181,18 @@ const EnteredData = styled.div`
 const Label = styled.label`
   display: flex;
   flex-direction: column;
-  gap: ${(props) => (props.isLarge ? '16px' : '12px')};
+  gap: ${(props) => (props.size === 'large' ? '16px' : '12px')};
 
-  font-size: ${(props) => (props.isLarge ? '18px' : '16px')};
-  font-weight: ${(props) => (props.isLarge ? '500' : '400')};
-  width: ${(props) => (props.isLarge ? '256' : '182')};
+  font-size: ${(props) => (props.size === 'large' ? '18px' : '16px')};
+  font-weight: ${(props) => (props.size === 'large' ? '500' : '400')};
+  width: ${(props) => (props.size === 'large' ? '256' : '182')};
   color: var(--primary-txt-color);
   font-family: Roboto;
   font-style: normal;
   line-height: 20px;
 
   @media (min-width: 768px) {
-    width: ${(props) => (props.isLarge ? '348' : '182')};
+    width: ${(props) => (props.size === 'large' ? '348' : '182')};
   }
 `;
 
@@ -202,6 +208,7 @@ const Input = styled.input`
 
   border-radius: 6px;
   border: 1px solid var(--light-grey-color);
+  background: var(--white-color);
 
   &:focus {
     outline: 1px solid var(--primary-color);
@@ -252,6 +259,10 @@ const SaveButtonWrapper = styled.div`
   }
   button:focus {
     outline: 1px solid var(--primary-color);
+  }
+  button:hover {
+    cursor: pointer;
+    box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
   }
 
   @media (min-width: 768px) {

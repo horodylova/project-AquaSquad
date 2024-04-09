@@ -23,7 +23,6 @@ export const WaterRatioPanel = () => {
     background: `linear-gradient(to right, #9EBBFF ${progress}%, #D7E3FF ${progress}%)`,
   };
   useEffect(() => {
-    // You may perform any side effects related to the sliderPercent here
   }, [sliderPercent]);
 
   const handleOpenModal = () => {
@@ -44,7 +43,7 @@ export const WaterRatioPanel = () => {
           max="100"
           value={sliderPercent}
           style={sliderStyle}
-          readOnly // Make the input read-only to prevent user interaction
+          readOnly
         />
         <PercentageDiv>
           <PercentageOfRange>0%</PercentageOfRange>

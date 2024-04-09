@@ -85,6 +85,9 @@ height: 16px;
 margin-right: 8px;
 stroke: currentColor;
 fill: currentColor;
+&:hover {
+  color: var(--orange-color);
+}
 
 @media screen and (min-width: 768px) {
        width: 24px;
