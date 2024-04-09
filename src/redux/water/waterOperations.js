@@ -64,7 +64,7 @@ export const waterRate = createAsyncThunk(
     try {
       const state = getState().water.selectedDate;
       const [year, month] = state.split('-');
-      const res = await axios.patch('/water/rate', payload);
+      const res = await axios.post('/water/rate', payload);
       await dispatch(getDayWater());
       await dispatch(getMonthWater({ year, month }));
       return res.data;

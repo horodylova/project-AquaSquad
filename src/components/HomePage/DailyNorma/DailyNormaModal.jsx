@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectUserProfile } from '../../../redux/auth/authSelectors';
 import Modal from 'react-modal';
 import { ReactComponent as CloseIcon } from '../../../Icons/close.svg';
@@ -26,6 +26,8 @@ import {
   DailyIntakeLabel,
   DailyTitleWrp,
 } from './DailyNormaModal.styled';
+import dateHandler from '../../helpers/dateHandler';
+import { waterRate as water } from '../../../redux/water/waterOperations';
 
 export const DailyNormaModal = ({ isOpen, onRequestClose }) => {
   const ModalStyle = {
@@ -45,12 +47,15 @@ export const DailyNormaModal = ({ isOpen, onRequestClose }) => {
       overflowY: 'auto',
     },
   };
+  const dispatch = useDispatch();
 
-  const { gender: reduxGender, waterRate } = useSelector(selectUserProfile);
+  const { gender: reduxGender, dailyNorma } = useSelector(selectUserProfile);
   const [gender, setGender] = useState(reduxGender);
   const [weight, setWeight] = useState('');
   const [activityTime, setActivityTime] = useState('');
-  const [dailyIntake, setDailyIntake] = useState((waterRate / 1000).toFixed(1));
+  const [dailyIntake, setDailyIntake] = useState(
+    (dailyNorma / 1000).toFixed(1)
+  );
   const [intakeGoal, setIntakeGoal] = useState('');
 
   const calculateWater = useCallback(() => {
@@ -81,7 +86,15 @@ export const DailyNormaModal = ({ isOpen, onRequestClose }) => {
 
   const handleSave = (e) => {
     e.preventDefault();
-    console.log(e.target.weight.value);
+    const finalWater = Number(e.target.water.value) * 1000;
+    const date = dateHandler().date;
+    dispatch(
+      water({
+        date,
+        waterRate: finalWater,
+      })
+    );
+    onRequestClose();
   };
 
   return (
@@ -168,9 +181,10 @@ export const DailyNormaModal = ({ isOpen, onRequestClose }) => {
           <DailyIntakeLabel>
             Write down how much water you will drink:
             <DailyTextInput
+              required
               type="number"
               name="water"
-              placeholder="0"
+              placeholder={0}
               value={intakeGoal}
               onChange={handleIntakeGoalChange}
             />

@@ -49,7 +49,9 @@ export const WaterRatioPanel = () => {
         <PercentageDiv>
           <PercentageOfRange>0%</PercentageOfRange>
           <PercentageOfRange>
-            <BoldPercentageOfRange>{sliderPercent}%</BoldPercentageOfRange>
+            <BoldPercentageOfRange>
+              {Math.ceil(sliderPercent)}%
+            </BoldPercentageOfRange>
           </PercentageOfRange>
           <PercentageOfRange>100%</PercentageOfRange>
         </PercentageDiv>
