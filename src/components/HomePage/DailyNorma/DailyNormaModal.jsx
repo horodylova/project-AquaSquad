@@ -189,8 +189,8 @@ export const DailyNormaModal = ({ isOpen, onRequestClose }) => {
               onChange={handleIntakeGoalChange}
             />
           </DailyIntakeLabel>
+          <DailyButton type="submit">Save</DailyButton>
         </DailyForm>
-        <DailyButton type="submit">Save</DailyButton>
       </DailyWrapper>
     </Modal>
   );
