@@ -43,7 +43,7 @@ export const SettingModal = ({ isOpen, onRequestClose }) => {
   const filePecker = useRef(null);
   const userAvatar = userProfile.avatarURL;
   const defaultUserImage = 'https://avatar.iran.liara.run/public/6';
-  const avatarURL = `https://water-tracker-backend-ob6w.onrender.com/${userAvatar}`;
+  const avatarURLUser = `https://water-tracker-backend-ob6w.onrender.com/${userAvatar}`;
 
   const handleChange = (e) => {
     const formaData = new FormData();
@@ -77,7 +77,7 @@ export const SettingModal = ({ isOpen, onRequestClose }) => {
         <WrapperUpload>
           <ContainerAvatar>
             <img
-              src={userAvatar ? avatarURL : defaultUserImage}
+              src={userAvatar ? avatarURLUser : defaultUserImage}
               alt="avatar"
               width="80"
             />

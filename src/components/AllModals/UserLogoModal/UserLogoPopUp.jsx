@@ -8,6 +8,7 @@ export const UserLogoPopUp = () => {
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLogoutModalOpen, setIsLogoutOpen] = useState(false);
+  
 
   const handleLogoutClick = () => {
     setIsLogoutOpen(true);
@@ -18,6 +19,7 @@ export const UserLogoPopUp = () => {
   };
 
   return (
+   
     <>
       <LogoModal>
         <ul>
@@ -69,6 +71,7 @@ export const UserLogoPopUp = () => {
         isOpen={isLogoutModalOpen}
         onRequestClose={() => setIsLogoutOpen(false)}
       />
+   
     </>
   );
 };
