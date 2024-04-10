@@ -1,13 +1,13 @@
 import { Oval } from 'react-loader-spinner';
 import { LoaderWrapper } from './Loader.styled';
 
-const Loader = () => {
-  return (
-    <LoaderWrapper>
+const Loader = ({ loading }) => {
+  return loading ? (
+    <LoaderWrapper loading={loading}>
       <Oval
         height={100}
         width={100}
-        color="var(--primary-color)" 
+        color="var(--primary-color)"
         wrapperStyle={{}}
         wrapperClass=""
         visible={true}
@@ -17,7 +17,7 @@ const Loader = () => {
         strokeWidthSecondary={4}
       />
     </LoaderWrapper>
-  );
+  ) : null;
 };
 
 export default Loader;

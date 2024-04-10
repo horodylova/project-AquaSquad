@@ -1,4 +1,3 @@
-
 import {
   PageLink,
   Label,
@@ -13,19 +12,22 @@ import {
   EyeSvg,
   SectionAuth,
   FormWrapper,
-  MessageError
+  MessageError,
 } from '../RegistrationPage/RegistrationPage.styled';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
-import { useDispatch } from 'react-redux';
-import { login } from '../../../src/redux/auth/authOperations';
+import { useDispatch, useSelector } from 'react-redux';
+import { login, refreshUser } from '../../../src/redux/auth/authOperations';
 import { useState } from 'react';
 import sprite from '../../../src/Icons/signIn-signUp/sprite.svg';
+import Loader from '../../components/Loader/Loader';
+import { selectLoading } from '../../redux/auth/authSelectors.js';
 
 const emailPatern = /^[a-z0-9._-]+@[a-z0-9.-]+.[a-z]{2,4}$/;
 
 const LogInPage = () => {
   const dispatch = useDispatch();
+  const isLoading = useSelector(selectLoading);
   const [showPassword, setShowPassword] = useState(false);
 
   const {
@@ -48,6 +50,7 @@ const LogInPage = () => {
     try {
       await dispatch(login({ email, password })).unwrap();
       toast.success('Login successful. Welcome aboard!');
+      await dispatch(refreshUser()).unwrap();
       reset();
     } catch (error) {
       toast.error(error);
@@ -148,6 +151,7 @@ const LogInPage = () => {
           </FormWrapper>
         </BottleImg>
       </RegisterContainer>
+      <Loader loading={isLoading} />
     </SectionAuth>
   );
 };

@@ -24,6 +24,7 @@ const initialState = {
   error: null,
   isAuthenticated: false,
   isFetchingCurrentUser: false,
+  isLoadingServer: false,
 };
 
 const authSlice = createSlice({
@@ -57,26 +58,32 @@ const authSlice = createSlice({
     builder
       .addCase(register.pending, (state) => {
         state.isAuthenticated = false;
+        state.isLoadingServer = true;
       })
       .addCase(register.fulfilled, (state, action) => {
         state.user = { ...defaultUser, ...action.payload.user };
         state.token = action.payload.token;
         state.isAuthenticated = true;
+        state.isLoadingServer = false;
       })
       .addCase(register.rejected, (state) => {
         state.isAuthenticated = false;
+        state.isLoadingServer = false;
       })
       .addCase(login.pending, (state) => {
         state.isAuthenticated = false;
+        state.isLoadingServer = true;
       })
       .addCase(login.fulfilled, (state, action) => {
         // state.user = { ...defaultUser, ...action.payload.user };
         state.user.email = action.payload.user.email;
         state.token = action.payload.token;
         state.isAuthenticated = true;
+        state.isLoadingServer = false;
       })
       .addCase(login.rejected, (state) => {
         state.isAuthenticated = false;
+        state.isLoadingServer = false;
       })
       .addCase(logOut.pending, (state) => {
         state.isAuthenticated = false;

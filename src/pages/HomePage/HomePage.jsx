@@ -28,28 +28,30 @@ const HomePage = () => {
 
   useEffect(() => {
     dispatch(getDayWater());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     dispatch(getMonthWater({ year, month }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [select]);
 
   return (
-      <BackGroundContainer className="background">
-              <div className="container">
-          <ContentWrapper>
-            <LeftSideContainer>
-              <DailyNorma />
-              <ImageOfBottle />
-              <WaterRatioPanel />
-            </LeftSideContainer>
-            <RightSideContainer>
-              <TodayList />
-              <Calendar />
-            </RightSideContainer>
-          </ContentWrapper>
-          </div>
-      </BackGroundContainer>
+    <BackGroundContainer className="background">
+      <div className="container">
+        <ContentWrapper>
+          <LeftSideContainer>
+            <DailyNorma />
+            <ImageOfBottle />
+            <WaterRatioPanel />
+          </LeftSideContainer>
+          <RightSideContainer>
+            <TodayList />
+            <Calendar />
+          </RightSideContainer>
+        </ContentWrapper>
+      </div>
+    </BackGroundContainer>
   );
 };
 

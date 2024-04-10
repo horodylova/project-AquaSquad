@@ -3,7 +3,10 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import sprite from '../../../src/Icons/signIn-signUp/sprite.svg';
-import { register as registerAction } from '../../../src/redux/auth/authOperations';
+import {
+  refreshUser,
+  register as registerAction,
+} from '../../../src/redux/auth/authOperations';
 import {
   PageLink,
   Label,
@@ -49,6 +52,7 @@ const RegistrationPage = () => {
       await dispatch(registerAction({ email, password })).unwrap();
 
       toast.success('Registration successful. Welcome aboard!');
+      await dispatch(refreshUser()).unwrap();
       reset();
     } catch (error) {
       toast.error(error);
