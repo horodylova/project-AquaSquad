@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import {
   TodayTitle,
@@ -20,7 +20,7 @@ Modal.setAppElement('#root');
 
 const plusIcon = `${sprite}#icon-plus-blue`;
 
-export const TodayList = () => {
+export const TodayList = React.memo(() => {
   const todayList = useSelector(selectDayWaterList) || [];
 
   const sortedList =
@@ -104,4 +104,8 @@ export const TodayList = () => {
       )}
     </TodayListContainer>
   );
-};
+});
+
+TodayList.displayName = 'TodayList';
+
+export default TodayList;

@@ -1,18 +1,7 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import Modal from 'react-modal';
-import {
-  MonthNavigation,
-  CalendarDays,
-  MonthContent,
-  MonthText,
-  Button,
-  MonthAndYear,
-  Day,
-  DayNumber,
-  DayPercentage,
-} from './Calendar.styled';
+import { MonthNavigation, CalendarDays, MonthContent, MonthText, Button, MonthAndYear, Day, DayNumber, DayPercentage } from './Calendar.styled';
 import { ReactComponent as ArrowLeft } from '/src/Icons/arrow-left.svg';
 import { ReactComponent as ArrowRight } from '/src/Icons/arrow-right.svg';
 import CalendarModal from './CalendarModal';
@@ -23,11 +12,7 @@ import { currentDaySlice } from '../../../redux/water/actions';
 
 Modal.setAppElement('#root');
 
-export const Calendar = ({
-  dailyNorma,
-  fulfillmentPercentage,
-  waterConsumed,
-}) => {
+export const Calendar = React.memo(({ dailyNorma, fulfillmentPercentage, waterConsumed }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDay, setSelectedDay] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -61,7 +46,7 @@ export const Calendar = ({
     newDate.setDate(1);
 
     const newYear = String(newDate.getFullYear());
-    const newMonth = String(newDate.getMonth() + 1).padStart(2, '0'); // Add 1 because months are 0-indexed
+    const newMonth = String(newDate.getMonth() + 1).padStart(2, '0');
     const newDay = String(newDate.getDate()).padStart(2, '0');
 
     const tempData = `${newYear}-${newMonth}-${newDay}`;
@@ -134,6 +119,8 @@ export const Calendar = ({
       />
     </div>
   );
-};
+});
+
+Calendar.displayName = 'Calendar'; 
 
 export default Calendar;
