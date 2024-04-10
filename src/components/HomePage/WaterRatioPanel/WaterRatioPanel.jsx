@@ -15,7 +15,7 @@ import AddWaterModal from '../../AllModals/AddWaterModal/AddWaterModal';
 import { useSelector } from 'react-redux';
 import { selectPercent } from '../../../redux/Calendar/calendarSelectors';
 
-const WaterRatioPanel = React.memo(() => {
+export const WaterRatioPanel = React.memo(() => {
   const sliderPercent = useSelector(selectPercent);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
