@@ -5,7 +5,6 @@ const initialState = {
   percent: 0,
   dayWater: [],
   monthWater: {},
-  // chooseDate: new Date(),
 };
 
 const calendarSlice = createSlice({

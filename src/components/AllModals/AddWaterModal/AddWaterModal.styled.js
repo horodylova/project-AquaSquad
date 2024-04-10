@@ -132,6 +132,11 @@ const EnteredData = styled.div`
     opacity: 0.5;
     cursor: not-allowed;
   }
+  button:disabled:focus,
+  button:disabled:hover {
+    outline: none;
+    box-shadow: 0px 2px 4px 0px rgba(64, 123, 255, 0.2);
+  }
   .title {
     font-size: 18px;
     font-weight: 500;
@@ -253,7 +258,10 @@ const SaveButtonWrapper = styled.div`
   button:focus {
     outline: 1px solid var(--primary-color);
   }
-
+  button:hover {
+    cursor: pointer;
+    box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
+  }
   @media (min-width: 768px) {
     flex-direction: row;
     gap: 24px;

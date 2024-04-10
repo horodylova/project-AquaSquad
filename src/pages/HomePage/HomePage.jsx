@@ -24,17 +24,14 @@ const HomePage = () => {
   const date = useSelector(currentDaySlice);
   const select = useSelector(selectDate);
 
-  // eslint-disable-next-line no-unused-vars
-  const [year, month, rest] = date.selectedDate.split('-');
+  const [year, month] = date.selectedDate.split('-');
 
   useEffect(() => {
     dispatch(getDayWater());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     dispatch(getMonthWater({ year, month }));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [select]);
 
   return (
