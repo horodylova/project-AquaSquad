@@ -21,7 +21,7 @@ export const DailyNorma = () => {
       <Wrap>
         <Text>My daily norma</Text>
         <BtnWrap>
-          <TextWater>{water || 0} L</TextWater>
+          <TextWater>{water || 2} L</TextWater>
           <Button type="button" onClick={handleModalClick}>
             <span>Edit</span>
           </Button>
