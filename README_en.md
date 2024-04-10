@@ -20,6 +20,7 @@ and the ability to set reminders to help you stay on track with your water intak
 Modern web development technologies were used in the development of this project. 
 For the backend, we used Node.js along with the Express framework,
 which allows you to quickly create scalable and reliable applications. 
+We utilized a MongoDB database. The backend is hosted on Render.com servers.
 The CORS library was used to ensure security and compliance with CORS policies.
 
 In the front-end, JavaScript and the React library were used to create the user interface and user interaction logic. 
@@ -58,4 +59,4 @@ The developer Mykyta Ushakow [https://www.linkedin.com/in/mykyta-ushakow/]
 
 The developer Danylo Altukhov [http://linkedin.com/in/danylo-altukhov]
 
- 
+The developer Oleksandr Yarovyy [https://www.linkedin.com/in/oleksandr-yarovyy/]
