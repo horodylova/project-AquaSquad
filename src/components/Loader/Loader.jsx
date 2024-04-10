@@ -1,9 +1,9 @@
 import { Oval } from 'react-loader-spinner';
 import { LoaderWrapper } from './Loader.styled';
 
-const Loader = ({ loading }) => {
-  return loading ? (
-    <LoaderWrapper loading={loading}>
+const Loader = () => {
+  return (
+    <LoaderWrapper>
       <Oval
         height={100}
         width={100}
@@ -16,8 +16,9 @@ const Loader = ({ loading }) => {
         strokeWidth={4}
         strokeWidthSecondary={4}
       />
+      <h3 style={{ color: 'white', fontSize: '22px' }}>Loading...</h3>
     </LoaderWrapper>
-  ) : null;
+  );
 };
 
 export default Loader;

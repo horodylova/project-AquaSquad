@@ -13,6 +13,7 @@ import {
   SectionAuth,
   FormWrapper,
   MessageError,
+  Backdrop,
 } from '../RegistrationPage/RegistrationPage.styled';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
@@ -151,7 +152,11 @@ const LogInPage = () => {
           </FormWrapper>
         </BottleImg>
       </RegisterContainer>
-      <Loader loading={isLoading} />
+      {isLoading && (
+        <Backdrop>
+          <Loader />
+        </Backdrop>
+      )}
     </SectionAuth>
   );
 };

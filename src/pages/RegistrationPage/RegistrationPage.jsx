@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import sprite from '../../../src/Icons/signIn-signUp/sprite.svg';
@@ -22,12 +22,16 @@ import {
   SectionAuth,
   EyeSvg,
   MessageError,
+  Backdrop,
 } from './RegistrationPage.styled';
+import Loader from '../../components/Loader/Loader';
+import { selectLoading } from '../../redux/auth/authSelectors.js';
 
 const emailPatern = /^[a-z0-9._-]+@[a-z0-9.-]+.[a-z]{2,4}$/;
 
 const RegistrationPage = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const isLoading = useSelector(selectLoading);
 
   const dispatch = useDispatch();
   const {
@@ -204,6 +208,11 @@ const RegistrationPage = () => {
           </FormWrapper>
         </BottleImg>
       </RegisterContainer>
+      {isLoading && (
+        <Backdrop>
+          <Loader />
+        </Backdrop>
+      )}
     </SectionAuth>
   );
 };
