@@ -8,7 +8,6 @@ export const Input = styled.input`
   color: #407bff;
   border-radius: 6px;
   width: 100%;
-// color:  #9EBBFF;
 color:
 ${(props) =>
   props.$errors ? '#EF5050' : '#9EBBFF'};
@@ -17,7 +16,7 @@ border: 1px solid rgb(215, 227, 255);
   &:active {
     color: ${(props) =>
   props.$errors ? '#EF5050' : '#407BFF'};
-    // color:  #407BFF;
+    
   }
   &::placeholder {
      color: ${(props) =>

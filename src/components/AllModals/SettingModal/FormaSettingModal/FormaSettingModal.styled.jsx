@@ -74,7 +74,9 @@ border:  ${(props) =>
   props.$errors ? '1px solid #EF5050' : '1px solid rgb(215, 227, 255)'} ;
   &:focus,
   &:active {
-    color:  #407BFF;
+    color:  
+    ${(props) =>
+  props.$errors ? '#EF5050' : "#407BFF;"};
 
   }
 `;

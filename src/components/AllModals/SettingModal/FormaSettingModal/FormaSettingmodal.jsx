@@ -46,7 +46,7 @@ export const FormaUpdateUserProfile = () => {
       email: userData.email ? userData.email : 'user_email@gmail.com',
       name: userData.name ? userData.name : 'User Name'
     },
-    mode: 'onChange',
+    mode: 'onSubmit',
   });
 
   const onSubmit = (data) => {
@@ -140,11 +140,10 @@ export const FormaUpdateUserProfile = () => {
                 id="oldPassword"
                 {...register('oldPassword', {
                     
-                    validate: () => {
-                      if (watch('newPassword') !== emptyValue) {
-                        return "This filed is empty";
-                    }
-                    
+                    validate: (val) => {
+                    return (
+                       val !== "" || "Enter your old password"
+                     )
                     },
                   })}
                 type={showPassword['oldPassword'] ? 'text' : 'password'}
@@ -188,7 +187,14 @@ export const FormaUpdateUserProfile = () => {
               New Password
               <InputSettingEdit
                 id="newPassword"
-                {...register('newPassword')}
+                {...register('newPassword',
+                {
+                    validate: (val) => {
+                    return (
+                       val !== "" || errors.oldPassword.message
+                     )
+                    },
+                  })}
                 type={showPassword['newPassword'] ? 'text' : 'password'}
                 placeholder="Password"
       
@@ -230,12 +236,13 @@ export const FormaUpdateUserProfile = () => {
                 style={{ position: 'relative' }}
                 onClick={() => togglePasswordVisibility('repeatPassword')}
               >
+                
                 {showPassword['repeatPassword'] ? (
-                  <EyeSvg width="16" height="16">
+                  <EyeSvg width="16" height="16" $errors={errors.repeatPassword}>
                     <use href={`${sprite}#icon-outlineOn`} />
                   </EyeSvg>
                 ) : (
-                  <EyeSvg width="16" height="16">
+                  <EyeSvg width="16" height="16" $errors={errors.repeatPassword}>
                     <use href={`${sprite}#icon-outlineOff`} />
                   </EyeSvg>
                 )}
@@ -261,8 +268,8 @@ export const FormaUpdateUserProfile = () => {
             </FormLabel>
           </WrapperFormaRight>
         </WrapperFormaMain>
-        <ButtonSettingsForma type="submit" disabled={!isValid}>
-          
+        <ButtonSettingsForma type="submit" >
+          {/* disabled={!isValid} */}
           Save
         </ButtonSettingsForma>
       </WrapperForma>
