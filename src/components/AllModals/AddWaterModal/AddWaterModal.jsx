@@ -150,7 +150,7 @@ const AddWaterModal = ({ isOpen, onRequestClose }) => {
           </AddWaterModalStyles.Label>
 
           <AddWaterModalStyles.SaveButtonWrapper>
-            <p>{ml}ml</p>
+            <p style={{ minWidth: '50px' }}>{ml}ml</p>
             <button type="submit">Save</button>
           </AddWaterModalStyles.SaveButtonWrapper>
         </AddWaterModalStyles.Container>

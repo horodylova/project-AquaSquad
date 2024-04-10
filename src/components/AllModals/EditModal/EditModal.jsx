@@ -152,7 +152,7 @@ const EditModal = ({ isOpen, onRequestClose, waterId }) => {
             />
           </EditModalstyles.Label>
           <EditModalstyles.SaveButtonWrapper>
-            <p>{ml}ml</p>
+            <p style={{ minWidth: '50px' }}>{ml}ml</p>
             <button type="submit">Save</button>
           </EditModalstyles.SaveButtonWrapper>
         </EditModalstyles.Container>

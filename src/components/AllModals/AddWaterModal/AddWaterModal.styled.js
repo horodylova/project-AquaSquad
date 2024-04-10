@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Container = styled.div`
   background-color: var(--white-color);
   width: 280px;
-  height: 648px;
+  height: 540px;
 
   display: flex;
   flex-direction: column;
@@ -25,11 +25,11 @@ const Container = styled.div`
     gap: 24px;
     padding: 32px 24px;
     width: 704px;
-    height: 580px;
+    height: 504px;
   }
 
   @media (min-width: 1440px) {
-    width: 592px;
+    width: 504px;
   }
 `;
 
@@ -240,6 +240,7 @@ const SaveButtonWrapper = styled.div`
     justify-content: center;
     align-items: center;
     gap: 10px;
+    
 
     color: var(--white-color);
     text-align: center;
