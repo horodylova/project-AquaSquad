@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import iconSprite from '../../../Images/welcome-page/iconSprite.svg';
 import {
   RangeAndAddWater,
@@ -14,7 +14,8 @@ import {
 import AddWaterModal from '../../AllModals/AddWaterModal/AddWaterModal';
 import { useSelector } from 'react-redux';
 import { selectPercent } from '../../../redux/Calendar/calendarSelectors';
-export const WaterRatioPanel = () => {
+
+const WaterRatioPanel = React.memo(() => {
   const sliderPercent = useSelector(selectPercent);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -64,4 +65,8 @@ export const WaterRatioPanel = () => {
       <AddWaterModal onRequestClose={handleCloseModal} isOpen={isModalOpen} />
     </RangeAndAddWater>
   );
-};
+});
+
+WaterRatioPanel.displayName = 'WaterRatioPanel';
+
+export default WaterRatioPanel;
