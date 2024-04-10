@@ -19,14 +19,14 @@ import {
 } from './FormaSettingModal.styled';
 import { updateUserProfileData } from '../../../../redux/auth/authOperations';
 
-const emailPatern = /^[a-z0-9._-]+@[a-z0-9.-]+.[a-z]{2,4}$/;
+// const emailPatern = /^[a-z0-9._-]+@[a-z0-9.-]+.[a-z]{2,4}$/;
 
 export const FormaUpdateUserProfile = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const userData = useSelector(selectUserProfile);
   const userCurrentGender = userData.gender;
-  const emplyValue = '';
+ 
 
   const togglePasswordVisibility = (inputId) => {
     setShowPassword((prevPasswords) => ({
@@ -39,7 +39,7 @@ export const FormaUpdateUserProfile = () => {
     register,
     handleSubmit,
     watch,
-    formState: { errors, isValid },
+    formState: { errors},
   } = useForm({
     defaultValues: {
       gender: userCurrentGender ? userCurrentGender : 'man',
@@ -141,14 +141,15 @@ export const FormaUpdateUserProfile = () => {
                 {...register('oldPassword', {
                     
                     validate: (val) => {
-                    return (
-                       val !== "" || "Enter your old password"
-                     )
+                      if (watch('newPassword') != val) {
+                        return 'Enter your old password';
+                      }
                     },
                   })}
                 type={showPassword['oldPassword'] ? 'text' : 'password'}
                 placeholder="Password"
                 $errors={errors.oldPassword}
+                
               />
               <div
                 style={{ position: 'relative' }}
@@ -187,14 +188,12 @@ export const FormaUpdateUserProfile = () => {
               New Password
               <InputSettingEdit
                 id="newPassword"
-                {...register('newPassword',
-                {
-                    validate: (val) => {
-                    return (
-                       val !== "" || errors.oldPassword.message
-                     )
+                {...register('newPassword', {
+                    validate: () => {
+                  
                     },
-                  })}
+                  }
+                )}
                 type={showPassword['newPassword'] ? 'text' : 'password'}
                 placeholder="Password"
       
@@ -238,11 +237,11 @@ export const FormaUpdateUserProfile = () => {
               >
                 
                 {showPassword['repeatPassword'] ? (
-                  <EyeSvg width="16" height="16" $errors={errors.repeatPassword}>
+                  <EyeSvg width="16" height="16" >
                     <use href={`${sprite}#icon-outlineOn`} />
                   </EyeSvg>
                 ) : (
-                  <EyeSvg width="16" height="16" $errors={errors.repeatPassword}>
+                  <EyeSvg width="16" height="16">
                     <use href={`${sprite}#icon-outlineOff`} />
                   </EyeSvg>
                 )}
