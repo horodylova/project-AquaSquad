@@ -48,13 +48,14 @@ Enter your water portions and their volume; the system will store them by time a
 
 We strive to stay in touch!
 
-The front-end team lead Svitlana Horodylova [https://github.com/horodylova]
+The front-end team lead Svitlana Horodylova [https://www.linkedin.com/in/svitlana-horodylova/]
 
-The backend team lead Andrey Krivoruchko [https://github.com/kriandr79]
+The backend team lead Andrey Krivoruchko [https://www.linkedin.com/in/andrey-krivoruchko/]
 
 The Scrum Master Valeriia Kyrychenko [linkedin.com/in/valeriia-kyrychenko-24a867205].
 
 The developer Mykyta Ushakow [https://www.linkedin.com/in/mykyta-ushakow/]
 
-The developer
+The developer Danylo Altukhov [http://linkedin.com/in/danylo-altukhov]
+
  
