@@ -49,10 +49,17 @@
 Ми прагнемо залишатися з вами на зв'язку! 
 
 The front-end team lead Svitlana Horodylova [https://github.com/horodylova]
+
 The backend team lead Andrey Krіvoruchko [https://github.com/kriandr79]
+
 The Scrum Master Kyrychenko Valeriia [linkedin.com/in/valeriia-kyrychenko-24a867205]
+
 The developer Mykyta Ushakow [https://www.linkedin.com/in/mykyta-ushakow/]
+
 The developer
+
 The developer
+
 The developer
+
 The developer
