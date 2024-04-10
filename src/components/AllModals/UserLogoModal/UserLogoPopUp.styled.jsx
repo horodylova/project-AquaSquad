@@ -1,10 +1,10 @@
 import { styled } from 'styled-components';
 
 export const LogoModal = styled.div`
-  position: fixed;
-  z-index: 1;
-  top: 50px;
-  right: 10px;
+  position: absolute;
+  z-index: 10;
+  top: 60px;
+  right: 0px;
   width: 118px;
   height: 88px;
   padding: 16px;
