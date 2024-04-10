@@ -57,3 +57,5 @@ The Scrum Master Valeriia Kyrychenko [linkedin.com/in/valeriia-kyrychenko-24a867
 The developer Mykyta Ushakow [https://www.linkedin.com/in/mykyta-ushakow/]
 
 The developer Danylo Altukhov [http://linkedin.com/in/danylo-altukhov]
+
+The developer Oleksandr Yarovyy [https://www.linkedin.com/in/oleksandr-yarovyy/]
