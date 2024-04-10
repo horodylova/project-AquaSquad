@@ -23,6 +23,7 @@ function App() {
 
   useEffect(() => {
     dispatch(refreshUser());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -69,7 +70,6 @@ function App() {
                 </PrivateRoute>
               }
             />
-        
 
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>

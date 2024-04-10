@@ -1,8 +1,7 @@
-import styled from "styled-components";
-
+import styled from 'styled-components';
 
 export const LoaderWrapper = styled.div`
-position: fixed;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -10,4 +9,4 @@ position: fixed;
   justify-content: center;
   align-items: center;
   height: 100%;
-  `;
+`;
