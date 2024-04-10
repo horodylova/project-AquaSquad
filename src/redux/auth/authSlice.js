@@ -10,7 +10,7 @@ import {
 import { waterRate } from '../water/waterOperations';
 
 const defaultUser = {
-  username: '',
+  name: '',
   password: '',
   gender: '',
   dailyNorma: null,
@@ -97,7 +97,7 @@ const authSlice = createSlice({
       })
       .addCase(updateUserProfileData.fulfilled, (state, action) => {
         state.user.gender = action.payload.gender;
-        state.user.username = action.payload.name;
+        state.user.name = action.payload.name;
         state.user.email = action.payload.email;
       })
       .addCase(refreshUser.pending, (state) => {

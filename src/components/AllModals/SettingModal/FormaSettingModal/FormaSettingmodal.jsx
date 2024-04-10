@@ -19,13 +19,14 @@ import {
 } from './FormaSettingModal.styled';
 import { updateUserProfileData } from '../../../../redux/auth/authOperations';
 
-const emailPatern = /^[a-z0-9._-]+@[a-z0-9.-]+.[a-z]{2,4}$/;
+// const emailPatern = /^[a-z0-9._-]+@[a-z0-9.-]+.[a-z]{2,4}$/;
 
 export const FormaUpdateUserProfile = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const userData = useSelector(selectUserProfile);
   const userCurrentGender = userData.gender;
+ 
 
   const togglePasswordVisibility = (inputId) => {
     setShowPassword((prevPasswords) => ({
@@ -38,12 +39,14 @@ export const FormaUpdateUserProfile = () => {
     register,
     handleSubmit,
     watch,
-    formState: { errors, isSubmitting },
+    formState: { errors},
   } = useForm({
     defaultValues: {
       gender: userCurrentGender ? userCurrentGender : 'man',
+      email: userData.email ? userData.email : 'user_email@gmail.com',
+      name: userData.name ? userData.name : 'User Name'
     },
-    mode: 'onChange',
+    mode: 'onSubmit',
   });
 
   const onSubmit = (data) => {
@@ -110,65 +113,43 @@ export const FormaUpdateUserProfile = () => {
                 <InputSettingEdit
                   {...register('name')}
                   type="text"
-                  placeholder={userData.name ? userData.name : 'User Name'}
+                  placeholder= 'User Name'
                 />
               </FormLabel >
 
-              <FormLabel $errors={errors.email}>
+              <FormLabel >
+                
                 E-mail
                 <InputSettingEdit
-                  {...register('email', {
-                    required: 'This field is required!',
-                    minLength: {
-                      value: 8,
-                      message: 'Too short!',
-                    },
-                    maxLength: {
-                      value: 64,
-                      message: 'Too long!',
-                    },
-                    pattern: {
-                      value: emailPatern,
-                      message: 'Enter a correct email, example@gmail.com',
-                    },
-                  })}
-                  $errors={errors.email}
+                  {...register('email')}
+                  
                   type="text"
-                  placeholder={
-                    userData.email ? userData.email : 'user_email@gmail.com'
-                  }
+                  placeholder='user_email@gmail.com'
+                  
                 />
-                <div
-                style={{
-                  position: 'relative',
-                }}
-              >
-                {errors.email && (
-                  <p
-                    style={{
-                      color: 'red',
-                      position: 'absolute',
-                      marginBottom: 0,
-                      top: '-10px',
-                    }}
-                  >
-                    {errors.email.message || 'Error!'}
-                  </p>
-                )}
-              </div>
+                
               </FormLabel>
             </ContainerForm>
           </WrapperFormaLeft>
           <WrapperFormaRight>
             <TitlePart>Password</TitlePart>
 
-            <FormLabel>
+            <FormLabel $errors={errors.oldPassword}> 
               Oudated password
               <InputSettingEdit
                 id="oldPassword"
-                {...register('oldPassword')}
+                {...register('oldPassword', {
+                    
+                    validate: (val) => {
+                      if (watch('newPassword') != val) {
+                        return 'Enter your old password';
+                      }
+                    },
+                  })}
                 type={showPassword['oldPassword'] ? 'text' : 'password'}
                 placeholder="Password"
+                $errors={errors.oldPassword}
+                
               />
               <div
                 style={{ position: 'relative' }}
@@ -184,14 +165,38 @@ export const FormaUpdateUserProfile = () => {
                   </EyeSvg>
                 )}
               </div>
+              <div
+                style={{
+                  position: 'relative',
+                }}
+              >
+                {errors.oldPassword && (
+                  <p
+                    style={{
+                      color: '#EF5050',
+                      position: 'absolute',
+                      marginBottom: 0,
+                      top: '-10px',
+                    }}
+                  >
+                    {errors.oldPassword.message || 'Error!'}
+                  </p>
+                )}
+              </div>
             </FormLabel>
             <FormLabel id="new">
               New Password
               <InputSettingEdit
                 id="newPassword"
-                {...register('newPassword')}
+                {...register('newPassword', {
+                    validate: () => {
+                  
+                    },
+                  }
+                )}
                 type={showPassword['newPassword'] ? 'text' : 'password'}
                 placeholder="Password"
+      
               />
               <div
                 style={{ position: 'relative' }}
@@ -207,27 +212,21 @@ export const FormaUpdateUserProfile = () => {
                   </EyeSvg>
                 )}
               </div>
+              
             </FormLabel>
-            <FormLabel id="repeat" $errors={errors.repeatPassword}>
+            <FormLabel id="repeat"$errors={errors.repeatPassword}>
+              
               Repeat new password
               <InputSettingEdit
                 id="repeatPassword"
                 {...register('repeatPassword', {
-                  required: 'This field is required!',
-                  minLength: {
-                    value: 3,
-                    message: 'To short!',
-                  },
-                  maxLength: {
-                    value: 64,
-                    message: 'To long!',
-                  },
-                  validate: (val) => {
-                    if (watch('newPassword') != val) {
-                      return 'Your passwords do no match';
-                    }
-                  },
-                })}
+                    
+                    validate: (val) => {
+                      if (watch('newPassword') != val) {
+                        return 'Your passwords do no match';
+                      }
+                    },
+                  })}
                 $errors={errors.repeatPassword}
                 type={showPassword['repeatPassword'] ? 'text' : 'password'}
                 placeholder="Password"
@@ -236,8 +235,9 @@ export const FormaUpdateUserProfile = () => {
                 style={{ position: 'relative' }}
                 onClick={() => togglePasswordVisibility('repeatPassword')}
               >
+                
                 {showPassword['repeatPassword'] ? (
-                  <EyeSvg width="16" height="16">
+                  <EyeSvg width="16" height="16" >
                     <use href={`${sprite}#icon-outlineOn`} />
                   </EyeSvg>
                 ) : (
@@ -254,7 +254,7 @@ export const FormaUpdateUserProfile = () => {
                 {errors.repeatPassword && (
                   <p
                     style={{
-                      color: 'red',
+                      color: '#EF5050',
                       position: 'absolute',
                       marginBottom: 0,
                       top: '-10px',
@@ -267,8 +267,9 @@ export const FormaUpdateUserProfile = () => {
             </FormLabel>
           </WrapperFormaRight>
         </WrapperFormaMain>
-        <ButtonSettingsForma type="submit" disabled={isSubmitting}>
-          {isSubmitting ? 'Loading..' : 'Save'}
+        <ButtonSettingsForma type="submit" >
+          {/* disabled={!isValid} */}
+          Save
         </ButtonSettingsForma>
       </WrapperForma>
     </form>

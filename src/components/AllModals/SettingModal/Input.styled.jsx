@@ -6,18 +6,24 @@ export const Input = styled.input`
   line-height: calc(20 / 16);
   padding: 11px 10px;
   color: #407bff;
-  border: 1px solid blue;
   border-radius: 6px;
   width: 100%;
-
+color:
+${(props) =>
+  props.$errors ? '#EF5050' : '#9EBBFF'};
+border: 1px solid rgb(215, 227, 255);
+  &:focus,
+  &:active {
+    color: ${(props) =>
+  props.$errors ? '#EF5050' : '#407BFF'};
+    
+  }
+  &::placeholder {
+     color: ${(props) =>
+  props.$errors ? '#EF5050' : '#9EBBFF'};
+   }
   &:focus {
     outline: none;
   }
-  &::placeholder {
-    color: blue;
-  }
-  &:not(:placeholder-shown):invalid {
-    color: red;
-    border-color: red;
-  }
+ 
 `;

@@ -20,7 +20,8 @@ export const UserLogo = () => {
   const enteredUserEmail = emailUsername(email);
   const avatarURL = `https://water-tracker-backend-ob6w.onrender.com/${userAvatar}`;
   const defaultUserImage = 'https://avatar.iran.liara.run/public/6';
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isUserLogoModalOpen, setIsUserLogoModalOpen] = useState(false);
+  
 
   function emailUsername(emailAddress) {
     return emailAddress.split('@')[0];
@@ -38,7 +39,7 @@ export const UserLogo = () => {
   };
 
   const toggleMenu = () => {
-    setIsModalOpen(!isModalOpen);
+    setIsUserLogoModalOpen(!isUserLogoModalOpen);
   };
 
   return (
@@ -51,7 +52,7 @@ export const UserLogo = () => {
         <UserAvatar src={userAvatar ? avatarURL : defaultUserImage} />
 
         <UserLogoIcon>
-          {isModalOpen ? (
+          {isUserLogoModalOpen ? (
             <use href={arrowup + '#icon-arrow-up'}></use>
           ) : (
             <use href={arrow + '#icon-arrow-down'}></use>
@@ -59,7 +60,7 @@ export const UserLogo = () => {
         </UserLogoIcon>
       </UserLogoBtn>
 
-      {isModalOpen && <UserLogoPopUp />}
+      {isUserLogoModalOpen && <UserLogoPopUp isUserLogoModalOpen={isUserLogoModalOpen} />}
     </UserLogoContainer>
   );
 };

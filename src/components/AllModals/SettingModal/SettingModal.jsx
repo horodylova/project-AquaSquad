@@ -2,13 +2,15 @@ import { useRef } from 'react';
 import close from '../../../Icons/close-cross.svg';
 import download from '../../../Icons/arrow-download.svg';
 import Modal from 'react-modal';
+import { ReactComponent as CloseIcon } from '../../../Icons/close.svg';
 import {
-  CloseBtn,
+  // CloseBtn,
   ContainerAvatar,
   ContainerSettings,
   WrapperUpload,
   Title,
   TitlePart,
+  SettingTitleWrp,
   HoverCloseBtn,
 } from './SettingModal.styled';
 import { FormaUpdateUserProfile } from './FormaSettingModal/FormaSettingmodal';
@@ -41,7 +43,7 @@ export const SettingModal = ({ isOpen, onRequestClose }) => {
   const filePecker = useRef(null);
   const userAvatar = userProfile.avatarURL;
   const defaultUserImage = 'https://avatar.iran.liara.run/public/6';
-  const avatarURL = `https://water-tracker-backend-ob6w.onrender.com/${userAvatar}`;
+  const avatarURLUser = `https://water-tracker-backend-ob6w.onrender.com/${userAvatar}`;
 
   const handleChange = (e) => {
     const formaData = new FormData();
@@ -59,21 +61,23 @@ export const SettingModal = ({ isOpen, onRequestClose }) => {
   return (
     <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={ModalStyle}>
       <ContainerSettings>
-        <CloseBtn onClick={onRequestClose}>
-          <HoverCloseBtn>
-            <svg width="24" height="24">
-              <use href={close + '#icon-close-cross'}></use>
-            </svg>
+        <SettingTitleWrp>
+          
+          <button onClick={onRequestClose}>
+            <HoverCloseBtn>
+            <CloseIcon width="24" height="24" />
           </HoverCloseBtn>
-        </CloseBtn>
+            </button>  
+        
 
-        <Title>Setting</Title>
+          <Title>Setting</Title>
+          </SettingTitleWrp>
         <TitlePart>Your photo</TitlePart>
 
         <WrapperUpload>
           <ContainerAvatar>
             <img
-              src={userAvatar ? avatarURL : defaultUserImage}
+              src={userAvatar ? avatarURLUser : defaultUserImage}
               alt="avatar"
               width="80"
             />

@@ -1,16 +1,11 @@
 import { Link } from 'react-router-dom';
-import { Logo, LogoIcon, LogoText } from './HeaderLogo.styled';
-import logo from '../../../Icons/Logo.svg';
+import { ContainerOfLogo } from './HeaderLogo.styled';
+import logo from "../../../Images/Logo.svg";
 
 export const HeaderLogo = () => (
+  <ContainerOfLogo>
   <Link to={'/'}>
-    <Logo>
-      <LogoIcon>
-        <use href={logo + '#icon-water-logo'}></use>
-      </LogoIcon>
-      <LogoText>
-        Tracker <br /> of water
-      </LogoText>
-    </Logo>
-  </Link>
+    <img src={logo} alt="Logo" />
+    </Link>
+    </ContainerOfLogo>
 );
