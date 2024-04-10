@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUserProfile } from '../../../redux/auth/authSelectors';
 import {
@@ -11,6 +11,8 @@ import {
 import arrow from '../../../Icons/solid.svg';
 import arrowup from '../../../Icons/arrow-up.svg';
 import { UserLogoPopUp } from '../../AllModals/UserLogoModal/UserLogoPopUp';
+import { SettingModal } from '../../AllModals/SettingModal/SettingModal';
+import { UserLogoutModal } from '../../AllModals/UserLogoutModal/UserLogoutModal';
 
 export const UserLogo = () => {
   const userProfile = useSelector(selectUserProfile);
@@ -21,7 +23,17 @@ export const UserLogo = () => {
   const avatarURL = `https://water-tracker-backend-ob6w.onrender.com/${userAvatar}`;
   const defaultUserImage = 'https://avatar.iran.liara.run/public/6';
   const [isUserLogoModalOpen, setIsUserLogoModalOpen] = useState(false);
-  
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLogoutModalOpen, setIsLogoutOpen] = useState(false);
+  const headerNode = useRef();
+
+  const onClickUserLogo = e => {
+    if (e.currentTarget.classList.contains('open')) {
+      setIsUserLogoModalOpen(false);
+      return;
+    }
+    setIsUserLogoModalOpen(true);
+  };
 
   function emailUsername(emailAddress) {
     return emailAddress.split('@')[0];
@@ -38,13 +50,15 @@ export const UserLogo = () => {
     }
   };
 
-  const toggleMenu = () => {
-    setIsUserLogoModalOpen(!isUserLogoModalOpen);
-  };
+  // const toggleMenu = () => {
+  //   setIsUserLogoModalOpen(!isUserLogoModalOpen);
+  // };
 
   return (
-    <UserLogoContainer>
-      <UserLogoBtn onClick={toggleMenu} aria-label="User Logo">
+    <UserLogoContainer onClick={onClickUserLogo}
+            className={isUserLogoModalOpen && 'open'}  ref={headerNode}>
+      <UserLogoBtn aria-label="User Logo">
+        
         <UserName>
           {userProfile.name ? userProfile.name : makeUserName()}
         </UserName>
@@ -60,7 +74,22 @@ export const UserLogo = () => {
         </UserLogoIcon>
       </UserLogoBtn>
 
-      {isUserLogoModalOpen && <UserLogoPopUp isUserLogoModalOpen={isUserLogoModalOpen} />}
+      {isUserLogoModalOpen && <UserLogoPopUp
+      
+              setIsUserLogoModalOpen={setIsUserLogoModalOpen}
+              headerNode={headerNode.current}
+              isModalOpen={isModalOpen}
+              setIsModalOpen={setIsModalOpen}
+              setIsLogoutOpen={setIsLogoutOpen}
+      />}
+      <SettingModal
+        isOpen={isModalOpen}
+        onRequestClose={() => setIsModalOpen(false)}
+      />
+      <UserLogoutModal
+        isOpen={isLogoutModalOpen}
+        onRequestClose={() => setIsLogoutOpen(false)}
+      />
     </UserLogoContainer>
   );
 };
