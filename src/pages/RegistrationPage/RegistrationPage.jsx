@@ -18,7 +18,7 @@ import {
   BottleImg,
   SectionAuth,
   EyeSvg,
-  MessageError
+  MessageError,
 } from './RegistrationPage.styled';
 
 const emailPatern = /^[a-z0-9._-]+@[a-z0-9.-]+.[a-z]{2,4}$/;
@@ -48,7 +48,6 @@ const RegistrationPage = () => {
     try {
       await dispatch(registerAction({ email, password })).unwrap();
 
-      console.log(JSON.stringify({ email, password }));
       toast.success('Registration successful. Welcome aboard!');
       reset();
     } catch (error) {
@@ -57,16 +56,17 @@ const RegistrationPage = () => {
   };
 
   return (
-       <SectionAuth className="background">
-          <RegisterContainer>
-              <BottleImg>
-              <FormWrapper>
+    <SectionAuth className="background">
+      <RegisterContainer>
+        <BottleImg>
+          <FormWrapper>
             <Form onSubmit={handleSubmit(onSubmit)}>
               <MainTitle>Sign Up</MainTitle>
               <LabelWrapper>
-              {/* Email */}
-              <Label id="email" $errors={errors.email}>
-                Enter your email</Label>
+                {/* Email */}
+                <Label id="email" $errors={errors.email}>
+                  Enter your email
+                </Label>
                 <InputField
                   className={errors.email ? 'error' : ''}
                   id="email"
@@ -89,119 +89,118 @@ const RegistrationPage = () => {
                   })}
                   $errors={errors.email}
                 />
-              
-              <div >
-                {errors.email && (
-                 <MessageError>
-                    {errors.email.message || 'Error!'}
-                  </MessageError>
-                )}
-              </div>
+
+                <div>
+                  {errors.email && (
+                    <MessageError>
+                      {errors.email.message || 'Error!'}
+                    </MessageError>
+                  )}
+                </div>
               </LabelWrapper>
               {/* Password*/}
               <LabelWrapper>
-              <Label id="password" $errors={errors.password}>
-                Enter your password</Label>
+                <Label id="password" $errors={errors.password}>
+                  Enter your password
+                </Label>
                 <InputContainer>
-                <InputField
-                  placeholder="Password"
-                  id="password"
-                  type={showPassword['password'] ? 'text' : 'password'}
-                  {...register('password', {
-                    required: 'This field is required!',
-                    minLength: {
-                      value: 3,
-                      message: 'To short!',
-                    },
-                    maxLength: {
-                      value: 64,
-                      message: 'To long!',
-                    },
-                  })}
-                  $errors={errors.password}
-                />
-                <div
-      
-                  onClick={() => togglePasswordVisibility('password')}
-                >
-                  {showPassword['password'] ? (
-                    <EyeSvg>
-                      <use href={`${sprite}#icon-outlineOn`} />
-                    </EyeSvg>
-                  ) : (
-                    <EyeSvg>
-                      <use href={`${sprite}#icon-outlineOff`} />
-                    </EyeSvg>
+                  <InputField
+                    placeholder="Password"
+                    id="password"
+                    type={showPassword['password'] ? 'text' : 'password'}
+                    {...register('password', {
+                      required: 'This field is required!',
+                      minLength: {
+                        value: 3,
+                        message: 'To short!',
+                      },
+                      maxLength: {
+                        value: 64,
+                        message: 'To long!',
+                      },
+                    })}
+                    $errors={errors.password}
+                  />
+                  <div onClick={() => togglePasswordVisibility('password')}>
+                    {showPassword['password'] ? (
+                      <EyeSvg>
+                        <use href={`${sprite}#icon-outlineOn`} />
+                      </EyeSvg>
+                    ) : (
+                      <EyeSvg>
+                        <use href={`${sprite}#icon-outlineOff`} />
+                      </EyeSvg>
+                    )}
+                  </div>
+                </InputContainer>
+                <div style={{ position: 'relative' }}>
+                  {errors.password && (
+                    <MessageError>
+                      {errors.password.message || 'Error!'}
+                    </MessageError>
                   )}
                 </div>
-                </InputContainer>
-              <div style={{ position: 'relative' }}>
-                {errors.password && (
-                 <MessageError>
-                    {errors.password.message || 'Error!'}
-                  </MessageError>
-                )}
-              </div>
               </LabelWrapper>
               {/* Password repeat*/}
               <LabelWrapper>
-              <Label id="email" $errors={errors.passwordRepeat}>
-                Repeat password </Label>
+                <Label id="email" $errors={errors.passwordRepeat}>
+                  Repeat password{' '}
+                </Label>
                 <InputContainer>
-                <InputField
-                  id="passwordRepeat"
-                  type={showPassword['passwordRepeat'] ? 'text' : 'password'}
-                  placeholder="Repeat password"
-                  {...register('passwordRepeat', {
-                    required: 'This field is required!',
-                    minLength: {
-                      value: 3,
-                      message: 'To short!',
-                    },
-                    maxLength: {
-                      value: 64,
-                      message: 'To long!',
-                    },
-                    validate: (val) => {
-                      if (watch('password') != val) {
-                        return 'Your passwords do no match';
-                      }
-                    },
-                  })}
-                  $errors={errors.passwordRepeat}
-                />
-                <div
-                  // style={{ position: 'relative' }}
-                  onClick={() => togglePasswordVisibility('passwordRepeat')}
-                >
-                  {showPassword['passwordRepeat'] ? (
-                    <EyeSvg>
-                      <use href={`${sprite}#icon-outlineOn`} />
-                    </EyeSvg>
-                  ) : (
-                    <EyeSvg>
-                      <use href={`${sprite}#icon-outlineOff`} />
-                    </EyeSvg>
+                  <InputField
+                    id="passwordRepeat"
+                    type={showPassword['passwordRepeat'] ? 'text' : 'password'}
+                    placeholder="Repeat password"
+                    {...register('passwordRepeat', {
+                      required: 'This field is required!',
+                      minLength: {
+                        value: 3,
+                        message: 'To short!',
+                      },
+                      maxLength: {
+                        value: 64,
+                        message: 'To long!',
+                      },
+                      validate: (val) => {
+                        if (watch('password') != val) {
+                          return 'Your passwords do no match';
+                        }
+                      },
+                    })}
+                    $errors={errors.passwordRepeat}
+                  />
+                  <div
+                    // style={{ position: 'relative' }}
+                    onClick={() => togglePasswordVisibility('passwordRepeat')}
+                  >
+                    {showPassword['passwordRepeat'] ? (
+                      <EyeSvg>
+                        <use href={`${sprite}#icon-outlineOn`} />
+                      </EyeSvg>
+                    ) : (
+                      <EyeSvg>
+                        <use href={`${sprite}#icon-outlineOff`} />
+                      </EyeSvg>
+                    )}
+                  </div>
+                </InputContainer>
+                <div>
+                  {errors.passwordRepeat && (
+                    <MessageError>
+                      {errors.passwordRepeat.message || 'Error!'}
+                    </MessageError>
                   )}
                 </div>
-                </InputContainer>
-              <div >
-                {errors.passwordRepeat && (
-                 <MessageError>
-                    {errors.passwordRepeat.message || 'Error!'}
-                    </MessageError>
-                )}
-              </div>
               </LabelWrapper>
-             <SignInLin type="submit" disabled={!isValid} value="Sign Up">
+              <SignInLin type="submit" disabled={!isValid} value="Sign Up">
                 Sign Up
               </SignInLin>
               <PageLink to="/login">Sign in</PageLink>
             </Form>
-            </FormWrapper>
-            </BottleImg>
-          </RegisterContainer>
-      </SectionAuth>
+          </FormWrapper>
+        </BottleImg>
+      </RegisterContainer>
+    </SectionAuth>
   );
 };
 

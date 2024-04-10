@@ -59,7 +59,6 @@ export const TodayList = () => {
   };
 
   const handleDeletebutton = (id) => {
-    console.log('here');
     setWaterId(id);
     setIsDeleteModalOpen(true);
   };
