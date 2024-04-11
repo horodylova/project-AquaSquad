@@ -1,27 +1,25 @@
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useRef, useEffect, useCallback } from 'react';
 import { LogoModal, LogoModalBtn } from './UserLogoPopUp.styled';
-import { SettingModal } from '../SettingModal/SettingModal';
-import { UserLogoutModal } from '../UserLogoutModal/UserLogoutModal';
-import { useDispatch } from 'react-redux';
-import Modal from 'react-modal';
 
-export const UserLogoPopUp = ({headerNode,setIsUserLogoModalOpen,isModalOpen,setIsModalOpen,setIsLogoutOpen}) => {
-  const dispatch = useDispatch();
-  
+export const UserLogoPopUp = ({
+  headerNode,
+  setIsUserLogoModalOpen,
+  setIsModalOpen,
+  setIsLogoutOpen,
+}) => {
   const node = useRef();
-  
-  
-  const handleLogoutClick =  () => {
+
+  const handleLogoutClick = () => {
     setIsLogoutOpen(true);
     setIsUserLogoModalOpen(false);
   };
-  
+
   const handleModalClick = () => {
     setIsModalOpen(true);
-     setIsUserLogoModalOpen(false);
+    setIsUserLogoModalOpen(false);
   };
   const handleClickOutside = useCallback(
-    event => {
+    (event) => {
       if (
         node.current &&
         !node.current.contains(event.target) &&
@@ -36,7 +34,7 @@ export const UserLogoPopUp = ({headerNode,setIsUserLogoModalOpen,isModalOpen,set
   );
 
   const handleEscPress = useCallback(
-    e => {
+    (e) => {
       if (
         e.code.toLowerCase() === 'escape' ||
         e.code.toLowerCase() === 'backspace'
@@ -56,7 +54,6 @@ export const UserLogoPopUp = ({headerNode,setIsUserLogoModalOpen,isModalOpen,set
   }, [handleClickOutside, handleEscPress]);
 
   return (
-   
     <>
       <LogoModal ref={node}>
         <ul>
@@ -100,8 +97,6 @@ export const UserLogoPopUp = ({headerNode,setIsUserLogoModalOpen,isModalOpen,set
           </li>
         </ul>
       </LogoModal>
-      
-   
     </>
   );
 };

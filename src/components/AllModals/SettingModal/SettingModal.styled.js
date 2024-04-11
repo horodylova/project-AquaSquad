@@ -1,13 +1,6 @@
 import styled from 'styled-components';
 
 export const ContainerSettings = styled.div`
-  // position: absolute;
-  // z-index: 300;
-  // left: 50%;
-  // top: 40px;
-  // transform: translate(-50%);
-// position: static;
-
   color: black;
   background-color: white;
   width: 280px;
@@ -18,12 +11,9 @@ export const ContainerSettings = styled.div`
     width: 704px;
     padding: 32px 24px;
     border-radius: 10px;
-    
   }
   @media screen and (min-width: 1440px) {
     width: 1008px;
-    // top: 50%;
-    // transform: translate(-50%, -50%);
   }
 `;
 
@@ -128,7 +118,6 @@ export const WrapperFormaRight = styled.div`
     width: 392px;
   }
 `;
-
 
 export const TitlePart = styled.h3`
   font-size: 18px;

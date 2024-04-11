@@ -27,7 +27,7 @@ export const UserLogo = () => {
   const [isLogoutModalOpen, setIsLogoutOpen] = useState(false);
   const headerNode = useRef();
 
-  const onClickUserLogo = e => {
+  const onClickUserLogo = (e) => {
     if (e.currentTarget.classList.contains('open')) {
       setIsUserLogoModalOpen(false);
       return;
@@ -50,15 +50,13 @@ export const UserLogo = () => {
     }
   };
 
-  // const toggleMenu = () => {
-  //   setIsUserLogoModalOpen(!isUserLogoModalOpen);
-  // };
-
   return (
-    <UserLogoContainer onClick={onClickUserLogo}
-            className={isUserLogoModalOpen && 'open'}  ref={headerNode}>
+    <UserLogoContainer
+      onClick={onClickUserLogo}
+      className={isUserLogoModalOpen && 'open'}
+      ref={headerNode}
+    >
       <UserLogoBtn aria-label="User Logo">
-        
         <UserName>
           {userProfile.name ? userProfile.name : makeUserName()}
         </UserName>
@@ -74,14 +72,15 @@ export const UserLogo = () => {
         </UserLogoIcon>
       </UserLogoBtn>
 
-      {isUserLogoModalOpen && <UserLogoPopUp
-      
-              setIsUserLogoModalOpen={setIsUserLogoModalOpen}
-              headerNode={headerNode.current}
-              isModalOpen={isModalOpen}
-              setIsModalOpen={setIsModalOpen}
-              setIsLogoutOpen={setIsLogoutOpen}
-      />}
+      {isUserLogoModalOpen && (
+        <UserLogoPopUp
+          setIsUserLogoModalOpen={setIsUserLogoModalOpen}
+          headerNode={headerNode.current}
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+          setIsLogoutOpen={setIsLogoutOpen}
+        />
+      )}
       <SettingModal
         isOpen={isModalOpen}
         onRequestClose={() => setIsModalOpen(false)}

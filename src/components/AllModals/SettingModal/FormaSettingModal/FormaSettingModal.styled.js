@@ -2,38 +2,29 @@ import styled from 'styled-components';
 import { Input } from '../Input.styled';
 
 export const WrapperForma = styled.div`
-display: flex;
-flex-direction: column;
-
+  display: flex;
+  flex-direction: column;
 `;
 
 export const FormLabel = styled.label`
   font-size: 18px;
   font-weight: 500;
   line-height: 20px;
-  color: ${(props) =>
-  props.$errors ? '#EF5050' : '#2f2f2f'};
+  color: ${(props) => (props.$errors ? '#EF5050' : '#2f2f2f')};
   display: flex;
   flex-direction: column;
-  // gap: 8px;
   width: 100%;
-  
-
 `;
 
-
 export const PasswordLabel = styled.label`
-font-size: 16px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 20px;
-  color: ${(props) =>
-  props.$errors ? '#EF5050' : '#2f2f2f'};
+  color: ${(props) => (props.$errors ? '#EF5050' : '#2f2f2f')};
   display: flex;
   flex-direction: column;
-  // gap: 8px;
   width: 100%;
-  // margin-bottom: 12px;
-`
+`;
 export const WrapperFormaMain = styled.div`
   display: flex;
   gap: 24px;
@@ -83,19 +74,14 @@ export const EyeSvg = styled.svg`
 `;
 
 export const InputSettingEdit = styled(Input)`
-color: ${(props) =>
-  props.$errors ? '#EF5050' : '#9EBBFF'};
-border:  ${(props) =>
-  props.$errors ? '1px solid #EF5050' : '1px solid rgb(215, 227, 255)'} ;
+  color: ${(props) => (props.$errors ? '#EF5050' : '#9EBBFF')};
+  border: ${(props) =>
+    props.$errors ? '1px solid #EF5050' : '1px solid rgb(215, 227, 255)'};
   &:focus,
   &:active {
-    color:  
-    ${(props) =>
-  props.$errors ? '#EF5050' : "#407BFF;"};
-
+    color: ${(props) => (props.$errors ? '#EF5050' : '#407BFF;')};
   }
 `;
-
 
 export const WrapperRadio = styled.div`
   display: flex;
@@ -119,13 +105,13 @@ export const FormLabelRadio = styled.label`
     height: 14px;
     background-color: transparent;
     border-radius: 100%;
-    border: 1px solid #407BFF;
+    border: 1px solid #407bff;
     cursor: pointer;
 
     transition: 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98);
   }
   input:checked + div {
-    background-color: #407BFF;
+    background-color: #407bff;
     box-shadow: inset 0 0 0 3px white;
   }
   span {
@@ -137,6 +123,5 @@ export const TitlePart = styled.h3`
   font-size: 18px;
   font-weight: 500;
   line-height: 20px;
-   margin-bottom: 12px;
+  margin-bottom: 12px;
 `;
-

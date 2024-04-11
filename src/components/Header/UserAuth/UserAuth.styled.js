@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-
 export const RouterLink = styled(Link)`
   position: relative;
   font-size: 16px;
@@ -10,7 +9,7 @@ export const RouterLink = styled(Link)`
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap:8px;
+  gap: 8px;
   &:hover {
     color: #ff9d43;
     transition: color 0.3s ease;
