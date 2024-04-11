@@ -1,4 +1,4 @@
-import{u as n,a as d,j as e}from"./index-bb6e3f84.js";import{s as t}from"./iconSprite-e65040ef.js";const c="/project-AquaSquad/assets/Mobile-5fe6b51a.png",x="/project-AquaSquad/assets/Tablet-35ea9a82.png",p="/project-AquaSquad/assets/bg_main_page-3f3e4f1c.png",l="/project-AquaSquad/assets/bg_el_main_page-9802d73b.png",h=n.div`
+import{u as n,a as d,j as e}from"./index-a3a6a891.js";import{s as t}from"./iconSprite-4fb6f3b3.js";const c="/project-AquaSquad/assets/Mobile-5fe6b51a.png",x="/project-AquaSquad/assets/Tablet-35ea9a82.png",p="/project-AquaSquad/assets/bg_main_page-3f3e4f1c.png",l="/project-AquaSquad/assets/bg_el_main_page-9802d73b.png",h=n.div`
 padding-bottom: 40px;
 
 @media screen and (min-width: 768px) {
