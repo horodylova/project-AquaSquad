@@ -177,7 +177,8 @@ export const FormaUpdateUserProfile = () => {
                       color: '#EF5050',
                       position: 'absolute',
                       marginBottom: 0,
-                      top: '-10px',
+                      top: '-4px',
+                      fontSize: '14px'
                     }}
                   >
                     {errors.oldPassword.message || 'Error!'}
@@ -258,7 +259,8 @@ export const FormaUpdateUserProfile = () => {
                       color: '#EF5050',
                       position: 'absolute',
                       marginBottom: 0,
-                      top: '-10px',
+                      top: '-4px',
+                      fontSize: '14px'
                     }}
                   >
                     {errors.repeatPassword.message || 'Error!'}
@@ -269,7 +271,6 @@ export const FormaUpdateUserProfile = () => {
           </WrapperFormaRight>
         </WrapperFormaMain>
         <ButtonSettingsForma type="submit" >
-          {/* disabled={!isValid} */}
           Save
         </ButtonSettingsForma>
       </WrapperForma>
