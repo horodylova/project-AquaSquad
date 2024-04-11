@@ -17,8 +17,23 @@ export const FormLabel = styled.label`
   flex-direction: column;
   gap: 8px;
   width: 100%;
+  
 
 `;
+
+
+export const PasswordLabel = styled.label`
+font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: ${(props) =>
+  props.$errors ? '#EF5050' : '#2f2f2f'};
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 12px;
+`
 export const WrapperFormaMain = styled.div`
   display: flex;
   gap: 24px;
@@ -87,7 +102,7 @@ export const WrapperRadio = styled.div`
   gap: 24px;
   margin-bottom: 24px;
   @media screen and (min-width: 1440px) {
-    margin-bottom: 67px;
+    margin-bottom: 52px;
   }
 `;
 export const FormLabelRadio = styled.label`

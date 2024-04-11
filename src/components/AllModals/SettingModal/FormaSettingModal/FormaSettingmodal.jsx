@@ -16,6 +16,7 @@ import {
   FormLabel,
   InputSettingEdit,
   EyeSvg,
+  PasswordLabel
 } from './FormaSettingModal.styled';
 import { updateUserProfileData } from '../../../../redux/auth/authOperations';
 
@@ -42,7 +43,7 @@ export const FormaUpdateUserProfile = () => {
     formState: { errors},
   } = useForm({
     defaultValues: {
-      gender: userCurrentGender ? userCurrentGender : 'man',
+      gender: userCurrentGender ? userCurrentGender : 'woman',
       email: userData.email ? userData.email : 'user_email@gmail.com',
       name: userData.name ? userData.name : 'User Name'
     },
@@ -108,7 +109,7 @@ export const FormaUpdateUserProfile = () => {
                 </FormLabelRadio>
               </WrapperRadio>
 
-              <FormLabel>
+              <FormLabel style={{marginBottom: "24px"}}>
                 Your name
                 <InputSettingEdit
                   {...register('name')}
@@ -134,8 +135,8 @@ export const FormaUpdateUserProfile = () => {
           <WrapperFormaRight>
             <TitlePart>Password</TitlePart>
 
-            <FormLabel $errors={errors.oldPassword}> 
-              Oudated password
+            <PasswordLabel $errors={errors.oldPassword}> 
+              Outdated password:
               <InputSettingEdit
                 id="oldPassword"
                 {...register('oldPassword', {
@@ -183,9 +184,9 @@ export const FormaUpdateUserProfile = () => {
                   </p>
                 )}
               </div>
-            </FormLabel>
-            <FormLabel id="new">
-              New Password
+            </PasswordLabel>
+            <PasswordLabel id="new">
+              New Password:
               <InputSettingEdit
                 id="newPassword"
                 {...register('newPassword', {
@@ -213,10 +214,10 @@ export const FormaUpdateUserProfile = () => {
                 )}
               </div>
               
-            </FormLabel>
-            <FormLabel id="repeat"$errors={errors.repeatPassword}>
+            </PasswordLabel>
+            <PasswordLabel id="repeat"$errors={errors.repeatPassword}>
               
-              Repeat new password
+              Repeat new password:
               <InputSettingEdit
                 id="repeatPassword"
                 {...register('repeatPassword', {
@@ -264,7 +265,7 @@ export const FormaUpdateUserProfile = () => {
                   </p>
                 )}
               </div>
-            </FormLabel>
+            </PasswordLabel>
           </WrapperFormaRight>
         </WrapperFormaMain>
         <ButtonSettingsForma type="submit" >
