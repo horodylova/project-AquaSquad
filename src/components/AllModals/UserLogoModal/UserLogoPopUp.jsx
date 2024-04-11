@@ -1,27 +1,61 @@
-import { useState } from 'react';
+import { useRef, useEffect, useCallback } from 'react';
 import { LogoModal, LogoModalBtn } from './UserLogoPopUp.styled';
-import { SettingModal } from '../SettingModal/SettingModal';
-import { UserLogoutModal } from '../UserLogoutModal/UserLogoutModal';
-import { useDispatch } from 'react-redux';
 
-export const UserLogoPopUp = () => {
-  const dispatch = useDispatch();
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isLogoutModalOpen, setIsLogoutOpen] = useState(false);
-  
+export const UserLogoPopUp = ({
+  headerNode,
+  setIsUserLogoModalOpen,
+  setIsModalOpen,
+  setIsLogoutOpen,
+}) => {
+  const node = useRef();
 
   const handleLogoutClick = () => {
     setIsLogoutOpen(true);
+    setIsUserLogoModalOpen(false);
   };
 
   const handleModalClick = () => {
     setIsModalOpen(true);
+    setIsUserLogoModalOpen(false);
   };
+  const handleClickOutside = useCallback(
+    (event) => {
+      if (
+        node.current &&
+        !node.current.contains(event.target) &&
+        !headerNode.contains(event.target)
+      ) {
+        setIsUserLogoModalOpen(false);
+      } else {
+        setIsUserLogoModalOpen(true);
+      }
+    },
+    [setIsUserLogoModalOpen, headerNode]
+  );
+
+  const handleEscPress = useCallback(
+    (e) => {
+      if (
+        e.code.toLowerCase() === 'escape' ||
+        e.code.toLowerCase() === 'backspace'
+      )
+        setIsUserLogoModalOpen(false);
+    },
+    [setIsUserLogoModalOpen]
+  );
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside);
+    document.addEventListener('keydown', handleEscPress);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('keydown', handleEscPress);
+    };
+  }, [handleClickOutside, handleEscPress]);
 
   return (
-   
     <>
-      <LogoModal>
+      <LogoModal ref={node}>
         <ul>
           <li>
             <LogoModalBtn onClick={handleModalClick}>
@@ -63,15 +97,6 @@ export const UserLogoPopUp = () => {
           </li>
         </ul>
       </LogoModal>
-      <SettingModal
-        isOpen={isModalOpen}
-        onRequestClose={() => setIsModalOpen(false)}
-      />
-      <UserLogoutModal
-        isOpen={isLogoutModalOpen}
-        onRequestClose={() => setIsLogoutOpen(false)}
-      />
-   
     </>
   );
 };

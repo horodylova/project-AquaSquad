@@ -1,10 +1,8 @@
 import { useRef } from 'react';
-import close from '../../../Icons/close-cross.svg';
 import download from '../../../Icons/arrow-download.svg';
 import Modal from 'react-modal';
 import { ReactComponent as CloseIcon } from '../../../Icons/close.svg';
 import {
-  // CloseBtn,
   ContainerAvatar,
   ContainerSettings,
   WrapperUpload,
@@ -62,16 +60,14 @@ export const SettingModal = ({ isOpen, onRequestClose }) => {
     <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={ModalStyle}>
       <ContainerSettings>
         <SettingTitleWrp>
-          
           <button onClick={onRequestClose}>
             <HoverCloseBtn>
-            <CloseIcon width="24" height="24" />
-          </HoverCloseBtn>
-            </button>  
-        
+              <CloseIcon width="24" height="24" />
+            </HoverCloseBtn>
+          </button>
 
           <Title>Setting</Title>
-          </SettingTitleWrp>
+        </SettingTitleWrp>
         <TitlePart>Your photo</TitlePart>
 
         <WrapperUpload>
