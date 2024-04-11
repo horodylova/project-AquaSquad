@@ -28,6 +28,7 @@ export const WaterRatioPanel = React.memo(() => {
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
+    console.log(open);
   };
 
   const handleCloseModal = () => {
