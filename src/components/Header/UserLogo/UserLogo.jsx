@@ -16,7 +16,7 @@ import { UserLogoutModal } from '../../AllModals/UserLogoutModal/UserLogoutModal
 
 export const UserLogo = () => {
   const userProfile = useSelector(selectUserProfile);
-  const name = userProfile.username;
+  const name = userProfile.name;
   const email = userProfile.email;
   const userAvatar = userProfile.avatarURL;
   const enteredUserEmail = emailUsername(email);
