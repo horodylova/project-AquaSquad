@@ -56,6 +56,7 @@ export const ContentWrapper = styled.div`
 @media (min-width: 1440px) {
   display: flex;
   gap: 32px;
+  height: 680px;
 }
 
 @media only screen and (max-width: 1439px) {

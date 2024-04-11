@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUserProfile } from '../../../redux/auth/authSelectors';
 import {
