@@ -44,6 +44,7 @@ export const WrapperUpload = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-top: 8px;
   margin-bottom: 24px;
 
   img {
@@ -135,7 +136,6 @@ export const TitlePart = styled.h3`
   font-family: Roboto;
   line-height: 20px;
   color: #2f2f2f;
-  margin-bottom: 8px;
 `;
 
 export const Title = styled.h2`

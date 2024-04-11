@@ -111,7 +111,7 @@ export const FormaUpdateUserProfile = () => {
 
               <FormLabel style={{marginBottom: "24px"}}>
                 Your name
-                <InputSettingEdit
+                <InputSettingEdit style={{marginTop: "8px"}}
                   {...register('name')}
                   type="text"
                   placeholder= 'User Name'
@@ -121,7 +121,7 @@ export const FormaUpdateUserProfile = () => {
               <FormLabel >
                 
                 E-mail
-                <InputSettingEdit
+                <InputSettingEdit style={{marginTop: "8px"}}
                   {...register('email')}
                   
                   type="text"
@@ -135,9 +135,9 @@ export const FormaUpdateUserProfile = () => {
           <WrapperFormaRight>
             <TitlePart>Password</TitlePart>
 
-            <PasswordLabel $errors={errors.oldPassword}> 
+            <PasswordLabel $errors={errors.oldPassword} > 
               Outdated password:
-              <InputSettingEdit
+              <InputSettingEdit style={{marginTop: "8px"}}
                 id="oldPassword"
                 {...register('oldPassword', {
                     
@@ -185,9 +185,9 @@ export const FormaUpdateUserProfile = () => {
                 )}
               </div>
             </PasswordLabel>
-            <PasswordLabel id="new">
+            <PasswordLabel id="new" style={{marginTop: "12px"}}>
               New Password:
-              <InputSettingEdit
+              <InputSettingEdit style={{marginTop: "8px"}}
                 id="newPassword"
                 {...register('newPassword', {
                     validate: () => {
@@ -215,10 +215,10 @@ export const FormaUpdateUserProfile = () => {
               </div>
               
             </PasswordLabel>
-            <PasswordLabel id="repeat"$errors={errors.repeatPassword}>
+            <PasswordLabel id="repeat"$errors={errors.repeatPassword} style={{marginTop: "12px"}}>
               
               Repeat new password:
-              <InputSettingEdit
+              <InputSettingEdit style={{marginTop: "8px"}}
                 id="repeatPassword"
                 {...register('repeatPassword', {
                     

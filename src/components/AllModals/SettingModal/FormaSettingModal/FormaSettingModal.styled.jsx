@@ -15,7 +15,7 @@ export const FormLabel = styled.label`
   props.$errors ? '#EF5050' : '#2f2f2f'};
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  // gap: 8px;
   width: 100%;
   
 
@@ -30,9 +30,9 @@ font-size: 16px;
   props.$errors ? '#EF5050' : '#2f2f2f'};
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  // gap: 8px;
   width: 100%;
-  margin-bottom: 12px;
+  // margin-bottom: 12px;
 `
 export const WrapperFormaMain = styled.div`
   display: flex;
@@ -137,6 +137,6 @@ export const TitlePart = styled.h3`
   font-size: 18px;
   font-weight: 500;
   line-height: 20px;
-  margin-bottom: 12px;
+   margin-bottom: 12px;
 `;
 
