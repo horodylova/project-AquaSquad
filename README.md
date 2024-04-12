@@ -53,7 +53,11 @@ The front-end team lead Svitlana Horodylova [https://www.linkedin.com/in/svitlan
 
 The backend team lead Andrey Krivoruchko [https://www.linkedin.com/in/andrey-krivoruchko/]
 
-The Scrum Master Valeriia Kyrychenko [linkedin.com/in/valeriia-kyrychenko-24a867205].
+The Scrum Master Valeriia Kyrychenko [linkedin.com/in/valeriia-kyrychenko-24a867205]
+
+The developer Vlad Osobskyi [https://www.linkedin.com/in/vlad-osobskyi/]
+
+The developer Yaroslav Ignatov [https://www.linkedin.com/in/iaroslav-ignatov/]
 
 The developer Mykyta Ushakow [https://www.linkedin.com/in/mykyta-ushakow/]
 
